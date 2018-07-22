@@ -5,9 +5,9 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 Base = declarative_base()
 
-class YourModel(Base):
-    __tablename__  = 'yourmodel'
-    id             = Column(Integer, primary_key=True)
+# class YourModel(Base):
+#     __tablename__  = 'yourmodel'
+#     id             = Column(Integer, primary_key=True)
     # ADD YOUR FIELD BELOW ID
 
 # IF YOU NEED TO CREATE OTHER TABLE
