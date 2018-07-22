@@ -15,6 +15,7 @@ _mailinglist
 .pytest_cache/
 .idea/
 docs/_build/
+.vscode/
 
 # Coverage reports
 htmlcov/
@@ -22,4 +23,4 @@ htmlcov/
 .coverage.*
 *,cover
 
-/venv/
+venv/
