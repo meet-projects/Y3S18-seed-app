@@ -1,17 +1,14 @@
 #!/bin/bash
 
-old_pwd=$(pwd)
-cd ~/
-
-if [[ -e y2-venv ]]; then
-    source ~/y2-venv/bin/activate
+if [[ -e y3-venv ]]; then
+    source y3-venv/bin/activate
 else
-     sudo apt-get install virtualenv
-     virtualenv -p $(which python3) y2-venv
-     source ~/y2-venv/bin/activate
-     pip install -r $old_pwd/requirements.txt
+    sudo pip install virtualenv
+    virtualenv -p $(which python3) y3-venv
+    source y3-venv/bin/activate
+    pip install -r requirements.txt
 fi
-cd $old_pwd
 
-export FLASK_APP=app.py
+export FLASK_APP='project'
+export FLASK_ENV='development'
 export FLASK_DEBUG=1
