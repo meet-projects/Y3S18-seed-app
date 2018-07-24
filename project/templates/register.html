@@ -12,15 +12,17 @@
 <form action="{{ url_for('users.register') }}" method="post">
 <!--     {{ form.csrf_token }} -->
 <!--     {{ form.username(placeholder="Username") }} --> 
-	<input type="text" name = "name" placeholder="Name+Surname">
+	<input type="text" name = "name" placeholder="Name+Surname" required>
 	<br>
-	<input type="email" name = "email" placeholder="email">
+	<input type="email" name = "email" placeholder="email" required>
 	<br>
-	<input type="number" name= "age" placeholder="age">
+	Date of birth
 	<br>
-	<input type="text" name="nationality" placeholder="nationality">
+	<input type="date" name= "dob" placeholder="date of birth">
 	<br>
-	<input type="password" name = "password" placeholder="password" >
+	<input type="text" name="nationality" placeholder="country">
+	<br>
+	<input type="password" name = "password" placeholder="password" required>
 	<br>
 <!--     {{ form.password(placeholder="Password") }}
     {{ form.confirm(placeholder="Confirm Password") }} -->
