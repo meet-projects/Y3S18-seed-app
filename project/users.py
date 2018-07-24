@@ -1,6 +1,6 @@
 from flask import (
         Blueprint, redirect, render_template,
-        Response, request, url_for
+        Response, request, url_for , session
 )
 from flask_login import login_user, login_required, logout_user
 from sqlalchemy.exc import IntegrityError
@@ -17,18 +17,21 @@ users_bp = Blueprint('users', __name__)
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST':
+        print(form.validate_on_submit())
         if form.validate_on_submit():
             username = form.username.data
             password = form.password.data
             fullName = form.fullName.data
             user = User.query.filter_by(username=username).first()
             if user is None:
-                user = User(username= username, password_hash =password, fullName = fullName)
-            login_user(user, remember=True)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
-            return redirect(next_page)
+                user = User(username, password)
+                db.session.add(user)
+                db.session.commit()
+                login_user(user, remember=True)
+                next_page = request.args.get('next')
+                if not next_page or url_parse(next_page).netloc != '':
+                    next_page = url_for('private_route')
+                return redirect(next_page)
         else:
             return Response("<p>invalid form</p>")
     return render_template('register.html', form=form)
@@ -50,7 +53,7 @@ def login():
                 next_page = url_for('private_route')
             return redirect(next_page)
         else:
-            return Response("<p>invalid form</p>")
+            return Response("<p>invalid form!!!!!</p>")
     return render_template('login.html', form=form)
 
 @users_bp.route('/logout')

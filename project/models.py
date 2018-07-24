@@ -1,21 +1,17 @@
-from sqlalchemy import Column, DateTime, Integer, String, Boolean
-from sqlalchemy.ext.declarative import declarative_base
+from project import db
+
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
-Base = declarative_base()
+class User(UserMixin, db.Model):
+    __tablename__ = "users"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String, unique=True, nullable=False)
+    password_hash = db.Column(db.String, nullable=False)
 
-class User(UserMixin, Base):
-    '''
-        Basic User model for authentication
-    '''
-
-    __tablename__ = 'user'
-    UserID         = Column(Integer, primary_key=True, autoincrement=True)
-    username       = Column(String(40), unique=True, nullable= False)
-    password_hash  = Column(String(40), nullable = False)
-    email          = Column(String, unique = True, nullable=False)
-    bio            = Column(String, default=False)
+    def __init__(self, username, password):
+        self.username = username
+        self.set_password(password)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -24,12 +20,13 @@ class User(UserMixin, Base):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return "%d/%s" % (self.id, self.name)
+        return 'User %d %s' % (self.id, self.username)
 
-class Post(Base):
+'''class Post():
     __tablename__='posts'
     PostID         = Column(Integer, primary_key=True, autoincrement=True)
-    AuthorID       = Column(Integer, ForeignKey())
+    AuthorID       = Column(Integer, ForeignKey('user.UserID'))
     Title          = Column(String(20), nullable=False)
     Text           = Column(String, nullable=False)
     Rating         = Column(Integer)
+'''
