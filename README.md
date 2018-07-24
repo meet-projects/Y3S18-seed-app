@@ -1,4 +1,4 @@
-# Seed app for Y2 projects
+# Seed app for Y3 projects
 
 This is a complete seed app project with: Flask, SQLAlchemy, Bootstrap, jQuery
 You will need to fork this repo and then start working on your own project.
