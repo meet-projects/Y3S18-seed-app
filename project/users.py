@@ -16,18 +16,7 @@ users_bp = Blueprint('users', __name__)
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            try:
-                user = User(form.username.data, form.password.data)
-                db.session.add(user)
-                db.session.commit()
-                return Response("<p>User created</p>")
-            except IntegrityError:
-                db.session.rollback()
-                return Response("<p>User already exists</p>")
-        else:
-            return Response("<p>invalid form</p>")
+    # TODO: Fill this in!
     return render_template('register.html', form=form)
                 
 
