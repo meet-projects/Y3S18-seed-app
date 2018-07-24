@@ -5,10 +5,12 @@ from . import app
 
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def feed():
+    return render_template('feed.html')
 
-@app.route('/private')
+
+
+@app.route('/form')
 @login_required
 def private_route():
-    return render_template('private.html')
+    return render_template('form.html')
