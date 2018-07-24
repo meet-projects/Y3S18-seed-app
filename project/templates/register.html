@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+ 
+<div class="add-user">
+ 
+<div class="page-header">
+ 
+<h2>Register New User</h2>
+ 
+  </div>
+ 
+<form action="{{ url_for('users.register') }}" method="post">
+    {{ form.csrf_token }}
+    {{ form.username(placeholder="Username") }} 
+    {{ form.password(placeholder="Password") }}
+    {{ form.confirm(placeholder="Confirm Password") }}
+    <button class="btn btn-sm btn-success" type="submit">Register User</button>
+  </form>
+ 
+</div>
+ 
+{% endblock %}
