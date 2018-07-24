@@ -28,3 +28,6 @@ class Journey(UserMixin, db.Model):
 
     def __repr__(self):
         return 'Journey %d %s' % (self.id, self.username)
+
+#db.drop_all()
+db.create_all()
