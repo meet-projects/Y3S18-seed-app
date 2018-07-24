@@ -11,9 +11,10 @@
  
 <form action="{{ url_for('users.register') }}" method="post">
     {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }}
-    {{ form.confirm(placeholder="Confirm Password") }}
+    {{ form.fullName(placeholder= "Full Name") }}<br><br>
+    {{ form.username(placeholder="Username") }} <br><br>
+    {{ form.password(placeholder="Password") }}<br><br>
+    {{ form.confirm(placeholder="Confirm Password") }}<br><br>
     <button class="btn btn-sm btn-success" type="submit">Register User</button>
   </form>
  
