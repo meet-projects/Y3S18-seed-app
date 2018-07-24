@@ -10,7 +10,6 @@ app.config.from_pyfile('flask.cfg')
 
 db = SQLAlchemy(app)
 
-
 login_manager = LoginManager(app)
 login_manager.login_view = 'users.login'
 
@@ -21,12 +20,13 @@ def load_user(user_id):
     return User.query.filter(User.id == int(user_id)).first()
 
 
-# blueprints
+# Blueprints
 from project.users import users_bp
 
 app.register_blueprint(users_bp)
 
-# general views
+
+# General views
 from . import views
 
 db.create_all()
