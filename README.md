@@ -33,5 +33,4 @@ source initialize.sh
 
 ```
 flask run
-s
 ```
