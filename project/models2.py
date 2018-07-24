@@ -14,20 +14,23 @@ class Journey(UserMixin, db.Model):
     start_location = db.Column(db.String, nullable=False)
     end_location = db.Column(db.String, nullable=False)
     duration = db.Column(db.String, nullable=False)
-    people_type = db.Column(db.String, nullable=False)
+    category = db.Column(db.String, nullable=False)
     requirements = db.Column(db.String, nullable=False)
+    people_range = db.Column(db.String, nullable=False)
 
-    def __init__(self, username, password):
+
+    def __init__(self, email):
         self.title = title
         self.description = description
         self.start_location = start_location
         self.end_location = end_location
         self.duration = duration
-        self.people_type = people_type
+        self.category = category
         self.requirements = requirements
+        self.people_range = people_range
 
     def __repr__(self):
-        return 'Journey %d %s' % (self.id, self.username)
+        return 'Journey %d %s' % (self.id, self.email)
 
 #db.drop_all()
 db.create_all()

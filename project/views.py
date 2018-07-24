@@ -23,12 +23,13 @@ def become_a_storyteller():
 		new_journey.start_location  = request.form.get('start_location')
 		new_journey.end_location  = request.form.get('end_location')
 		new_journey.duration  = request.form.get('duration')
-		new_journey.people_type  = request.form.get('people_type')
+		new_journey.category  = request.form.get('category')
 		new_journey.requirements  = request.form.get('requirements')
+		new_journey.people_range  = request.form.get('people_range')
 		db.session.add(new_journey)
 		db.session.commit()
 	else:
-		return render_template('what_ade_called_it')
+		return render_template('apply.html')
 
 
 
