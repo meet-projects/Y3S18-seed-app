@@ -12,3 +12,7 @@ def index():
 @login_required
 def private_route():
     return render_template('private.html')
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
