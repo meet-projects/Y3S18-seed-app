@@ -1,3 +1,9 @@
 h1 {
   color: blue;
 }
+
+div.static{
+	position: relative;
+	left: 750px;
+
+}
