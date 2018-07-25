@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<title>
+			EasyLicense	
+		</title>
+	</head>
+	<body>
+		<center>
+			<img src="../static/img/Transparent.png" class="logo">
+			<form id="edit_profile">
+				<table>
+					<tr>
+						<th> Image: </th> 
+						<td> <button> Browse... </button> </td>
+					</tr>
+					<tr>
+						<th> Full Name: </th>
+						<td> <input type="text" name="name"> </td>
+					</tr>
+					<tr>
+						<th >Email Address: </th> 
+						<td> <input type="text" name="email"> </td>
+					</tr>
+					<tr>
+						<th >About Yourself: </th> 
+						<td> <input type="textarea" name="description"> </td>
+					</tr>
+					<tr>
+						<th> What area do you teach in? </th> 
+						<td> 
+							<select>
+								<option value="jerusalem"> Jerusalem </option>
+								<option value="west_bank"> West Bank </option>
+								<option value="north"> North Region </option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th> What languages do you teach in? </th>
+						<td> 
+						<input type="checkbox" name="languages" value="hebrew"> Hebrew 
+						<input type="checkbox" name="languages" value="arabic"> Arabic 
+						<input type="checkbox" name="languages" value="english"> English
+						</td>
+					</tr>
+					<tr>
+						<th> What is your license number? </th>
+						<td ><input type="text" name="license_number" maxlength="8" minlength="6"> </td>
+					</tr>
+					<tr>
+						<th> What car do you drive? </th>
+						<td> <input type="text" name="car"> </td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit">
+			</form>
+			<a href="profile_template.html">Back</a>
+		</center>
+	</body>
+</html>

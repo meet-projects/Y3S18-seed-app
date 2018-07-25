@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User
+from project.models import User,Teacher,Booking
 
 
 users_bp = Blueprint('users', __name__)
@@ -16,7 +16,20 @@ users_bp = Blueprint('users', __name__)
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
-    # TODO: Fill this in!
+    if request.method == 'POST':
+        username = form.username.data
+        password = form.password.data
+        user = User.query.filter_by(username=username).first()
+        if user is None:
+            user=User(username,password)
+        login_user(user, remember=True)
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('private_route')
+        return redirect(next_page)
+    else:
+        return Response("<p>invalid form</p>")
+
     return render_template('register.html', form=form)
                 
 
@@ -44,3 +57,13 @@ def login():
 def logout():
     logout_user()
     return Response("<p>Logged out</p>")
+
+@users_bp.route('/teacher/<int:teacher_id>')
+def profile(teacher_id):
+    teacher = Teacher.query.filter_by(id=teacher_id).first()
+    return render_template('profile_template.html', teacher=teacher)
+
+@users_bp.route('/booking/<int:teacher_id>')
+def booking(teacher_id):
+    teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
+    return render_template('booking.html', teacher=teacher)

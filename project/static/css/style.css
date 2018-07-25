@@ -1,3 +1,97 @@
-h1 {
-  color: blue;
+.parallax { 
+    /* The image used */
+    background-image: url("back.jpg");
+
+    /* Full height */
+    height: 120%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.biglogo{
+  height: 450px;
+}
+
+body{
+	color: rgb(246,246,246);
+	margin-right: 100px;
+	margin-left: 100px;
+}
+h3{
+	color: rgb(31, 122, 140)
+}
+p{
+	color: rgb(31, 122, 140);
+	font: helvetica;
+}
+form{
+	color: rgb(31, 122, 140);
+	font: helvetica;
+}
+table{
+	color: rgb(31, 122, 140);
+	font: helvetica;
+}
+th{
+	text-align: right;
+}
+td{
+	text-align: left;
+}
+.logo{
+	height:200px;
+}
+#profile_picture{
+	border: 5px solid rgb(184, 255, 114);
+	border-radius: 50%;
+}
+.column {
+  float: left;
+  width: 31.75%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  background-color: rgb(0,170,170);
+
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: rgb(246, 246, 246);
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.feed_insturctor{
+  color: rgb(246, 246, 246); 
 }
