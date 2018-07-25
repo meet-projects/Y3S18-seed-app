@@ -7,7 +7,7 @@
 	left: 750px;
 
 }
-<img src="B_SAFE.jpg" alt="Flowers in Chania">
+<img src="{{ url_for('static', filename = 'img/homepicture.jpg') }}" >
 </style> 
 
 <!-- <div class="add-user" class="relative" > -->
@@ -18,12 +18,13 @@
  
 <h2>Log in</h2>
  
-  </div>
- 
+  </div> 
 <form action="{{ url_for('users.login') }}" method="post">
     {{ form.csrf_token }}
     {{ form.username(placeholder="Username") }} 
+    <br>
     {{ form.password(placeholder="Password") }}
+    <br>
     <button class="btn btn-sm btn-success" type="submit">Log in</button>
   </form>
  
