@@ -141,3 +141,9 @@ li.nav a {
 li.nav a:hover {
     background-color: #111;
 }
+#login{
+  float: right;
+}
+#signup{
+  float: right;
+}
