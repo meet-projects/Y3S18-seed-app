@@ -6,8 +6,9 @@ div.static{
 
 body {
 
-	background-image: url(../pictures/homepicture.png);
+		background-image: url(../pictures/homepicture.png);
 		background-repeat:no-repeat;
 		max-width: 100%;
-	
-}
+		background-size: 40%;
+		background-position:right -150px;	
+}		
