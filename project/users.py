@@ -27,12 +27,14 @@ def register():
         description=request.form.get('description')
         area=request.form.get('area')
         phonenum=request.form.get('phonenum')
+        car_type=request.form.get('car_type')
+        license_num=request.form.get('license_num')
         languages="to be filled"
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
                 user=User(email,password)
-                teahcer=Teacher(user.user_id,name,area,city,description,fee,phonenum,languages)
+                teahcer=Teacher(user.user_id,name,area,city,description,fee,phonenum,languages,car_type,license_num)
                 db.session.add(user)
                 db.session.add(teahcer)
                 db.session.commit()

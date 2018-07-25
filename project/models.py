@@ -42,9 +42,7 @@ class Teacher(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, unique=True)
-    first_name = db.Column(db.String)
-    last_name = db.Column(db.String)
-    email = db.Column(db.String)
+    name = db.Column(db.String) 
     area = db.Column(db.String)
     city = db.Column(db.String)
     description = db.Column(db.String)
@@ -54,6 +52,7 @@ class Teacher(db.Model):
     profile_picture = db.Column(db.String)
     car_type = db.Column(db.String)
     license_num = db.Column(db.String)
+
 
 
 class Booking(db.Model):
