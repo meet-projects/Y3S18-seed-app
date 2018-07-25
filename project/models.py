@@ -5,7 +5,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 class User(UserMixin, db.Model):
     __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    userID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
 
@@ -20,13 +20,19 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return 'User %d %s' % (self.id, self.username)
+        return 'User %d %s' % (self.userID, self.username)
 
-'''class Post():
+class Post(db.Model):
     __tablename__='posts'
-    PostID         = Column(Integer, primary_key=True, autoincrement=True)
-    AuthorID       = Column(Integer, ForeignKey('user.UserID'))
-    Title          = Column(String(20), nullable=False)
-    Text           = Column(String, nullable=False)
-    Rating         = Column(Integer)
-'''
+    postID         = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    authorID       = db.Column(db.Integer, db.ForeignKey('users.userID'))
+    title          = db.Column(db.String(20), nullable=False)
+    text           = db.Column(db.String, nullable=False)
+    rating         = db.Column(db.Integer, default = 0)
+
+    def __init__(self, authorID, title, text, rating):
+        self.authorID = authorID
+        self.title = title
+        self.text = text
+        self.rating = rating
+
