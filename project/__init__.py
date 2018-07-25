@@ -25,7 +25,6 @@ from project.users import users_bp
 
 app.register_blueprint(users_bp)
 
-
 # General views
 from . import views
 

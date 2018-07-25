@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from flask_login import login_required
 
 from . import app
@@ -6,15 +6,15 @@ from . import app
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+	return render_template('index.html')
 
 @app.route('/private')
 @login_required
 def private_route():
-    return render_template('private.html')
+	return render_template('private.html')
 
 
-@app.route('/become-a-storyteller', methods=['GET', 'POST'])
+@app.route('/apply', methods=['GET', 'POST'])
 def apply():
 	if request.method=='POST':
 		new_journey = Journey()
@@ -34,4 +34,4 @@ def apply():
 
 
 if __name__ == "__main__":
-    app.run()
+	app.run()
