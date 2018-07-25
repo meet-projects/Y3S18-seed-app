@@ -15,7 +15,7 @@ def private_route():
 
 
 @app.route('/become-a-storyteller', methods=['GET', 'POST'])
-def become_a_storyteller():
+def apply():
 	if request.method=='POST':
 		new_journey = Journey()
 		new_journey.title = request.form.get('title')
