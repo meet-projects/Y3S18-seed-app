@@ -75,7 +75,7 @@ def logout():
 @users_bp.route('/private', methods=['GET', 'POST'])
 @login_required
 def private_route():
-#	if request.method == 'POST':
+	# if request.method == 'POST':
 #		account_sid = ACC_SID
 #		auth_token = AUTH_TOKEN
 
