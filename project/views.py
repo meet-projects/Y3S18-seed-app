@@ -18,7 +18,8 @@ def price():
 
 
 
-@app.route('/private')
+@app.route('/profile_edit')
 @login_required
 def private_route():
-    return render_template('private.html')
+	
+    return render_template('edit_profile_template.html')
