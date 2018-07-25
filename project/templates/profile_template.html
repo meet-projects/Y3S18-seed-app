@@ -9,31 +9,31 @@
 		<center>
 			<img src="Transparent.png" id="logo">
 			<br>			
-			<img src="person.jpeg" id="profile_picture">
+			<img src="{{teacher.profile_picture}}" id="profile_picture">
 			<br>
 			<h3>
-				Jacob Jacobson
+				{{teacher.first_name}} {{teacher.last_name}}
 			<br>
-				JacobJacobson5327200@gamil.com
+				{{teacher.email}}
 			</h3>
-			<p> I've been teaching driving for seven years, and had accompanied over 250 students through their driver-license acquiring process. I'm currently available on Sundays and Tuesdays. </p>
+			<p> {{teacher.description}} </p>
 			<br>
 			<table>
 				<tr> 
 					<th> <u> Area:</u></th> 
-					<td> Jerusalem </td>
+					<td> {{teacher.area}} </td>
 				</tr>
 				<tr> 
 					<th> <u> Languages:</u></th> 
-					<td>English, Arabic, Hebrew </td>
+					<td> {{teacher.languages}} </td>
 				</tr>
 				<tr> 
 					<th><u> License Number:</u></th>
-					<td> 3227958 </td>
+					<td> {{teacher.license_num}} </td>
 				</tr>
 				<tr>
 					<th> <u> Car Type:</u></th> 
-					<td>Mercedes SLS </td>
+					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
 			<br> 

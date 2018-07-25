@@ -8,8 +8,10 @@ from sqlalchemy import desc
 
 @app.route('/')
 def feed():
-	teachers=db.query(Teacher).orderby("id desc").all()
-    return render_template('feed.html', teachers=teachers)
+	# teachers = db.session.query(Teacher).all()
+	teachers = Teacher.query.all()
+	print(teachers)
+	return render_template('feed.html', teachers=teachers)
 
 @app.route('/private')
 @login_required
