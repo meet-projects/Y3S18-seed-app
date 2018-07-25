@@ -29,12 +29,34 @@
 		<br>
 		<br>
 		<center>
+				<ul class="filter">
+				  <li class="filter">Location
+				  	<select>
+								<option value="jerusalem"> Jerusalem </option>
+								<option value="west_bank"> West Bank </option>
+								<option value="north"> North Region </option>
+							</select></li>
+				  <li class="filter">Price
+				  	<select>
+								<option value="high"> High to Low </option>
+								<option value="low"> Low to High </option>
+							</select>
+				  </li>
+				  <li class="filter">Language
+				  <select>
+								<option value="hebrew"> Hebrew </option>
+								<option value="arabic"> Arabic </option>
+								<option value="english"> English </option>
+							</select>
+						</li>
+				</ul>
 			<div class="row" id="instructordiv">
+	  			{% for teacher in teahcers %}
 	  			<div class="column">
 	    			<div class="card">
 	      				<img src="../static/img/person.jpeg" alt="Jacob Jacobson" style="width:100%" class="feed_img">
 						    <div class="container">
-						    	{% for teacher in teahcers %}
+						    	
 						        <h2 id="name">{{teacher.name}}</h2>
 						        <p id="area" class="feed_insturctor">{{teahcer.area}}</p>
 						        <p id="area" class="feed_insturctor">{{teahcer.city}}</p>
@@ -42,58 +64,11 @@
 						        <p id="cost" class="feed_insturctor"> {{teacher.cost}}</p>
 						        <p id="languages" class="feed_insturctor"> {{teacher.languages}}</p>
 						        <p><a href="profile_template.html"><button class="button">Contact</button></a></p>
-						        {% end for %}
+						        
 		      				</div>
 	    			</div>
 	  			</div>
-	  			<div class="column">
-	    			<div class="card">
-	      				<img src="../static/img/person.jpeg" alt="Jacob Jacobson" style="width:100%">
-						    <div class="container">
-						    	{% for teacher in teahcers %}
-						        <h2 id="name">{{teacher.name}}</h2>
-						        <p id="area" class="feed_insturctor">{{teahcer.area}}</p>
-						        <p id="area" class="feed_insturctor">{{teahcer.city}}</p>
-						        <p id="description" class="feed_insturctor""> {{teahcer.description}}</p>
-						        <p id="cost" class="feed_insturctor"> {{teacher.cost}}</p>
-						        <p id="languages" class="feed_insturctor"> {{teacher.languages}}</p>
-						        <p><a href="profile_template.html"><button class="button">Contact</button></a></p>
-						        {% end for %}
-		      				</div>
-	    			</div>
-	  			</div>
-	  			<div class="column">
-	    			<div class="card">
-	      				<img src="../static/img/person.jpeg" alt="Jacob Jacobson" style="width:100%">
-						    <div class="container">
-						    	{% for teacher in teahcers %}
-						        <h2 id="name">{{teacher.name}}</h2>
-						        <p id="area" class="feed_insturctor">{{teahcer.area}}</p>
-						        <p id="area" class="feed_insturctor">{{teahcer.city}}</p>
-						        <p id="description" class="feed_insturctor""> {{teahcer.description}}</p>
-						        <p id="cost" class="feed_insturctor"> {{teacher.cost}}</p>
-						        <p id="languages" class="feed_insturctor"> {{teacher.languages}}</p>
-						        <p><a href="profile_template.html"><button class="button">Contact</button></a></p>
-						        {% end for %}
-		      				</div>
-	    			</div>
-	  			</div>
-	  				  			<div class="column">
-	    			<div class="card">
-	      				<img src="../static/img/person.jpeg" alt="Jacob Jacobson" style="width:100%">
-						    <div class="container">
-						    	{% for teacher in teahcers %}
-						        <h2 id="name">{{teacher.name}}</h2>
-						        <p id="area" class="feed_insturctor">{{teahcer.area}}</p>
-						        <p id="area" class="feed_insturctor">{{teahcer.city}}</p>
-						        <p id="description" class="feed_insturctor""> {{teahcer.description}}</p>
-						        <p id="cost" class="feed_insturctor"> {{teacher.cost}}</p>
-						        <p id="languages" class="feed_insturctor"> {{teacher.languages}}</p>
-						        <p><a href="profile_template.html"><button class="button">Contact</button></a></p>
-						        {% end for %}
-		      				</div>
-	    			</div>
-	  			</div>
+	  			{% end for %}
 	  		</div>
 		</center>
 	</body>
