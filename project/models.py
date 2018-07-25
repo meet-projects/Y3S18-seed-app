@@ -47,6 +47,8 @@ class Teacher(db.Model):
     area = db.Column(db.String)
     discription = db.Column(db.String)
     cost = db.Column(db.Integer)
+    phone_num = db.Column(db.String)
+    languages = db.Column(db.String)
 
 class Booking(db.Model):
 
