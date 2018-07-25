@@ -9,17 +9,17 @@ from project import db
 from project.forms import RegisterForm, LoginForm
 from project.models import User
 
-#import os
-#from twilio.rest import Client
+import os
+from twilio.rest import Client
 
 users_bp = Blueprint('users', __name__)
 
 
-#ACC_SID = "ACd03777f4973c4f1ffc3efed677cc57b1"
-#AUTH_TOKEN = "b22f0d66110237b42ebf63ccd2b4241e"
-#TO = "+972529553327"
-#FROM = "+972558820796"
-#BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
+ACC_SID = "AC28c8c4fb97d6e0949e2ce45135ad2c9c"
+AUTH_TOKEN = "c55558a79a700c94d537b33d63fe85c6"
+TO = "+972558820796"
+FROM = "+18604312585"
+BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
@@ -75,12 +75,12 @@ def logout():
 @users_bp.route('/private', methods=['GET', 'POST'])
 @login_required
 def private_route():
-#	if request.method == 'POST':
-#		account_sid = ACC_SID
-#		auth_token = AUTH_TOKEN
+	if request.method == 'POST':
+		account_sid = ACC_SID
+		auth_token = AUTH_TOKEN
 
-#		client = Client(account_sid, auth_token)
+		client = Client(account_sid, auth_token)
 
-#		client.messages.create(to=TO, from_=FROM, body=BODY) 
+		client.messages.create(to=TO, from_=FROM, body=BODY) 
 
 	return render_template('private.html')
