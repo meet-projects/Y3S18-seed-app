@@ -17,11 +17,18 @@ users_bp = Blueprint('users', __name__)
 def register():
     form = RegisterForm(request.form)
     # TODO: Fill this in!
-    if request.method == 'POST'
+    if request.method == 'POST':
         if form.validate_on_submit():
             name = form.name.data
             email = form.email.data
             password = form.password.data
+            user = User.query.filter_by(email=email).first()
+            if user != None:
+                return Response ("<p> account already exists <p>")
+            else:
+                user = User(email=email, name= name, password_hash= password)
+                session.add(user)
+                session.commit()
     return render_template('register.html', form=form)
                 
 
