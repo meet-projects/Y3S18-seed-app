@@ -8,7 +8,9 @@ from sqlalchemy import desc
 
 @app.route('/')
 def feed():
-	teachers=db.session.query(Teacher).order_by("id desc").all()
+	# teachers = db.session.query(Teacher).all()
+	teachers = Teacher.query.all()
+	print(teachers)
 	return render_template('feed.html', teachers=teachers)
 
 @app.route('/price',)
