@@ -1,20 +1,24 @@
+<!DOCTYPE html>
+<html>
+
 {% extends "layout.html" %}
 {% block content %}
- 
-<style>
-	div.relative{
-	position: relative;
-	left: 750px;
 
-}
-<img src="{{ url_for('static', filename = 'img/homepicture.jpg') }}" >
-</style> 
+  <head>
+      <title>Log In!</title>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/loginstyle.css') }}">
+  </head>
+  <body>
+  	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
 <!-- <div class="add-user" class="relative" > -->
 
 <div class="relative">
 
+
  <div class="page-header">
+ 	<h2 style="font-size:10vw"> "Together we can create a better for our children" </h2>
  
 <h2>Log in</h2>
  
