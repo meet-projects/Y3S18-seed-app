@@ -11,8 +11,8 @@
 	blablablablablablablalalalalalblalblalblalbalblablablablababl
 
 	<br><br><br><br><br><br><br><br><br>
-	<form>
-		Nationallity:<br>
+<form method='POST' action="{{ url_for('apply')}}">
+  Nationallity:<br>
   <input type="text" name="nation" placeholder="Enter Your Nationallity" required>
   <br>
   Work:<br>
@@ -24,7 +24,7 @@
   Phone Number<br>
   <input type="text" name="Number" placeholder="Enter Your Phone Number please" required>
   <br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Post">
 </form> 
 	
 </body>
