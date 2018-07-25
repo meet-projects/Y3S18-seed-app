@@ -101,6 +101,9 @@ def west_bank():
 	teachers=db.session.query(Teacher).filter_by(area="West Bank").all()
 	return render_template('feed.html', teachers=teachers)
 
+@app.route('/login_signup')
+def login_signup():
+	return render_template('login_signup.html')
 
 
 @app.route('/arava')
