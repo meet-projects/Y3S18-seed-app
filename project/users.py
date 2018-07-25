@@ -16,7 +16,20 @@ users_bp = Blueprint('users', __name__)
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
-    # TODO: Fill this in!
+    if request.method == 'POST':
+    	if form.validate_on_submit():
+    		username = form.username.data
+    		password = form.password.data
+    		user = User.query.filter_by(username=username).first()
+    		if user:
+    			return Response("<p>Username already exists</p>")
+    		user = User(username,password)
+    		db.session.add(user)
+    		db.session.commit()
+    		login_user(user, remember=True)
+    		next_page = request.args.get('next')
+    		if not next_page or url_parse(next_page).netloc != '':
+    			next_page = url_for('private_route')
     return render_template('register.html', form=form)
                 
 
