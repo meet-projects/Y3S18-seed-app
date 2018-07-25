@@ -25,11 +25,15 @@ def register():
             user = User.query.filter_by(email=email).first()
             if user != None:
                 return Response ("<p> account already exists <p>")
+                return render_template('register.html', form=form)
             else:
-                user = User(email=email, name= name, password_hash= password)
+                user = User(email=email, name= name, password= password)
                 session.add(user)
                 session.commit()
-    return render_template('register.html', form=form)
+                return render_template('browse.html')
+    else:
+        return render_template('register.html')
+   
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])
