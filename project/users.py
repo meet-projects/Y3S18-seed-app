@@ -34,9 +34,12 @@ def register():
             user = User.query.filter_by(email=email).first()
             if user is None:
                 user=User(email,password)
-                teahcer=Teacher(user.id,name,area,city,description,fee,phonenum,languages,car_type,license_num)
+                user.email = email
+                user.password_hash = password
+                user_id = user.id
+                teacher=Teacher(user_id,name,area,city,description,fee,phonenum,"http://i.imgur.com/hfH9CiC.png",car_type,license_num)
                 db.session.add(user)
-                db.session.add(teahcer)
+                db.session.add(teacher)
                 db.session.commit()
             login_user(user, remember=True)
             next_page = request.args.get('next')

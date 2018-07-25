@@ -15,12 +15,12 @@ auth = firebase.auth(app);
 db = firebase.database(app);
 databaseRef = db.ref();
 
-function book(teacher_id){
+function book(){
 	var booking = {
-    	name : document.forms["booking_form"]["name"].value;
-    	phone_num : document.forms["booking_form"]["num"].value;
-    	teacher :  document.forms["booking_form"]["teacher"].value;
-    	done : false;
+    	name : document.forms["booking_form"]["name"].value,
+    	phone_num : document.forms["booking_form"]["num"].value,
+    	teacher :  document.forms["booking_form"]["teacher"].value,
+    	done : false
 	}
 	databaseRef.child("bookings").child(document.forms["booking_form"]["num"].value).set(booking);
 }

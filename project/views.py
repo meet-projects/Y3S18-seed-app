@@ -8,8 +8,7 @@ from sqlalchemy import desc
 
 @app.route('/')
 def feed():
-	# teachers = db.session.query(Teacher).all()
-	teachers = Teacher.query.all()
+	teachers = db.session.query(Teacher).all()
 	print(teachers)
 	return render_template('feed.html', teachers=teachers)
 
