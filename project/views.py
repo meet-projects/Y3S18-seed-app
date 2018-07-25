@@ -2,7 +2,7 @@ from flask import render_template, request, Flask
 from flask_login import login_required
 from . import app, db
 
-from project.models import Journey
+from project.models import Journey, User
 
 @app.route('/')
 def index():
