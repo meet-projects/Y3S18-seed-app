@@ -17,7 +17,23 @@ users_bp = Blueprint('users', __name__)
 def register():
     form = RegisterForm(request.form)
     # TODO: Fill this in!
-    return render_template('register.html', form=form)
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            name = form.name.data
+            email = form.email.data
+            password = form.password.data
+            user = User.query.filter_by(email=email).first()
+            if user != None:
+                return Response ("<p> account already exists <p>")
+                return render_template('register.html', form=form)
+            else:
+                user = User(email=email, name= name, password= password)
+                session.add(user)
+                session.commit()
+                return render_template('browse.html')
+    else:
+        return render_template('register.html')
+   
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])
