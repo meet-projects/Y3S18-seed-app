@@ -46,6 +46,7 @@ class Teacher(db.Model):
     last_name = db.Column(db.String)
     email = db.Column(db.String)
     area = db.Column(db.String)
+    city = db.Column(db.String)
     description = db.Column(db.String)
     cost = db.Column(db.Integer)
     phone_num = db.Column(db.String)
