@@ -73,3 +73,13 @@ def login():
 def logout():
     logout_user()
     return Response("<p>Logged out</p>")
+
+@users_bp.route('/teacher/<int:teacher_id>')
+def profile(teacher_id):
+    teacher = Teacher.query.filter_by(id=teacher_id).first()
+    return render_template('profile_template.html', teacher=teacher)
+
+@users_bp.route('/booking/<int:teacher_id>')
+def booking(teacher_id):
+    teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
+    return render_template('booking.html', teacher=teacher)

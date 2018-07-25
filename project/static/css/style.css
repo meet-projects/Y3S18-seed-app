@@ -51,10 +51,11 @@ td{
 }
 .column {
   float: left;
-  width: 33.3%;
+  width: 31.75%;
   margin-bottom: 16px;
   padding: 0 8px;
   background-color: rgb(0,170,170);
+
 }
 
 @media screen and (max-width: 650px) {
@@ -94,8 +95,3 @@ td{
 .feed_insturctor{
   color: rgb(246, 246, 246); 
 }
-.feed_img{
-  width: 150px;
-  height: 150px;
-}
-
