@@ -17,14 +17,14 @@ users_bp = Blueprint('users', __name__)
 def register():
     form = RegisterForm(request.form)
     # TODO: Fill this in!
-<<<<<<< HEAD
+#HEAD
 #    if request.method == 'POST'
 #        if form.validate_on_submit():
 #            name = form.name.data
 #            email = form.email.data
 #            password = form.password.data
 #    return render_template('register.html', form=form)
-=======
+
     if request.method == 'POST':
         if form.validate_on_submit():
             name = form.name.data
@@ -42,7 +42,7 @@ def register():
     else:
         return render_template('register.html')
    
->>>>>>> 36cb8842102142e12e53b81fec35d0ec9d8e8c61
+#>>>>>>> 36cb8842102142e12e53b81fec35d0ec9d8e8c61
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])

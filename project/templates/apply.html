@@ -1,31 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>story teller</title>
-	<h1>Become A StoryTeller</h1>
+  <title>story teller</title>
+  <h1>Become A StoryTeller</h1>
 </head>
 <body>
-	Hi____,
-	<br><br><br>
+  Hi____,
+  <br><br><br>
+  <p>Becoming a storyteller means you will get to share your ambitious insipring story of your life. you will be free to take people on a journey in the places you grew in or places you would like.</p>
 
-	blablablablablablablalalalalalblalblalblalbalblablablablababl
-
-	<br><br><br><br><br><br><br><br><br>
-<form method='POST' action="{{ url_for('apply')}}">
-  Nationallity:<br>
-  <input type="text" name="nation" placeholder="Enter Your Nationallity" required>
+  <br><br><br><br><br><br><br><br><br>
+   <form class ="addpost" action="{{url_for('apply')}}" method="POST">
+    Country:<br>
+  <input type="text" name="country" placeholder="Enter Your Country" required>
   <br>
-  Work:<br>
-  <input type="text" name="Job" placeholder="Enter Your Job" required>
+  Proffesion:<br>
+  <input type="text" name="profession" placeholder="Enter Your Job" required>
+  <br>
+  Birth Date:<br>
+  <input type="text" name="birthday" placeholder="Enter Your birthDate"required>
+  <br><br>
   <br>
   City:<br>
-  <input type="text" name="City" placeholder="Enter Your City" required>
+  <input type="text" name="city" placeholder="Enter Your City" required>
   <br>
+  Title:<br>
+  <input type="text" name="title" placeholder="Title of the journey">
+  <br>
+
   Phone Number<br>
-  <input type="text" name="Number" placeholder="Enter Your Phone Number please" required>
+  <input type="text" name="number" placeholder="Enter Your Phone Number please" required>
   <br><br>
-  <input type="submit" value="Post">
-</form> 
-	
+<h4> Tell us About Your Journey</h4>
+<textarea name="description" rows="10" cols="30" placeholder=" culture activties more info about it " required>
+</textarea>
+
+<br><br>
+
+<h4>The Places Where  The Journey Will take of</h4>
+<textarea name="location" rows="10" cols="30" placeholder="from telaviv rotchild street 60/57 to haifa gardens square 20/35" required>
+</textarea>
+<h4>How much time the journey will take</h4>
+<textarea name="duration" rows="10" cols="30" placeholder="1hour to 2 hours" required>
+</textarea>
+
+<h4>Catigory Of People who will take the journey</h4>
+<textarea name="category" rows="10" cols="30" placeholder="music and nature lovers a bit of sportivic" required>
+</textarea>
+<br>
+<h4>Requriments</h4>
+<textarea name="requirements" rows="10" cols="30" placeholder="sport shoes dry fit shirts swiming suit" required>
+</textarea>
+<br><br>
+<h4>People Range</h4>
+<textarea name="people_range" rows="10" cols="30" placeholder="5-10 people" required>
+</textarea>
+<br><br>
+<h4>Enter The Price With what it includes</h4>
+<textarea name="price" rows="10" cols="30" placeholder="500 shekels, 250 for the place we will rent... 100 for the security...150 for me" required>
+</textarea>
+<br><br>
+<h4>add image url</h4>
+<textarea name="picture" rows="10" cols="30" placeholder="Regular Picture" required>
+</textarea>
+
+  <button class="btn btn-lg postbtn" type="submit">Submit!</button>
+
+  </form>
 </body>
 </html>
