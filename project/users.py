@@ -35,6 +35,7 @@ def register():
     	next_page = request.args.get('next')
     	if not next_page or url_parse(next_page).netloc != '':
     		next_page = url_for('private_route')
+    	return redirect(url_for('private_route'))
     return render_template('register.html', form=form)
                 
 
