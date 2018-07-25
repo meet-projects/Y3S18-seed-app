@@ -16,7 +16,7 @@
 				<a href="#instructordiv"><button type="button">
 					I'M A STUDENT
 				</button></a>
-				<a href="{{url_for('register')}}"><button><span>I'M AN INSTRUCTOR</span></button></a>
+				<a href="login_signup.html"><button><span>I'M AN INSTRUCTOR</span></button></a>
 				
 			</div>
 		</center>
@@ -29,7 +29,7 @@
 		<br>
 		<br>
 		<center>
-				<ul class="filter">
+				<ul class="filter" id="instructordiv">
 				  <li class="filter">Location
 				  	<select>
 								<option value="jerusalem"> Jerusalem </option>
@@ -50,7 +50,7 @@
 							</select>
 						</li>
 				</ul>
-			<div class="row" id="instructordiv">
+			<div class="row" >
 	  			{% for teacher in teachers %}
 	  			<div class="column">
 	    			<div class="card">
