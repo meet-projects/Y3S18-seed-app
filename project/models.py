@@ -10,7 +10,7 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    username = db.Column(db.String, unique=True, nullable=False)
+    email = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
 
     def __init__(self, username, password):
@@ -42,13 +42,28 @@ class Teacher(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, unique=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String) 
     area = db.Column(db.String)
     city = db.Column(db.String)
     description = db.Column(db.String)
     cost = db.Column(db.Integer)
     phone_num = db.Column(db.String)
     languages = db.Column(db.String)
+    profile_picture = db.Column(db.String)
+    car_type = db.Column(db.String)
+    license_num = db.Column(db.String)
+
+    def __init__(self, user_id, name,area,city,description,cost,phone_num,languages,car_type,license_num):
+        self.user_id = user_id
+        self.name=name
+        self.area=area
+        self.city=city
+        self.description=description
+        self.cost=cost
+        self.phone_num=phone_num
+        self.languages=languages
+        self.car_type=car_type
+        self.license_num=license_num
 
 class Booking(db.Model):
 

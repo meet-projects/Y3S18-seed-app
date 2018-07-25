@@ -15,22 +15,40 @@ users_bp = Blueprint('users', __name__)
 
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegisterForm(request.form)
+    #form = RegisterForm(request.form)
+
     if request.method == 'POST':
-        username = form.username.data
-        password = form.password.data
-        user = User.query.filter_by(username=username).first()
-        if user is None:
-            user=User(username,password)
-        login_user(user, remember=True)
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('private_route')
-        return redirect(next_page)
+        email = request.form.get('email')
+        password = request.form.get('psw')
+        password2= request.form.get('psw-repeat')
+        name= request.form.get('name')
+        city=request.form.get('city')
+        fee=request.form.get('fee')
+        description=request.form.get('description')
+        area=request.form.get('area')
+        phonenum=request.form.get('phonenum')
+        car_type=request.form.get('car_type')
+        license_num=request.form.get('license_num')
+        languages="to be filled"
+        if password== password2:
+            user = User.query.filter_by(email=email).first()
+            if user is None:
+                user=User(email,password)
+                teahcer=Teacher(user.id,name,area,city,description,fee,phonenum,languages,car_type,license_num)
+                db.session.add(user)
+                db.session.add(teahcer)
+                db.session.commit()
+            login_user(user, remember=True)
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('private_route')
+            return redirect(next_page)
+        else:
+            return Response("<p>invalid form</p>")
     else:
         return Response("<p>invalid form</p>")
 
-    return render_template('register.html', form=form)
+    return render_template('login_signup.html', form=form)
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])
@@ -38,9 +56,9 @@ def login():
     form = LoginForm(request.form)
     if request.method == 'POST':
         if form.validate_on_submit():
-            username = form.username.data
-            password = form.password.data
-            user = User.query.filter_by(username=username).first()
+            email = email = request.form.get('email')
+            password = email = request.form.get('password')
+            user = User.query.filter_by(email=email).first()
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect username or password</p>")
             login_user(user, remember=True)
@@ -57,3 +75,13 @@ def login():
 def logout():
     logout_user()
     return Response("<p>Logged out</p>")
+
+@users_bp.route('/teacher/<int:teacher_id>')
+def profile(teacher_id):
+    teacher = db.session.query().filter_by(id=teacher_id).first()
+    return render_template('profile_template.html', teacher=teacher)
+
+@users_bp.route('/booking/<int:teacher_id>')
+def booking(teacher_id):
+    teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
+    return render_template('booking.html', teacher=teacher)
