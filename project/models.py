@@ -53,7 +53,17 @@ class Teacher(db.Model):
     car_type = db.Column(db.String)
     license_num = db.Column(db.String)
 
-
+    def __init__(self, user_id, name,area,city,description,cost,phone_num,languages,car_type,license_num):
+        self.user_id = user_id
+        self.name=name
+        self.area=area
+        self.city=city
+        self.description=description
+        self.cost=cost
+        self.phone_num=phone_num
+        self.languages=languages
+        self.car_type=car_type
+        self.license_num=license_num
 
 class Booking(db.Model):
 
