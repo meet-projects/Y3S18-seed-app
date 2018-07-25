@@ -3,9 +3,6 @@ from flask_login import login_required
 
 from . import app
 
-import os
-from twilio.rest import Client
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -13,3 +10,8 @@ def index():
 @app.route('/info')
 def info():
     return render_template('info.html')
+
+@app.route('/private')
+@login_required
+def private_route():
+	return render_template('private.html')
