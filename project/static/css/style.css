@@ -1,7 +1,3 @@
-body, html {
-    height: 100%;
-}
-
 .parallax { 
     /* The image used */
     background-image: url("back.jpg");
@@ -53,13 +49,6 @@ td{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
 }
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    color: rgb(184, 255, 114);
-}
 .column {
   float: left;
   width: 33.3%;
@@ -90,7 +79,7 @@ a.button {
 }
 
 .title {
-  color: grey;
+  color: rgb(246, 246, 246);
 }
 
 .button {
@@ -101,5 +90,12 @@ a.button {
   text-align: center;
   cursor: pointer;
   width: 100%;
+}
+.feed_insturctor{
+  color: rgb(246, 246, 246); 
+}
+.feed_img{
+  width: 150px;
+  height: 150px;
 }
 
