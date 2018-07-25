@@ -10,13 +10,13 @@
   </div>
  
 <form action="{{ url_for('users.login') }}" method="post">
-<!--     {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }} -->
-    <input type="email" name = "email" placeholder="email">
+    {{ form.csrf_token }}
+    {{ form.email(placeholder="email") }} 
+    {{ form.password(placeholder="Password") }}
+<!--     <input type="email" name = "email" placeholder="email">
     <br>
     <input type="password" name = "password" placeholder="password" >
-    <br>
+    <br> -->
     <button class="btn btn-sm btn-success" type="submit">Log in</button>
   </form>
  
