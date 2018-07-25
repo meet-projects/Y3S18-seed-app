@@ -8,11 +8,8 @@
 	</head>
 	<body>
 		<ul class="nav">
-		  <li class="nav"><a href="">Home</a></li>
-		  <li class="nav"><a href="#profile">Profile</a></li>
-		  <li class="nav"><a href="#about">About Us</a></li>
-		  <li class="nav" id="login"><a href="#login">Log In</a></li>
-		  <li class="nav" id="signup"><a href="#signup">Sign Up</a></li>
+		  <li class="nav"><a href="{{ feed }}">Home</a></li>
+		  <li class="nav"><a href="#">About Us</a></li>
 		</ul>
 		<center>
 			<div class="parallax">
@@ -39,14 +36,25 @@
 				<ul class="filter" id="instructordiv">
 				  <li class="filter">Location
 				  	<select>
-								<option value="jerusalem"> Jerusalem </option>
-								<option value="west_bank"> West Bank </option>
-								<option value="north"> North Region </option>
+								<option value="galil_elion"> Galil Elion </option>
+								<option value="hof_hagalil"> Hof Hagalil </option>
+								<option value="golan"> Golan </option>
+								<option value="carmel"> Carmel </option>
+								<option value="sharon"> Sharon </option>
+								<option value="emek_israel"> Emek Israel </option>
+								<option value="beit_shean"> Beit Shean </option>
+								<option value="mishor_hakhof"> Mishor Hakhof </option>
+								<option value="jerusalem_district"> Jerusalem District </option>
+								<option value="negev"> Negev </option>
+								<option value="shfelat_yehuda"> Shfelat Yehuda </option>
+								<option value="judea_district"> Judea District </option>
+								<option value="west_bank">West Bank </option>
+								<option value="Arava"> Arava </option>
 							</select></li>
 				  <li class="filter">Price
 				  	<select>
-								<option value="high"> High to Low </option>
-								<option value="low"> Low to High </option>
+							<a href="hightolow"><option value="high"> High to Low </option> </a>
+							<a href="lowtohigh"><option value="low"> Low to High </option> </a>
 							</select>
 				  </li>
 				  <li class="filter">Language
