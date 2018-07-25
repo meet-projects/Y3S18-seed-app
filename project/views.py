@@ -1,12 +1,15 @@
 from flask import render_template
 from flask_login import login_required
-
+from project import db
 from . import app
+from project.models import User
+
 
 
 @app.route('/')
 def feed():
-    return render_template('feed.html')
+	teacher=db.session.query()
+    return render_template('form.html')
 
 
 
