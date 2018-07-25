@@ -27,12 +27,15 @@ def register():
                 return Response ("<p> account already exists <p>")
                 return render_template('register.html', form=form)
             else:
+                print(email)
+                print(name)
+                print(password)
                 user = User(email=email, name= name, password= password)
-                session.add(user)
-                session.commit()
-                return render_template('browse.html')
+                db.session.add(user)
+                db.session.commit()
+                return redirect(url_for('browse.html'))
     else:
-        return render_template('register.html')
+        return render_template('register.html', form=form)
    
                 
 
@@ -41,11 +44,11 @@ def login():
     form = LoginForm(request.form)
     if request.method == 'POST':
         if form.validate_on_submit():
-            username = form.username.data
+            email = form.email.data
             password = form.password.data
-            user = User.query.filter_by(username=username).first()
+            user = User.query.filter_by(email=email).first()
             if user is None or not user.check_password(password):
-                return Response("<p>Incorrect username or password</p>")
+                return Response("<p>Incorrect email or password</p>")
             login_user(user, remember=True)
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
