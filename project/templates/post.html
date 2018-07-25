@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Post
+	</title>
+</head>
+<body>
+<form action="{{ url_for('post.post') }}" method="post">
+    {{ form.csrf_token }}
+    {{ form.title(placeholder= "Title") }}<br><br>
+    {{ form.text(placeholder="Tell us your story") }} <br><br>
+    {{ form.confirm(placeholder="Confirm Password") }}<br><br>
+    <button class="btn btn-sm btn-success" type="submit">Share</button>
+</form>
+</body>
+</html>
