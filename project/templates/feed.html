@@ -23,7 +23,7 @@
 				<a href="#instructordiv"><button type="button">
 					I'M A STUDENT
 				</button></a>
-				<a href="{{url_for('register')}}"><button><span>I'M AN INSTRUCTOR</span></button></a>
+				<a href="signup"><button><span>I'M AN INSTRUCTOR</span></button></a>
 				
 			</div>
 		</center>
@@ -36,7 +36,7 @@
 		<br>
 		<br>
 		<center>
-				<ul class="filter">
+				<ul class="filter" id="instructordiv">
 				  <li class="filter">Location
 				  	<select>
 								<option value="jerusalem"> Jerusalem </option>
@@ -57,8 +57,8 @@
 							</select>
 						</li>
 				</ul>
-			<div class="row" id="instructordiv">
-	  			{% for teacher in teahcers %}
+			<div class="row" >
+	  			{% for teacher in teachers %}
 	  			<div class="column">
 	    			<div class="card">
 	      				<img src="../static/img/person.jpeg" alt="Jacob Jacobson" style="width:100%" class="feed_img">
@@ -66,16 +66,15 @@
 						    	
 						        <h2 id="name">{{teacher.name}}</h2>
 						        <p id="area" class="feed_insturctor">{{teahcer.area}}</p>
-						        <p id="area" class="feed_insturctor">{{teahcer.city}}</p>
+						        <p id="city" class="feed_insturctor">{{teahcer.city}}</p>
 						        <p id="description" class="feed_insturctor""> {{teahcer.description}}</p>
 						        <p id="cost" class="feed_insturctor"> {{teacher.cost}}</p>
 						        <p id="languages" class="feed_insturctor"> {{teacher.languages}}</p>
 						        <p><a href="profile_template.html"><button class="button">Contact</button></a></p>
-						        
 		      				</div>
 	    			</div>
 	  			</div>
-	  			{% end for %}
+	  			{% endfor %}
 	  		</div>
 		</center>
 	</body>
