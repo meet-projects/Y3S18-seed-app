@@ -2,7 +2,7 @@ from flask import render_template, request, Flask
 from flask_login import login_required
 from . import app, db
 
-from project.models import Journey
+from project.models import Journey, User
 
 @app.route('/')
 def index():
@@ -33,6 +33,12 @@ def apply():
 		return render_template('journey_table_test.html', journey=new_journey)
 	else:
 		return render_template('apply.html')
+
+@app.route('/journeys/<int:journey_id>')
+def display_journey(journey_id):
+        journey = Journey.query.filter_by(id=journey_id).first()
+        creator = User.query.filter_by( id=journey.creator_id).first()
+        return render_template('journey.html', journey=journey, creator= creator)
 
 
 
