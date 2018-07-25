@@ -12,3 +12,32 @@ def index():
 @login_required
 def private_route():
     return render_template('private.html')
+
+
+@app.route('/become-a-storyteller', methods=['GET', 'POST'])
+def apply():
+	if request.method=='POST':
+		new_journey = Journey()
+		new_journey.title = request.form.get('title')
+		new_journey.description = request.form.get('description')
+		new_journey.start_location  = request.form.get('start_location')
+		new_journey.end_location  = request.form.get('end_location')
+		new_journey.duration  = request.form.get('duration')
+		new_journey.category  = request.form.get('category')
+		new_journey.requirements  = request.form.get('requirements')
+		new_journey.people_range  = request.form.get('people_range')
+		db.session.add(new_journey)
+		db.session.commit()
+	else:
+		return render_template('apply.html')
+
+@app.route('/journeys/<int:journey_id>')
+def display_journey(journey_id):
+        journey = Journey.query.filter_by(id=journey_id).first()
+        creator = User.query.filter_by( id=journey.creator_id).first()
+        return render_template('journey.html', journey=journey, creator= creator)
+
+
+
+if __name__ == "__main__":
+    app.run()
