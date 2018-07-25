@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<title>
 			EasyLicense	
 		</title>
 	</head>
 	<body>
 		<center>
-			<div class="row">
+			<div class="parallax">
+
+				<img src="../static/img/logo.png" class="biglogo">
+				<br>
+				<br>
+				<a href="#instructordiv"><button type="button">
+					I'M A STUDENT
+				</button></a>
+				<a href="{{url_for('register')}}"><button><span>I'M AN INSTRUCTOR</span></button></a>
+				
+			</div>
+		</center>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center>
+				<ul class="filter">
+				  <li class="filter">Location
+				  	<select>
+								<option value="jerusalem"> Jerusalem </option>
+								<option value="west_bank"> West Bank </option>
+								<option value="north"> North Region </option>
+							</select></li>
+				  <li class="filter">Price
+				  	<select>
+								<option value="high"> High to Low </option>
+								<option value="low"> Low to High </option>
+							</select>
+				  </li>
+				  <li class="filter">Language
+				  <select>
+								<option value="hebrew"> Hebrew </option>
+								<option value="arabic"> Arabic </option>
+								<option value="english"> English </option>
+							</select>
+						</li>
+				</ul>
+			<div class="row" id="instructordiv">
+	  			{% for teacher in teachers %}
 	  			<div class="column">
 	    			<div class="card">
-	      				<img src="person.jpeg" alt="Jacob Jacobson" style="width:100%">
+	      				<img src="../static/img/person.jpeg" alt="Jacob Jacobson" style="width:100%" class="feed_img">
 						    <div class="container">
-						        <h2>Jacob Jacobson</h2>
-						        <p class="title"> Jersualem Instructor</p>
-						        <p> Drive with meeee</p>
-						        <p>example@example.com</p>
-						        <p><a href="profile_template.html" class="button">Contact</a></p>
+						    	
+						        <h2 id="name">{{teacher.name}}</h2>
+						        <p id="area" class="feed_insturctor">{{teahcer.area}}</p>
+						        <p id="city" class="feed_insturctor">{{teahcer.city}}</p>
+						        <p id="description" class="feed_insturctor""> {{teahcer.description}}</p>
+						        <p id="cost" class="feed_insturctor"> {{teacher.cost}}</p>
+						        <p id="languages" class="feed_insturctor"> {{teacher.languages}}</p>
+						        <p><a href="profile_template.html"><button class="button">Contact</button></a></p>
 		      				</div>
 	    			</div>
 	  			</div>
+	  			{% end for %}
 	  		</div>
 		</center>
 	</body>
