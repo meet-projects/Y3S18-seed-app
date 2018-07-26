@@ -1,25 +1,14 @@
-.parallax { 
-    /* The image used */
-    background-image: url("back.jpg");
 
-    /* Full height */
-    height: 120%; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 .biglogo{
-  height: 450px;
+  height: 350px;
 }
 
-body{
+html,body{
 	color: rgb(246,246,246);
 	margin-right: 100px;
 	margin-left: 100px;
+  background-color: #36D02A;
 }
 h3{
 	color: rgb(31, 122, 140)
@@ -146,4 +135,24 @@ li.nav a:hover {
 }
 #signup{
   float: right;
+}
+
+h3{
+
+color:white;
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 30px;
+}
+
+.whitelogo{
+
+  height: 100px;
+}
+
+.landingbutton{
+color: black;
+font-family: "Comic Sans MS", cursive, sans-serif;
+background-color: white;
+height: 100px;
+width: 200px;
 }
