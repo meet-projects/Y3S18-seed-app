@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, session
 from flask_login import login_required
 
 from project import db
@@ -110,7 +110,11 @@ def login_signup():
 def arava():
 	teachers=db.session.query(Teacher).filter_by(area="Arava").all()
 	return render_template('feed.html', teachers=teachers)
-@app.route('/profile_edit')
+
+
+@app.route('/profile_template')
 @login_required
-def private_route():
-    return render_template('edit_profile_template.html')
+def profile_template():
+	teacher_id = session['user_id']
+	teacher2=Teacher.query.filter_by(user_id=teacher_id).first()
+	return render_template('profile_template.html',teacher=teacher2)
