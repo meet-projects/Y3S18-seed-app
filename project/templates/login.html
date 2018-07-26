@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
- 
+
+
+ <body class="fixed-bg"  background="{{ url_for('static', filename='pictures/Login_Background.png') }}">
+
+<center>
 <div class="add-user">
  
 <div class="page-header">
@@ -8,7 +12,6 @@
 <h2>Log in</h2>
  
   </div>
- 
 <form action="{{ url_for('users.login') }}" method="post">
     {{ form.csrf_token }}
     {{ form.email(placeholder="email") }} 
@@ -19,7 +22,7 @@
     <br> -->
     <button class="btn btn-sm btn-success" type="submit">Log in</button>
   </form>
- 
 </div>
- 
+</center>
+ </body>
 {% endblock %}
