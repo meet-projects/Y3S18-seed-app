@@ -39,6 +39,7 @@ h1 {
 
 
 
+
 /* FROM HERE ON ITS FOR THE SLIDESHOW IN THE ABOUT PAGE */
 
 * {box-sizing:border-box}
@@ -133,4 +134,8 @@ h1 {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+body{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
