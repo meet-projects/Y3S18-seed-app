@@ -31,14 +31,15 @@ def register():
         license_num=request.form.get('license_num')
         languages=request.form.get('languages')
         profilepic=request.form.get('profilepic')
-        if profilepic is None:
-            profilepic=""
+        #if profilepic is None:
+            #profilepic=""
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
                 user=User(email,password)
                 db.session.add(user)
                 db.session.commit()
+
                 teacher=Teacher(user.id,name,area,city,description,fee,phonenum,languages,profilepic,car_type,license_num)
                 db.session.add(teacher)
                 db.session.commit()

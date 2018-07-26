@@ -65,6 +65,7 @@ class Teacher(db.Model):
         self.languages=languages
         self.car_type=car_type
         self.license_num=license_num
+        self.profile_picture=profile_picture
 
 class Booking(db.Model):
 
