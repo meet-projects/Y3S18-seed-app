@@ -3,15 +3,15 @@
 
 
 
-
 <div>
-	{% for journey in journeys %}
+	{% for journey in all_journeys %}
 		<div>
-	    	<img src="{{ journey.picture }}" width=500 height=265 >
-	    	<h5>{{ journey.start_location }}</h5><br>
-	    	<h3>{{ journey.title }}</h3><br>
+	    	<img src="{{url_for('static', filename='profile.png')}}"  width=500 height=265 >
+	    	<h5>{{ journey.title }}</h5><br>
+	    	<h3>{{ journey.location }}</h3><br>
 	    	<p>{{ journey.price }}</p><br>
 	    	<p>{{ journey.category }}</p><br>
+	    	<a href="{{url_for('display_journey', journey_id=journey.id)}}"> View Details </a>
 	    </div>
 	{% endfor %}
 

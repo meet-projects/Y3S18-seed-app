@@ -18,11 +18,13 @@ def private_route():
 @app.route('/apply', methods=['GET', 'POST'])
 @login_required
 def apply():
+	# global current_user
+	# print(current_user)
+	user_id = session['user_id']
+	user = User.query.filter_by(id=user_id).first()
+	print(user.name)
 	if request.method=='POST':
 		user_info = User.query.filter_by(id=request.form.get('user_id')).first()
-		#print(user_info)
-		#print(request)
-		#print(user_info.one())
 		user_info.country = request.form.get('country')
 		user_info.profession = request.form.get('profession')
 		user_info.birthday = request.form.get('birthday')
@@ -30,10 +32,9 @@ def apply():
 		user_info.number = request.form.get('number')
 		db.session.add(user_info)
 		db.session.commit()
-############################################### CONNECT THIS TO CURRENT USER ########################################################
-
+		################# JOURNEY TABLE ###################
 		new_journey = Journey()
-		#new_journey.creator_id = current_user.id
+		new_journey.creator_id = request.form.get('user_id')
 		new_journey.title = request.form.get('title')
 		new_journey.description = request.form.get('description')
 		new_journey.location  = request.form.get('location')
@@ -46,29 +47,35 @@ def apply():
 		print(new_journey.description)
 		db.session.add(new_journey)
 		db.session.commit()
-		return render_template('journey_table_test.html', journey=new_journey)
+		return render_template('journey.html', journey=new_journey, current_user=user)
 	else:
-		return render_template('apply.html')
+		return render_template('apply.html', current_user=user)
 
 @app.route('/journeys/<int:journey_id>')
 def display_journey(journey_id):
         journey = Journey.query.filter_by(id=journey_id).first()
-        creator = User.query.filter_by( id=journey.creator_id).first()
+        creator = User.query.filter_by(id=journey.creator_id).first()
         return render_template('journey.html', journey=journey, creator= creator)
 
 @app.route('/profile/<user_id>')
 def profile(user_id):
 	user=User.query.filter_by (id=user_id).first()
 	is_user=False
-	# if user_email==current_user.email:
-	# 	is_user=True
-	return render_template('profile.html',user=user, is_user=is_user)
+	user_id = session['user_id']
+	current_user = User.query.filter_by(id=user_id).first()
+	if user.id==current_user.id:
+	 	is_user=True
+	return render_template('profile.html',user=user, is_user=is_user, current_user=current_user)
 
 @app.route('/browse')
-def block_journey():
-	all_journeys = db.session.query(Journey).all()
-	return render_template('browse.html', journey=all_journeys)
+def browse():
+	user_id = session['user_id']
+	current_user = User.query.filter_by(id=user_id).first()
+	# WHAT ZAIN DID ===>  all_journeys = db.session.query(Journey).all()
+	all_journeys = Journey.query.all()
+	return render_template('browse.html', all_journeys=all_journeys, current_user=current_user)
 	# we need to now how to filter 
+
 
 
 if __name__ == "__main__":

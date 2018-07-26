@@ -64,17 +64,18 @@ class Journey(UserMixin, db.Model):
     price        = db.Column(db.String, nullable=False)
     picture      = db.Column(db.String, nullable=False)
 
-    def __init__(self, creator_id='', title='', description='', location='', duration='', category='', requirements='', people_range='', picture='', price='' ):
-        self.creator_id = creator_id
-        self.title = title
-        self.description = description
-        self.location = location
-        self.duration = duration
-        self.category = category
-        self.requirements = requirements
-        self.people_range = people_range
-        self.picture = picture
-        self.price = price
+
+    def __init__(self, creator_id='', title='', description='', location='', duration='', category='', requirements='', people_range='', picture='', price=''):
+        self.creator_id    = creator_id
+        self.title         = title
+        self.description   = description
+        self.location      = location
+        self.duration      = duration
+        self.category      = category
+        self.requirements  = requirements
+        self.people_range  = people_range
+        self.picture       = picture
+        self.price         = price
 
 
     def __repr__(self):
