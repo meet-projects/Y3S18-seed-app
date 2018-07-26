@@ -44,7 +44,7 @@
 <textarea name="duration" rows="10" cols="30" placeholder="1hour to 2 hours" required>
 </textarea>
 
-<h4>Catigory Of People who will take the journey</h4>
+<h4>Category Of People who will take the journey</h4>
 <textarea name="category" rows="10" cols="30" placeholder="music and nature lovers a bit of sportivic" required>
 </textarea>
 <br>
@@ -63,7 +63,7 @@
 <h4>add image url</h4>
 <textarea name="picture" rows="10" cols="30" placeholder="Regular Picture" required>
 </textarea>
-
+<input type="hidden" name="user_id" value= "{{ session['user_id'] }}" >
   <button class="btn btn-lg postbtn" type="submit">Submit!</button>
 
   </form>

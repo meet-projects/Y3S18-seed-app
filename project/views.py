@@ -1,4 +1,5 @@
-from flask import render_template, request, Flask
+from flask import render_template, request, Flask, session, redirect, url_for
+from flask import session as login_session
 from flask_login import login_required
 from . import app, db
 
@@ -15,8 +16,22 @@ def private_route():
 
 
 @app.route('/apply', methods=['GET', 'POST'])
+@login_required
 def apply():
 	if request.method=='POST':
+		user_info = User.query.filter_by(id=request.form.get('user_id')).first()
+		#print(user_info)
+		#print(request)
+		#print(user_info.one())
+		user_info.country = request.form.get('country')
+		user_info.profession = request.form.get('profession')
+		user_info.birthday = request.form.get('birthday')
+		user_info.city = request.form.get('city')
+		user_info.number = request.form.get('number')
+		db.session.add(user_info)
+		db.session.commit()
+############################################### CONNECT THIS TO CURRENT USER ########################################################
+
 		new_journey = Journey()
 		#new_journey.creator_id = current_user.id
 		new_journey.title = request.form.get('title')
@@ -28,6 +43,7 @@ def apply():
 		new_journey.people_range  = request.form.get('people_range')
 		new_journey.price  = request.form.get('price')
 		new_journey.picture  = request.form.get('picture')
+		print(new_journey.description)
 		db.session.add(new_journey)
 		db.session.commit()
 		return render_template('journey_table_test.html', journey=new_journey)
@@ -47,6 +63,13 @@ def profile(user_id):
 	# if user_email==current_user.email:
 	# 	is_user=True
 	return render_template('profile.html',user=user, is_user=is_user)
+
+@app.route('/browse')
+def block_journey():
+	all_journeys = db.session.query(Journey).all()
+	return render_template('browse.html', journey=all_journeys)
+	# we need to now how to filter 
+
 
 if __name__ == "__main__":
 	app.run()
