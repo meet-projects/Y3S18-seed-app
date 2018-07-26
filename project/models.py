@@ -47,7 +47,7 @@ class Teacher(db.Model):
     area = db.Column(db.String)
     city = db.Column(db.String)
     description = db.Column(db.String)
-    cost = db.Column(db.String)
+    cost = db.Column(db.Integer)
     phone_num = db.Column(db.String)
     languages = db.Column(db.String)
     profile_picture = db.Column(db.String)
