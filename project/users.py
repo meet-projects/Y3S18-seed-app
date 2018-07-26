@@ -43,14 +43,13 @@ def register():
                 db.session.add(teacher)
                 db.session.commit()
             login_user(user, remember=True)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
-            return redirect(next_page)
+            return redirect('profile_template')
+            ##next_page = request.args.get('next')
+            ##if not next_page or url_parse(next_page).netloc != '':
+               ## next_page = url_for('private_route')
+            ##return redirect(next_page)
         else:
             return Response("<p>invalid form</p>")
-    else:
-        return Response("<p>invalid form</p>")
 
     return render_template('login_signup.html', form=form)
                 
