@@ -1,28 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/logincss.css') }}">
+</head>
+	<body>
 
-{% extends "layout.html" %}
-{% block content %}
- 
-<div class="login-modal">
-	<div class="imgcontainer">
-    	<img src="artflict_img.jpg" alt="Avatar" class="avatar">
-  	</div>
+		<div class="login-modal">
+			<div class="imgcontainer">
+		    	<img src="artflict_img.jpg" alt="Avatar" class="avatar">
+		  	</div>
 
-	  <div class="container">
-	  	<form action="{{ url_for('users.login') }}" method="post">
-			    	{{ form.csrf_token }}
-			    	username {{ form.username(placeholder="Username") }}
-			    	password {{ form.password(placeholder="Password") }}
-			    	<br>
-			    	<button class="btn" type="submit">Log in</button>
-			    	<label>
-				      <input type="checkbox" checked="checked" name="remember"> Remember me
-				    </label>
-				    <a href="{{url_for('users.register')}}">Sign Up!</a>
+			  <div class="container">
+			  	<form action="{{ url_for('users.login') }}" method="post">
+					    	{{ form.csrf_token }}
+					    	username {{ form.username(placeholder="Username") }}
+					    	password {{ form.password(placeholder="Password") }}
+					    	<br>
+					    	<button class="btn" type="submit">Log in</button>
+					    	<label>
+						      <input type="checkbox" checked="checked" name="remember"> Remember me
+						    </label>
+						    <a href="{{url_for('users.register')}}">Sign Up!</a>
 
-		</form>
+				</form>
 
-	    
-	  </div>
-
- 
-{% endblock %}
+			    
+			  </div>
+		</div>
+	
+	</body>
+</html>

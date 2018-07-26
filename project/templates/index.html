@@ -1,23 +1,6 @@
 
 {% extends "layout.html" %}
 {% block content %}
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/feeddesign.css') }}">
-	<h1>Hello {{user.username}}</h1>	
-	<ul> 
-	  <li class="menu_item"><a href="{{url_for('users.index')}}">Home</a></li>
-	  <li class="menu_item"><a href="{{url_for('add_post.adding_posts')}}">Post</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.logout')}}">Logout</a></li>
-
- 	</ul>
- 	<style>
- 		
- 		{
- 		font-size: 150%;
- 		}
- 	</style>
- 
- <header>Feed</header>
-
 
 {% for post in posts %}
  <div id="feed_div">

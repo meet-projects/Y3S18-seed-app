@@ -54,11 +54,8 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('users.login'))
-    #return Response("<p>Logged out</p>")
-@users_bp.route('/')
-def index():
-    return render_template('index.html')
+
+    return Response("<p>Logged out</p>")
 
 #@users_bp.route('/post')
 #def post():

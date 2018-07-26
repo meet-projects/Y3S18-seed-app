@@ -17,6 +17,8 @@ _mailinglist
 docs/_build/
 .vscode/
 
+*.cfg
+
 # Coverage reports
 htmlcov/
 .coverage
