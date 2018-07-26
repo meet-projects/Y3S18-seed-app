@@ -56,13 +56,19 @@ def display_journey(journey_id):
         creator = User.query.filter_by( id=journey.creator_id).first()
         return render_template('journey.html', journey=journey, creator= creator)
 
+@app.route('/profile/<user_id>')
+def profile(user_id):
+	user=User.query.filter_by (id=user_id).first()
+	is_user=False
+	# if user_email==current_user.email:
+	# 	is_user=True
+	return render_template('profile.html',user=user, is_user=is_user)
+
 @app.route('/browse')
 def block_journey():
 	all_journeys = db.session.query(Journey).all()
 	return render_template('browse.html', journey=all_journeys)
 	# we need to now how to filter 
-
-
 
 
 if __name__ == "__main__":
