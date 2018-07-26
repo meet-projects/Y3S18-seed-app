@@ -63,6 +63,10 @@ td{
 }
 
 .card {
+
+  min-height: 550px;
+  max-height: 550px;
+  padding: 10px;
 }
 
 .container {
@@ -311,6 +315,7 @@ font-weight: bold;
     width: 618px;
     height: 85px;
 }
+
 .filters{
   height: 59px;
   width:180px;
@@ -354,4 +359,11 @@ font-weight: bold;
 .booking_table_header{
   color: rgb(31,122,140);
   font-size: 20px;
+}
+
+.profilepic{
+
+min-height: 250px;
+max-height: 250px;
+border-radius: 20px;
 }
