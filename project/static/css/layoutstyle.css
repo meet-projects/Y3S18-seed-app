@@ -10,7 +10,7 @@ html
         }         
   body          
         { 
-            background-image: url("static/pictures/bacpicRed.jpg") ;
+            background-image: url("../pictures/bacpicRed.jpg") ;
             background-position: center;
             align-items: center;
             background-size: 100% 1000px; 
