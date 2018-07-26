@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/js/script.js"> </script>
 		<title>
 			EasyLicense	
 		</title>
@@ -33,8 +36,46 @@
 					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
+
 			<br>
-			<a href="booking" id="book_lesson_link"><button id="book_lesson_btn"><b> BOOK A LESSON</b></button></a>
+
+
+			<!-- Trigger/Open The Modal -->
+			<button id="myBtn">Book a Lesson</button>
+
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+  				<!-- Modal content -->
+  				<div class="modal-content">
+    				<div class="modal-header">
+      					<span class="close">&times;</span>
+      					<h2>Book a Lesson!</h2>
+    				</div>
+    				<div class="modal-body">
+    					<br>
+    					<form name="booking_form" id="book">
+    						Full Name<br>
+    						<input type="text" name="name" placeholder="Full Name">
+    						<br>
+    						<br>
+    						Phone Number<br>
+    						<input type="text" name="num" placeholder="Phone Number">
+    						<br>
+							<input type="text" name="teacher" value="{{teacher.id}}" style="visibility: hidden;">
+							<br>
+							<input type="submit" name="submit" onclick="book()" value="Book!">
+						</form>
+    				</div>
+    				<div class="modal-footer">
+      					<h3>The right guidance with EasyLicense!</h3>
+    				</div>
+  				</div>
+
+			</div>
+
+
+			<!-- <a href="booking" id="book_lesson_link"><button id="book_lesson_btn"><b> BOOK A LESSON</b></button></a> -->
 			<img src="../static/img/Transparent.png" class="logo">
 		</div>
 		<div id="main_profile">
