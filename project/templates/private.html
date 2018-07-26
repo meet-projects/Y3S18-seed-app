@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <style>
-img{
+#profile{
 
 	position: fixed;
 	left: 300px;
@@ -34,10 +34,23 @@ h4{
 	left: 450px;
 	top: 180px;
 
+}
+
+#addcontact{
+	position: fixed;
+	left:250px;
+	top: 300px;
+
 
 }
 
-
+.noa{
+	background-color: powderblue;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
 
 
 
@@ -49,7 +62,7 @@ h4{
 
 
 <div>
-   <img src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="100" width="100">
+   <img id="profile" src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="100" width="100">
    </div>
 
 {{session['user_id']}}
@@ -58,14 +71,12 @@ h4{
 </form>
 <h1><a href="{{ url_for('users.login') }}">LOG OUT</a></h1>
 <h2><a href="{{ url_for('info') }}">INFORMATION!</a></h2>
-<h3>-MOM123-</h3>
-<h4>-05X-XXXXXXX-</h4>
+<h3>{{session['name']}}</h3>
+<h4>-{{session['phone']}}</h4>
 
-<div>
-	
-
-
-
+<div class='noa'>
+    <img id="addcontact" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
+ 		
 
 
 
@@ -79,7 +90,10 @@ h4{
 
 
 
-	
+
+
+
+
 </div>
 
 
