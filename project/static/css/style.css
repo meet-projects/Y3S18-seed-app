@@ -22,7 +22,7 @@ form{
 	font: helvetica;
 }
 table{
-	font: helvetica;
+	font-family: "Avenir Next";
 }
 th{
 	text-align: left;
@@ -38,8 +38,8 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
-  height: 340px
-  width:340px;
+  max-height: 340px
+  max-width:340px;
   display: block;
   margin-top: 15px;
   margin-right: auto;
@@ -169,6 +169,7 @@ width: 200px;
   width:120px;
   height:30px;
   border: none;
+  color: white;
 }
 #edit_link{
   color: white;
@@ -177,4 +178,8 @@ width: 200px;
 .profile_title{
   font-weight: bold;
   color: black;
+}
+#about_text{
+  max-width:20px;
+  height:250px;
 }
