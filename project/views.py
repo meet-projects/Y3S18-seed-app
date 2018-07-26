@@ -150,7 +150,7 @@ def edit_profile():
 
 
 @app.route('/booking/<int:teacher_id>')
-#def booking(teacher_id):
+def booking(teacher_id):
 	studentname=request.form.get('name')
 	studentnum=request.form.get('num')
 	thisteacher=Teacher.query.filter_by(id=teacher_id).first()
