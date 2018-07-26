@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     id             = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email          = db.Column(db.String, unique=True, nullable=False)
     password_hash  = db.Column(db.String, nullable=False)
-    # name           = db.Column(db.String, nullable=False)
+    name           = db.Column(db.String, nullable=False)
     # birthday       = db.Column(db.String, nullable=False)
     # country        = db.Column(db.String, nullable=False)
     # is_storyteller = db.Column(db.String, nullable=False)
@@ -45,7 +45,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return 'User %d %s' % (self.id, self.username)
+        return 'User %d %s' % (self.id, self.email)
 
 class Journey(UserMixin, db.Model):
 
