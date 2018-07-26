@@ -8,6 +8,8 @@
 	
 	<body class="profile_page">
 		<a href="feed" id="feed_btn">Feed</a>
+		<center><img src="../static/img/Small.png" class="logo"></center>
+
 		<section id="profile_container">
 			<div id="side_profile" align="left">
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
@@ -52,6 +54,26 @@
 					{{teacher.description}} 
 				</p>
 			</div>
+			{% for booking in bookings %}
+			<table id="booking_table">
+				<tr>
+					<th class="booking_table_header">
+						Name
+					</th>
+					<th class="booking_table_header">
+						Phone Number
+					</th>
+				</tr>
+				<tr>
+					<td>
+						{{booking.name}}
+					</td>
+					<td>
+						{{booking.phone_num}}
+					</td>
+				</tr>
+			</table>
+			{% endfor %}
 		</div>
 	</section>
 	</body>
