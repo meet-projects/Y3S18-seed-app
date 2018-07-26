@@ -63,7 +63,7 @@
 <h4>add image url</h4>
 <textarea name="picture" rows="10" cols="30" placeholder="Regular Picture" required>
 </textarea>
-
+<input type="hidden" name="user_id" value= "{{ session['user_id'] }}" >
   <button class="btn btn-lg postbtn" type="submit">Submit!</button>
 
   </form>
