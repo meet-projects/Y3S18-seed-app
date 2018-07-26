@@ -6,8 +6,6 @@
 
 body{
 	color: rgb(246,246,246);
-	margin-right: 60px;
-	margin-left: 60px;
   background-color: #36D02A;
 }
 h3{
@@ -38,7 +36,7 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
-  max-height: 340px
+  max-height: 340px;
   max-width:340px;
   display: block;
   margin-top: 15px;
@@ -147,8 +145,10 @@ background-color: white;
 height: 100px;
 width: 200px;
 }
-#profile_page{
+.profile_page{
   background-color: white;
+  margin-right: 60px;
+  margin-left: 60px;
 }
 #main_profile{
   margin-left:33%;
@@ -179,7 +179,19 @@ width: 200px;
   font-weight: bold;
   color: black;
 }
-#about_text{
-  max-width:20px;
-  height:250px;
+#about_p{
+  vertical-align: middle;
+  line-height: normal;
+  display: inline-block;
+  color: rgb(70,70,70);
+}
+#profile_about{
+  text-align: justify;
+  height:100px;
+  width: 750px;
+}
+#profile_goals_needs{
+  text-align: justify;
+  height:100px;
+  width: 750px; 
 }

@@ -5,12 +5,12 @@
 			EasyLicense	
 		</title>
 	</head>
-	<body id="profile_page">
+	<body class="profile_page">
 		<section id="profile_container">
 			<div id="side_profile" align="left">
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
 			<br>
-			<p><i> {{teacher.description}}</i> </p>
+			<p><i> {{teacher.name}}</i> </p>
 			<br>
 			<table>
 				<tr>
@@ -45,11 +45,17 @@
 			<h4 class="profile_title">
 			ABOUT
 			</h4>
-				<div id="about_text">
-					<p>
-						sjkldfsgsdfgsdfgsdfgsdfgsdfghsdjkfdghsdjkfcgfgcdfjkcghjksdfcghsjkdfhgndfjsnhcgkjsfhcgjksfghcnkjfgckdghnerjfgsdjkhcbgfcgjfbgccgnnnnngwerunhcgklerughileurgheuilrghciwerughniweruucghweirughcniwerughierugnchioewurocghioweurghiowerucghweiourghcioweurghcoweirucghweiorughweiorughcweiorucghwerioguhwerioughcwerioucghwerioughceiowrucghwerioucghwerioughcwerioucghweiorucne
-					</p>
-				</div>
+			<div id="profile_about">
+				<p id="about_p">
+					{{teacher.description}} 
+				</p>
+			</div>
+			<br>
+			<div id="profile_goals_needs">
+			<h4 class="profile_title">
+			GOALS
+			</h4>	
+			</div>
 		</div>
 	</section>
 	</body>
