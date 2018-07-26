@@ -50,6 +50,12 @@ def apply():
 	else:
 		return render_template('apply.html')
 
+@app.route('/journeys/<int:journey_id>')
+def display_journey(journey_id):
+        journey = Journey.query.filter_by(id=journey_id).first()
+        creator = User.query.filter_by( id=journey.creator_id).first()
+        return render_template('journey.html', journey=journey, creator= creator)
+
 
 
 
