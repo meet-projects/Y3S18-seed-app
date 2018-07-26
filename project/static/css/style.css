@@ -6,7 +6,7 @@
 
 body{
 	color: rgb(246,246,246);
-  background-color: #36D02A;
+  background-color: white;
 }
 h3{
 	color: rgb(31, 122, 140)
@@ -141,11 +141,13 @@ font-size: 30px;
 .landingbutton{
 color: black;
 font-family: "Comic Sans MS", cursive, sans-serif;
-font-size:15px;
+font-size:23px;
+font-weight: bold;
 background-color: white;
 height: 110px;
 width: 200px;
 border: none;
+border-radius: 20px;
 
 }
 .profile_page{
@@ -204,7 +206,6 @@ border: none;
 }
 
 .div{
-
   background-color: #36d02a;
   width: 100%;
 }
@@ -220,4 +221,5 @@ border: none;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+
 }
