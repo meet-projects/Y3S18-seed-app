@@ -319,6 +319,7 @@ font-weight: bold;
 .filter_title{
   color: rgb(31,122,140);
   font-family: sans-serif;
+  font-size: 20px;
 }
 .filter{
   margin-left: 8.5%;
@@ -344,4 +345,13 @@ font-weight: bold;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
+}
+#booking_table{
+  border: 3px solid rgb(184, 255, 114);
+  width: 500px;
+  min-height: 200px; 
+}
+.booking_table_header{
+  color: rgb(31,122,140);
+  font-size: 20px;
 }
