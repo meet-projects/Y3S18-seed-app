@@ -1,4 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1>Private!</h1>
+{{session['user_id']}}
+<form action="/private" method = "POST" >
+	<button type="submit" class="btn btn-default">BABY IN CAR</button>
+</form>
+<h1><a href="{{ url_for('users.login') }}">Check out this cool form!</a></h1>
+<h1><a href="{{ url_for('info') }}">Info!</a></h1>
 {% endblock %}
