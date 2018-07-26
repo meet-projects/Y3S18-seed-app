@@ -20,7 +20,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 users_bp = Blueprint('users', __name__)
 
-current_user = 'Not Logged In'
+# current_user = 'Not Logged In'
 
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
@@ -61,9 +61,12 @@ def login():
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect email or password</p>")
             login_user(user, remember=True)
+            # global current_user
+            # current_user = 'this'
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
+                #return render_template('browse.html', current_user=user)
+                next_page = url_for('browse')
 
             return redirect(next_page)
         else:
