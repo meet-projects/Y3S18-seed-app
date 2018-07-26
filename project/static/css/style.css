@@ -122,7 +122,7 @@ li.filter select {
 
 #side_profile{
   width: 350px;
-  height: 600px;
+  height: 550px;
   color:rgb(246,246,246);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   float: left;
@@ -195,11 +195,6 @@ border-radius: 20px;
   height:100px;
   width: 750px;
 }
-#profile_goals_needs{
-  text-align: justify;
-  height:100px;
-  width: 750px; 
-}
 #about_text{
   max-width:20px;
   height:250px;
@@ -222,4 +217,15 @@ border-radius: 20px;
     margin: 4px 2px;
     cursor: pointer;
 
+}
+#book_lesson_btn{
+  background-color:rgb(31,122,140);
+  width:120px;
+  height:40px;
+  border: none;
+  color: white;
+}
+#book_lesson_link{
+  color: white;
+  text-decoration: none;
 }
