@@ -6,9 +6,7 @@
 
 body{
 	color: rgb(246,246,246);
-	margin-right: 60px;
-	margin-left: 60px;
-  background-color: #36D02A;
+  background-color: white;
 }
 h3{
 	color: rgb(31, 122, 140)
@@ -182,4 +180,10 @@ width: 200px;
 #about_text{
   max-width:20px;
   height:250px;
+}
+
+div{
+
+  background-color: #36d02a;
+  width: 100%;
 }
