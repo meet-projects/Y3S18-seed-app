@@ -67,7 +67,6 @@ def login():
 #             if not next_page or url_parse(next_page).netloc != '':
 #                 #return render_template('browse.html', current_user=user)
 #                 next_page = url_for('browse')
-
             # next_page = request.args.get('next')
             # if not next_page or url_parse(next_page).netloc != '':
             #     next_page = url_for('private_route')

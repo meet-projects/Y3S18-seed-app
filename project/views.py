@@ -6,8 +6,14 @@ from . import app, db
 from project.models import Journey, User
 
 @app.route('/')
-def index():
-	return render_template('index.html')
+def browse():
+	user_id = session['user_id']
+	current_user = User.query.filter_by(id=user_id).first()
+	# WHAT ZAIN DID ===>  all_journeys = db.session.query(Journey).all()
+	all_journeys = Journey.query.all()
+	return render_template('browse.html', all_journeys=all_journeys, current_user=current_user)
+	# we need to now how to filter 
+
 
 @app.route('/private')
 @login_required
@@ -32,6 +38,7 @@ def apply():
 		user_info.number = request.form.get('number')
 		db.session.add(user_info)
 		db.session.commit()
+		
 		################# JOURNEY TABLE ###################
 		new_journey = Journey()
 		new_journey.creator_id = request.form.get('user_id')
@@ -47,15 +54,17 @@ def apply():
 		print(new_journey.description)
 		db.session.add(new_journey)
 		db.session.commit()
-		return render_template('journey.html', journey=new_journey, current_user=user)
+		return render_template('journey.html', journey=new_journey, current_user=user, creator=user_info)
 	else:
+		print('hereeee')
 		return render_template('apply.html', current_user=user)
 
 @app.route('/journeys/<int:journey_id>')
 def display_journey(journey_id):
         journey = Journey.query.filter_by(id=journey_id).first()
         creator = User.query.filter_by(id=journey.creator_id).first()
-        return render_template('journey.html', journey=journey, creator= creator)
+        print('creator ---->', creator)
+        return render_template('journey.html', journey=journey, creator=creator)
 
 @app.route('/profile/<user_id>')
 def profile(user_id):
@@ -66,15 +75,6 @@ def profile(user_id):
 	if user.id==current_user.id:
 	 	is_user=True
 	return render_template('profile.html',user=user, is_user=is_user, current_user=current_user)
-
-@app.route('/browse')
-def browse():
-	user_id = session['user_id']
-	current_user = User.query.filter_by(id=user_id).first()
-	# WHAT ZAIN DID ===>  all_journeys = db.session.query(Journey).all()
-	all_journeys = Journey.query.all()
-	return render_template('browse.html', all_journeys=all_journeys, current_user=current_user)
-	# we need to now how to filter 
 
 
 
