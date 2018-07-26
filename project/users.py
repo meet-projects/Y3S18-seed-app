@@ -12,7 +12,7 @@ from project.models import User
 
 users_bp = Blueprint('users', __name__)
 
-@users_bp.route('/register', methods=['GET', 'POST'])
+@users_bp.route('/', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST':
