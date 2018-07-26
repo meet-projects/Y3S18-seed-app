@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     id             = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email          = db.Column(db.String, unique=True, nullable=False)
     password_hash  = db.Column(db.String, nullable=False)
-    # name           = db.Column(db.String, nullable=False)
+    name           = db.Column(db.String, nullable=False)
     # birthday       = db.Column(db.String, nullable=False)
     # country        = db.Column(db.String, nullable=False)
     # is_storyteller = db.Column(db.String, nullable=False)
@@ -64,7 +64,7 @@ class Journey(UserMixin, db.Model):
     picture      = db.Column(db.String, nullable=False)
 
 
-    def __init__(self):
+    def __init__(self ,title,description,start_location,end_location,duration,category,requirements,people_range,picture ,price):
        self.title = title
        self.description = description
        self.start_location = start_location
@@ -73,6 +73,8 @@ class Journey(UserMixin, db.Model):
        self.category = category
        self.requirements = requirements
        self.people_range = people_range
+       self.picture = picture
+       self.price = price
 
     def __repr__(self):
         return 'Journey %d %s' % (self.id, self.title)
