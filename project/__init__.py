@@ -31,4 +31,3 @@ app.register_blueprint(users_bp)
 # General views
 from . import views
 
-db.create_all()
