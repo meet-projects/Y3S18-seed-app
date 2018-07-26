@@ -141,9 +141,12 @@ font-size: 30px;
 .landingbutton{
 color: black;
 font-family: "Comic Sans MS", cursive, sans-serif;
+font-size:15px;
 background-color: white;
-height: 100px;
+height: 110px;
 width: 200px;
+border: none;
+
 }
 .profile_page{
   background-color: white;
