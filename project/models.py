@@ -64,6 +64,7 @@ class Journey(UserMixin, db.Model):
     price        = db.Column(db.String, nullable=False)
     picture      = db.Column(db.String, nullable=False)
 
+
     def __init__(self, creator_id='', title='', description='', location='', duration='', category='', requirements='', people_range='', picture='', price=''):
         self.creator_id    = creator_id
         self.title         = title
