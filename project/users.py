@@ -62,3 +62,4 @@ def login():
 def logout():
     logout_user()
     return Response("<p>Logged out</p>")
+

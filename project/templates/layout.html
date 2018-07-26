@@ -4,10 +4,109 @@
       <title>Hello</title>
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/logincss.css') }}">
 
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+      <style>
+        body          
+        { 
+            background-image: url("static/pictures/city2.jpg") ;
+            background-position: center;
+            align-items: center;
+            background-size: 100% 1000px; 
+            
+
+        }
+        #square
+        {
+          background-image: url("static/pictures/bluesquare.jpg") ;
+          height: 475px;
+          width: 335px;
+          margin-right: auto;
+          margin-left: auto;
+          border-radius: 15px;
+          padding: 100px 50px 50px 75px;
+
+
+        }
+        #logo
+        {
+          margin-right: auto;
+          margin-left: auto;
+          width:100px;
+          height: 100px;
+          border-radius: 25%;
+          border-style: solid;
+          border: 1px solid #ccc;
+        }
+
+        .btn
+        {
+          margin-right: auto;
+          margin-left: auto; 
+        }
+
+        .login-modal{
+          width:100%;
+          height:100vh;
+          background-color: rgba(255,255,255,0.4);
+          z-index: 1;
+        }
+
+        .add-user{
+          z-index: 3;
+        }
+
+
+
+this has nothing in the html yet/*#space-invader{
+
+  box-shadow:
+    0 0 0 1em red,
+    0 1em 0 1em red,
+    -2.5em 1.5em 0 .5em red,
+    2.5em 1.5em 0 .5em red,
+    -3em -3em 0 0 red,
+    3em -3em 0 0 red,
+    -2em -2em 0 0 red,
+    2em -2em 0 0 red,
+    -3em -1em 0 0 red,
+    -2em -1em 0 0 red,
+    2em -1em 0 0 red,
+    3em -1em 0 0 red,
+    -4em 0 0 0 red,
+    -3em 0 0 0 red,
+    3em 0 0 0 red,
+    4em 0 0 0 red,
+    -5em 1em 0 0 red,
+    -4em 1em 0 0 red,
+    4em 1em 0 0 red,
+    5em 1em 0 0 red,
+    -5em 2em 0 0 red,
+    5em 2em 0 0 red,
+    -5em 3em 0 0 red,
+    -3em 3em 0 0 red,
+    3em 3em 0 0 red,
+    5em 3em 0 0 red,
+    -2em 4em 0 0 red,
+    -1em 4em 0 0 red,
+    1em 4em 0 0 red,
+    2em 4em 0 0 red;
+
+    background: red;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+
+    margin: 50px 0 70px 65px;
+  }
+
+*/
+
+
+      </style>
   </head>
   <body>
       <!-- child template -->

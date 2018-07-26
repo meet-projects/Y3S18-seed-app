@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Post
+	</title>
+	<title>post</title>
+	<link rel="stylesheet" type="text/css" href="css1.css">
+	  <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<ul>
+  <li class="menu_item"><a href="{{url_for('users.index_page')}}">Home</a></li>
+	  <li class="menu_item"><a href="{{url_for('users.stories')}}">Stories</a></li>
+	  <li class="menu_item"><a href="{{url_for('users.Saved_artist')}}">Saved Artist</a></li>
+	  <li class="menu_item"><a href="{{url_for('users.aboutus')}}">About us</a></li>
+	  <li class="menu_item"><a href="{{url_for('users.post')}}">Post</a></li>
+</ul>
+<h1>post a story</h1>
+<form action="{{ url_for('post.post') }}" method="post">
+    {{ form.csrf_token }}
+    {{ form.title(placeholder= "Title") }}<br><br>
+    {{ form.text(placeholder="Tell us your story") }} <br><br>
+    {{ form.confirm(placeholder="Confirm Password") }}<br><br>
+    <button class="btn btn-sm btn-success" type="submit">Share</button>
+</form>
+
+</body>
+</html>

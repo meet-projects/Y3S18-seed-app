@@ -14,3 +14,7 @@ class LoginForm(Form):
     username = StringField('Username', validators=[DataRequired(), Length(max=16)])
     password = PasswordField('Password', validators=[DataRequired(), Length(max=40)])
 
+class PostForm(Form):
+	title = StringField('Title', validators=[DataRequired()])
+	text = StringField('Text', validators=[DataRequired()])     
+
