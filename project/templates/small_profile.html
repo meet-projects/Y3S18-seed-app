@@ -6,21 +6,15 @@
 		</title>
 	</head>
 	<body class="profile_page">
+		<a href="feed" id="feed_btn">Feed</a>
 		<section id="profile_container">
 			<div id="side_profile" align="left">
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
-	<body>
-		<a href="#feed" id="feed_btn">Feed</a>
 		<center>
-			<img src="../static/img/Transparent.png" class="logo">
 			<br>
-			<p><i> {{teacher.name}}</i> </p>
+			<p align="center"><i> {{teacher.name}}</i> </p>
 			<br>
 			<table>
-				<tr>
-					<th> <u> Phone number:</u></th> 
-					<td> {{teacher.phone_num}} </td>
-				</tr>
 				<tr> 
 
 					<th> <u> Area:</u></th> 
@@ -39,6 +33,7 @@
 					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
+			<img src="../static/img/Transparent.png" class="logo">
 			<br> 
 		</div>
 		<div id="main_profile">
