@@ -1,6 +1,7 @@
 /*#############################Signup Modal Style########################*/
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
@@ -226,6 +227,10 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+}
+
+body{
+    background-color: #36d02a
 }
 
 .logo{

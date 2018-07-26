@@ -101,14 +101,29 @@ def west_bank():
 	teachers=db.session.query(Teacher).filter_by(area="West Bank").all()
 	return render_template('feed.html', teachers=teachers)
 
+@app.route('/arava')
+def arava():
+	teachers=db.session.query(Teacher).filter_by(area="arava").all()
+	return render_template('feed.html', teachers=teachers)
+
 @app.route('/login_signup')
 def login_signup():
 	return render_template('login_signup.html')
 
 
-@app.route('/arava')
-def arava():
-	teachers=db.session.query(Teacher).filter_by(area="Arava").all()
+@app.route('/arabic')
+def arabic():
+	teachers=db.session.query(Teacher).filter_by(languages="arabic").all()
+	return render_template('feed.html', teachers=teachers)
+
+@app.route('/english')
+def english():
+	teachers=db.session.query(Teacher).filter_by(languages="english").all()
+	return render_template('feed.html', teachers=teachers)
+
+@app.route('/hebrew')
+def hebrew():
+	teachers=db.session.query(Teacher).filter_by(languages="hebrew").all()
 	return render_template('feed.html', teachers=teachers)
 
 
