@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Post
+	</title>
+	<title>post</title>
+	<link rel="stylesheet" type="text/css" href="css1.css">
+	  <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form action="{{ url_for('add_post.adding_posts') }}" method="post">
+    {{ form.csrf_token }}
+    {{ form.title(placeholder= "Title") }}<br><br>
+    {{ form.text(placeholder="Tell us your story") }} <br><br>
+    <button class="btn btn-sm btn-success" type="submit">Share</button>
+</form>
+
+</body>
+</html>

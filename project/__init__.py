@@ -22,9 +22,9 @@ def load_user(user_id):
 
 # Blueprints
 from project.users import users_bp
-
+from project.add_post import post_bp
 app.register_blueprint(users_bp)
-
+app.register_blueprint(post_bp)
 
 # General views
 from . import views

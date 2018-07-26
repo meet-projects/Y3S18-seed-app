@@ -16,5 +16,6 @@ class LoginForm(Form):
 
 class PostForm(Form):
 	title = StringField('Title', validators=[DataRequired()])
-	text = StringField('Text', validators=[DataRequired()])     
+	text = StringField('Text', validators=[DataRequired()])
+     
 

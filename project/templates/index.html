@@ -6,14 +6,12 @@
   <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<ul>
-	  <li class="menu_item"><a href="{{url_for('users.index_page')}}">Home</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.stories')}}">Stories</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.Saved_artist')}}">Saved Artist</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.aboutus')}}">About us</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.post')}}">Post</a></li>
-	</ul>
-
+		<h1>Hello {{user.username}}</h1>	
+		<ul> 
+	  <li class="menu_item"><a href="{{url_for('feed')}}">Home</a></li>
+	  <li class="menu_item"><a href="{{url_for('add_post.adding_posts')}}">Post</a></li>
+ 	</ul>
+ 	
  
  <header>Feed</header>
 </body>

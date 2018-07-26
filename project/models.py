@@ -22,7 +22,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return 'User %d %s' % (self.userID, self.username)
+        return 'User %d %s' % (self.id, self.username)
 
 class Post(db.Model):
     __tablename__='posts'

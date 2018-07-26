@@ -12,7 +12,6 @@ from project.models import User
 
 users_bp = Blueprint('users', __name__)
 
-
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
@@ -28,17 +27,21 @@ def register():
                 db.session.add(user)
                 db.session.commit()
                 login_user(user, remember=True)
+<<<<<<< HEAD
                 next_page = request.args.get('next')
                 if not next_page or url_parse(next_page).netloc != '':
                     next_page = url_for('private_route')
                 return redirect(next_page)
             # else 
+=======
+                return url_for(feed(),  user=user)
+>>>>>>> Post
         else:
             return Response("<p>invalid form</p>")
     return render_template('register.html', form=form)
                 
 
-@users_bp.route('/login', methods=['GET', 'POST'])
+@users_bp.route('/', methods=['GET', 'POST'])
 def login():
     form = LoginForm(request.form)
     if request.method == 'POST':
@@ -49,10 +52,8 @@ def login():
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect username or password</p>")
             login_user(user, remember=True)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
-            return redirect(next_page)
+            return redirect(url_for('feed',  user=user))
+            #return render_template('index.html', user = user)
         else:
             return Response("<p>invalid form!!!!!</p>")
     return render_template('login.html', form=form)
