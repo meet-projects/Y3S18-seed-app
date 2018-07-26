@@ -31,8 +31,11 @@ def register():
         phonenum=request.form.get('phonenum')
         car_type=request.form.get('car_type')
         license_num=request.form.get('license_num')
-        languages=request.form.get('languages')
+        languages_ar=request.form.get('languages_ar')
+        languages_en=request.form.get('languages_en')
+        languages_hb=request.form.get('languages_hb')
         profilepic=request.form.get('profilepic')
+        lan=""
         #if profilepic is None:
             #profilepic=""
         if password== password2:
@@ -41,8 +44,13 @@ def register():
                 user=User(email,password)
                 db.session.add(user)
                 db.session.commit()
-
-                teacher=Teacher(user.id,name,area2,city,description,fee,phonenum,languages,profilepic,car_type,license_num)
+                if(languages_hb is not None):
+                    lan+="Hebrew "
+                if(languages_en is not None):
+                    lan+="English "
+                if(languages_ar is not None):
+                    lan+="Arabic "
+                teacher=Teacher(user.id,name,area2,city,description,fee,phonenum,lan,profilepic,car_type,license_num)
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
