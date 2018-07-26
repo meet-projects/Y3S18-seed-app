@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
     test = db.Column(db.String)
+    test2=db.Column(db.String)
 
     def __init__(self, username, password):
         self.username = username
