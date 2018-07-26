@@ -136,3 +136,9 @@ def profile_template():
 	print('qwerwqerqwer')
 	print(teacher2)
 	return render_template('profile_template.html',teacher=teacher2)
+
+
+@app.route('/profile/<int:teacher_id>')
+def profile(teacher_id):
+	this_teach=Teacher.query.filter_by(id=teacher_id).first()
+	return render_template('small_profile.html', teacher=this_teach)

@@ -54,7 +54,7 @@ class Teacher(db.Model):
     car_type = db.Column(db.String)
     license_num = db.Column(db.String)
 
-    def __init__(self, user_id, name,area,city,description,cost,phone_num,languages,car_type,license_num):
+    def __init__(self, user_id, name,area,city,description,cost,phone_num,languages,profile_picture, car_type,license_num):
         self.user_id = user_id
         self.name=name
         self.area=area

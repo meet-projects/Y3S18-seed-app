@@ -70,8 +70,8 @@ def login():
             login_user(user, remember=True)
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
-            return redirect(next_page)
+                next_page = url_for('profile_template')
+            return redirect('profile_template')
         else:
             return Response("<p>invalid form</p>")
     return render_template('login.html', form=form)
