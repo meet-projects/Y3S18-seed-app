@@ -74,5 +74,11 @@ class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     phone_num = db.Column(db.String)
-    teacher = db.Column(db.Integer)
+    teacher_id = db.Column(db.Integer)
     done = db.Column(db.Boolean)
+
+    def __init__(self,name,phone_num,teacher_id,done):
+        self.name=name
+        self.phone_num=phone_num
+        self.teacher_id=teacher_id
+        self.done=done
