@@ -7,14 +7,17 @@
 	<script type="text/javascript" src="../static/js/login_signup.js"> </script>
 </head>
 <body>
-
+<a href="feed" id="feed_btn">Feed</a>
 <center>
 
-      <img src="../static/img/Transparent.png" class="logo">
+  <center>
+
+      <img src="../static/img/White.png" class="logo">
+  </center>
 
 <!--################################# Signup ################################-->
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+<button onclick="document.getElementById('id01').style.display='block'" class="signbutton">Sign Up</button>
 
 <div id="id01" class="modal1">
   <span onclick="document.getElementById('id01').style.display='none'" class="close1" title="Close Modal">&times;</span>
@@ -44,41 +47,47 @@
 
       <label for="phonenum"><b>Phone Number</b></label>
       <input type="text" placeholder="Enter your phone number" name="phonenum" required>
-      <label for="Languages"><b>Languages you teach in</b></label>
-      <input type="text" placeholder="Enter Languages" name="languages" required>
 
-       <label for="car_type"><b>Car Type</b></label>
+      <label for="Languages"><b>Languages You Teach In</b></label>
+      <br>
+      <form action="/action_page.php">
+        <input type="checkbox" name="languages_ar" value="Arabic"> Arabic <br>
+        <input type="checkbox" name="languages_en" value="English"> English <br>
+        <input type="checkbox" name="languages_hb" value="Hebrew"> Hebrew <br>
+      </form>
+      <br>
+
+      <label for="car_type"><b>Car Type</b></label>
       <input type="text" placeholder="Enter your car type" name="car_type" required>
-       <label for="license_num"><b>License number</b></label>
+
+      <label for="license_num"><b>License Number</b></label>
       <input type="text" placeholder="Enter your license number" name="license_num" required>
+
       <label for="description"><b>Description</b></label>
       <input type="text" placeholder="Describe Yourself" name="description" maxlength="200" style="height: 300px, width: 500px" required>
-        <label for="profilepic"><b>Profile Picture link (Optional)</b></label>
+      
+      <label for="profilepic"><b>Profile Picture link (Optional)</b></label>
       <input type="text" placeholder="Enter Profile Picture link" name="profilepic">
 
       <h3>Pick Your Area</h3>
-	<form>
-		<input type="radio" name="area" value="Galil Elion" checked> Galil Elion <br>
-		<input type="radio" name="area" value="Hof Hagalil"> Hof Hagalil <br>
-		<input type="radio" name="area" value="Golan"> Golan <br>
-		<input type="radio" name="area" value="Carmel" > Carmel <br>
-		<input type="radio" name="area" value="Sharon"> Sharon <br>
-		<input type="radio" name="area" value="Emek Israel"> Emek Israel <br>
-		<input type="radio" name="area" value="Beit Shean" > Beit Shean <br>
-		<input type="radio" name="area" value="Mishor Hakhof"> Mishor Hakhof <br>
-		<input type="radio" name="area" value="Jerusalem District"> Jersualem District <br>
-		<input type="radio" name="area" value="Negev" >Negev <br>
-		<input type="radio" name="area" value="Shfelat Yehuda"> Shfelat Yehuda <br>
-		<input type="radio" name="area" value="Judea District"> Juedea District <br>
-		<input type="radio" name="area" value="West Bank" > West Bank <br>
-		<input type="radio" name="area" value="Arava"> Arava
-	</form> 
+		  <input type="radio" name="area" value="Galil Elion" checked> Galil Elion <br>
+		  <input type="radio" name="area" value="Hof Hagalil"> Hof Hagalil <br>
+		  <input type="radio" name="area" value="Golan"> Golan <br>
+		  <input type="radio" name="area" value="Carmel" > Carmel <br>
+      <input type="radio" name="area" value="Sharon"> Sharon <br>
+      <input type="radio" name="area" value="Emek Israel"> Emek Israel <br>
+      <input type="radio" name="area" value="Beit Shean" > Beit Shean <br>
+      <input type="radio" name="area" value="Mishor Hakhof"> Mishor Hakhof <br>
+      <input type="radio" name="area" value="Jerusalem District"> Jersualem District <br>
+      <input type="radio" name="area" value="Negev" >Negev <br>
+      <input type="radio" name="area" value="Shfelat Yehuda"> Shfelat Yehuda <br>
+      <input type="radio" name="area" value="Judea District"> Juedea District <br>
+      <input type="radio" name="area" value="West Bank" > West Bank <br>
+      <input type="radio" name="area" value="Arava"> Arava
+	
 
 	<br>
 	<br>
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
 
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
@@ -93,31 +102,27 @@
 
 <!--############################# Login #################################-->
 
-<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
+<button onclick="document.getElementById('id02').style.display='block'" class="signbutton">Login</button>
 
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" action="{{ url_for('users.login') }}" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+      <form action="{{ url_for('users.login') }}" method="post">
+    {{ loginform.csrf_token }}
+    {{ loginform.username(placeholder="Email") }} 
+    {{ loginform.password(placeholder="Password") }}
+    <button class="btn btn-sm btn-success" type="submit">Log in</button>
+  </form>
+      </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <center> <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button> </center>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>

@@ -7,6 +7,7 @@ from . import app
 from sqlalchemy import desc
 
 @app.route('/')
+@app.route('/feed')
 def feed():
 	teachers = db.session.query(Teacher).all()
 	print(teachers)
@@ -101,14 +102,26 @@ def west_bank():
 	teachers=db.session.query(Teacher).filter_by(area="West Bank").all()
 	return render_template('feed.html', teachers=teachers)
 
-@app.route('/login_signup')
-def login_signup():
-	return render_template('login_signup.html')
-
-
 @app.route('/arava')
 def arava():
-	teachers=db.session.query(Teacher).filter_by(area="Arava").all()
+	teachers=db.session.query(Teacher).filter_by(area="arava").all()
+	return render_template('feed.html', teachers=teachers)
+
+
+
+@app.route('/arabic')
+def arabic():
+	teachers=db.session.query(Teacher).filter_by(languages="arabic").all()
+	return render_template('feed.html', teachers=teachers)
+
+@app.route('/english')
+def english():
+	teachers=db.session.query(Teacher).filter_by(languages="english").all()
+	return render_template('feed.html', teachers=teachers)
+
+@app.route('/hebrew')
+def hebrew():
+	teachers=db.session.query(Teacher).filter_by(languages="hebrew").all()
 	return render_template('feed.html', teachers=teachers)
 
 
@@ -121,3 +134,13 @@ def profile_template():
 	print('qwerwqerqwer')
 	print(teacher2)
 	return render_template('profile_template.html',teacher=teacher2)
+
+
+@app.route('/profile/<int:teacher_id>')
+def profile(teacher_id):
+	this_teach=Teacher.query.filter_by(id=teacher_id).first()
+	return render_template('small_profile.html', teacher=this_teach)
+
+@app.route('/edit_profile')
+def edit_profile():
+	return render_template('edit_profile_template.html')

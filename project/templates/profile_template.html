@@ -5,13 +5,14 @@
 			EasyLicense	
 		</title>
 	</head>
-	<body>
+	
+	<body class="profile_page">
+		<a href="feed" id="feed_btn">Feed</a>
+		<section id="profile_container">
 			<div id="side_profile" align="left">
-				<img src="../static/img/person.jpeg" id="profile_picture">
+				<img src="{{teacher.profile_picture}}" id="profile_picture">
 			<br>
-			<h3>
-				{{teacher.name}}</h3>
-			<p> {{teacher.description}} </p>
+			<p><i>{{teacher.name}}</i> </p>
 			<br>
 			<table>
 				<tr>
@@ -38,6 +39,26 @@
 			</table>
 			<br> 
 		</div>
-			<a href="edit_profile_template.html"> Edit profie </a>
+		<div id="main_profile">
+			<h3 id="profile_name">
+				{{teacher.name}}</h3>
+			<a href="edit_profile" id="edit_link"><button id="edit_button"><b> EDIT PROFILE</b></button></a>
+			<br>
+			<h4 class="profile_title">
+			ABOUT
+			</h4>
+			<div id="profile_about">
+				<p id="about_p">
+					{{teacher.description}} 
+				</p>
+			</div>
+			<br>
+			<div id="profile_goals_needs">
+			<h4 class="profile_title">
+			GOALS
+			</h4>	
+			</div>
+		</div>
+	</section>
 	</body>
 </html>

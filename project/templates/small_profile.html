@@ -5,18 +5,18 @@
 			EasyLicense	
 		</title>
 	</head>
-	<body>
+	<body class="profile_page">
+		<a href="feed" id="feed_btn">Feed</a>
+		<section id="profile_container">
+			<div id="side_profile" align="left">
+				<img src="{{teacher.profile_picture}}" id="profile_picture">
 		<center>
-			<img src="../static/img/Transparent.png" class="logo">
 			<br>
-			<img src="{{teacher.profile_picture}}" id="profile_picture">
-			<br>
-			<h3>
-				{{teacher.name}}</h3>
-			<p> {{teacher.description}} </p>
+			<p align="center"><i> {{teacher.name}}</i> </p>
 			<br>
 			<table>
 				<tr> 
+
 					<th> <u> Area:</u></th> 
 					<td> {{teacher.area}} </td>
 				</tr>
@@ -33,7 +33,24 @@
 					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
-			
-		</center>
+			<br>
+			<a href="booking" id="book_lesson_link"><button id="book_lesson_btn"><b> BOOK A LESSON</b></button></a>
+			<img src="../static/img/Transparent.png" class="logo">
+		</div>
+		<div id="main_profile">
+			<h3 id="profile_name">
+				{{teacher.name}}</h3>
+			<br>
+			<h4 class="profile_title">
+			ABOUT
+			</h4>
+			<div id="profile_about">
+				<p id="about_p">
+					{{teacher.description}} 
+				</p>
+			</div>
+			<br>
+		</div>
+	</section>
 	</body>
 </html>

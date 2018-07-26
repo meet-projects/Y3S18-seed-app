@@ -4,11 +4,9 @@
   height: 350px;
 }
 
-html,body{
+body{
 	color: rgb(246,246,246);
-	margin-right: 60px;
-	margin-left: 60px;
-  background-color: #36D02A;
+  background-color: #f6f6f6;
 }
 h3{
 	color: rgb(31, 122, 140)
@@ -22,14 +20,15 @@ form{
 	font: helvetica;
 }
 table{
-	color: rgb(31, 122, 140);
-	font: helvetica;
+	font-family: "Avenir Next";
 }
 th{
 	text-align: left;
+  color: rgb(40,40,40);
 }
 td{
 	text-align: right;
+  color:grey;
 }
 .logo{
 	height:200px;
@@ -37,9 +36,12 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
-  height: 350px
-  width:350px;
-  align-content: center;
+  max-height: 340px;
+  max-width:340px;
+  display: block;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .column {
   float: left;
@@ -47,6 +49,7 @@ td{
   margin-bottom: 16px;
   padding: 0 8px;
   background-color: rgb(0,170,170);
+  border-radius: 20px;
 
 }
 
@@ -58,7 +61,6 @@ td{
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -94,7 +96,7 @@ ul.filter {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(31, 122, 140);
+    background-color: white;
 }
 
 li.filter {
@@ -110,36 +112,20 @@ li.filter select {
 }
 
 
-ul.nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
 
-li.nav {
-    float: left;
+#login{
+  float: right;
 }
-
-li.nav a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li.nav a:hover {
-    background-color: #111;
+#signup{
+  float: right;
 }
 
 #side_profile{
-  width: 375px;
-  height: 600px;
+  width: 350px;
+  height: 550px;
   color:rgb(246,246,246);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  align-self: left;
+  float: left;
 }
 h3{
 color:white;
@@ -155,7 +141,90 @@ font-size: 30px;
 .landingbutton{
 color: black;
 font-family: "Comic Sans MS", cursive, sans-serif;
+font-size:17px;
 background-color: white;
-height: 100px;
-width: 200px;
+height: 110px;
+width: 225px;
+border: none;
+border-radius: 20px;
+font-weight: bold;
+}
+.profile_page{
+  background-color: #f6f6f6;
+  margin-right: 60px;
+  margin-left: 60px;
+}
+#main_profile{
+  margin-left:33%;
+  padding:10px;
+  width:800px;
+
+}
+#profile_container{
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+}
+#profile_name{
+  color:rgb(0,170,170);
+}
+#edit_button{
+  background-color:rgb(31,122,140);
+  width:120px;
+  height:30px;
+  border: none;
+  color: white;
+}
+#edit_link{
+  color: white;
+  text-decoration: none;
+}
+.profile_title{
+  font-weight: bold;
+  color: black;
+}
+#about_p{
+  vertical-align: middle;
+  line-height: normal;
+  display: inline-block;
+  color: rgb(70,70,70);
+}
+#profile_about{
+  text-align: justify;
+  height:100px;
+  width: 750px;
+}
+#about_text{
+  max-width:20px;
+  height:250px;
+}
+
+.div{
+  background-color: #36d02a;
+  width: 100%;
+}
+
+#feed_btn {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+#book_lesson_btn{
+  background-color:rgb(31,122,140);
+  width:120px;
+  height:40px;
+  border: none;
+  color: white;
+}
+#book_lesson_link{
+  color: white;
+  text-decoration: none;
 }

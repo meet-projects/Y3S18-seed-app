@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-	<script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
 	<title>Book</title>
 </head>
 <body>
@@ -15,12 +13,9 @@
 			<input type="text" name="name" placeholder="name">
 			<br>
 			<br>
-
 			Phone Number<br>
 			<input type="text" name="num" placeholder="Phone Number">
 			<br>
-			<br>
-			<input type="text" name="teacher" value="{{teacher.id}}" style="visibility: hidden;">
 			<br>
 			<input type="submit" name="submit" onclick="book()" value="Book!">
 		</form>

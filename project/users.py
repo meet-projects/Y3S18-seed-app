@@ -61,22 +61,28 @@ def register():
 
 @users_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm(request.form)
+    loginform = LoginForm(request.form)
     if request.method == 'POST':
-        if form.validate_on_submit():
-            email = email = request.form.get('email')
-            password = email = request.form.get('password')
+        if loginform.validate_on_submit():
+            email = request.form.get('username')
+            password = request.form.get('password')
             user = User.query.filter_by(email=email).first()
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect username or password</p>")
             login_user(user, remember=True)
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
+                next_page = url_for('profile_template')
             return redirect(next_page)
         else:
             return Response("<p>invalid form</p>")
-    return render_template('login.html', form=form)
+    else:
+        return render_template('login.html', loginform=loginform)
+
+@users_bp.route('/login_signup')
+def login_signup():
+    loginform = LoginForm(request.form)
+    return render_template('login_signup.html',loginform=loginform)
 
 @users_bp.route('/logout')
 @login_required
