@@ -11,8 +11,9 @@ class User(UserMixin, db.Model):
     displayname            = db.Column(db.String)
     password_hash       = db.Column(db.String, nullable=False)
 
-    def __init__(self, username, password):
+    def __init__(self, username, displayname, password):
         self.username = username
+        self.displayname = displayname
         self.set_password(password)
 
     def set_password(self, password):

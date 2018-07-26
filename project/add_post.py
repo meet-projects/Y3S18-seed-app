@@ -29,4 +29,3 @@ def adding_posts():
             return Response("<p>invalid form</p>")
     return render_template('add_post.html', form=form)
 
-posts = Post.query.all()    

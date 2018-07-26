@@ -20,14 +20,14 @@ def register():
         if form.validate_on_submit():
             username = form.username.data
             password = form.password.data
-            fullName = form.fullName.data
+            displayname = form.displayname.data
             user = User.query.filter_by(username=username).first()
             if user is None:
-                user = User(username, password)
+                user = User(username, displayname, password)
                 db.session.add(user)
                 db.session.commit()
                 login_user(user, remember=True)
-                return url_for(feed(),  user=user)
+                return redirect(url_for("feed",  user=user))
         else:
             return Response("<p>invalid form</p>")
     return render_template('register.html', form=form)

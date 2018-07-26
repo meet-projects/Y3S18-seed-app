@@ -11,7 +11,7 @@
  
 <form action="{{ url_for('users.register') }}" method="post">
     {{ form.csrf_token }}
-    {{ form.fullName(placeholder= "Full Name") }}<br><br>
+    {{ form.displayname(placeholder= "Display Name") }}<br><br>
     {{ form.username(placeholder="Username") }} <br><br>
     {{ form.password(placeholder="Password") }}<br><br>
     {{ form.confirm(placeholder="Confirm Password") }}<br><br>
