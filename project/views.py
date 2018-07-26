@@ -114,17 +114,32 @@ def login_signup():
 
 @app.route('/arabic')
 def arabic():
-	teachers=db.session.query(Teacher).filter_by(languages="arabic").all()
+	all_teachers=db.session.query(Teacher).all()
+	teachers = []
+	for t in all_teachers:
+		l = t.languages.split(" ")	
+		if l.count("Arabic") > 0:
+			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
 @app.route('/english')
 def english():
-	teachers=db.session.query(Teacher).filter_by(languages="english").all()
+	all_teachers=db.session.query(Teacher).all()
+	teachers = []
+	for t in all_teachers:
+		l = t.languages.split(" ")
+		if l.count("English") > 0:
+			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
 @app.route('/hebrew')
 def hebrew():
-	teachers=db.session.query(Teacher).filter_by(languages="hebrew").all()
+	all_teachers=db.session.query(Teacher).all()
+	teachers = []
+	for t in all_teachers:
+		l = t.languages.split(" ")
+		if l.count("Arabic") > 0:
+			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
 
@@ -149,7 +164,7 @@ def edit_profile():
 	return render_template('edit_profile_template.html')
 
 
-@app.route('/booking/<int:teacher_id>')
+@app.route('/<int:teacher_id>/booking')
 def booking(teacher_id):
 	studentname=request.form.get('name')
 	studentnum=request.form.get('num')
