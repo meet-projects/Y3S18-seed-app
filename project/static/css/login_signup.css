@@ -244,6 +244,10 @@ font-family: "Comic Sans MS", cursive, sans-serif;
 background-color: white;
 height: 100px;
 width: 200px;
+border-radius: 20px;
+font-size: 20px;
+font-weight: bold;
+
 }
 
 #feed_btn {
@@ -257,4 +261,6 @@ width: 200px;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 20px;
+
 }
