@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<title>
+			EasyLicense	
+		</title>
+	</head>
+	<body>
+		<center>
+			<img src="../static/img/Transparent.png" class="logo">
+			<br>
+			<img src="{{teacher.profile_picture}}" id="profile_picture">
+			<br>
+			<h3>
+				{{teacher.name}}</h3>
+			<p> {{teacher.description}} </p>
+			<br>
+			<table>
+				<tr> 
+					<th> <u> Area:</u></th> 
+					<td> {{teacher.area}} </td>
+				</tr>
+				<tr> 
+					<th> <u> Languages:</u></th> 
+					<td> {{teacher.languages}} </td>
+				</tr>
+				<tr> 
+					<th><u> License Number:</u></th>
+					<td> {{teacher.license_num}} </td>
+				</tr>
+				<tr>
+					<th> <u> Car Type:</u></th> 
+					<td> {{teacher.car_type}} </td>
+				</tr>
+			</table>
+			
+		</center>
+	</body>
+</html>
