@@ -6,20 +6,17 @@
 		</title>
 	</head>
 	<body>
-			<div id="side_profile" align="left">
-				<img src="../static/img/person.jpeg" id="profile_picture">
+		<center>
+			<img src="../static/img/Transparent.png" class="logo">
+			<br>
+			<img src="{{teacher.profile_picture}}" id="profile_picture">
 			<br>
 			<h3>
 				{{teacher.name}}</h3>
 			<p> {{teacher.description}} </p>
 			<br>
 			<table>
-				<tr>
-					<th> <u> Phone number:</u></th> 
-					<td> {{teacher.phone_num}} </td>
-				</tr>
 				<tr> 
-
 					<th> <u> Area:</u></th> 
 					<td> {{teacher.area}} </td>
 				</tr>
@@ -36,8 +33,7 @@
 					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
-			<br> 
-		</div>
-			<a href="edit_profile_template.html"> Edit profie </a>
+			
+		</center>
 	</body>
 </html>

@@ -2,7 +2,8 @@ from project import db
 
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
-
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class User(UserMixin, db.Model):
@@ -13,8 +14,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
 
-    def __init__(self, username, password):
-        self.username = username
+    def __init__(self, email, password):
+        self.email = email
         self.set_password(password)
 
     def set_password(self, password):
@@ -24,7 +25,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return 'User %d %s' % (self.id, self.username)
+        return 'User %d %s' % (self.id, self.email)
 
 
 # TODO: Create your other models here
@@ -41,12 +42,12 @@ class Teacher(db.Model):
     __tablename__ = "teachers"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, unique=True)
+    user_id = db.Column(db.Integer, ForeignKey('users.id'))
     name = db.Column(db.String) 
     area = db.Column(db.String)
     city = db.Column(db.String)
     description = db.Column(db.String)
-    cost = db.Column(db.Integer)
+    cost = db.Column(db.String)
     phone_num = db.Column(db.String)
     languages = db.Column(db.String)
     profile_picture = db.Column(db.String)

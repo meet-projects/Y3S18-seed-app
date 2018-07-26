@@ -1,25 +1,14 @@
-.parallax { 
-    /* The image used */
-    background-image: url("back.jpg");
 
-    /* Full height */
-    height: 120%; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 .biglogo{
-  height: 450px;
+  height: 350px;
 }
 
-body{
+html,body{
 	color: rgb(246,246,246);
-	margin-right: 100px;
-	margin-left: 100px;
+	margin-right: 60px;
+	margin-left: 60px;
+  background-color: #36D02A;
 }
 h3{
 	color: rgb(31, 122, 140)
@@ -37,10 +26,10 @@ table{
 	font: helvetica;
 }
 th{
-	text-align: right;
+	text-align: left;
 }
 td{
-	text-align: left;
+	text-align: right;
 }
 .logo{
 	height:200px;
@@ -48,6 +37,9 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
+  height: 350px
+  width:350px;
+  align-content: center;
 }
 .column {
   float: left;
@@ -141,9 +133,29 @@ li.nav a {
 li.nav a:hover {
     background-color: #111;
 }
-#login{
-  float: right;
+
+#side_profile{
+  width: 375px;
+  height: 600px;
+  color:rgb(246,246,246);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  align-self: left;
 }
-#signup{
-  float: right;
+h3{
+color:white;
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 30px;
+}
+
+.whitelogo{
+
+  height: 100px;
+}
+
+.landingbutton{
+color: black;
+font-family: "Comic Sans MS", cursive, sans-serif;
+background-color: white;
+height: 100px;
+width: 200px;
 }
