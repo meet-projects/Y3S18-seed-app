@@ -232,3 +232,7 @@ font-weight: bold;
     width: 618px;
     height: 85px;
 }
+#no_filter{
+  height: 59px;
+  color: rgb(31, 122, 140);
+}
