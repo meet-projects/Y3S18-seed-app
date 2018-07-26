@@ -9,11 +9,6 @@ from project import db
 from project.forms import RegisterForm, LoginForm
 from project.models import User,Teacher,Booking
 
-import firebase_admin
-
-#cred = firebase_admin.credentials.Certificate('easylicense-e9174-firebase-adminsdk-tfk2q-14c4144edf.json')
-#app = app = firebase_admin.initialize_app(cred)
-
 users_bp = Blueprint('users', __name__)
 
 
