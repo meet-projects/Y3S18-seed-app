@@ -3,4 +3,20 @@
 
 
 
+
+<div>
+	{% for journey in journeys %}
+		<div>
+	    	<img src="{{ journey.picture }}" width=500 height=265 >
+	    	<h5>{{ journey.start_location }}</h5><br>
+	    	<h3>{{ journey.title }}</h3><br>
+	    	<p>{{ journey.price }}</p><br>
+	    	<p>{{ journey.category }}</p><br>
+	    </div>
+	{% endfor %}
+
+</div>
+
+
+
 {% endblock %}

@@ -56,6 +56,11 @@ def display_journey(journey_id):
         creator = User.query.filter_by( id=journey.creator_id).first()
         return render_template('journey.html', journey=journey, creator= creator)
 
+@app.route('/browse')
+def block_journey():
+	all_journeys = db.session.query(Journey).all()
+	return render_template('browse.html', journey=all_journeys)
+	# we need to now how to filter 
 
 
 

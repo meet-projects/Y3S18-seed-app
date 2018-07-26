@@ -51,15 +51,7 @@ class Journey(UserMixin, db.Model):
 
     __tablename__ = "journey"
 
-<<<<<<< HEAD
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    creator_id = db.Column(db.String, nullable=False) ### GET USER ID
-    title = db.Column(db.String, nullable=False)
-    description = db.Column(db.String, nullable=False)
-    location = db.Column(db.String, nullable=False)
-    duration = db.Column(db.String, nullable=False)
-    category = db.Column(db.String, nullable=False)
-=======
+
     id           = db.Column(db.Integer, primary_key=True, autoincrement=True)
     creator_id   = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     title        = db.Column(db.String, nullable=False)
@@ -67,14 +59,11 @@ class Journey(UserMixin, db.Model):
     location     = db.Column(db.String, nullable=False)
     duration     = db.Column(db.String, nullable=False)
     category     = db.Column(db.String, nullable=False)
->>>>>>> 99d00b3301d5d07f72e357056937f158a17202fd
     requirements = db.Column(db.String, nullable=False)
     people_range = db.Column(db.String, nullable=False)
     price        = db.Column(db.String, nullable=False)
     picture      = db.Column(db.String, nullable=False)
 
-
-<<<<<<< HEAD
     def __init__(self, creator_id='', title='', description='', location='', duration='', category='', requirements='', people_range='' ):
         self.creator_id = creator_id
         self.title = title
@@ -84,26 +73,14 @@ class Journey(UserMixin, db.Model):
         self.category = category
         self.requirements = requirements
         self.people_range = people_range
-=======
-    def __init__(self):
-       self.title = title
-       self.description = description
-       self.start_location = start_location
-       self.end_location = end_location
-       self.duration = duration
-       self.category = category
-       self.requirements = requirements
-       self.people_range = people_range
->>>>>>> 99d00b3301d5d07f72e357056937f158a17202fd
+        self.picture = picture
+        self.price = price
+
 
     def __repr__(self):
         return 'Journey %d %s' % (self.id, self.title)
 
-<<<<<<< HEAD
+
 # db.drop_all()
 # db.create_all()
-=======
-#db.drop_all()
-db.create_all()
 
->>>>>>> 99d00b3301d5d07f72e357056937f158a17202fd
