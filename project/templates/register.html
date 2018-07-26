@@ -1,23 +1,51 @@
 {% extends "layout.html" %}
 {% block content %}
+<!--<div class="login-modal">
  
-<div class="add-user">
- 
-<div class="page-header">
- 
-<h2>Register New User</h2>
- 
-  </div>
- 
-<form action="{{ url_for('users.register') }}" method="post">
-    {{ form.csrf_token }}
-    {{ form.displayname(placeholder= "Display Name") }}<br><br>
-    {{ form.username(placeholder="Username") }} <br><br>
-    {{ form.password(placeholder="Password") }}<br><br>
-    {{ form.confirm(placeholder="Confirm Password") }}<br><br>
-    <button class="btn btn-sm btn-success" type="submit">Register User</button>
-</form>
- 
+	<div class="add-user">
+	 
+		<div class="square">
+		  	<div class="form">
+		 
+				<form action="{{ url_for('users.register') }}" method="post" >
+				    {{ form.csrf_token }}
+				    {{ form.displayname(placeholder= "Full Name") }}<br><br>
+				    {{ form.username(placeholder="Username") }} <br><br>
+				    {{ form.password(placeholder="Password") }}<br><br>
+				    {{ form.confirm(placeholder="Confirm Password") }}<br><br>
+				    <button class="btn btn-sm btn-success" type="submit">Register User</button>
+				</form>
+			</div>
+		</div>
+	 
+	</div>
+	 </div>
+-->
+<!-- Button to open the modal -->
+<button onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <form action="{{ url_for('users.register') }}" method="post" >
+				    {{ form.csrf_token }}
+				    {{ form.displayname(placeholder= "Full Name") }}<br><br>
+				    {{ form.username(placeholder="Username") }} <br><br>
+				    {{ form.password(placeholder="Password") }}<br><br>
+				    {{ form.confirm(placeholder="Confirm Password") }}<br><br>
+				    <button class="btn btn-sm btn-success" type="submit">Register User</button>
+				</form>
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      </div>
+    </div>
+  </form>
 </div>
- 
-{% endblock %}
+	{% endblock %}
+
+</div>	
