@@ -147,11 +147,10 @@ def hebrew():
 @login_required
 def profile_template():
 	teacher_id = session['user_id']
-	print(teacher_id)
 	teacher2=Teacher.query.filter_by(user_id=teacher_id).first()
-	print('qwerwqerqwer')
-	print(teacher2)
-	return render_template('profile_template.html',teacher=teacher2)
+	this_teach_id=teacher2.id
+	this_teach_books=Booking.query.filter_by(teacher_id=this_teach_id).all()
+	return render_template('profile_template.html',teacher=teacher2,bookings=this_teach_books)
 
 
 @app.route('/profile/<int:teacher_id>')

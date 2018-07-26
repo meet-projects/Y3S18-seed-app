@@ -74,7 +74,7 @@ class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     phone_num = db.Column(db.String)
-    teacher_id = db.Column(db.Integer)
+    teacher_id = db.Column(db.Integer, ForeignKey('users.id'))
     done = db.Column(db.Boolean)
 
     def __init__(self,name,phone_num,teacher_id,done):
