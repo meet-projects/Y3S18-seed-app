@@ -13,7 +13,7 @@ from project.models import User,Teacher,Booking
 users_bp = Blueprint('users', __name__)
 
 
-@users_bp.route('/register', methods=['GET', 'POST'])
+@users_bp.route('/signup', methods=['GET', 'POST'])
 def register():
     #form = RegisterForm(request.form)
 
@@ -37,7 +37,8 @@ def register():
                 user.email = email
                 user.password_hash = password
                 user_id = user.id
-                teacher=Teacher(user_id,name,area,city,description,fee,phonenum,"http://i.imgur.com/hfH9CiC.png",car_type,license_num)
+                teacher=Teacher(user_id,name,area,city,description,fee,phonenum,languages,car_type,license_num)
+                teacher.profile_picture = "http://i.imgur.com/hfH9CiC.png"
                 db.session.add(user)
                 db.session.add(teacher)
                 db.session.commit()
