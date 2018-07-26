@@ -150,7 +150,8 @@ button {
 }
 
 img.avatar {
-    width: 40%;
+    width: 20%;
+    height: 20%;
     border-radius: 50%;
 }
 
@@ -234,8 +235,7 @@ body{
 }
 
 .logo{
-
-    height: 250px;
+    height: 75px;
 }
 
 .signbutton{

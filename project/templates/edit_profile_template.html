@@ -1,64 +1,83 @@
 <!DOCTYPE html>
-<html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<title>
 			EasyLicense	
 		</title>
 	</head>
-	<body>
-		<a href="#feed" id="feed_btn">Feed</a>
-		<center>
-			<img src="../static/img/Transparent.png" class="logo">
-			<form id="edit_profile">
-				<table>
-					<tr>
-						<th> Image: </th> 
-						<td> <button> Browse... </button> </td>
-					</tr>
-					<tr>
-						<th> Full Name: </th>
-						<td> <input type="text" name="name"> </td>
-					</tr>
-					<tr>
-						<th >Email Address: </th> 
-						<td> <input type="text" name="email"> </td>
-					</tr>
-					<tr>
-						<th >About Yourself: </th> 
-						<td> <input type="textarea" name="description"> </td>
-					</tr>
-					<tr>
-						<th> What area do you teach in? </th> 
-						<td> 
-							<select>
-								<option value="jerusalem"> Jerusalem </option>
-								<option value="west_bank"> West Bank </option>
-								<option value="north"> North Region </option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<th> What languages do you teach in? </th>
-						<td> 
-						<input type="checkbox" name="languages" value="hebrew"> Hebrew 
-						<input type="checkbox" name="languages" value="arabic"> Arabic 
-						<input type="checkbox" name="languages" value="english"> English
-						</td>
-					</tr>
-					<tr>
-						<th> What is your license number? </th>
-						<td ><input type="text" name="license_number" maxlength="8" minlength="6"> </td>
-					</tr>
-					<tr>
-						<th> What car do you drive? </th>
-						<td> <input type="text" name="car"> </td>
-					</tr>
-				</table>
-				<br>
-				<input type="submit">
-			</form>
-			<a href="profile_template.html">Back</a>
-		</center>
+	
+	<body class="profile_page">
+		<a href="feed" id="feed_btn">Feed</a>
+		<center><img src="../static/img/Small.png" class="logo"></center>
+
+		<form>
+		<section id="profile_container">
+			<div id="side_profile" align="left">
+				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
+			<br>
+			<p>Your name:<input type="text"> </p>
+			<br>
+			<table>
+				<tr>
+					<th> <u> Phone number:</u></th> 
+					<td> <input type="text" maxlength="10" minlength="9"> </td>
+				</tr>
+				<tr> 
+
+					<th> <u> Area:</u></th> 
+					<td> <select>
+						<option value="galil_elion"> <a href="galil_elion">Galil Elion </option>
+						<option value="hof_hagalil"><a href="hof_hagalil"> Hof Hagalil </option>
+						<option value="golan"><a href="golan">Golan </option>
+						<option value="carmel"> <a href="carmel"> Carmel </option>
+						<option value="sharon"> <a href="sharon"> Sharon </option>
+						<option value="emek_israel"> <a href="emek_israel"> Emek Israel </option>
+						<option value="beit_shean"> <a href="beit_shean"> Beit Shean </option>
+						<option value="mishor_hakhof"> <a href="mishor_hakhof"> Mishor Hakhof </option>
+						<option value="jerusalem_district"> <a href="jerusalem_district"> Jerusalem District </option>
+						<option value="negev"> <a href="negev"> Negev </option>
+						<option value="shfelat_yehuda"> <a href="shfelat_yehuda"> Shfelat Yehuda </option>
+						<option value="judea_district"> <a href="judea_district"> Judea District </option>
+						<option value="west_bank"><a href="west_bank"> West Bank </option>
+						<option value="arava"> <a href="arava"> Arava</option>
+							</select> </td>
+				</tr>
+				<tr> 
+					<th> <u> Languages:</u></th> 
+					<td> 	  
+						<select>
+								<option value="hebrew"><a href="hebrew"> Hebrew </option>
+								<option value="arabic"> <a href="arabic">Arabic </option>
+								<option value="english"> <a href="english">English </option>
+							</select> </td>
+				</tr>
+				<tr> 
+					<th><u> License Number:</u></th>
+					<td> <input type="text" name="license" minlength="6" maxlength="8"> </td>
+				</tr>
+				<tr>
+					<th> <u> Car Type:</u></th> 
+					<td> <input type="text" name="car_type"> </td>
+				</tr>
+			</table>
+			<br> 
+		</div>
+		<div id="main_profile">
+			<h3 id="profile_name">
+				EDIT PROFILE</h3>
+			<br>
+			<h4 class="profile_title">
+			ABOUT
+			</h4>
+			<div id="profile_about">
+				<textarea id="edit_about">
+					About yourself...
+				</textarea>
+					 
+			</div>
+			<input type="submit" name="submit">
+		</div>
+	</section>
+</form>
 	</body>
 </html>

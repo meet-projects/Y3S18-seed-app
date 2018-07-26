@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Home</title>
+  <link rel="shortcut icon" href="https://ibb.co/eQTOZT"/>
 	<link rel="stylesheet" type="text/css" href="../static/css/login_signup.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../static/js/login_signup.js"> </script>
@@ -13,6 +14,14 @@
   <center>
 
       <img src="../static/img/White.png" class="logo">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
   </center>
 
 <!--################################# Signup ################################-->
@@ -109,7 +118,7 @@
   <form class="modal-content animate" action="{{ url_for('users.login') }}" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      <img src="../static/img/avatar.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -123,7 +132,6 @@
 
     <div class="container" style="background-color:#f1f1f1">
       <center> <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button> </center>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>

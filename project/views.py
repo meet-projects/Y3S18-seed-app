@@ -8,6 +8,7 @@ from sqlalchemy import desc
 
 @app.route('/')
 @app.route('/feed')
+@app.route('/profile/feed')
 def feed():
 	teachers = db.session.query(Teacher).all()
 	print(teachers)
@@ -111,17 +112,32 @@ def arava():
 
 @app.route('/arabic')
 def arabic():
-	teachers=db.session.query(Teacher).filter_by(languages="arabic").all()
+	all_teachers=db.session.query(Teacher).all()
+	teachers = []
+	for t in all_teachers:
+		l = t.languages.split(" ")	
+		if l.count("Arabic") > 0:
+			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
 @app.route('/english')
 def english():
-	teachers=db.session.query(Teacher).filter_by(languages="english").all()
+	all_teachers=db.session.query(Teacher).all()
+	teachers = []
+	for t in all_teachers:
+		l = t.languages.split(" ")
+		if l.count("English") > 0:
+			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
 @app.route('/hebrew')
 def hebrew():
-	teachers=db.session.query(Teacher).filter_by(languages="hebrew").all()
+	all_teachers=db.session.query(Teacher).all()
+	teachers = []
+	for t in all_teachers:
+		l = t.languages.split(" ")
+		if l.count("Arabic") > 0:
+			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
 
@@ -129,11 +145,10 @@ def hebrew():
 @login_required
 def profile_template():
 	teacher_id = session['user_id']
-	print(teacher_id)
 	teacher2=Teacher.query.filter_by(user_id=teacher_id).first()
-	print('qwerwqerqwer')
-	print(teacher2)
-	return render_template('profile_template.html',teacher=teacher2)
+	this_teach_id=teacher2.id
+	this_teach_books=Booking.query.filter_by(teacher_id=this_teach_id).all()
+	return render_template('profile_template.html',teacher=teacher2,bookings=this_teach_books)
 
 
 @app.route('/profile/<int:teacher_id>')
@@ -144,3 +159,13 @@ def profile(teacher_id):
 @app.route('/edit_profile')
 def edit_profile():
 	return render_template('edit_profile_template.html')
+
+
+@app.route('/<int:teacher_id>/booking')
+def booking(teacher_id):
+	studentname=request.form.get('name')
+	studentnum=request.form.get('num')
+	thisteacher=Teacher.query.filter_by(id=teacher_id).first()
+	book=Booking(studentname,studentnum,thisteacher,False)
+	db.session.add(book)
+	db.session.commit()
