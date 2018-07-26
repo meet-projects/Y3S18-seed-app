@@ -28,9 +28,10 @@
 		<br>
 		<br>
 		<center>
+			<div id="filter_div">
 				<ul class="filter" id="instructordiv">
 				  <li class="filter"> <h3 class="filter_title">Location</h3>
-				  	<select onchange="window.location.href=this.value;">
+				  	<select onchange="window.location.href=this.value;" class="filters">
 						<option href="#instructordiv" value="galil_elion">Galil Elion </option>
 						<option href="#instructordiv" value="hof_hagalil">Hof Hagalil </option>
 						<option href="#instructordiv" value="golan">Golan </option>
@@ -47,22 +48,23 @@
 						<option href="#instructordiv" value="arava"> Arava</option>
 							</select></li>
 				  <li class="filter"><h3 class="filter_title">Price</h3>
-				  	<select onchange="window.location.href=this.value;">
+				  	<select onchange="window.location.href=this.value;" class="filters">
 								<option value="hightolow"> High to Low </option>
 								<option value="lowtohigh"> Low to High </option>
 							</select>
 				  </li>
 				  <li class="filter"><h3 class="filter_title">Language</h3>
-				  <select onchange="window.location.href=this.value;">
+				  <select onchange="window.location.href=this.value;" class="filters">
 								<option value="hebrew"> Hebrew </option>
 								<option value="arabic">Arabic </option>
 								<option value="english"> English </option>
 							</select>
 						</li>
 					<li class="filter"><h3 class="filter_title"> No Filter</h3>
-						<a href="feed"><button id="no_filter">No Filter </button></a>
+						<a href="feed"><button class="filters">No Filter </button></a>
 					</li>
 				</ul>
+			</div>
 				<br>
 			<div class="row">
 	  			{% for teacher in teachers %}

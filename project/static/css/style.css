@@ -100,7 +100,6 @@ ul.filter {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: white;
 }
 
 li.filter {
@@ -221,7 +220,7 @@ font-weight: bold;
     cursor: pointer;
 
 }
-#book_lesson_btn{
+.book_lesson_btn{
   background-color:rgb(31,122,140);
   width:120px;
   height:40px;
@@ -312,11 +311,19 @@ font-weight: bold;
     width: 618px;
     height: 85px;
 }
-#no_filter{
+.filters{
   height: 59px;
+  width:180px;
   color: rgb(31, 122, 140);
 }
 .filter_title{
   color: rgb(31,122,140);
   font-family: sans-serif;
+}
+.filter{
+  margin-left: 8.5%;
+  background-color: rgb(246,246,246);
+}
+#filter_div{
+  background-color: rgb(246,246,246);
 }
