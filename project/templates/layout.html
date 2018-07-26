@@ -40,66 +40,92 @@
 
         }
 
-    /* Bordered form */
-form 
-    { background-color: #4d4dff;
-           border-radius: 15px;
-           width: 300px;
-           height: 400px;
-           background: #cc0000;
-           background: -webkit-linear-gradient(top, #cc0000,  #e65c00);
+    /* container */
+  form 
+    { 
+       border-radius: 15px;
+       width: 500px;
+       height: 600px;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));
     }
 
+    
+.textsboxes{
+
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgb(242, 242, 242);
+      font-size: 20px
+
+
+}
+
+.textbox{
+
+}
 /* Full-width inputs */
 input[type=text], input[type=password] 
-    {
+      { 
+        position: center;
+        background: transparent;
+        border-top: none;
+        border:none;
+        box-sizing: border-box;
         width: 70%;
         padding: 12px 20px;
-        margin: 50px 0;
-        display: inline-block transparent;
-        border-top:transparent;
-        border-bottom: solid white;
-        border-left: transparent;
-        border-right: transparent;
+        margin: 50px 0 35px;
+        border-bottom: 2px solid rgb(242, 242, 242);
         box-sizing: border-box;
-        opacity: 0.2
+        opacity: 0.9;
+        text-align: center;
+        vertical-align: middle;
+        color:rgb(242, 242, 242);
     }
 
+
+
 /* Set a style for all buttons */
-button 
+button.btn
     {
-        background-color: #4CAF50;
-        color: white;
+        background-color: rgba(225,225,225);
+        color: black;
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 100%;
-    }
+        width: 20%;
+        border-radius: 50PX;
+        font-size: 20px;
+
+     }
 
 /* Add a hover effect for buttons */
 button:hover {
+    background-color: rgba(230, 92, 0, 0.89);
     opacity: 0.8;
 }
 
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
 
-/* Center the avatar image inside this container */
+/* Center the  image inside this container */
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
+    padding-top: 30px;
 }
 
 /* Avatar image */
-img.avatar {
-    width: 40%;
+#logo {
+    width: 30%;
     border-radius: 50%;
-}
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgba(255,255,255,1);
+  }
 
 /* Add padding to containers */
 .container {
