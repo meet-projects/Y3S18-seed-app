@@ -32,8 +32,12 @@ def private_route():
 	global NEED
 	global USER
 	NEED = 0
+
+	USER = User.query.filter_by(id=session['user_id']).first()
+	session['name'] = USER.username
+	session['phone'] = USER.number
+
 	if request.method == 'POST':
-		USER = User.query.filter_by(id=session['user_id']).first()
 
 		NEED = 1
 
