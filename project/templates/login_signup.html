@@ -44,16 +44,26 @@
 
       <label for="phonenum"><b>Phone Number</b></label>
       <input type="text" placeholder="Enter your phone number" name="phonenum" required>
-      <label for="Languages"><b>Languages you teach in</b></label>
-      <input type="text" placeholder="Enter Languages" name="languages" required>
 
-       <label for="car_type"><b>Car Type</b></label>
+      <label for="Languages"><b>Languages You Teach In</b></label>
+      <br>
+      <form action="/action_page.php">
+        <input type="checkbox" name="languages" value="Arabic"> Arabic <br>
+        <input type="checkbox" name="languages" value="English"> English <br>
+        <input type="checkbox" name="languages" value="Hebrew"> Hebrew <br>
+      </form>
+      <br>
+
+      <label for="car_type"><b>Car Type</b></label>
       <input type="text" placeholder="Enter your car type" name="car_type" required>
-       <label for="license_num"><b>License number</b></label>
+
+      <label for="license_num"><b>License Number</b></label>
       <input type="text" placeholder="Enter your license number" name="license_num" required>
+
       <label for="description"><b>Description</b></label>
       <input type="text" placeholder="Describe Yourself" name="description" maxlength="200" style="height: 300px, width: 500px" required>
-        <label for="profilepic"><b>Profile Picture link (Optional)</b></label>
+      
+      <label for="profilepic"><b>Profile Picture link (Optional)</b></label>
       <input type="text" placeholder="Enter Profile Picture link" name="profilepic">
 
       <h3>Pick Your Area</h3>
@@ -76,9 +86,6 @@
 
 	<br>
 	<br>
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
 
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
