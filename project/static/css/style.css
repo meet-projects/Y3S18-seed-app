@@ -4,7 +4,7 @@
   height: 350px;
 }
 
-html,body{
+body{
 	color: rgb(246,246,246);
 	margin-right: 60px;
 	margin-left: 60px;
@@ -22,14 +22,15 @@ form{
 	font: helvetica;
 }
 table{
-	color: rgb(31, 122, 140);
 	font: helvetica;
 }
 th{
 	text-align: left;
+  color: rgb(40,40,40);
 }
 td{
 	text-align: right;
+  color:grey;
 }
 .logo{
 	height:200px;
@@ -37,9 +38,12 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
-  height: 350px
-  width:350px;
-  align-content: center;
+  height: 340px
+  width:340px;
+  display: block;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .column {
   float: left;
@@ -135,11 +139,11 @@ li.nav a:hover {
 }
 
 #side_profile{
-  width: 375px;
+  width: 350px;
   height: 600px;
   color:rgb(246,246,246);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  align-self: left;
+  float: left;
 }
 h3{
 color:white;
@@ -158,4 +162,35 @@ font-family: "Comic Sans MS", cursive, sans-serif;
 background-color: white;
 height: 100px;
 width: 200px;
+}
+#profile_page{
+  background-color: white;
+}
+#main_profile{
+  margin-left:33%;
+  padding:10px;
+  width:800px;
+
+}
+#profile_container{
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+}
+#profile_name{
+  color:rgb(0,170,170);
+}
+#edit_button{
+  background-color:rgb(31,122,140);
+  width:120px;
+  height:30px;
+  border: none;
+}
+#edit_link{
+  color: white;
+  text-decoration: none;
+}
+.profile_title{
+  font-weight: bold;
+  color: black;
 }
