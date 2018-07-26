@@ -90,7 +90,9 @@ td{
   color: rgb(246, 246, 246); 
 }
 
-
+.filter{
+  background-color: #f6f6f6
+}
 ul.filter {
     list-style-type: none;
     margin: 0;

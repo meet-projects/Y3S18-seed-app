@@ -30,35 +30,36 @@
 		<center>
 				<ul class="filter" id="instructordiv">
 				  <li class="filter">Location
-				  	<select>
-						<option value="galil_elion"> <a href="galil_elion">Galil Elion </option>
-						<option value="hof_hagalil"><a href="hof_hagalil"> Hof Hagalil </option>
-						<option value="golan"><a href="golan">Golan </option>
-						<option value="carmel"> <a href="carmel"> Carmel </option>
-						<option value="sharon"> <a href="sharon"> Sharon </option>
-						<option value="emek_israel"> <a href="emek_israel"> Emek Israel </option>
-						<option value="beit_shean"> <a href="beit_shean"> Beit Shean </option>
-						<option value="mishor_hakhof"> <a href="mishor_hakhof"> Mishor Hakhof </option>
-						<option value="jerusalem_district"> <a href="jerusalem_district"> Jerusalem District </option>
-						<option value="negev"> <a href="negev"> Negev </option>
-						<option value="shfelat_yehuda"> <a href="shfelat_yehuda"> Shfelat Yehuda </option>
-						<option value="judea_district"> <a href="judea_district"> Judea District </option>
-						<option value="west_bank"><a href="west_bank"> West Bank </option>
-						<option value="arava"> <a href="arava"> Arava</option>
+				  	<select onchange="window.location.href=this.value;">
+						<option href="#instructordiv" value="galil_elion">Galil Elion </option>
+						<option href="#instructordiv" value="hof_hagalil">Hof Hagalil </option>
+						<option href="#instructordiv" value="golan">Golan </option>
+						<option href="#instructordiv" value="carmel"> Carmel </option>
+						<option href="#instructordiv" value="sharon"> Sharon </option>
+						<option href="#instructordiv" value="emek_israel"> Emek Israel </option>
+						<option href="#instructordiv" value="beit_shean"> Beit Shean </option>
+						<option href="#instructordiv" value="west_bank"> West Bank </option>
+						<option href="#instructordiv" value="mishor_hakhof"> Mishor Hakhof </option>
+						<option href="#instructordiv" value="jerusalem_district"> Jerusalem District </option>
+						<option href="#instructordiv" value="negev"> Negev </option>
+						<option href="#instructordiv" value="shfelat_yehuda"> Shfelat Yehuda </option>
+						<option href="#instructordiv" value="judea_district"> Judea District </option>
+						<option href="#instructordiv" value="arava"> Arava</option>
 							</select></li>
 				  <li class="filter">Price
-				  	<select>
-								<option value="high"> High to Low </option>
-								<option value="low"> Low to High </option>
+				  	<select onchange="window.location.href=this.value;">
+								<option value="hightolow"> High to Low </option>
+								<option value="lowtohigh"> Low to High </option>
 							</select>
 				  </li>
 				  <li class="filter">Language
-				  <select>
-								<option value="hebrew"><a href="hebrew"> Hebrew </option>
-								<option value="arabic"> <a href="arabic">Arabic </option>
-								<option value="english"> <a href="english">English </option>
+				  <select onchange="window.location.href=this.value;">
+								<option value="hebrew"> Hebrew </option>
+								<option value="arabic">Arabic </option>
+								<option value="english"> English </option>
 							</select>
 						</li>
+
 				</ul>
 				<br>
 			<div class="row" >
