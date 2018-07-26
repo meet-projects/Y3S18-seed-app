@@ -61,11 +61,11 @@ def login():
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect email or password</p>")
             login_user(user, remember=True)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
+            # next_page = request.args.get('next')
+            # if not next_page or url_parse(next_page).netloc != '':
+            #     next_page = url_for('private_route')
 
-            return redirect(next_page)
+            return redirect(url_for('block_journey'))
         else:
             return Response("<p>invalid form</p>")
     return render_template('login.html', form=form)
