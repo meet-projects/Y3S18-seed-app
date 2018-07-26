@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
 <style>
+body{
+style="overflow:hidden;"}
 #profile{
 
 	position: fixed;
@@ -36,7 +38,7 @@ h4{
 
 }
 
-#addcontact{
+#addcontact1{
 	position: fixed;
 	left:250px;
 	top: 300px;
@@ -44,18 +46,44 @@ h4{
 
 }
 
+#addcontact2{
+position: fixed;
+left: 550px;
+top: 300px;
+
+}
+
+#addcontact3{
+position: fixed;
+left: 850px;
+top: 300px;
+
+}
+
 .noa{
-	background-color: powderblue;
+	background: linear-gradient( to right, #6F95AD , #D9EBF5); 
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-right: 10px;
 	padding-left: 10px;
 }
 
+.orange{
+	background-color: #FFA400;
 
 
+}
+button{
+
+}
+.btn-warning {background-color: transparent;}
+.btn-warning {border-color: white} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
 
 </style>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -75,23 +103,21 @@ h4{
 <h4>-{{session['phone']}}</h4>
 
 <div class='noa'>
-    <img id="addcontact" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
+    <img id="addcontact1" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
  		
+    <img id="addcontact2" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
+
+    <img id="addcontact3" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
 
 
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+</div>
 
-
-
-
-
-
-
-
-
-
-
+<div class="orange">
+	<button class="btn btn-sm btn-warning" type="police"><a href="tel:+9720529553327"></a> Police Department</button>
+	<br><br><br><br><br>
 
 
 </div>
