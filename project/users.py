@@ -12,7 +12,7 @@ from project.models import User
 
 users_bp = Blueprint('users', __name__)
 
-@users_bp.route('/', methods=['GET', 'POST'])
+@users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST':
@@ -54,7 +54,8 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return Response("<p>Logged out</p>")
+    return redirect(url_for('users.login'))
+    #return Response("<p>Logged out</p>")
 @users_bp.route('/')
 def index():
     return render_template('index.html')
