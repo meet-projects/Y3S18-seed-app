@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../static/js/login_signup.js"> </script>
 </head>
 <body>
-<a href="#feed" id="feed_btn">Feed</a>
+<a href="feed" id="feed_btn">Feed</a>
 <center>
 
   <center>
@@ -106,7 +106,7 @@
 
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" action="{{ url_for('users.login') }}" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img_avatar2.png" alt="Avatar" class="avatar">

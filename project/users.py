@@ -62,8 +62,8 @@ def login():
     form = LoginForm(request.form)
     if request.method == 'POST':
         if form.validate_on_submit():
-            email = email = request.form.get('email')
-            password = email = request.form.get('password')
+            email = request.form.get('email')
+            password = request.form.get('password')
             user = User.query.filter_by(email=email).first()
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect username or password</p>")
