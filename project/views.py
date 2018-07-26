@@ -166,6 +166,6 @@ def booking(teacher_id):
 	studentname=request.form.get('name')
 	studentnum=request.form.get('num')
 	thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-	book=Booking(studentname,studentnum,thisteacher,False)
+	book=Booking(studentname,studentnum,thisteacher.id,False)
 	db.session.add(book)
 	db.session.commit()

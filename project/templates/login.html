@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+
 {% block content %}
  
 <div class="add-user">
@@ -10,9 +10,9 @@
   </div>
  
 <form action="{{ url_for('users.login') }}" method="post">
-    {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }}
+    {{ loginform.csrf_token }}
+    {{ loginform.username(placeholder="Username") }} 
+    {{ loginform.password(placeholder="Password") }}
     <button class="btn btn-sm btn-success" type="submit">Log in</button>
   </form>
  
