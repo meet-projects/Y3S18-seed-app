@@ -77,7 +77,7 @@ class Booking(db.Model):
     teacher = db.Column(db.Teacher)
     done = db.Column(db.Boolean)
 
-    def __init__:
+    def __init__():
         self.name=name
         self.phone_num=phone_num
         self.teacher=teacher
