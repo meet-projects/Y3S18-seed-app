@@ -1,4 +1,5 @@
 from project import db
+from datetime import datetime
 
 from sqlalchemy import and_, or_
 from flask_login import UserMixin
@@ -33,12 +34,14 @@ class Post(db.Model):
     Title          = db.Column(db.String(20), nullable=False)
     Text           = db.Column(db.String, nullable=False)
     Rating         = db.Column(db.Integer)
+    Date           = db.Column(db.DateTime, nullable=False)
 
-    def __init__(self, AuthorID, ArtURL, Title, Text):
+    def __init__(self, AuthorID, Title, Text):
         self.AuthorID = AuthorID
-        self.ArtURL = ArtURL
+        self.ArtURL = ""
         self.Title = Title
         self.Text = Text
+        self.Date = self.format_date()
         self.Rating = 0
 
     def relate(self, userid):
@@ -55,6 +58,26 @@ class Post(db.Model):
     def get_rating(self):
         getlikes = Like.query.filter(postID == self.id).all()
         self.Rating = len(getlikes)
+
+    def format_rating(self):
+        rating = float(self.Rating)
+        if rating < 1000:
+            return str(rating)
+        elif rating < 1000000:
+            new_rating = round(rating / 1000, 1)
+            return  new_rating + "K"
+        elif rating < 1000000000:
+            new_rating = round(rating / 1000000, 1)
+            return new_rating + "M"
+        else:
+            return "LOTS"
+
+    def format_date(self):
+        now = datetime.now()
+        return str(now[1]) + " - " + str(now[2]) + " - " + str(now[0]) 
+
+    def __repr__(self):
+        return "post " + str(self.id) + " " + str(self.Title) + " " + str(self.Text)
 
     # def set_rating(self,new_rating):
     #     self.Rating = new_rating

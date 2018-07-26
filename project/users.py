@@ -54,5 +54,9 @@ def login():
 @login_required
 def logout():
     logout_user()
+
     return Response("<p>Logged out</p>")
 
+#@users_bp.route('/post')
+#def post():
+ #       return render_template('add_post.html')    

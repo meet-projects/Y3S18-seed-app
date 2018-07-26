@@ -20,7 +20,7 @@ def adding_posts():
         if form.validate_on_submit():
             title = form.title.data
             text = form.text.data
-            post = Post(authorID, title, text, 0)    
+            post = Post(authorID, title, text)    
             db.session.add(post)
             db.session.commit()
             user = User.query.filter_by(id=authorID).first()
