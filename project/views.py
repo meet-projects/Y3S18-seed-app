@@ -147,3 +147,13 @@ def profile(teacher_id):
 @app.route('/edit_profile')
 def edit_profile():
 	return render_template('edit_profile_template.html')
+
+
+@app.route('/booking/<int:teacher_id>')
+def booking(teacher_id):
+	studentname=request.form.get('name')
+	studentnum=request.form.get('num')
+	thisteacher=Teacher.query.filter_by(id=teacher_id).first()
+	book=Booking(studentname,studentnum,thisteacher,False)
+	db.session.add(book)
+	db.session.commit()

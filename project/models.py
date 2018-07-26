@@ -74,5 +74,5 @@ class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     phone_num = db.Column(db.String)
-    teacher = db.Column(db.Integer)
+    teacher = db.Column(db.Teacher)
     done = db.Column(db.Boolean)
