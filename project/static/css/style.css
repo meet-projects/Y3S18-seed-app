@@ -18,8 +18,8 @@
 
 body{
 	color: rgb(246,246,246);
-	margin-right: 100px;
-	margin-left: 100px;
+	margin-right: 60px;
+	margin-left: 60px;
 }
 h3{
 	color: rgb(31, 122, 140)
@@ -37,10 +37,10 @@ table{
 	font: helvetica;
 }
 th{
-	text-align: right;
+	text-align: left;
 }
 td{
-	text-align: left;
+	text-align: right;
 }
 .logo{
 	height:200px;
@@ -48,8 +48,9 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
-  height: 200px
-  width:200px;
+  height: 350px
+  width:350px;
+  align-content: center;
 }
 .column {
   float: left;
@@ -144,9 +145,9 @@ li.nav a:hover {
     background-color: #111;
 }
 #side_profile{
-  width: 200px
-  height:1000px;
+  width: 375px;
+  height: 600px;
   color:rgb(246,246,246);
-  text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  align-self: left;
 }
