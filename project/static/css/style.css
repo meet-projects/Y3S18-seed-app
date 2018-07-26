@@ -48,6 +48,8 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
+  height: 200px
+  width:200px;
 }
 .column {
   float: left;
@@ -141,9 +143,10 @@ li.nav a {
 li.nav a:hover {
     background-color: #111;
 }
-#login{
-  float: right;
-}
-#signup{
-  float: right;
+#side_profile{
+  width: 200px
+  height:1000px;
+  color:rgb(246,246,246);
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
