@@ -10,20 +10,21 @@ from project.forms import RegisterForm, LoginForm
 from project.models import User
 
 
+
+from flask import request, redirect, Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
+from werkzeug.security import check_password_hash, generate_password_hash
+
+
+
 users_bp = Blueprint('users', __name__)
 
+current_user = 'Not Logged In'
 
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
-    # TODO: Fill this in!
-#HEAD
-#    if request.method == 'POST'
-#        if form.validate_on_submit():
-#            name = form.name.data
-#            email = form.email.data
-#            password = form.password.data
-#    return render_template('register.html', form=form)
 
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -35,25 +36,24 @@ def register():
                 return Response ("<p> account already exists <p>")
                 return render_template('register.html', form=form)
             else:
-                print(email)
-                print(name)
-                print(password)
                 user = User(email=email, name= name, password= password)
                 db.session.add(user)
                 db.session.commit()
-                # return redirect(url_for('browse.html'))
-                return redirect(url_for('login'))
+                return redirect(url_for('users.login'))
 
     else:
         return render_template('register.html', form=form)
    
-#>>>>>>> 36cb8842102142e12e53b81fec35d0ec9d8e8c61
+
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])
 def login():
+    print(request.form)
     form = LoginForm(request.form)
     if request.method == 'POST':
+        print(form.email.data)
+        print(form.password.data)
         if form.validate_on_submit():
             email = form.email.data
             password = form.password.data
@@ -61,10 +61,11 @@ def login():
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect email or password</p>")
             login_user(user, remember=True)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
-            return redirect(next_page)
+            # next_page = request.args.get('next')
+            # if not next_page or url_parse(next_page).netloc != '':
+            #     next_page = url_for('private_route')
+
+            return redirect(url_for('block_journey'))
         else:
             return Response("<p>invalid form</p>")
     return render_template('login.html', form=form)

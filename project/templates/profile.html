@@ -1,6 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<img src="{{url_for('static', filename='profile.png')}}" />
+<h2> {{user.name}} </h2>
+<h3> {{user.email}} </h3>
+{%if is_user==True%}
+	<p>this is your profile<p>
+{%else%}
+	<p>this is not your profile</p>
+{%endif%}
+
+</body>
+</html>
 
 
 {% endblock %}
