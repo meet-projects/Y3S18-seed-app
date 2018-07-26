@@ -195,3 +195,13 @@ width: 200px;
   height:100px;
   width: 750px; 
 }
+#about_text{
+  max-width:20px;
+  height:250px;
+}
+
+.div{
+
+  background-color: #36d02a;
+  width: 100%;
+}
