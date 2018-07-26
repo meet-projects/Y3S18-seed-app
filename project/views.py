@@ -8,6 +8,7 @@ from sqlalchemy import desc
 
 @app.route('/')
 @app.route('/feed')
+@app.route('/profile/feed')
 def feed():
 	teachers = db.session.query(Teacher).all()
 	print(teachers)
