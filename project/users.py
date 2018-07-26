@@ -13,7 +13,7 @@ from project.models import User,Teacher,Booking
 users_bp = Blueprint('users', __name__)
 
 
-@users_bp.route('/register', methods=['GET', 'POST'])
+@users_bp.route('/signup', methods=['GET', 'POST'])
 def register():
     #form = RegisterForm(request.form)
 
@@ -29,15 +29,17 @@ def register():
         phonenum=request.form.get('phonenum')
         car_type=request.form.get('car_type')
         license_num=request.form.get('license_num')
-        languages="to be filled"
-        teacher
+        languages=request.form.get('languages')
+        profilepic=request.form.get('profilepic')
+        if profilepic is None:
+            profilepic=""
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
                 user=User(email,password)
                 db.session.add(user)
                 db.session.commit()
-                teacher=Teacher(user.id,name,area,city,description,fee,phonenum,"http://i.imgur.com/hfH9CiC.png",car_type,license_num)
+                teacher=Teacher(user.id,name,area,city,description,fee,phonenum,languages,profilepic,car_type,license_num)
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)

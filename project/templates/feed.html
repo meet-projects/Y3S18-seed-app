@@ -69,7 +69,7 @@
 	  			{% for teacher in teachers %}
 	  			<div class="column">
 	    			<div class="card">
-	      				<img src="../static/img/person.jpeg" alt="Jacob Jacobson" style="width:100%" class="feed_img">
+	      				<img src="{{teacher.profile_picture}}" alt="{{teacher.name}}" style="width:100%" class="feed_img">
 						    <div class="container">
 						    	
 						        <h2 id="name">{{teacher.name}}</h2>
