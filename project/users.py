@@ -82,7 +82,7 @@ def login():
             return redirect('profile_template')
         else:
             return Response("<p>invalid form</p>")
-    return render_template('login.html', form=form)
+    return render_template('login_signup.html', form=form)
 
 @users_bp.route('/logout')
 @login_required
