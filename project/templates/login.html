@@ -19,7 +19,7 @@
 		<div class="form">
 			<form action="{{ url_for('users.login') }}" method="post">
 		    	{{ form.csrf_token }}
-		    	username {{ form.username(placeholder="Username") }}< 
+		    	username {{ form.username(placeholder="Username") }}
 		    	password {{ form.password(placeholder="Password") }}
 		    	<br>
 		    	<button class="btn" type="submit">Log in</button>

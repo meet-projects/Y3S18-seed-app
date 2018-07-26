@@ -1,6 +1,6 @@
 from flask import render_template, request, session
 from flask_login import login_required
-from project.models import User
+from project.models import *
 from . import app
 
 
@@ -13,7 +13,8 @@ from . import app
 def feed():
 	u = User.query.filter_by(id=session['user_id']).first()
 	# print(request.__dict__)
-	return render_template('index.html', user=u)
+	posts = Post.query.all()
+	return render_template('index.html', user=u, posts = posts)
 
 
 @app.route('/private')

@@ -55,4 +55,10 @@ def login():
 def logout():
     logout_user()
     return Response("<p>Logged out</p>")
+@users_bp.route('/')
+def index():
+    return render_template('index.html')
 
+#@users_bp.route('/post')
+#def post():
+ #       return render_template('add_post.html')    

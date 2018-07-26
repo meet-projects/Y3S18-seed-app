@@ -1,18 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>feed</title>
-	 <!-- <link rel="stylesheet" type="text/css" href="css1.css">-->
-  <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-		<h1>Hello {{user.username}}</h1>	
-		<ul> 
-	  <li class="menu_item"><a href="{{url_for('feed')}}">Home</a></li>
+
+{% extends "layout.html" %}
+{% block content %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/feeddesign.css') }}">
+	<h1>Hello {{user.username}}</h1>	
+	<ul> 
+	  <li class="menu_item"><a href="{{url_for('users.index')}}">Home</a></li>
 	  <li class="menu_item"><a href="{{url_for('add_post.adding_posts')}}">Post</a></li>
  	</ul>
- 	
+ 	<style>
+ 		
+ 		{
+ 		font-size: 150%;
+ 		}
+ 	</style>
  
  <header>Feed</header>
-</body>
-</html>
+
+
+{% for post in posts %}
+ <div id="feed_div">
+	<div class='feed_item'>
+		<p> post {{post.id}}</p>
+		<br />
+		<p> {{ post.Title }}</p>
+		<br />
+		<p> {{post.Text}} </p>
+		<br />
+	</div>
+ </div>
+ {% endfor %}
+
+ {% endblock %}

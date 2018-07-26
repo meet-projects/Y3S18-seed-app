@@ -1,0 +1,15 @@
+.divs {
+ width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+
+}
+
+.feed_item{
+	width:100%;
+	height: 100px;
+	background-color: blue;
+	font-size: xx-large;
+}
+font-size: 150%;
