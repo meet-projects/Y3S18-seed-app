@@ -1,16 +1,17 @@
+
+
 {% extends "layout.html" %}
 {% block content %}
-<div> <img class="img1" src="{{journey.picture}}"> </div>
+<div> <img class="img1" src="{{ journey.picture }}"> </div>
 <div> <h1> {{journey.title}} </h1>
-	<h1> start location : {{journey.start_location}} </h1> 
 	<!-- **REMEMBER TO LINK IT TO THE PROFILE** -->
-	<h1> storyteller : {{creator.name}} </h1>
-	<h1> end location : {{journey.end_location}} </h1>
+	<h1> storyteller : {{ creator.name }} </h1>
+	<h1> location : {{journey.location}} </h1>
 	<h1> description : {{journey.description}} </h1>
 	<h1> duration : {{journey.duration}} </h1>
 	<h1> price : {{journey.price}} </h1>
 	<h1> category : {{journey.category}} </h1>
-	<h1> requirments : {{journey.requirments}} </h1>
+	<h1> requirements : {{journey.requirements}} </h1>
 	<h1> people range : {{journey.people_range}} </h1>
 
 
