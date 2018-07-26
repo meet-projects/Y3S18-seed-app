@@ -6,8 +6,8 @@
 
 html,body{
 	color: rgb(246,246,246);
-	margin-right: 100px;
-	margin-left: 100px;
+	margin-right: 60px;
+	margin-left: 60px;
   background-color: #36D02A;
 }
 h3{
@@ -26,10 +26,10 @@ table{
 	font: helvetica;
 }
 th{
-	text-align: right;
+	text-align: left;
 }
 td{
-	text-align: left;
+	text-align: right;
 }
 .logo{
 	height:200px;
@@ -37,6 +37,9 @@ td{
 #profile_picture{
 	border: 5px solid rgb(184, 255, 114);
 	border-radius: 50%;
+  height: 350px
+  width:350px;
+  align-content: center;
 }
 .column {
   float: left;
@@ -130,15 +133,15 @@ li.nav a {
 li.nav a:hover {
     background-color: #111;
 }
-#login{
-  float: right;
-}
-#signup{
-  float: right;
-}
 
+#side_profile{
+  width: 375px;
+  height: 600px;
+  color:rgb(246,246,246);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  align-self: left;
+}
 h3{
-
 color:white;
 font-family: "Comic Sans MS", cursive, sans-serif;
 font-size: 30px;
