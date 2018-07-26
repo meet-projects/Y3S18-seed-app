@@ -30,19 +30,18 @@ def register():
         car_type=request.form.get('car_type')
         license_num=request.form.get('license_num')
         languages="to be filled"
+        teacher
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
                 user=User(email,password)
-                user.email = email
-                user.password_hash = password
-                user_id = user.id
-                teacher=Teacher(user_id,name,area,city,description,fee,phonenum,"http://i.imgur.com/hfH9CiC.png",car_type,license_num)
                 db.session.add(user)
+                db.session.commit()
+                teacher=Teacher(user.id,name,area,city,description,fee,phonenum,"http://i.imgur.com/hfH9CiC.png",car_type,license_num)
                 db.session.add(teacher)
                 db.session.commit()
-            login_user(user, remember=True)
-            return redirect('profile_template')
+                login_user(user, remember=True)
+                return redirect('profile_template')
             ##next_page = request.args.get('next')
             ##if not next_page or url_parse(next_page).netloc != '':
                ## next_page = url_for('private_route')
