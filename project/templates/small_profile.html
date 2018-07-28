@@ -9,7 +9,7 @@
 		</title>
 	</head>
 	<body class="profile_page">
-<a href="feed" id="feed_btn">Feed</a>
+		<a href="{{ url_for('feed') }}" id="feed_btn">Feed</a>
 		<center><img src="../static/img/Small.png" class="logo"></center>
 
 
@@ -23,8 +23,18 @@
 			<table>
 				<tr> 
 
+					<th> <u> City:</u></th> 
+					<td> {{teacher.city}} </td>
+				</tr>
+				<tr> 
+
 					<th> <u> Area:</u></th> 
 					<td> {{teacher.area}} </td>
+				</tr>
+				<tr> 
+
+					<th> <u> Cost:</u></th> 
+					<td> {{teacher.fee}} Shekel</td>
 				</tr>
 				<tr> 
 					<th> <u> Languages:</u></th> 
@@ -60,7 +70,7 @@
 					</div>
 					<div class="modal-body">
 						<br>
-						<form name="booking_form" id="book">
+						<form name="booking_form" id="book" action="{{ url_for( 'users.booking' , teacher_id=teacher.id ) }}">
 							Full Name<br>
 							<input type="text" name="name" placeholder="Full Name">
 							<br>
@@ -70,7 +80,7 @@
 							<br>
 							<input type="text" name="teacher" value="{{teacher.id}}" style="visibility: hidden;">
 							<br>
-							<input type="submit" name="submit" onclick="book()" value="Book" class="book_btn">
+							<input type="submit" name="submit" value="Book" class="book_btn">
 						</form>
 					</div>
 					<div class="modal-footer">
