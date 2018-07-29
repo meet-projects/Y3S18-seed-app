@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 html
         {
         box-sizing:border-box;  
@@ -8,7 +10,7 @@ html
         {
               box-sizing: inherit;
         }         
-  .loginbody          
+  .login-body          
         { 
             background-image: url("../pictures/bacpicRed.jpg") ;
             background-position: center;
@@ -16,13 +18,15 @@ html
             background-size: 100% 1000px; 
             justify-content: center;
             font-size: 1rem;
+            background-color: rgba(255,255,255,0.89);
 
 
 
-        }
+     
+       }
 
     /* container */
-  .loginform 
+    .container 
     { 
        border-radius: 15px;
        width: 500px;
@@ -32,22 +36,55 @@ html
        margin-right: auto;
        background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));
     }
+>>>>>>> 58137998c6f320515bc93227188b31c72ec5dd1d
 
-    
-.textsboxes{
+#main_table{
+  width: 100%;
+  height:100vh;
+  background-image: url("../pictures/bacpicRed.jpg");
+  background-repeat: no-repeat;
 
+<<<<<<< HEAD
+}
+=======
       display: block;
       margin-left: auto;
       margin-right: auto;
       color: rgb(242, 242, 242);
-      font-size: 20px
+      font-size: 20px;
+>>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb
+
+.top_bar{
+  height: 100px;
+  background-color: green;
+}
+
+/* container */
+.login_page_container {
+  padding: 20px;
+  color: white;
+  margin: auto;
+  border-radius: 15px;
+  width: 500px;
+  height: 60%;
+  background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));
+}
+
+<<<<<<< HEAD
+    
+.textsboxes{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(242, 242, 242);
+  font-size: 20px
 
 
 }
 
-.textbox{
-
-}
+=======
+>>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb
 /* Full-width inputs */
 input[type=text], input[type=password] 
       { 
@@ -65,37 +102,19 @@ input[type=text], input[type=password]
         text-align: center;
         vertical-align: middle;
         color:rgb(242, 242, 242);
+        display: block;
     }
 
+input[type=text]::placeholder, input[type=password]::placeholder {
+    color: white;
+  }
 
+input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+  }
 
-/* Set a style for all buttons */
-button.btn
-    {
-        background-color: rgba(225,225,225);
-        color: black;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 20%;
-        border-radius: 50PX;
-        font-size: 20px;
-
-     }
-
-/* Add a hover effect for buttons */
-button:hover {
-    background-color: rgba(230, 92, 0, 0.89);
-    opacity: 0.8;
-}
-
-
-/* Center the  image inside this container */
 .imgcontainer {
     text-align: center;
-    margin: 24px 0 12px 0;
-    padding-top: 30px;
 }
 
 /* logo image */
@@ -108,9 +127,118 @@ button:hover {
     background-color:rgba(255,255,255,1);
   }
 
-/* Add padding to containers */
-.container {
-    padding: 16px;
+
+/*login button*/
+.btn{
+        background-color: rgba(225,225,225);
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+        border-radius: 50PX;
+        font-size: 20px;
 }
 
-/*FEED PAGE*/
+.btn:hover{
+        background-color: rgba(230, 92, 0, 0.89);
+        opacity: 0.8;
+      }
+
+  
+
+PROFILE PAGE
+.profile-body {
+  background-color:transparent;
+ ;
+}
+.toolbar{}
+
+.profileform{
+       border-radius: 15px;
+       width: 500px;
+       height: 600px;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       background: linear-gradient(to top, rgba(204,0,0), rgba(230, 92, 0));
+ 
+
+<<<<<<< HEAD
+/* Center the  image inside this container */
+.imgcontainer {
+    text-align: center;
+=======
+>>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb
+}
+
+.avatar{
+    width: 30%;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgba(255,255,255,1)
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+<<<<<<< HEAD
+#signup_form{
+  display: none;
+}
+
+.form_switch_link{
+  color: white;
+  text-decoration: underline;
+}
+=======
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button:hover, a:hover {
+    opacity: 0.7;
+}
+.profilecontainer{
+
+       border-radius: 15px;
+       width: 500px;
+       height: 600px;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       background: linear-gradient(to top, rgba(204,0,0), rgba(230, 92, 0);
+
+}
+
+
+
+
+
+>>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb
