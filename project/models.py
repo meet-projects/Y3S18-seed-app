@@ -1,3 +1,4 @@
+
 from project import db
 from datetime import datetime
 
@@ -35,7 +36,7 @@ class Post(db.Model):
     Title          = db.Column(db.String(20), nullable=False)
     Text           = db.Column(db.String, nullable=False)
     Rating         = db.Column(db.Integer)
-    Date           = db.Column(db.DateTime, nullable=False)
+    Date           = db.Column(db.String, nullable=False)
 
     def __init__(self, AuthorID, Title, Text):
         self.AuthorID = AuthorID
@@ -76,19 +77,13 @@ class Post(db.Model):
 
     def format_date(self):
         now = datetime.now()
-        return str(now[1]) + " - " + str(now[2]) + " - " + str(now[0])
+        return str(now.month) + " - " + str(now.day) + " - " + str(now.year)
 
     def get_description(self):
-        return self.text[:100] + "..."
+        return self.Text[:100] + "..."
 
     def __repr__(self):
         return "post " + str(self.id) + " " + str(self.Title) + " " + str(self.Text)
-
-    # def set_rating(self,new_rating):
-    #     self.Rating = new_rating
-
-    # def get_rating():
-    #     return self.Rating
 
 class Like(db.Model):
     __tablename__='likes'

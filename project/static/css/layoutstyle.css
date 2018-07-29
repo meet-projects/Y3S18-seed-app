@@ -8,7 +8,7 @@ html
         {
               box-sizing: inherit;
         }         
-  body          
+  .loginbody          
         { 
             background-image: url("../pictures/bacpicRed.jpg") ;
             background-position: center;
@@ -22,7 +22,7 @@ html
         }
 
     /* container */
-  form 
+  .loginform 
     { 
        border-radius: 15px;
        width: 500px;
@@ -98,7 +98,7 @@ button:hover {
     padding-top: 30px;
 }
 
-/* Avatar image */
+/* logo image */
 #logo {
     width: 30%;
     border-radius: 50%;
@@ -112,3 +112,5 @@ button:hover {
 .container {
     padding: 16px;
 }
+
+/*FEED PAGE*/

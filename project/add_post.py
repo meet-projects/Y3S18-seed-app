@@ -30,7 +30,7 @@ def adding_posts():
     return render_template('add_post.html', form=form)
 
 
-@post_bp.route('/add-art/<int:post_id>', methods= ['GET', 'POST'])
+@post_bp.route('/add-art', methods= ['GET', 'POST'])
 @login_required
 def add_art():
     PostID = session['post_id']

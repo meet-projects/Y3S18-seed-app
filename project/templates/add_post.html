@@ -16,7 +16,7 @@
 	  </style>
 </head>
 <body>
-<form action="{{ url_for('add_post.add_art') }}" method="post">
+<form action="{{ url_for('add_post.adding_posts') }}" method="post">
     {{ form.csrf_token }}
  <p class="text">URL:</p>   {{ form.art_url(placeholder= "URL") }}<br><br>
     <button class="btn btn-sm btn-success" type="submit">Share</button>

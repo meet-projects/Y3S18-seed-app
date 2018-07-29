@@ -17,7 +17,7 @@ def post():
             post = Post(authorID, title, text)    
             db.session.add(Post)
             db.session.commit()
-            return render_template('index.html')    
+            return render_template('feed.html')    
         else:
             return Response("<p>invalid form</p>")
     return render_template('register.html', form=form)

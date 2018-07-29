@@ -19,59 +19,34 @@
       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </head>
-	<body>
+<body class="loginbody">
+			<div class="container">
+				  	
 
-		<!-- <div class="login-modal">
-			<div class="imgcontainer">
-		    	<img src="artflict_img.jpg" alt="Avatar" class="avatar">
-		  	</div>
+				  	<form action="{{ url_for('users.login') }}" method="post" class="loginform">
+				  		<div class="imgcontainer">
+			    			<img src="static/pictures/newlogo.jpg" alt="logo" id="logo">
+			  			</div>
+			  				<div class="textsboxes"><center>
+						    	{{ form.csrf_token }}
+						    	{{ form.username(placeholder="Username", class="textbox") }}
+						    	<br>
+						    	{{ form.password(placeholder="Password", class="textbox") }}
+						    	<br>
+						    	 <button class="btn" type="submit">Log in</button>
+						    	<br>
+						    	<label>
+						    	
+							      <input type="checkbox"  name="remember"> Remember me
+							    </label>
+							    <br>
+							    <a href="{{url_for('users.register')}}">Sign Up!</a>
+							    </center>
+							 </div>
 
-			  <div class="container">
-			  	<form action="{{ url_for('users.login') }}" method="post">
-					    	{{ form.csrf_token }}
-					    	username {{ form.username(placeholder="Username") }}
-					    	password {{ form.password(placeholder="Password") }}
-					    	<br>
-					    	<button class="btn" type="submit">Log in</button>
-					    	<label>
-						      <input type="checkbox" checked="checked" name="remember"> Remember me
-						    </label>
-						    <a href="{{url_for('users.register')}}">Sign Up!</a>
+					</form>
 
-				</form>
-
-			    
-			  </div>
-		</div> -->
-	
-		<div class="container">
-			  	
-
-			  	<form action="{{ url_for('users.login') }}" method="post">
-			  		<div class="imgcontainer">
-		    			<img src="static/pictures/newlogo.jpg" alt="logo" id="logo">
-		  			</div>
-		  				<div class="textsboxes"><center>
-					    	{{ form.csrf_token }}
-					    	{{ form.username(placeholder="Username", class="textbox") }}
-					    	<br>
-					    	{{ form.password(placeholder="Password", class="textbox") }}
-					    	<br>
-					    	 <button class="btn" type="submit">Log in</button>
-					    	<br>
-					    	<label>
-					    	
-						      <input type="checkbox"  name="remember"> Remember me
-						    </label>
-						    <br>
-
-						    </center>
-						 </div>
-
-				</form>
-
-			    
-		</div>
-
-	</body>
+				    
+			</div>
+		</body>
 </html>
