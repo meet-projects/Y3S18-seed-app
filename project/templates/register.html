@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_user.html" %}
 {% block content %}
 
 <body>
@@ -7,24 +7,23 @@
 
     <div class="page-header">
 
+    <center>
+
       <h2>Register New User</h2>
     </div>
     <form action="{{ url_for('users.register') }}" method="post">
 
       {{ form.csrf_token }}
-      {{ form.email(placeholder="Email Adress") }} 
-      {{ form.name(placeholder="Full Name") }} 
-<!-- 	<input type="text" name = "name" placeholder="Name+Surname" required>
-	<br>
-	<input type="email" name = "email" placeholder="email" required>
-	<br>
-	<input type="password" name = "password" placeholder="password" required>
-	<br> -->
-      {{ form.password(placeholder="Password") }}
-      {{ form.confirm(placeholder="Confirm Password") }}
+      {{ form.email(placeholder="Email Adress") }} <br>
+      {{ form.name(placeholder="Full Name") }} <br>
+      {{ form.password(placeholder="Password") }} <br>
+      {{ form.confirm(placeholder="Confirm Password") }} <br>
+
     <button class="btn btn-sm btn-success" type="submit">Register User</button>
   </form>
- 
+ </center>
+
+    </div>
 </div>
  </body>
 {% endblock %}

@@ -5,15 +5,6 @@ from . import app, db
 
 from project.models import Journey, User
 
-@app.route('/')
-def index():
-	return render_template('index.html')
-
-@app.route('/private')
-@login_required
-def private_route():
-	return render_template('private.html')
-
 
 @app.route('/apply', methods=['GET', 'POST'])
 @login_required
