@@ -19,16 +19,10 @@ def register():
     	username=form.username.data
     	password = form.password.data
     	number = form.number.data
-    	name = form.name.data
-    	name1 = form.name1.data
-    	name2 = form.name2.data
-    	phone = form.phone.data
-    	phone1 = form.phone1.data
-    	phone2 = form.phone2.data
     	user = User.query.filter_by(username=username).first()
     	if user:
     		return Response("<p>Username already exists</p>")
-    	user = User(username, password, number, name, name1, name2, phone, phone1, phone2)
+    	user = User(username, password, number)
     	db.session.add(user)
     	db.session.commit()
     	login_user(user, remember=True)
