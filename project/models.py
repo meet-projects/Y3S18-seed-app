@@ -26,13 +26,3 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return 'User %d %s' % (self.id, self.username)
-
-
-# TODO: Create your other models here
-class YourModel(db.Model):
-    
-    __tablename__ = "yourmodel"
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-
-    # fill in the rest of your fields and methods!
