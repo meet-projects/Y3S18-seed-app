@@ -40,10 +40,7 @@ def send_message():
 	for user in users:
 		print("Print flag:")
 		print(user.flag)
-		if user.flag == 1 and user.username == "a":
-			client.messages.create(to=user.number, from_=FROM, body=BODY)
-		if user.flag == 1 and user.username == "b":
-			client1.messages.create(to=user.number, from_=FROM1, body=BODY)
+		client.messages.create(to=user.number, from_=FROM, body=BODY)
 
 def activate():
 	global IN
@@ -67,14 +64,27 @@ def private_route():
 	user = User.query.filter_by(id=session['user_id']).first()
 	session['name'] = user.username
 	session['phone'] = user.number
-
 	user.flag = 0
 	db.session.commit()
 
-	if request.method == 'POST':
-		user.flag = 1
-		db.session.commit()
-
-		return render_template('check.html')
+	if request.method == "POST":
+		form = AddContactForm(request.form)
+		if user.name is null:
+			user.name = form.name.data
+			user.phone = form.phone.data
+		elif user.name1 is null:
+			user.name1 = form.name.data
+			user.phone1 = form.phone.data
+		elif user.name2 is null:
+			user.name2 = form.name.data
+			user.phone2 = form.phone.data
+		db.session.commit()   
 
 	return render_template('private.html')
+
+@app.route('/test')
+@login_required
+def check():
+	user = User.query.filter_by(username=session['name']).first()
+	user.flag = 1
+	db.session.commit()
