@@ -14,7 +14,7 @@ def feed():
 	u = User.query.filter_by(id=session['user_id']).first()
 	# print(request.__dict__)
 	posts = Post.query.all()
-	return render_template('index.html', user=u, posts = posts)
+	return render_template('feed.html', user=u, posts = posts)
 
 
 @app.route('/private')
