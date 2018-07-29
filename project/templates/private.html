@@ -1,6 +1,64 @@
 {% extends "layout.html" %}
 {% block content %}
-<style>
+
+    <!-- FOR THE MODAL STYLE -->
+<style>  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+} 
+
 body{
 style="overflow:hidden;"}
 #profile{
@@ -38,6 +96,29 @@ h4{
 
 }
 
+.noa{
+	background: linear-gradient( to right, #6F95AD , #D9EBF5); 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.orange{
+	background-color: #FFA400;
+
+
+}
+button{
+
+}
+.btn-warning {background-color: transparent;}
+.btn-warning {border-color: white} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+
+/*make contact button on the same pos as the piture*/
 #addcontact1{
 	position: fixed;
 	left:250px;
@@ -60,27 +141,53 @@ top: 300px;
 
 }
 
-.noa{
-	background: linear-gradient( to right, #6F95AD , #D9EBF5); 
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-right: 10px;
-	padding-left: 10px;
-}
-
-.orange{
-	background-color: #FFA400;
-
-
-}
-button{
+#contact-1-button{
+	position: fixed;
+left: 250px;
+top: 300px;
+width: 250px;
+height: 250px;
+background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 
 }
-.btn-warning {background-color: transparent;}
-.btn-warning {border-color: white} 
-.btn-warning {color: black;}
-.btn-warning{font-weight: bold;}
-.btn-warning{font-size: 15px;}
+
+#contact-2-button{
+	position: fixed;
+left: 550px;
+top: 300px;
+width: 250px;
+height: 250px;
+background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+
+
+}
+
+#contact-3-button{
+	position: fixed;
+left: 850px;
+top: 300px;
+width: 250px;
+height: 250px;
+background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+
+
+
+}
 
 </style>
 <br><br><br><br><br><br><br><br><br><br><br>
@@ -111,18 +218,96 @@ button{
 
 
 
+<div class='container'>
+
+		
+</center>
+	<div class='row'>
+	</div>
+</div>
+
+
+
+<!--  THIS IS ALL FOR THE MODAL POPUP -->
+ <!-- Button to open the modal login form -->
+<button id="contact-1-button" onclick="document.getElementById('id01').style.display='block'"></button>
+
+<button id="contact-2-button" onclick="document.getElementById('id02').style.display='block'"></button>
+
+<button id="contact-3-button" onclick="document.getElementById('id03').style.display='block'"></button>
+
+<!-- The first Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+<p>Add the first contact:</p>
+    <div class="container">
+      <label for="uname"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="uname" required>
+
+      <label for="psw"><b>Phone Number</b></label>
+      <input type="text" placeholder="Enter Phone Number" name="psw" required>
+
+      <button type="submit">ENTER</button>
+      <br><br>
+    </div>
+  </form>
+</div> 
+
+<!-- The second Modal -->
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+<p>Add the second contact:</p>
+    <div class="container">
+      <label for="uname"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="uname" required>
+
+      <label for="psw"><b>Phone Number</b></label>
+      <input type="text" placeholder="Enter Phone Number" name="psw" required>
+
+      <button type="submit">ENTER</button>
+      <br><br>
+    </div>
+  </form>
+</div> 
+
+<!-- The second Modal -->
+<div id="id03" class="modal">
+  <span onclick="document.getElementById('id03').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+<p>Add the third contact:</p>
+    <div class="container">
+      <label for="uname"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="uname" required>
+
+      <label for="psw"><b>Phone Number</b></label>
+      <input type="text" placeholder="Enter Phone Number" name="psw" required>
+
+      <button type="submit">ENTER</button>
+      <br><br>
+    </div>
+  </form>
+</div> 
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </div>
 
 <div class="orange">
-	<button class="btn btn-sm btn-warning" type="police"><a href="tel:+9720529553327"></a> Police Department</button>
+	<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to the police department');"" type="police"><a href="tel:+9720529553327"></a> Police Department</button>
 	<br><br><br><br><br>
-
-
 </div>
-
-
 
 
 
