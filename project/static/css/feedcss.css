@@ -12,4 +12,29 @@
 	background-color: blue;
 	font-size: xx-large;
 }
-font-size: 150%;
+
+.valid_text_space {
+    width:87%;
+    height:90%;
+    /*background-color:greenyellow;*/
+    display: inline-block;
+    margin: 10px;
+}
+
+.post_block {
+    height: 200px;
+    width: 98%;
+    background-color: #99A8FF;
+    border: double;
+    border-color: black;
+    border-width: 1px;
+}
+
+.post_block:not(:first-child) {
+    margin-top: 30px;
+}
+
+.post_block:first-child {
+    margin-top: 10px;
+}
+

@@ -31,6 +31,7 @@ class Post(db.Model):
     id             = db.Column(db.Integer, primary_key=True, autoincrement=True)
     AuthorID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     ArtURL         = db.Column(db.String)
+    ArtistID       = db.Column(db.Integer, db.ForeignKey('users.id'))
     Title          = db.Column(db.String(20), nullable=False)
     Text           = db.Column(db.String, nullable=False)
     Rating         = db.Column(db.Integer)
@@ -43,6 +44,7 @@ class Post(db.Model):
         self.Text = Text
         self.Date = self.format_date()
         self.Rating = 0
+        self.ArtistID = None
 
     def relate(self, userid):
         getpostlike = Like.query.filter(and_((postID == self.id), (userID == userid))).first()
@@ -74,7 +76,10 @@ class Post(db.Model):
 
     def format_date(self):
         now = datetime.now()
-        return str(now[1]) + " - " + str(now[2]) + " - " + str(now[0]) 
+        return str(now[1]) + " - " + str(now[2]) + " - " + str(now[0])
+
+    def get_description(self):
+        return self.text[:100] + "..."
 
     def __repr__(self):
         return "post " + str(self.id) + " " + str(self.Title) + " " + str(self.Text)
