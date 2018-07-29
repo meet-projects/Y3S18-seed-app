@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_migrate import Migrate
+# from flask_migrate import Migrate
 
 import os
 
@@ -10,7 +10,7 @@ app = Flask(__name__, instance_relative_config=True)
 app.config.from_pyfile('flask.cfg')
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'users.login'
@@ -19,7 +19,8 @@ from project.models import User
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.filter(User.id == int(user_id)).first()
+	print('user id------->',user_id)
+	return User.query.filter(User.id == int(user_id)).first()
 
 
 # Blueprints
@@ -31,4 +32,4 @@ app.register_blueprint(users_bp)
 # General views
 from . import views
 
-# db.create_all()
+db.create_all()

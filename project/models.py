@@ -18,6 +18,7 @@ class User(UserMixin, db.Model):
     phone = db.Column(db.String, nullable=True)
     phone1 = db.Column(db.String, nullable=True)
     phone2 = db.Column(db.String, nullable=True)
+    flag = db.Column(db.Integer, nullable=False)
 
     def __init__(self, username, password, number, name, name1, name2, phone, phone1, phone2):
         self.username = username
@@ -29,6 +30,7 @@ class User(UserMixin, db.Model):
         self.phone = phone
         self.phone1 = phone1
         self.phone2 = phone2
+        self.flag = 0
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
