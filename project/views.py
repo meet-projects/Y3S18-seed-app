@@ -3,6 +3,7 @@ from flask_login import login_required
 from project import db
 from project.models import User
 
+from sqlalchemy import update
 import os
 from twilio.rest import Client
 import threading
@@ -12,31 +13,46 @@ from . import app
 #NEED = 0
 #USER = 0
 
+#Robert's phone:
 ACC_SID = "AC28c8c4fb97d6e0949e2ce45135ad2c9c"
 AUTH_TOKEN = "c55558a79a700c94d537b33d63fe85c6"
 FROM = "+18604312585"
 BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
+#George's phone:
+ACC_SID1 = ""
+AUTH_TOKEN1 = ""
+FROM1 = ""
+
+#indicator:
+IN = 0
+
 def user_is_bad():
 	#Threading delay between 2 messages going to be 4 minutes
+	print("USER_IS_BAD 1")
 	threading.Timer(30.0, user_is_bad).start()
 	send_message()
 
 def send_message():
 	#This function will send the messages
-#	global NEED
-#	global USER
 	users = User.query.all()
 	client = Client(ACC_SID, AUTH_TOKEN)
 	for user in users:
+		print("Print flag:")
+		print(user.flag)
 		if user.flag == 1:
-			client.messages.create(to=USER.number, from_=FROM, body=BODY)
+			client.messages.create(to=user.number, from_=FROM, body=BODY)
 
-#user_is_bad()
+def activate():
+	global IN
+	if IN == 0:
+		user_is_bad()
+		IN = 1
 
 @app.route('/')
 def index():
-    return render_template('landingpage.html')
+	activate()
+	return render_template('landingpage.html')
 
 @app.route('/info')
 def info():
@@ -52,12 +68,15 @@ def private_route():
 	user = User.query.filter_by(id=session['user_id']).first()
 	session['name'] = user.username
 	session['phone'] = user.number
+
 	user.flag = 0
+	db.session.commit()
 
 	if request.method == 'POST':
-
+		print("Post method now and change flag")
 		user.flag = 1
-
+		db.session.commit()
+		print(user.flag)
 #		user_is_bad()
 
 		return render_template('check.html')
