@@ -1,0 +1,55 @@
+<a href="post" >post</a>
+<link rel="stylesheet" href="../static/css/style.css">
+<ul class="navigation_bar" >
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="post">post</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+{% extends "layout.html" %}
+{% block content %}
+
+ <div id="feed_space">
+
+{% for post in posts %}
+
+  <div class="post_block">
+      <div class="valid_text_space">
+          <div class="stori_title"> {{post.title}} </div>            
+          <div class="description_block">
+              {{ post.get_description() }}
+          </div>
+          <div class="publish_date_block">
+              <span class="publish_date_text"> Published on:    
+                  {{ post.format_date() }}
+              </span>
+
+              <div class="vote_block"><!-- 
+                  <asp:ImageButton ClientIDMode="Static" CssClass="vote_button up" ID="upvote" 
+                      ClientID='<%# string.Format("upvote_{0}", Eval("StoriID")) %>' 
+                      runat="server" ImageURL="Images/upvote-grey.png" CommandName="vote_up"
+                      CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();"/> -->
+
+                  <span class="rating"> {{ post.format_rating() }} </span>
+<!-- 
+                  <asp:ImageButton ClientIDMode="Static" CssClass="vote_button down" ID="downvote" 
+                      ClientID='<%# string.Format("downvote_{0}", Eval("StoriID")) %>' 
+                      runat="server" ImageURL="Images/downvote-grey.png" CommandName="vote_down"
+                      CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();" /> -->
+              </div>
+          </div>
+
+      </div>
+
+      <div class="cover_image_space">
+          <asp:ImageButton ClientIDMode="Static" ID="cover_image" CommandName="image_click"
+              CommandArgument='<%# Eval("StoriID") %>' ClientID='<%# string.Format("cover_image{0}", Eval("StoriID")) %>'
+              ImageURL="Images/Book-icon-black.png" runat="server" CssClass="cover_photo" OnClientClick="GetScrollerPosition();"/>
+      </div>
+  </div>
+  <br><br>
+{% endfor %}
+
+ </div>
+
+ {% endblock %}

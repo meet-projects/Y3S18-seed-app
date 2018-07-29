@@ -1,3 +1,40 @@
+<<<<<<< HEAD
+=======
+html
+        {
+        box-sizing:border-box;  
+
+        }
+
+      *, *:before, *:after
+        {
+              box-sizing: inherit;
+        }         
+  .loginbody          
+        { 
+            background-image: url("../pictures/bacpicRed.jpg") ;
+            background-position: center;
+            align-items: center;
+            background-size: 100% 1000px; 
+            justify-content: center;
+            font-size: 1rem;
+
+
+
+        }
+
+    /* container */
+  .loginform 
+    { 
+       border-radius: 15px;
+       width: 500px;
+       height: 600px;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));
+    }
+>>>>>>> 58137998c6f320515bc93227188b31c72ec5dd1d
 
 #main_table{
   width: 100%;
@@ -90,7 +127,7 @@ button:hover {
     text-align: center;
 }
 
-/* Avatar image */
+/* logo image */
 #logo {
     width: 30%;
     border-radius: 50%;

@@ -1,4 +1,11 @@
-
+<a href="post" >post</a>
+<link rel="stylesheet" href="../static/css/style.css">
+<ul class="navigation_bar" >
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="post">post</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
 {% extends "layout.html" %}
 {% block content %}
 
@@ -21,11 +28,13 @@
                   <span class="rating"> {{ post.format_rating() }} </span>
               </div>
           </div>
+
       </div>
 
       <div class="cover_image_space">
       </div>
   </div>
+  <br><br>
 {% endfor %}
 
  </div>
