@@ -4,15 +4,14 @@
 <style>
 
 h1{
-	border-style: groove;
+	border-style: none;
 	background-color: powderblue;
 	color: black; 
 	text-align: center; 
 	font-family: sans-serif;
 	font-size: 100px
-
-
 }
+
 p{
 	text-align: center;
 	font-family: cursive;
@@ -21,9 +20,12 @@ p{
 .form-control{
 	width: 50%;
 	background-color: orange;
+	color: black;
 }
 
 </style>
+
+<a href="{{ url_for('users.login') }}"><img src="static/pictures/back_button.gif" width="15%" style="padding-top: 10px;"></a>
 
 <div class='container'>
 
@@ -42,7 +44,21 @@ p{
 		    <div class="form-group">
 		     <input type="password" class="form-control" id="password" placeholder="PASSWORD" name="password"><br><br>
 		    </div>
-		    		<p> These additional phone numbers are here to help you! <br> In case you don't approve the message, we will contact them.</p>
+
+		     <button type="submit" class="btn btn-default">Submit</button>
+		    		
+		  </form> 
+		
+</center>
+	<div class='row'>
+	</div>
+</div>
+
+{%endblock%} 
+
+ <!-- 
+<p> These additional phone numbers are here to help you! <br> In case you don't approve the message, we will contact them.</p>
+>>>>>>> eba2339cba84e6aead9d8bebf27723f206fd2c1a
 			<div class="form-group">
 		     <input type="name" class="form-control" id="name" placeholder="NAME" name="name">
 		    </div>
@@ -64,7 +80,8 @@ p{
 		    <div class="form-group">
 		     <input type="w" class="form-control" id="phone2" placeholder="Third Number" name="phone2">
 		    </div>
-
+<<<<<<< HEAD
+		
 		    <button type="submit" class="btn btn-default">Submit</button>
 		  </form> 
 		
@@ -73,6 +90,13 @@ p{
 	</div>
 </div>
 
+
 {%endblock%} 
 
  
+=======
+--->
+		   
+>>>>>>> eba2339cba84e6aead9d8bebf27723f206fd2c1a
+
+	
