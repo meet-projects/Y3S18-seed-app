@@ -4,19 +4,18 @@ from flask_login import login_required
 from project import db
 from project.models import User,Teacher,Booking
 from . import app
-from sqlalchemy import desc
+from sqlalchemy import desc,asc
 
 @app.route('/')
 @app.route('/feed')
-@app.route('/profile/feed')
 def feed():
-	teachers = db.session.query(Teacher).all()
+	teachers = db.session.query(Teacher).order_by("id desc").all()
 	print(teachers)
 	return render_template('feed.html', teachers=teachers)
 
 @app.route('/lowtohigh',)
 def lowtohigh():
-	teachers=db.session.query(Teacher).order_by("cost desc").all()
+	teachers=db.session.query(Teacher).order_by("cost asc").all()
 	return render_template('feed.html', teachers=teachers)
 
 @app.route('/hightolow',)
@@ -112,7 +111,7 @@ def arava():
 
 @app.route('/arabic')
 def arabic():
-	all_teachers=db.session.query(Teacher).all()
+	all_teachers=Teacher.query.all()
 	teachers = []
 	for t in all_teachers:
 		l = t.languages.split(" ")	
@@ -145,10 +144,11 @@ def hebrew():
 @login_required
 def profile_template():
 	teacher_id = session['user_id']
+	user=User.query.filter_by(id=teacher_id).first()
 	teacher2=Teacher.query.filter_by(user_id=teacher_id).first()
 	this_teach_id=teacher2.id
 	this_teach_books=Booking.query.filter_by(teacher_id=this_teach_id).all()
-	return render_template('profile_template.html',teacher=teacher2,bookings=this_teach_books)
+	return render_template('profile_template.html',teacher=teacher2,bookings=this_teach_books,user=user)
 
 
 @app.route('/profile/<int:teacher_id>')
@@ -160,12 +160,3 @@ def profile(teacher_id):
 def edit_profile():
 	return render_template('edit_profile_template.html')
 
-
-@app.route('/<int:teacher_id>/booking')
-def booking(teacher_id):
-	studentname=request.form.get('name')
-	studentnum=request.form.get('num')
-	thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-	book=Booking(studentname,studentnum,thisteacher.id,False)
-	db.session.add(book)
-	db.session.commit()

@@ -9,17 +9,12 @@ from project import db
 from project.forms import RegisterForm, LoginForm
 from project.models import User,Teacher,Booking
 
-import firebase_admin
-
-#cred = firebase_admin.credentials.Certificate('easylicense-e9174-firebase-adminsdk-tfk2q-14c4144edf.json')
-#app = app = firebase_admin.initialize_app(cred)
-
 users_bp = Blueprint('users', __name__)
 
 
 @users_bp.route('/signup', methods=['GET', 'POST'])
 def register():
-    #form = RegisterForm(request.form)
+    form = RegisterForm(request.form)
 
     if request.method == 'POST':
         email = request.form.get('email')
@@ -33,18 +28,26 @@ def register():
         phonenum=request.form.get('phonenum')
         car_type=request.form.get('car_type')
         license_num=request.form.get('license_num')
-        languages=request.form.get('languages')
+        languages_ar=request.form.get('languages_ar')
+        languages_hb=request.form.get('languages_hb')
+        languages_en=request.form.get('languages_en')
         profilepic=request.form.get('profilepic')
-        #if profilepic is None:
-            #profilepic=""
+        lan=""
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
                 user=User(email,password)
                 db.session.add(user)
                 db.session.commit()
-
-                teacher=Teacher(user.id,name,area,city,description,fee,phonenum,languages,profilepic,car_type,license_num)
+                if languages_hb is not None:
+                    lan=lan+"Hebrew "
+                if languages_en is not None:
+                    lan=lan+"English "
+                if languages_ar is not None:
+                    lan=lan+"Arabic "
+                if profilepic == "":
+                    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
+                teacher=Teacher(user.id,name,area,city,description,fee,phonenum,lan,profilepic,car_type,license_num)
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -95,7 +98,17 @@ def profile(teacher_id):
     teacher = db.session.query().filter_by(id=teacher_id).first()
     return render_template('profile_template.html', teacher=teacher)
 
-@users_bp.route('/booking/<int:teacher_id>')
+@users_bp.route('/<int:teacher_id>/booking')
 def booking(teacher_id):
-    teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
-    return render_template('booking.html', teacher=teacher)
+    studentname=request.form.get('name')
+    studentnum=request.form.get('num')
+    thisteacher=Teacher.query.filter_by(id=teacher_id).first()
+    book=Booking(studentname,studentnum,thisteacher.id,False)
+    db.session.add(book)
+    db.session.commit()
+    return redirect('feed')
+
+# @users_bp.route('/booking/<int:teacher_id>')
+# def booking(teacher_id):
+#     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
+#     return render_template('booking.html', teacher=teacher)

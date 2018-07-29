@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="../static/js/login_signup.js"> </script>
 </head>
 <body>
-<a href="feed" id="feed_btn">Feed</a>
+<a href="{{ url_for('feed') }}" id="feed_btn">Feed</a>
 <center>
 
   <center>
@@ -51,7 +51,7 @@
       <label for="city"><b>City</b></label>
       <input type="text" placeholder="Enter Your City" name="city" required>
 
-      <label for="Fee"><b>Fee</b></label>
+      <label for="Fee"><b>Fee (Enter in numbers only, by Shekel)</b></label>
       <input type="text" placeholder="Enter Your Fee" name="fee" required>
 
       <label for="phonenum"><b>Phone Number</b></label>
