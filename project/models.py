@@ -34,7 +34,7 @@ class Post(db.Model):
     Title          = db.Column(db.String(20), nullable=False)
     Text           = db.Column(db.String, nullable=False)
     Rating         = db.Column(db.Integer)
-    Date           = db.Column(db.DateTime, nullable=False)
+    Date           = db.Column(db.String, nullable=False)
 
     def __init__(self, AuthorID, Title, Text):
         self.AuthorID = AuthorID
@@ -81,12 +81,6 @@ class Post(db.Model):
 
     def __repr__(self):
         return "post " + str(self.id) + " " + str(self.Title) + " " + str(self.Text)
-
-    # def set_rating(self,new_rating):
-    #     self.Rating = new_rating
-
-    # def get_rating():
-    #     return self.Rating
 
 class Like(db.Model):
     __tablename__='likes'
