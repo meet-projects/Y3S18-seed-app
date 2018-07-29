@@ -24,12 +24,6 @@ class User(UserMixin, db.Model):
         self.username = username
         self.set_password(password)
         self.number = number
-        self.name = name
-        self.name1 = name1
-        self.name2 = name2
-        self.phone = phone
-        self.phone1 = phone1
-        self.phone2 = phone2
         self.flag = 0
 
     def set_password(self, password):
