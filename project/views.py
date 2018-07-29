@@ -20,16 +20,15 @@ FROM = "+18604312585"
 BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
 #George's phone:
-ACC_SID1 = ""
-AUTH_TOKEN1 = ""
-FROM1 = ""
+ACC_SID1 = "ACd03777f4973c4f1ffc3efed677cc57b1"
+AUTH_TOKEN1 = "b22f0d66110237b42ebf63ccd2b4241e"
+FROM1 = "+18482088916"
 
-#indicator:
+#Indicator
 IN = 0
 
 def user_is_bad():
 	#Threading delay between 2 messages going to be 4 minutes
-	print("USER_IS_BAD 1")
 	threading.Timer(30.0, user_is_bad).start()
 	send_message()
 
@@ -37,11 +36,14 @@ def send_message():
 	#This function will send the messages
 	users = User.query.all()
 	client = Client(ACC_SID, AUTH_TOKEN)
+	client1 = Client(ACC_SID1, AUTH_TOKEN1)
 	for user in users:
 		print("Print flag:")
 		print(user.flag)
-		if user.flag == 1:
+		if user.flag == 1 and user.username == "a":
 			client.messages.create(to=user.number, from_=FROM, body=BODY)
+		if user.flag == 1 and user.username == "b":
+			client1.messages.create(to=user.number, from_=FROM1, body=BODY)
 
 def activate():
 	global IN
@@ -61,9 +63,6 @@ def info():
 @app.route('/private', methods=['GET', 'POST'])
 @login_required
 def private_route():
-#	global NEED
-#	global USER
-#	NEED = 0
 
 	user = User.query.filter_by(id=session['user_id']).first()
 	session['name'] = user.username
@@ -73,27 +72,9 @@ def private_route():
 	db.session.commit()
 
 	if request.method == 'POST':
-		print("Post method now and change flag")
 		user.flag = 1
 		db.session.commit()
-		print(user.flag)
-#		user_is_bad()
 
 		return render_template('check.html')
 
 	return render_template('private.html')
-
-#def user_is_bad():
-	#Threading delay between 2 messages going to be 4 minutes
-#	threading.Timer(30.0, user_is_bad).start()
-#	send_message()
-
-#def send_message():
-	#This function will send the messages
-#	global NEED
-#	global USER
-#	client = Client(ACC_SID, AUTH_TOKEN)
-#	if NEED == 1:
-#		client.messages.create(to=USER.number, from_=FROM, body=BODY)
-#		NEED = 1
-
