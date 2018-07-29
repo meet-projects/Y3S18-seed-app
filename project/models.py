@@ -20,7 +20,7 @@ class User(UserMixin, db.Model):
     phone2 = db.Column(db.String, nullable=True)
     flag = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, username, password, number, name, name1, name2, phone, phone1, phone2):
+    def __init__(self, username, password, number):
         self.username = username
         self.set_password(password)
         self.number = number
