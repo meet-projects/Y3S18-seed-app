@@ -74,7 +74,7 @@ class Post(db.Model):
 
     def format_date(self):
         now = datetime.now()
-        return str(now.month) + " - " + str(now.date) + " - " + str(now.day)
+        return str(now[1]) + " - " + str(now[2]) + " - " + str(now[0])
 
     def get_description(self):
         return self.text[:100] + "..."
