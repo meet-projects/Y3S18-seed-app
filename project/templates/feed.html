@@ -7,8 +7,29 @@
 		</title>
 		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
 	</head>
-	<body>
-		<center>
+	<body style="background-color: rgb(6,174,213);">
+		<div class="header" style="width:100%; margin: auto; background-color: rgb(6,174,213);">
+		<ul class="header">
+			<!--{%if n!=0%}
+			<li><h1 class="little_red_circle">{{n}}</h1></li>
+			{%endif%}-->
+			<li class="header" id="name_and_profile"><img src="{{url_for('static',filename='img/logo.png')}}" id="profile"></li><br>
+			<!--<li class="header" id="name_and_profile"><h2>Jacob Jacobson</h2></li></a>-->
+			<li>
+		<div style="background-color: rgb(6,174,213);" id="hidden">	
+		<ul style="list-style: none;">
+			<li class="header"><h4><a href="">Settings</a></h4></li> 
+			<li class="header"><h4><a href="">Add Friends</a></h4></li>
+			<li class="header"><h4><a href="">My Projects</a></h4></li>
+			<li class="header"><h4><a href="">My Tasks</a></h4></li>
+			<li class="header"><h4><a href="">Inbox</a></h4></li>
+			<li class="header"><h4><a href="">Logout</a></h4></li>
+		</ul>
+		</div>
+		</li>
+		</ul>	
+	</div>
+		<!--<center>
 			<div class="div">
 				<br>
 				<img src="../static/img/logo.png" class="biglogo">
@@ -24,13 +45,15 @@
 			<br>
 			<br>
 				
-			</div>
+			</div>-->
 		</center>
 		<br>
 		<br>
 		<center>
-			<div id="filter_div">
-				<ul class="filter" id="instructordiv">
+			<button onclick="document.getElementById('filter_div').style.display='block'">Filter</button>
+
+			<center><div id="filter_div" class="popup">
+				<!--<ul class="filter" id="instructordiv">
 				  <li class="filter"> <h3 class="filter_title">Location</h3>
 				  	<select onchange="window.location.href=this.value;" class="filters">
 				  		<option disabled="disabled" selected="selected">Select an area</option>
@@ -57,9 +80,9 @@
 							</select>
 				  </li>
 				  <li class="filter"><h3 class="filter_title">Language</h3>
-				  <select onchange="window.location.href=this.value;" class="filters">
+				  <select class="filters">
 				  				<option disabled="disabled" selected="selected">Select a language</option>
-								<option value="hebrew"> Hebrew </option>
+								<option value="language_filter"><a href="{{url_for('language_filter',language='hebrew')}}"> Hebrew </a></option>
 								<option value="arabic">Arabic </option>
 								<option value="english"> English </option>
 							</select>
@@ -67,12 +90,21 @@
 					<li class="filter"><h3 class="filter_title"> No Filter</h3>
 						<a href="{{ url_for('feed') }}"><button class="filters">No Filter </button></a>
 					</li>
-				</ul>
-			</div> 
+				</ul>-->
+				<p id="sort_bar">Sort(Price):
+					<a href="">Low-->High</a>
+					<a href="">High-->Low</a>
+				</p>
+				<p id="sort_bar">Language:
+					<a href="{{url_for('language_filter',language='arabic')}}">Arabic</a>
+					<a href="{{url_for('language_filter',language='hebrew')}}">Hebrew</a>
+					<a href="{{url_for('language_filter',language='english')}}">English</a>
+				</p>
+			</div></center> 
 				<br>
 			<div class="row">
 	  			{% for teacher in teachers %}
-	  			<div class="column">
+	  			<!--<div class="column">
 	    			<div class="card">
 	      				<img src="{{teacher.profile_picture}}" style="width:100%" class="profilepic">
 						    <div class="container">
@@ -86,7 +118,12 @@
 						        <p><a href="profile/{{teacher.id}}"><button class="button">Contact</button></a></p>
 		      				</div>
 	    			</div>
+	  			</div> -->
+	  			<center>
+	  			<div class="instructor">
+	  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
 	  			</div>
+	  			</center>
 	  			{% endfor %}
 	  		</div>
 		</center>

@@ -67,6 +67,9 @@ class Teacher(db.Model):
         self.license_num=license_num
         self.profile_picture=profile_picture
 
+    def __repr__(self):
+        return 'Teacher %d %s' % (self.id, self.name)
+
 class Booking(db.Model):
 
     __tablename__ = "bookings"
