@@ -31,12 +31,13 @@ def register():
             name = form.name.data
             email = form.email.data
             password = form.password.data
+            is_storyteller = False
             user = User.query.filter_by(email=email).first()
             if user != None:
                 return Response ("<p> account already exists <p>")
                 return render_template('register.html', form=form)
             else:
-                user = User(email=email, name= name, password= password)
+                user = User(email=email, name= name, password= password, is_storyteller= is_storyteller)
                 db.session.add(user)
                 db.session.commit()
                 return redirect(url_for('users.login'))
@@ -67,7 +68,6 @@ def login():
 #             if not next_page or url_parse(next_page).netloc != '':
 #                 #return render_template('browse.html', current_user=user)
 #                 next_page = url_for('browse')
-
             # next_page = request.args.get('next')
             # if not next_page or url_parse(next_page).netloc != '':
             #     next_page = url_for('private_route')
