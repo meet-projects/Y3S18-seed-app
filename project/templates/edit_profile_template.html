@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<title>
 			EasyLicense	
@@ -15,18 +16,18 @@
 			<div id="side_profile" align="left">
 				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
 			<br>
-			<p>Your name:<input type="text"> </p>
+			<p>Your name:<input type="text" value="{{ teacher.name }}"> </p>
 			<br>
 			<table>
 				<tr>
 					<th> <u> Phone number:</u></th> 
-					<td> <input type="text" maxlength="10" minlength="9"> </td>
+					<td> <input type="text" maxlength="10" minlength="9" value="{{ teacher.phone_num }}"> </td>
 				</tr>
 				<tr> 
 
 					<th> <u> City:</u></th> 
 					<td>
-					<input type="text"> 
+					<input type="text" value="{{ teacher.city }}"> 
 					 </td>
 				</tr>
 				<tr> 
@@ -40,11 +41,11 @@
 				</tr>
 				<tr> 
 					<th><u> License Number:</u></th>
-					<td> <input type="text" name="license" minlength="6" maxlength="8"> </td>
+					<td> <input type="text" name="license" minlength="6" maxlength="8" value="{{ teacher.license_num }}"> </td>
 				</tr>
 				<tr>
-					<th> <u> Car Type:</u></th> 
-					<td> <input type="text" name="car_type"> </td>
+					<th> <u> Gearbox:</u></th> 
+					<td> <input type="text" name="car_type" value="{{ teacher.car_type }}"> </td>
 				</tr>
 			</table>
 			<br> 
@@ -57,8 +58,7 @@
 			ABOUT
 			</h4>
 			<div id="profile_about">
-				<textarea id="edit_about">
-					About yourself...
+				<textarea id="edit_about">{{ teacher.description }}
 				</textarea>
 					 
 			</div>
