@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Hello</title>
+      <title>ROOTS</title>
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
   </head>
+  
   <body>
+
+
+      current user: {{ current_user.name }}
+      user_id: {{current_user.id}}
+
+      <br><br>
       <!-- child template -->
-      {% block content %}
+      
+         <nav class="navbar navbar-inverse">
+         <ul class="nav navbar-nav">
+    
+
+    <li><a href="{{url_for('browse')}}">LOGO</a></li>
+    {% if logged_in==True %}
+    <li><a href="{{url_for('profile', user_id=current_user.id)}}">{{current_user.name}}</a></li>
+    <li><a href="{{url_for('users.logout')}}">Logout</a></li>
+    {%else%}
+    <li><a href="{{url_for('users.login')}}">Login</a></li>
+    {%endif%}
+    
+  </ul>
+
+</nav>
+
+<div class="container">
+  {% block content %}
       {% endblock %}
+
+
+
+
+</div>
+
 
 </html>

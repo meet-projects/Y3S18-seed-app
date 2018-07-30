@@ -4,12 +4,13 @@ from wtforms.validators import DataRequired, Length, EqualTo
 
 
 class RegisterForm(Form):
-    username = StringField('Username', validators=[DataRequired(), Length(max=40)])
+    email = StringField('Email Address', validators=[DataRequired(), Length(max=40)])
+    name = StringField('Full Name', validators=[DataRequired(), Length(max=80)])
     password = PasswordField('Password', validators=[DataRequired(), Length(max=40)])
     confirm = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
 
 
 class LoginForm(Form):
-    username = StringField('Username', validators=[DataRequired(), Length(max=40)])
+    email = StringField('Email Address', validators=[DataRequired(), Length(max=40)])
     password = PasswordField('Password', validators=[DataRequired(), Length(max=40)])
 
