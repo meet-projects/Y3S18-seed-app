@@ -34,6 +34,7 @@ h2{
 	padding-top: 20px;
 }
 
-.form-font{
+.input{
 	font-family: helveticaneuelight;
+	color: grey;
 }

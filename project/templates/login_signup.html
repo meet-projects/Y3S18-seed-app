@@ -3,7 +3,7 @@
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
-  	<link rel="shortcut icon" href="https://ibb.co/eQTOZT"/>
+  <link rel="shortcut icon" href="https://ibb.co/eQTOZT"/>
 	<link rel="stylesheet" type="text/css" href="../static/css/login_signup.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../static/js/login_signup.js"> </script>
@@ -26,73 +26,43 @@
   </center>
 
 <!--################################# Signup ################################-->
+<button onclick="document.getElementById('id01').style.display='block'" class="signbutton">Sign Up</button>
+<div id="id01" class="modal">
 
-<button onclick="document.getElementById('id01').style.display='block'" class="signbutton" style="font-family: helveticaneuelight">Sign Up</button>
+<form class="modal-content animate" action="{{ url_for('users.register') }}" method="post">
+  <div class="container" id="signup_box">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  </div>
+  <form action="{{ url_for('users.register') }}" method="post">
+  <h2>Sign Up</h2>
+    <span class="field" style="float: left; width: 50%;">
+      <label for="fname" class="label"><b>First Name</b></label>
+      <input type="text" name="fname" class="bars input" placeholder="First Name" required>
+    </span>
+    <span class="field" style="float: left; width: 50%;">
+      <label for="lname"  class="label"><b>Last Name</b></label>
+      <input type="text" name="lname" class="bars input" placeholder="Last Name" required>
+    </span>
+    <span>
 
-<div id="id01" class="modal1">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close1" title="Close Modal">&times;</span>
-  <form class="modal-content" action="{{ url_for('users.register') }}" method="post">
-    <div class="container1">
-      <h1>Sign Up</h1>
-      <p style="font-family: helveticaneuelight">Please fill in this form to create an account.</p>
-      <hr>
+    <span class="field" style="float: left; width: 100%;">
+    <label for="email" class="label"><b>Email</b></label>
+      <input type="text" placeholder="email@example.com" name="email" class="bars2 input" required></span>
+    </span>
 
-       <label for="email"><b>Email</b></label><br>
-      <input type="text" placeholder="Enter Email" name="email" required>
-      <br>
-      <label for="psw"><b>Password</b></label><br>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-      <br>
-      <label for="psw-repeat"><b>Repeat Password</b></label><br>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      <br>
-      <label for="full_name"><b>Full Name</b></label><br>
-      <input type="text" placeholder="Enter Full Name" name="name" required>
-      <br>
-      <label for="city"><b>City</b></label><br>
-      <input type="text" placeholder="Enter Your City" name="city" required>
-      <br>
-      <label for="Fee"><b>Fee (Enter in numbers only, by Shekel)</b></label><br>
-      <input type="text" placeholder="Enter Your Fee" name="fee" required>
-      <br>
-      <label for="phonenum"><b>Phone Number</b></label><br>
-      <input type="text" placeholder="Enter your phone number" name="phonenum" required>
-      <br>
-      <label for="Languages"><b>Languages You Teach In</b></label>
-      <br>
-      <form action="/action_page.php">
-        <input type="checkbox" name="languages_ar" value="Arabic"> Arabic <br>
-        <input type="checkbox" name="languages_en" value="English"> English <br>
-        <input type="checkbox" name="languages_hb" value="Hebrew"> Hebrew <br>
-      </form>
-      <br>
+    <span class="field" style="float: left; width: 100%;">
+    <label for="psw" class="label">Password</b></label>
+      <input type="password" placeholder="********" name="psw" class="bars2 input" required>
+    </span>
+  </form>
 
-      <label for="car_type"><b>Gearbox</b></label>
-      <input type="text" placeholder="Gearbox Type" name="gearbox" required>
-
-      <br>
-
-      <input type="text" placeholder="Enter your license number" name="license_num" required>
-      <br>
-      <label for="description"><b>Description</b></label><br>
-      <textarea placeholder="Describe Yourself" name="description" maxlength="200" style="height: 150px; width: 300px" required>Des</textarea>
-      
-      <label for="profilepic"><b>Profile Picture link (Optional)</b></label><br>
-      <input type="text" placeholder="Enter Profile Picture link" name="profilepic">	
-
-	<br>
-	<br>
-
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-      <div class="clearfix">
-
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn1">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
-      </div>
-    </div>
+    <span class="field" style="float: left; width: 100%;">
+      <label for="psw-repeat" class="label"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" class="bars2 input" required>
+    </span>
   </form>
 </div>
+
 
 <!--############################# Login #################################-->
 
@@ -108,7 +78,7 @@
     </div>
 
       <form action="{{ url_for('users.login') }}" method="post">
-       <h2 id="login_title">SIGN IN TO YOUR ACCOUNT</h2>
+       <h2 class="login_title">Login</h2>
         
     {{ loginform.csrf_token }}
     <br>
@@ -139,11 +109,6 @@
       </table>
     </div>
   </div>
-
-
-    <div class="container">
-      <center> <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button> </center>
-    </div>
   </form>
 </div>
 
