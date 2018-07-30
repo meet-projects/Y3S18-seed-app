@@ -107,18 +107,27 @@ def booking(teacher_id):
     db.session.commit()
     return redirect('feed')
 
-<<<<<<< HEAD
 # @users_bp.route('/booking/<int:teacher_id>')
 # def booking(teacher_id):
 #     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
 #     return render_template('booking.html', teacher=teacher)
 
-@users_bp.route('/edit_profile')
-def edit_profile():
-    return render_template('edit_profile_template.html')
-=======
+@users_bp.route('/editing/<int:teacher_id>')
+def editing(teacher_id):
+    user=Teacher.query.filter_by(id=teacher_id).first()
+    name= request.form.get('name')
+    city=request.form.get('city')
+    fee=request.form.get('fee')
+    description=request.form.get('description')
+    phonenum=request.form.get('phonenum')
+    car_type=request.form.get('car_type')
+    license_num=request.form.get('license_num')
+    languages_ar=request.form.get('languages_ar')
+    languages_hb=request.form.get('languages_hb')
+    languages_en=request.form.get('languages_en')
+    profilepic=request.form.get('profilepic')
+    if name!="":
+        user.name=name
+    if city!="":
+        user.city=city
 
-@users_bp.route('/editing')
-def editing():
-    pass
->>>>>>> ffe62dbf8fb4e424de6065b3fcfbf6618a2c1842
