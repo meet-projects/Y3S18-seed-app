@@ -31,6 +31,7 @@ class Post(db.Model):
     id             = db.Column(db.Integer, primary_key=True, autoincrement=True)
     AuthorID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     ArtURL         = db.Column(db.String)
+    #ArtistID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     Title          = db.Column(db.String(20), nullable=False)
     Text           = db.Column(db.String, nullable=False)
     Rating         = db.Column(db.Integer)
@@ -76,8 +77,21 @@ class Post(db.Model):
         now = datetime.now()
         return str(now.month) + " - " + str(now.day) + " - " + str(now.year)
 
-    def get_description(self):
-        return self.Text[:100] + "..."
+    def get_description1(self):
+        return self.Text[:10] + "..."
+
+
+    def get_description2(self):
+        return self.Text[:11:300] + "."
+
+
+    def get_title(self):
+        return self.Title[:100] + "."
+
+
+
+
+
 
     def __repr__(self):
         return "post " + str(self.id) + " " + str(self.Title) + " " + str(self.Text)

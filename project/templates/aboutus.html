@@ -2,10 +2,23 @@
 <html>
 <head>
 	<title>aboutus</title>
+	<link rel="stylesheet" href="../static/css/style.css">
 	<link rel="stylesheet" type="text/css" href="css1.css">
 	 <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
+	  <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
+	  <style type="text/css">
+	  body{
+	  	background: url("../static/pictures/background.jpg");
+	  	color: white;
+	  }	
+	  .text{
+	  	color: white;
+	  }
+	  </style>
 </head>
 <body>
+	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag">
+
 <ul>
 	  <li class="menu_item"><a href="{{url_for('users.index_page')}}">Home</a></li>
 	  <li class="menu_item"><a href="{{url_for('users.stories')}}">Stories</a></li>

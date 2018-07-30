@@ -11,13 +11,22 @@ from . import app
 @app.route('/feed')
 @login_required
 def feed():
-	u = User.query.filter_by(id=session['user_id']).first()
-	# print(request.__dict__)
-	posts = Post.query.all()
-	return render_template('feed.html', user=u, posts = posts)
+    print("Hello World")
+    u = User.query.filter_by(id=session['user_id']).first()
+    # print(request.__dict__)
+    posts = Post.query.all()
+    return render_template('feed.html', user=u, posts = posts)
 
 
 @app.route('/private')
 @login_required
 def private_route():
     return render_template('private.html')
+
+
+@app.route('/profile',methods=['GET','POST'])
+def profile():
+    profileID = session['user_id']
+    user = User.query.filter_by(id = profileID).first()
+    posts = Post.query.filter_by(AuthorID = profileID).first()
+    return render_template('profile.html', user = user, posts = posts)

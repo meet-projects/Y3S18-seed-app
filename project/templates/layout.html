@@ -21,16 +21,36 @@
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
       
+
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+
+      
   </head>
   <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
+          <a class="navbar-brand" href="#">Artflict</a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Home</a></li>
-          <li><a href="#">Page 1</a></li>
+          <li><a href="post">post</a></li>
           <li><a href="#">Page 2</a></li>
           <li><a href="#">Page 3</a></li>
         </ul>
