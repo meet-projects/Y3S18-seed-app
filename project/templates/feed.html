@@ -1,16 +1,30 @@
-<a href="post" >post</a>
+
+<!--<a href="post" >post</a><br> -->
 
 <link rel="stylesheet" href="../static/css/style.css">
-<ul class="navigation_bar" >
+<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+<!--<ul class="navigation_bar" >
   <li><a class="active" href="#home">Home</a></li>
   <li><a href="post">post</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
 </ul>
+-->
 {% extends "layout.html" %}
 {% block content %}
 
  <div id="feed_space">
+<style type="text/css">
+  body{
+    background: url("../static/pictures/background.jpg");
+
+  }
+
+
+#more {display: none;}
+
+</style>
+
 
 {% for post in posts %}
 
@@ -18,7 +32,11 @@
       <div class="valid_text_space" >
           <div class="stori_title"> {{post.get_title()}} </div>            
           <div class="description_block">
-              {{ post.get_description() }}
+              {{ post.get_description1() }}
+          </div>
+          <div class="description_block">
+            <span id="more"> {{ post.get_description2() }} </span> 
+            <button onclick="myFunction()" id="myBtn">Read more</button>
           </div>
           <div class="publish_date_block">
               <span class="publish_date_text"> Published on:    
@@ -39,6 +57,26 @@
                       CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();" /> -->
               </div>
           </div>
+          
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+</script>
+
 
       </div>
 

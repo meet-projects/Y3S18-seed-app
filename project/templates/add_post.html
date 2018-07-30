@@ -30,7 +30,7 @@
 }
 
 #button:hover 
-{background-color: brown}
+{background-color: #67300d}
 
 #button:active {
   background-color: black;
@@ -43,6 +43,8 @@
 <body >
 	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
 	<a href="feed">Home</a>
+	<p>Share your story with the Artflict community </p>
+	<p> Have an artist illustrate your story, and bring it to life</p><br>
 <form action="{{ url_for('add_post.adding_posts') }}" method="post">
     {{ form.csrf_token }}
  <p class="text">Title:</p>   {{ form.title(placeholder= "Title") }}<br><br>
