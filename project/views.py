@@ -15,15 +15,15 @@ def index():
 @app.route('/feed')
 def feed():
 	all_teachers = db.session.query(Teacher).order_by("id desc").all()
-	teachers = []
-	pages = int(math.ceil(len(all_teachers)/4))
-	if len(all_teachers)>=4:
-		for t in range(0,4):
-			teachers.append(all_teachers[t])
-	else:
-		teachers = all_teachers
+	#teachers = []
+	#pages = int(math.ceil(len(all_teachers)/4))
+	#if len(all_teachers)>=4:
+	#	for t in range(0,4):
+	#		teachers.append(all_teachers[t])
+	#else:
+	#teachers = all_teachers
 	print(teachers)
-	return render_template('feed.html', teachers=teachers,pages=pages)
+	return render_template('feed.html', teachers=all_teachers,pages=pages)
 
 @app.route('/feed/<int:pagenum>')
 def feed_num(pagenum):
