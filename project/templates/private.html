@@ -189,7 +189,7 @@ background-color: Transparent;
 }
 .name { margin-left: 10px; }
 .phone_num { margin-left: 100px; }
-.enter{margin-left: 50px;}
+.enter{margin-left: 70px;}
 
 </style>
 <br><br><br><br><br><br><br><br><br><br><br>
@@ -209,7 +209,7 @@ background-color: Transparent;
 <h1><a href="{{ url_for('users.login') }}">LOG OUT</a></h1>
 <h2><a href="{{ url_for('info') }}">INFORMATION!</a></h2>
 <h3>{{session['name']}}</h3>
-<h4>-{{session['phone']}}</h4>
+<h4>{{session['phone']}}</h4>
 
 <div class='noa'>
     <img id="addcontact1" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
