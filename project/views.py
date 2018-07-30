@@ -146,20 +146,14 @@ def arava():
 
 @app.route('/lang/<language>')
 def language_filter(language):
-	print(language, file=sys.stdout)
 	all_teachers=db.session.query(Teacher).all()
-	print(all_teachers)
 	teachers = []
 	for t in all_teachers:
-		print(t.name)
 		if t.languages != None:
 			l = t.languages.split(" ")
 		else:
 			l = []
-		print(l.count(language.capitalize()))
 		if l.count(language.capitalize()) > 0:
-			print(l.count(language.capitalize()))
-			print(t.languages)
 			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
@@ -191,8 +185,7 @@ def profile_template():
 	user=User.query.filter_by(id=teacher_id).first()
 	teacher2=Teacher.query.filter_by(user_id=teacher_id).first()
 	this_teach_id=teacher2.id
-	this_teach_books=Booking.query.filter_by(teacher_id=this_teach_id).all()
-	return render_template('profile_template.html',teacher=teacher2,bookings=this_teach_books,user=user)
+	return render_template('profile_template.html',teacher=teacher2,user=user)
 
 
 @app.route('/profile/<int:teacher_id>')
