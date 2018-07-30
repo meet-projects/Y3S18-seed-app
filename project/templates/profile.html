@@ -1,9 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- links for BS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+     
+
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+      <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/logincss.css') }}"> -->
+    <!--  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/feed.css') }}">-->
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<title>Profile</title>
 </head>
-<body>
+
+
+<body class="profile-body">
+      
+      <img src="static/pictures/newlogo.jpg" alt="logo" id="logo" style="position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 18px;
+    width:80px;
+    height: 80px ">
+
+      <div class="card">
+        <img src="/static/pictures/avatar.png" alt="avatar" class="avatar">
+        <h1>artist name/h1>
+        <p class="title">info about the artist</p>
+        <p>more</p>
+        <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i></a> 
+        <a href="https://www.linkedin.com/uas/login"><i class="fa fa-linkedin"></i></a> 
+        <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
+        <p><button>Contact</button></p>
+</div>
+      <!--<div class="profilecontainer">
+      <div class="profileform">                              
+
+            <form action="{{ url_for('users.profile') }}" method="post">
+                  <div class="imgcontainer">
+                        <img src="static/pictures/avatar.png" alt="logo" id="logo">
+                  </div>
+            </form>
+
+       </div>-->
+
+
+      </div>
+
+                            
+
+
 
 </body>
 </html>

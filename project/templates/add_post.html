@@ -3,24 +3,53 @@
 <head>
 	
 	<title>post</title>
+	<link rel="stylesheet" href="../static/css/style.css">
 	<link rel="stylesheet" type="text/css" href="css1.css">
 	<link rel="stylesheet" type="text/css" href="postcss.css">
 	  <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
 	  <style type="text/css">
 	  body{
-	  	background: lightblue
+	  	background: url("../static/pictures/background.jpg");
+	  	color: white;
 	  }	
 	  .text{
 	  	color: white;
 	  }
+
+#button {
+  padding: 5px 55px;
+  font-size: 20px;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color:black;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 9px #999;
+}
+
+#button:hover 
+{background-color: #67300d}
+
+#button:active {
+  background-color: black;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 	  </style>
 </head>
-<body>
+<body >
+	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+	<a href="feed">Home</a>
+	<p>Share your story with the Artflict community </p>
+	<p> Have an artist illustrate your story, and bring it to life</p><br>
 <form action="{{ url_for('add_post.adding_posts') }}" method="post">
     {{ form.csrf_token }}
  <p class="text">Title:</p>   {{ form.title(placeholder= "Title") }}<br><br>
  <p class="text">Story:</p>   {{ form.text(placeholder="Tell us your story") }} <br><br>
-    <button class="btn btn-sm btn-success" type="submit">Share</button>
+    <button class="btn btn-sm btn-success" type="submit" id="button">Share</button>
 </form>
 
 </body>

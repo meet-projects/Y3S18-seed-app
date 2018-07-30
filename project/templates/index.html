@@ -1,18 +1,42 @@
-
+<a href="post" >post</a>
+<link rel="stylesheet" href="../static/css/style.css">
+<ul class="navigation_bar" >
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="post">post</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
 {% extends "layout.html" %}
 {% block content %}
 
+ <div id="feed_space">
+
 {% for post in posts %}
- <div id="feed_div">
-	<div class='feed_item'>
-		<p> post {{post.id}}</p>
-		<br />
-		<p> {{ post.Title }}</p>
-		<br />
-		<p> {{post.Text}} </p>
-		<br />
-	</div>
+
+  <div class="post_block">
+      <div class="valid_text_space">
+          <div class="stori_title"> {{post.title}} </div>            
+          <div class="description_block">
+              {{ post.get_description() }}
+          </div>
+          <div class="publish_date_block">
+              <span class="publish_date_text"> Published on:    
+                  {{ post.format_date() }}
+              </span>
+
+              <div class="vote_block">
+                  <span class="rating"> {{ post.format_rating() }} </span>
+              </div>
+          </div>
+
+      </div>
+
+      <div class="cover_image_space">
+      </div>
+  </div>
+  <br><br>
+{% endfor %}
+
  </div>
- {% endfor %}
 
  {% endblock %}
