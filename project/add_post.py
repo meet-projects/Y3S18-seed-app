@@ -30,10 +30,10 @@ def adding_posts():
     return render_template('add_post.html', form=form)
 
 
-@post_bp.route('/add-art', methods= ['GET', 'POST'])
+@post_bp.route('/feed', methods= ['GET', 'POST'])
 @login_required
 def add_art():
-    PostID = session['post_id']
+    #PostID = session['post_id']
     artistID = session['user_id']
     form = AddArtForm(request.form)
     if request.method == 'POST':
@@ -44,8 +44,8 @@ def add_art():
             post.ArtURL = art_url
             post.ArtistID = artistID 
             db.session.commit()
-            user = User.query.filter_by(id=artistID).first()
-            return redirect(url_for('feed', user = user))   
+            #user = User.query.filter_by(id=artistID).first()
+            return redirect(url_for('feed'))   
         else:
             return Response("<p>invalid form</p>")
     return render_template('feed.html', form=form)

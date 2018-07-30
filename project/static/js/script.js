@@ -13,3 +13,8 @@ open_login_form = function(){
 	login_form.style["display"] = 'block';
 	signup_form.style["display"] = 'none';
 }
+
+open_add_art = function(id){
+	var modal = document.getElementById("");
+	modal.style["display"] = 'block';
+}

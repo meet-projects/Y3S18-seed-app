@@ -2,19 +2,16 @@ from flask import render_template, request, session
 from flask_login import login_required
 from project.models import *
 from . import app
+from project.forms import AddArtForm	
 
-
-#@app.route('/')
-#def index():
-  #  return render_template('index.html')
 
 @app.route('/feed')
 @login_required
 def feed():
+	form = AddArtForm(request.form)
 	u = User.query.filter_by(id=session['user_id']).first()
-	# print(request.__dict__)
 	posts = Post.query.all()
-	return render_template('feed.html', user=u, posts = posts)
+	return render_template('feed.html', user=u, posts = posts, form=form)
 
 
 @app.route('/private')

@@ -62,10 +62,9 @@ def logout():
     return Response("<p>Logged out</p>")
 
 
-@users_bp.route('/profile',methods=['GET','POST'])
-def profile():
-    form = LoginForm(request.form)
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            about = form.username.data
-    return render_template('profile.html', form=form)
+#@users_bp.route('/profile',methods=['GET','POST'])
+#def profile():
+ ##  if request.method == 'POST':
+   #     if form.validate_on_submit():
+    #        about = form.username.data
+    #return render_template('profile.html', form=form)
