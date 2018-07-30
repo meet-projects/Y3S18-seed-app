@@ -23,7 +23,7 @@ def feed():
 	#else:
 	#teachers = all_teachers
 	print(teachers)
-	return render_template('feed.html', teachers=all_teachers,pages=pages)
+	return render_template('feed.html', teachers=all_teachers)
 
 @app.route('/feed/<int:pagenum>')
 def feed_num(pagenum):
