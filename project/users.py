@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User,Teacher,Booking
+from project.models import User,Teacher,Request
 
 users_bp = Blueprint('users', __name__)
 
@@ -59,7 +59,7 @@ def register():
         else:
             return Response("<p>invalid form</p>")
 
-    return render_template('login_signup.html', form=form)
+    return render_template('register.html', form=form)
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])

@@ -2,7 +2,7 @@ from flask import render_template, session
 from flask_login import login_required
 
 from project import db
-from project.models import User,Teacher,Booking
+from project.models import User,Teacher,Request
 from . import app
 from sqlalchemy import desc,asc
 
