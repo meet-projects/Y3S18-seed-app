@@ -11,6 +11,7 @@ h1{
 	font-family: sans-serif;
 	font-size: 100px
 }
+
 h3{ /*Username*/
 
   left: 400px;
@@ -32,11 +33,14 @@ h5{   /*Password*/
   font-size: 30px;
 }
 
+
 p{
 	text-align: center;
 	font-family: cursive;
 	font-size: 30px
 }
+
+.form-group{
 
 }
 
@@ -77,6 +81,12 @@ p{
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
+.btn-warning {background-color: #FFA400}
+.btn-warning {border-color: #FFA400} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+}
 /* The Close Button */
 .close {
     /* Position it in the top right corner outside of the modal */
@@ -116,26 +126,27 @@ p{
 <div class='container'>
 
 	<div class='row'>
-		<h1>SIGN UP</h1>
+		<h1>SIGN UP</h1> <br> <br> <br> 
 	</div>
 <center>
 	<div class='row'>
-		<img src="{{ url_for('static', filename = 'pictures/LOGO1080.png')}}" align= "left" height="300" width="250"> 
+		<img src="{{ url_for('static', filename = 'pictures/LOGO1080.png')}}" align= "left" height="300" width="300"> 
 
 		 <form action="/register" method = "POST" >
-		 	<h3>Username  </h3>
+		 
+		    <div class="form-group">
+          <label for="username"><b>Username: </b></label>
+		      <input type="username" class="form-control3" id="username"  name="username"><br><br>
+		    </div>
+		    <div class="form-group">
+          <label for="number"><b>Phone #: </b></label>
+		      <input type="phone num." class="form-control1" id="number"  name="number"><br><br>
+		    </div>
+		    <div class="form-group">
+          <label for="password"><b>Password: </b></label>
+		     <input type="password" class="form-control2" id="password"  name="password"><br><br>
+		    </div>
 
-		    <div class="form-group">
-		      <input type="username" class="form-control3" id="username" placeholder="USERNAME" name="username"><br><br>
-		    </div>
-		    <div class="form-group">
-		      <input type="phone num." class="form-control1" id="number" placeholder="PHONE NUM." name="number"><br><br>
-		    </div>
-		    <div class="form-group">
-		     <input type="password" class="form-control2" id="password" placeholder="PASSWORD" name="password"><br><br>
-		    </div>
-<h4> Phone </h4>
-<h5> Password </h5>
 		     <button type="submit" class="btn btn-default">Submit</button>
 		    		
 		  </form> 
@@ -148,15 +159,15 @@ p{
 
 
 <!--  THIS IS ALL FOR THE MODAL POPUP -->
- <!-- Button to open the modal login form -->
+ <!-- Button to open the modal login form 
 <button onclick="document.getElementById('id01').style.display='block'">Login</button>
 
-<!-- The Modal -->
+ The Modal 
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
 class="close" title="Close Modal">&times;</span>
 
-  <!-- Modal Content -->
+   Modal Content 
   <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
       <img src="img_avatar2.png" alt="Avatar" class="avatar">
@@ -182,8 +193,7 @@ class="close" title="Close Modal">&times;</span>
   </form>
 </div> 
 
-
-
+--> 
 {% endblock %} 
 
  <!-- 
