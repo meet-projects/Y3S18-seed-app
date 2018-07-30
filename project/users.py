@@ -64,4 +64,5 @@ def profile():
     if request.method == 'POST':
         if form.validate_on_submit():
             about = form.username.data
+            
     return render_template('profile.html', form=form)
