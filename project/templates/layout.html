@@ -19,16 +19,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+
   </head>
   
   <body>
 
-
-
-      current user: {{ current_user.name }}
-      user_id: {{current_user.id}}
-
-      <br><br>
       <!-- child template -->
       
          <nav class="navbar navbar-inverse">
@@ -46,6 +41,9 @@
   </ul>
 
 </nav>
+
+      current user: {{ current_user.name }}
+      user_id: {{current_user.id}}
 
 <div class="container">
   {% block content %}

@@ -43,6 +43,7 @@ def register():
                 return redirect(url_for('users.login'))
 
     else:
+        logout_user()
         return render_template('register.html', form=form)
    
 

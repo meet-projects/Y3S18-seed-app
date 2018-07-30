@@ -15,11 +15,10 @@ def browse():
 		current_user = User.query.filter_by(id=user_id).first()
 		logged_in = True
 		print(logged_in)
-		return render_template('browse.html', all_journeys=all_journeys, logged_in=logged_in, current_user=current_user)
 	else:
 		logged_in = False
-		print(logged_in)
-		return render_template('browse.html', all_journeys=all_journeys, logged_in=logged_in)
+		current_user = 'Not Logged In'
+	return render_template('browse.html', all_journeys=all_journeys, logged_in=logged_in, current_user=current_user)
 
 
 @app.route('/apply', methods=['GET', 'POST'])
@@ -54,22 +53,21 @@ def apply():
 
 @app.route('/profile/<int:user_id>')
 def profile(user_id):
-	if 'user_id' in session:
-		user_id = session['user_id']
-		current_user = User.query.filter_by(id=user_id).first()
+	user = User.query.filter_by(id=user_id).first()
+	if 'user_id' in session: #If there is a user logged in
 		logged_in = True
+		current_user = User.query.filter_by(id=user_id).first()
+		current_user_id = session['user_id']
+		current_user = User.query.filter_by(id=current_user_id).first()
+		if user.id == current_user.id:
+			is_user=True
+		else:
+			is_user=False
 	else:
+		current_user = 'Not Logged In'
 		logged_in = False
-	user=User.query.filter_by (id=user_id).first()
-	is_user=False
-	current_user_id = session['user_id']
-	current_user = User.query.filter_by(id=current_user_id).first()
-	if user.id==current_user.id:
-		is_user=True
 	if user.is_storyteller==True:
-		print('i am here!!!!!!!!!')
 		st_journeys = Journey.query.filter_by(creator_id=user_id).all()
-		print(st_journeys)
 		return render_template('st_profile.html', user=user, is_user=is_user, current_user=current_user,st_journeys=st_journeys, is_storyteller=True, logged_in=logged_in)
 	else:
 		return render_template('profile.html',user=user, is_user=is_user, current_user=current_user, is_storyteller=False, logged_in=logged_in)

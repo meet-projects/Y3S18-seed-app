@@ -7,7 +7,7 @@
 	{% for journey in all_journeys %}
 	 	<center>
 		<div>
-	    	<img src="{{url_for('static', filename='profile.png')}}"  width=500 height=265 >
+	    	<img src="{{ journey.picture }}"  width=500 height=265 >
 	    	<h2>{{ journey.title }}</h2	><br>
 
 	    	<h3> The journey will be at {{ journey.location }}</h3><br>
