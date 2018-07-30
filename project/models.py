@@ -44,7 +44,6 @@ class Teacher(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, ForeignKey('users.id'))
     name = db.Column(db.String) 
-    area = db.Column(db.String)
     city = db.Column(db.String)
     description = db.Column(db.String)
     cost = db.Column(db.Float)
@@ -61,12 +60,10 @@ class Teacher(db.Model):
     def __init__(self,
         user_id, 
         name,
-        area,
         city,
         description,cost,phone_num,languages,profile_picture, car_type,license_num):
         self.user_id = user_id
         self.name=name
-        self.area=area
         self.city=city
         self.description=description
         self.cost=cost

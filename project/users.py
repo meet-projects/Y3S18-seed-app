@@ -112,3 +112,7 @@ def booking(teacher_id):
 # def booking(teacher_id):
 #     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
 #     return render_template('booking.html', teacher=teacher)
+
+@users_bp.route('/edit_profile')
+def edit_profile():
+    return render_template('edit_profile_template.html')

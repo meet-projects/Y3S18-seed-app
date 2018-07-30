@@ -1,7 +1,7 @@
 .signup_container{
   width: 50%;
   min-height: 450px;
-  background-color: rgb(0,115,168);
+  background-color: rgba(0,115,168,100);
   padding: 20px;
   text-align: center;
   margin: auto;
