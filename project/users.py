@@ -107,7 +107,38 @@ def booking(teacher_id):
     db.session.commit()
     return redirect('feed')
 
+# @users_bp.route('/booking/<int:teacher_id>')
+# def booking(teacher_id):
+#     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
+#     return render_template('booking.html', teacher=teacher)
 
-@users_bp.route('/editing')
-def editing():
-    pass
+@users_bp.route('/editing/<int:teacher_id>')
+def editing(teacher_id):
+    user=Teacher.query.filter_by(id=teacher_id).first()
+    name= request.form.get('name')
+    city=request.form.get('city')
+    fee=request.form.get('fee')
+    description=request.form.get('description')
+    phonenum=request.form.get('phonenum')
+    car_type=request.form.get('car_type')
+    license_num=request.form.get('license_num')
+    languages_ar=request.form.get('languages_ar')
+    languages_hb=request.form.get('languages_hb')
+    languages_en=request.form.get('languages_en')
+    profilepic=request.form.get('profilepic')
+    if name!="":
+        user.name=name
+    if city!="":
+        user.city=city
+    if fee!=0:
+        user.fee=fee
+    if description!="":
+        user.description=description
+    if phonenum!="":
+        user.phonenum=phonenum
+    if car_type!="":
+        user.car_type=car_type
+    if profilepic!="":
+        user.profilepic=profilepic
+    db.session.commit()
+

@@ -1,7 +1,7 @@
 .signup_container{
   width: 50%;
   min-height: 450px;
-  background-color: rgb(0,115,168);
+  background-color: rgba(0,115,168,100);
   padding: 20px;
   text-align: center;
   margin: auto;
@@ -19,7 +19,7 @@
 body{
 	color: rgb(246,246,246);
   background-color: #f6f6f6;
-  font-family: helviticaneuebold;
+  font-family: helveticaneuelight;
 }
 
 h3{
@@ -167,7 +167,7 @@ li.filter select {
 }
 h3{
 color:white;
-font-family: "Comic Sans MS", cursive, sans-serif;
+font-family: "helveticaneuelight";
 font-size: 30px;
 }
 
@@ -178,7 +178,7 @@ font-size: 30px;
 
 .landingbutton{
 color: black;
-font-family: "Comic Sans MS", cursive, sans-serif;
+font-family: "helveticaneuelight";
 font-size:17px;
 background-color: white;
 height: 110px;
@@ -338,16 +338,16 @@ font-weight: bold;
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: rgb(0,115,168);
+    color: #fefefe;
 }
 
 .modal-body {padding: 2px 16px;}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: rgb(0,115,168);
+    color: #fefefe;
 }
 #edit_about{
     width: 618px;

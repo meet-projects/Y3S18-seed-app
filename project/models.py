@@ -60,7 +60,6 @@ class Teacher(db.Model):
     def __init__(self,
         user_id, 
         name,
-        area,
         city,
         description,cost,phone_num,languages,profile_picture, car_type,license_num):
         self.user_id = user_id
