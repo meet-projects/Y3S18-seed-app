@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-
     <!-- FOR THE MODAL STYLE -->
 <style>  /* The Modal (background) */
 .modal {
@@ -188,6 +187,9 @@ background-color: Transparent;
 
 
 }
+.name { margin-left: 10px; }
+.phone_num { margin-left: 100px; }
+.enter{margin-left: 50px;}
 
 </style>
 <br><br><br><br><br><br><br><br><br><br><br>
@@ -238,20 +240,19 @@ background-color: Transparent;
 
 <!-- The first Modal -->
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
   <form class="modal-content animate" action="/action_page.php">
 <p>Add the first contact:</p>
     <div class="container">
-      <label for="uname"><b>Name</b></label>
+      <label class="name" for="uname"><b>Name</b></label>
       <input type="text" placeholder="Enter Name" name="uname" required>
 
-      <label for="psw"><b>      Phone Number</b></label>
+      <label class="phone_num" for="psw"><b>Phone Number</b></label>
       <input type="text" placeholder="Enter Phone Number" name="psw" required>
 
-      <button type="submit">ENTER</button>
+      <button class="enter" type="submit">ENTER</button>
       <br><br>
     </div>
   </form>
@@ -266,13 +267,13 @@ class="close" title="Close Modal">&times;</span>
   <form class="modal-content animate" action="/action_page.php">
 <p>Add the second contact:</p>
     <div class="container">
-      <label for="uname"><b>Name</b></label>
+      <label class="name" for="uname"><b>Name</b></label>
       <input type="text" placeholder="Enter Name" name="uname" required>
 
-      <label for="psw"><b>Phone Number</b></label>
+      <label class="phone_num" for="psw"><b>Phone Number</b></label>
       <input type="text" placeholder="Enter Phone Number" name="psw" required>
 
-      <button type="submit">ENTER</button>
+      <button class="enter" type="submit">ENTER</button>
       <br><br>
     </div>
   </form>
@@ -287,13 +288,13 @@ class="close" title="Close Modal">&times;</span>
   <form class="modal-content animate" action="/action_page.php">
 <p>Add the third contact:</p>
     <div class="container">
-      <label for="uname"><b>Name</b></label>
+      <label class="name" for="uname"><b>Name</b></label>
       <input type="text" placeholder="Enter Name" name="uname" required>
 
-      <label for="psw"><b>Phone Number</b></label>
+      <label class="phone_num" for="psw"><b>Phone Number</b></label>
       <input type="text" placeholder="Enter Phone Number" name="psw" required>
 
-      <button type="submit">ENTER</button>
+      <button class="enter" type="submit">ENTER</button>
       <br><br>
     </div>
   </form>
