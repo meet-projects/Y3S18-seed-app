@@ -6,12 +6,18 @@ from project.models import User,Teacher,Booking
 from . import app
 from sqlalchemy import desc,asc
 
-import sys
+import sys, math
 
 @app.route('/')
+def index():
+	return render_template('index.html')
+
 @app.route('/feed')
 def feed():
-	teachers = db.session.query(Teacher).order_by("id desc").all()
+	all_teachers = db.session.query(Teacher).order_by("id desc").all()
+	teachers = []
+	for t in range(4*(1-1),1*4):
+		teachers.append(t)
 	print(teachers)
 	return render_template('feed.html', teachers=teachers)
 

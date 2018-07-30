@@ -10,6 +10,7 @@
 body{
 	color: rgb(246,246,246);
   background-color: #f6f6f6;
+  font: helvetica;
 }
 h3{
 	color: rgb(31, 122, 140)
@@ -441,8 +442,8 @@ div{
 }
 
 #profile{
-  width: 100px;
-  height: 100px;
+  width: 85px;
+  height: 85px;
   margin: 10px;
   float: left;
 }
