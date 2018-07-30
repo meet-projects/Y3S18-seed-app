@@ -447,3 +447,7 @@ div{
   margin: 10px;
   float: left;
 }
+
+.pagenumbers{
+  align-items: center;
+}
