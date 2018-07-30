@@ -5,14 +5,17 @@
 body{
 	color: rgb(246,246,246);
   background-color: #f6f6f6;
+  font-family: helviticaneuebold;
 }
+
 h3{
 	color: rgb(31, 122, 140)
 }
+
 p{
 	color: rgb(31, 122, 140);
-	font: helvetica;
 }
+
 form{
 	color: rgb(31, 122, 140);
 	font: helvetica;
