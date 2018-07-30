@@ -9,20 +9,12 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
 	</head>
 	<body>
-		<div class="header" style="width:100%; height: 150px; margin: auto; background-color: rgb(6,174,213);">
-		<ul class="header">
 			<!--{%if n!=0%}
 			<li><h1 class="little_red_circle">{{n}}</h1></li>
 			{%endif%}-->
-			<li>
-		<div style="background-color: rgb(6,174,213);" id="hidden" style=" margin-top: auto;">	
-		<ul style="list-style: none; margin: auto;">
-			<li class="header"><h4><a href=""><img src="{{url_for('static',filename='img/logo.png')}}" id="profile" style="margin-bottom: 0px;"></a></h4></li>
-		</ul>
-		</div>
-		</li>
-		</ul>	
-	</div>
+			
+		
+		<h4><a href="{{url_for('index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 		<!--<div class="header" style="width:100%; height: 150px; margin: auto; background-color: rgb(6,174,213);">
 		<ul class="header">
 			{%if n!=0%}
@@ -142,7 +134,7 @@
 	  					<p>{{teacher.description}}</p>
 	  					<h3 style="color: black;">{{teacher.languages}}</h3>
 	  					<h2>{{teacher.cost}}&#8362</h2>
-	  					<a href="profile/{{teacher.id}}"><button class="button">Contact</button></a>
+	  					<a href="profile/{{teacher.id}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
 	  				</span>
 	  			</div>
 	  			</center>
