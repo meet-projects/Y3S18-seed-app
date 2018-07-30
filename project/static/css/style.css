@@ -1,3 +1,12 @@
+.signup_container{
+  width: 50%;
+  min-height: 450px;
+  background-color: rgb(0,115,168);
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  margin-top: 0;
+}
 
 #sort_bar{
   word-spacing: 2em;
@@ -10,15 +19,17 @@
 body{
 	color: rgb(246,246,246);
   background-color: #f6f6f6;
-  font: helvetica;
+  font-family: helviticaneuebold;
 }
+
 h3{
 	color: rgb(31, 122, 140)
 }
+
 p{
 	color: rgb(31, 122, 140);
-	font: helvetica;
 }
+
 form{
 	color: rgb(31, 122, 140);
 	font: helvetica;
