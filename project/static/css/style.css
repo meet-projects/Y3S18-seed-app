@@ -1,3 +1,8 @@
+
+#sort_bar{
+  word-spacing: 2em;
+}
+
 .biglogo{
   height: 350px;
 }
@@ -54,13 +59,28 @@ td{
   max-height: 50%;
   min-height: 50%;
   margin-left: 5%;
+  box-shadow: 2px 2px 1px 1px rgb(136,136,136);
+}
 
+.instructor{
+  width: 80%;
+  height: 350px;
+  border-bottom-width: 1px;
+}
+
+.instructor_pic{
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  float: left;
+  margin: 25px;
 }
 
 @media screen and (max-width: 650px) {
   .column {
     width: 100%;
     display: block;
+    box-shadow: 2px 2px 1px 1px rgb(36,36,36);
   }
 }
 
@@ -381,4 +401,51 @@ font-weight: bold;
 min-height: 250px;
 max-height: 250px;
 border-radius: 20px;
+}
+
+.popup{
+  display: none; /* Hidden by default */
+  /*position: fixed;  Stay in place */
+  z-index: 1; /* Sit on top */
+  overflow: auto; /* Enable scroll if needed */
+  top: 50%;
+  left: 50%;
+  background-color: #36d02a;
+  padding-top: 50px;
+}
+
+#title{
+  font-size: 24px;
+  color: rgb(255,255,250);
+}
+
+.header a{
+  color: white;
+}
+
+.header{
+  background-color: rgb(6,174,213);
+  list-style: none;
+  color: white;
+  position: sticky;
+  top: 0;
+  text-align: center;
+}
+
+.header li{
+  display: inline-block;
+  margin: auto;
+  margin: 10px;
+  text-align: center;
+}
+
+div{
+  background-color: rgb(255,255,250);
+}
+
+#profile{
+  width: 85px;
+  height: 85px;
+  margin: 10px;
+  float: left;
 }

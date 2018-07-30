@@ -47,14 +47,23 @@ class Teacher(db.Model):
     area = db.Column(db.String)
     city = db.Column(db.String)
     description = db.Column(db.String)
-    cost = db.Column(db.Integer)
+    cost = db.Column(db.Float)
     phone_num = db.Column(db.String)
     languages = db.Column(db.String)
     profile_picture = db.Column(db.String)
     car_type = db.Column(db.String)
     license_num = db.Column(db.String)
 
-    def __init__(self, user_id, name,area,city,description,cost,phone_num,languages,profile_picture, car_type,license_num):
+    '''def set_city(self, city):
+        if  in list:
+            self.city=city'''
+
+    def __init__(self,
+        user_id, 
+        name,
+        area,
+        city,
+        description,cost,phone_num,languages,profile_picture, car_type,license_num):
         self.user_id = user_id
         self.name=name
         self.area=area
@@ -67,6 +76,9 @@ class Teacher(db.Model):
         self.license_num=license_num
         self.profile_picture=profile_picture
 
+    def __repr__(self):
+        return 'Teacher %d %s' % (self.id, self.name)
+
 class Booking(db.Model):
 
     __tablename__ = "bookings"
@@ -74,7 +86,7 @@ class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     phone_num = db.Column(db.String)
-    teacher_id = db.Column(db.Integer, ForeignKey('users.id'))
+    teacher_id = db.Column(db.Integer, ForeignKey('teachers.id'))
     done = db.Column(db.Boolean)
 
     def __init__(self,name,phone_num,teacher_id,done):

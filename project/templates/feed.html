@@ -8,7 +8,46 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
 	</head>
 	<body>
-		<center>
+		<div class="header" style="width:100%; height: 150px; margin: auto; background-color: rgb(6,174,213);">
+		<ul class="header">
+			<!--{%if n!=0%}
+			<li><h1 class="little_red_circle">{{n}}</h1></li>
+			{%endif%}-->
+			<li>
+		<div style="background-color: rgb(6,174,213);" id="hidden" style=" margin-top: auto;">	
+		<ul style="list-style: none; margin: auto;">
+			<li class="header"><h4><a href=""><img src="{{url_for('static',filename='img/logo.png')}}" id="profile" style="margin-bottom: 0px;"></a></h4></li>
+		</ul>
+		</div>
+		</li>
+		</ul>	
+	</div>
+		<div style="min-height: 1000px; width: 20%; float: left; position: fixed;">
+			<p>Atravesado logaritmos inquilinos movimiento sacamuelas fue ser ama non. Tio luego pobre tisis iba. Lo os provecho pintadas desairar pusieron. Saberlo ir hijuela en supiera renglon tisicos en. Non dar catadura quiebras entrados mal denomino. Soy admirando aguardaba presentar mal carinosos buscarlos clientela. Luz una tuvieron favorita pintados suo. 
+</p>
+		</div>
+		<!--<div class="header" style="width:100%; height: 150px; margin: auto; background-color: rgb(6,174,213);">
+		<ul class="header">
+			{%if n!=0%}
+			<li><h1 class="little_red_circle">{{n}}</h1></li>
+			{%endif%}-->
+
+			<!--<li class="header" id="name_and_profile"></li>
+			<li class="header" id="name_and_profile"><h2>Jacob Jacobson</h2></li></a>
+			<li>
+		<div style="background-color: rgb(6,174,213);" id="hidden" style=" margin-top: auto;">	
+		<ul style="list-style: none; margin: auto;">
+			<li class="header"><h4><a href="">My Profile</a></h4></li> 
+			<li class="header"><h4><a href="">Feed</a></h4></li>
+			<li class="header"><h4><a href=""><img src="{{url_for('static',filename='img/logo.png')}}" id="profile" style="margin-bottom: 0px;"></a></h4></li>
+			<li class="header"><h4><a href="">Requests</a></h4></li>
+			<li class="header"><h4><a href="">Lessons</a></h4></li>
+		</ul>
+		</div>
+		</li>
+		</ul>	
+	</div>-->
+		<!--<center>
 			<div class="div">
 				<br>
 				<img src="../static/img/logo.png" class="biglogo">
@@ -24,13 +63,14 @@
 			<br>
 			<br>
 				
-			</div>
-		</center>
-		<br>
-		<br>
-		<center>
-			<div id="filter_div">
-				<ul class="filter" id="instructordiv">
+			</div>-->
+		<span>
+			<center>
+				<br><br>
+				<button onclick="document.getElementById('filter_div').style.display='block'">Filter</button>
+			</center>
+			<center><div id="filter_div" class="popup">
+				<!--<ul class="filter" id="instructordiv">
 				  <li class="filter"> <h3 class="filter_title">Location</h3>
 				  	<select onchange="window.location.href=this.value;" class="filters">
 				  		<option disabled="disabled" selected="selected">Select an area</option>
@@ -57,9 +97,9 @@
 							</select>
 				  </li>
 				  <li class="filter"><h3 class="filter_title">Language</h3>
-				  <select onchange="window.location.href=this.value;" class="filters">
+				  <select class="filters">
 				  				<option disabled="disabled" selected="selected">Select a language</option>
-								<option value="hebrew"> Hebrew </option>
+								<option value="language_filter"><a href="{{url_for('language_filter',language='hebrew')}}"> Hebrew </a></option>
 								<option value="arabic">Arabic </option>
 								<option value="english"> English </option>
 							</select>
@@ -67,12 +107,21 @@
 					<li class="filter"><h3 class="filter_title"> No Filter</h3>
 						<a href="{{ url_for('feed') }}"><button class="filters">No Filter </button></a>
 					</li>
-				</ul>
-			</div> 
+				</ul>-->
+				<p id="sort_bar">Sort(Price):
+					<a href="">Low-->High</a>
+					<a href="">High-->Low</a>
+				</p>
+				<p id="sort_bar">Language:
+					<a href="{{url_for('language_filter',language='arabic')}}">Arabic</a>
+					<a href="{{url_for('language_filter',language='hebrew')}}">Hebrew</a>
+					<a href="{{url_for('language_filter',language='english')}}">English</a>
+				</p>
+			</div></center> 
 				<br>
 			<div class="row">
 	  			{% for teacher in teachers %}
-	  			<div class="column">
+	  			<!--<div class="column">
 	    			<div class="card">
 	      				<img src="{{teacher.profile_picture}}" style="width:100%" class="profilepic">
 						    <div class="container">
@@ -86,9 +135,20 @@
 						        <p><a href="profile/{{teacher.id}}"><button class="button">Contact</button></a></p>
 		      				</div>
 	    			</div>
+	  			</div> -->
+	  			<center>
+	  			<div class="instructor">
+	  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
+	  				<span class="ins_info"  style="color: black; margin: 10px;">
+	  					<br>
+	  					<h1>{{teacher.name}}</h1>
+	  					<p>{{teacher.description}}</p>
+	  					<h3 style="color: black;">{{teacher.languages}}</h3>
+	  					<h2>{{teacher.cost}}&#8362</h2>
+	  				</span>
 	  			</div>
+	  			</center>
 	  			{% endfor %}
-	  		</div>
-		</center>
+	  		</div></span>
 	</body>
 </html>

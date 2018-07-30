@@ -6,10 +6,18 @@ from project.models import User,Teacher,Booking
 from . import app
 from sqlalchemy import desc,asc
 
+import sys, math
+
 @app.route('/')
+def index():
+	return render_template('index.html')
+
 @app.route('/feed')
 def feed():
-	teachers = db.session.query(Teacher).order_by("id desc").all()
+	all_teachers = db.session.query(Teacher).order_by("id desc").all()
+	teachers = []
+	for t in range(4*(1-1),1*4):
+		teachers.append(t)
 	print(teachers)
 	return render_template('feed.html', teachers=teachers)
 
@@ -23,12 +31,17 @@ def hightolow():
 	teachers=db.session.query(Teacher).order_by("cost desc").all()
 	return render_template('feed.html', teachers=teachers)
 
-@app.route('/galil_elion')
-def galil_elion():
+@app.route('/<area>')
+def area_filter(area):
+	l = area.split("_")
+	area = ""
+	for w in l:
+		w = w.capitalize()
+		area = area+w
 	teachers=db.session.query(Teacher).filter_by(area="Galil Elion").all()
 	return render_template('feed.html', teachers=teachers)
 
-@app.route('/galil_tahton')
+'''@app.route('/galil_tahton')
 def galil_tahton():
 	teachers=db.session.query(Teacher).filter_by(area="Galil Tahton").all()
 	return render_template('feed.html', teachers=teachers)
@@ -105,21 +118,30 @@ def west_bank():
 @app.route('/arava')
 def arava():
 	teachers=db.session.query(Teacher).filter_by(area="arava").all()
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers)'''
 
 
 
-@app.route('/arabic')
-def arabic():
-	all_teachers=Teacher.query.all()
+@app.route('/lang/<language>')
+def language_filter(language):
+	print(language, file=sys.stdout)
+	all_teachers=db.session.query(Teacher).all()
+	print(all_teachers)
 	teachers = []
 	for t in all_teachers:
-		l = t.languages.split(" ")	
-		if l.count("Arabic") > 0:
+		print(t.name)
+		if t.languages != None:
+			l = t.languages.split(" ")
+		else:
+			l = []
+		print(l.count(language.capitalize()))
+		if l.count(language.capitalize()) > 0:
+			print(l.count(language.capitalize()))
+			print(t.languages)
 			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
-@app.route('/english')
+'''@app.route('/english')
 def english():
 	all_teachers=db.session.query(Teacher).all()
 	teachers = []
@@ -137,7 +159,7 @@ def hebrew():
 		l = t.languages.split(" ")
 		if l.count("Arabic") > 0:
 			teachers.append(t)
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers)'''
 
 
 @app.route('/profile_template')
