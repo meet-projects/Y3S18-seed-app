@@ -22,7 +22,6 @@ def feed():
 	#		teachers.append(all_teachers[t])
 	#else:
 	#teachers = all_teachers
-	print(teachers)
 	return render_template('feed.html', teachers=all_teachers)
 
 @app.route('/feed/<int:pagenum>')
