@@ -5,9 +5,10 @@ from . import app, db
 
 from project.models import Journey, User
 
-@app.route('/')
+@app.route('/browse')
 def browse():
 	all_journeys = Journey.query.all()
+
 	print(session)
 	if 'user_id' in session:
 		user_id = session['user_id']

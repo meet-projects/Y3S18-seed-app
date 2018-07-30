@@ -48,7 +48,7 @@ def register():
 
                 
 
-@users_bp.route('/login', methods=['GET', 'POST'])
+@users_bp.route('/', methods=['GET', 'POST'])
 def login():
     print(request.form)
     form = LoginForm(request.form)
@@ -81,5 +81,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+
     form = LoginForm(request.form)
     return render_template('login.html', form=form)
+

@@ -28,12 +28,11 @@ form, input {
 }
 
 
-
-form, input, textarea, select, button {
+.textbox, input, textarea, select, button {
 
     text-rendering: auto;
 
-    color: white;
+    color: black;
 
     letter-spacing: normal;
 
