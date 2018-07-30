@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>Home</title>
-  <link rel="shortcut icon" href="https://ibb.co/eQTOZT"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+  	<link rel="shortcut icon" href="https://ibb.co/eQTOZT"/>
 	<link rel="stylesheet" type="text/css" href="../static/css/login_signup.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../static/js/login_signup.js"> </script>
@@ -17,7 +18,7 @@
       <br>
       <br>
       <br>
-      <br>
+      <br>feed
       <br>
       <br>
       <br>
@@ -26,14 +27,14 @@
 
 <!--################################# Signup ################################-->
 
-<button onclick="document.getElementById('id01').style.display='block'" class="signbutton">Sign Up</button>
+<button onclick="document.getElementById('id01').style.display='block'" class="signbutton" style="font-family: helveticaneuelight">Sign Up</button>
 
 <div id="id01" class="modal1">
   <span onclick="document.getElementById('id01').style.display='none'" class="close1" title="Close Modal">&times;</span>
   <form class="modal-content" action="{{ url_for('users.register') }}" method="post">
     <div class="container1">
       <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
+      <p style="font-family: helveticaneuelight">Please fill in this form to create an account.</p>
       <hr>
 
        <label for="email"><b>Email</b></label>
@@ -76,24 +77,7 @@
       <input type="text" placeholder="Describe Yourself" name="description" maxlength="200" style="height: 300px, width: 500px" required>
       
       <label for="profilepic"><b>Profile Picture link (Optional)</b></label>
-      <input type="text" placeholder="Enter Profile Picture link" name="profilepic">
-
-      <h3>Pick Your Area</h3>
-		  <input type="radio" name="area" value="Galil Elion" checked> Galil Elion <br>
-		  <input type="radio" name="area" value="Hof Hagalil"> Hof Hagalil <br>
-		  <input type="radio" name="area" value="Golan"> Golan <br>
-		  <input type="radio" name="area" value="Carmel" > Carmel <br>
-      <input type="radio" name="area" value="Sharon"> Sharon <br>
-      <input type="radio" name="area" value="Emek Israel"> Emek Israel <br>
-      <input type="radio" name="area" value="Beit Shean" > Beit Shean <br>
-      <input type="radio" name="area" value="Mishor Hakhof"> Mishor Hakhof <br>
-      <input type="radio" name="area" value="Jerusalem District"> Jersualem District <br>
-      <input type="radio" name="area" value="Negev" >Negev <br>
-      <input type="radio" name="area" value="Shfelat Yehuda"> Shfelat Yehuda <br>
-      <input type="radio" name="area" value="Judea District"> Juedea District <br>
-      <input type="radio" name="area" value="West Bank" > West Bank <br>
-      <input type="radio" name="area" value="Arava"> Arava
-	
+      <input type="text" placeholder="Enter Profile Picture link" name="profilepic">	
 
 	<br>
 	<br>
