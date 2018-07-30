@@ -17,4 +17,23 @@ open_login_form = function(){
 open_add_art = function(id){
 	var modal = document.getElementById("");
 	modal.style["display"] = 'block';
+
+
+
+
+
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
 }
