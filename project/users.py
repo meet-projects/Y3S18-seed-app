@@ -108,6 +108,23 @@ def booking(teacher_id):
     return redirect('feed')
 
 
-@users_bp.route('/editing')
-def editing():
-    pass
+@users_bp.route('/editing/<int:teacher_id>')
+def editing(teacher_id):
+    user=Teacher.query.filter_by(id=teacher_id).first()
+    name= request.form.get('name')
+    city=request.form.get('city')
+    fee=request.form.get('fee')
+    description=request.form.get('description')
+    phonenum=request.form.get('phonenum')
+    car_type=request.form.get('car_type')
+    license_num=request.form.get('license_num')
+    languages_ar=request.form.get('languages_ar')
+    languages_hb=request.form.get('languages_hb')
+    languages_en=request.form.get('languages_en')
+    profilepic=request.form.get('profilepic')
+    if name!="":
+        user.name=name
+    if city!="":
+        user.city=city
+
+
