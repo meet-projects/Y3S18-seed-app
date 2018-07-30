@@ -15,21 +15,43 @@ def index():
 @app.route('/feed')
 def feed():
 	all_teachers = db.session.query(Teacher).order_by("id desc").all()
+	#teachers = []
+	#pages = int(math.ceil(len(all_teachers)/4))
+	#if len(all_teachers)>=4:
+	#	for t in range(0,4):
+	#		teachers.append(all_teachers[t])
+	#else:
+	#teachers = all_teachers
+	return render_template('feed.html', teachers=all_teachers)
+
+@app.route('/feed/<int:pagenum>')
+def feed_num(pagenum):
+	all_teachers = db.session.query(Teacher).order_by("id desc").all()
 	teachers = []
-	for t in range(4*(1-1),1*4):
+	pages = math.ceil(len(all_teachers)/4)
+	if len(all_teachers)>=4*pagenum:
+		for t in range(4*(pagenum-1),pagenum*4):
+			teachers.append(all_teachers[t])
+	else:
+		for x in range(4*(pagenum-1),len(all_teachers)-1):
+			teachers.append(all_teachers[x])
+	for t in range(4*(pagenum-1),pagenum*4):
 		teachers.append(t)
-	print(teachers)
+	print(pages)
+	return render_template('feed.html', teachers=teachers,pages=pages)
+
+@app.route('/sort/<sorting>',)
+def price_sort(sorting):
+	if sorting == "low":
+		teachers=db.session.query(Teacher).order_by("cost asc").all()
+	elif sorting == "high":
+		teachers=db.session.query(Teacher).order_by("cost desc").all()
 	return render_template('feed.html', teachers=teachers)
 
-@app.route('/lowtohigh',)
-def lowtohigh():
-	teachers=db.session.query(Teacher).order_by("cost asc").all()
-	return render_template('feed.html', teachers=teachers)
-
-@app.route('/hightolow',)
+'''@app.route('/hightolow',)
 def hightolow():
 	teachers=db.session.query(Teacher).order_by("cost desc").all()
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers)'''
 
 @app.route('/<area>')
 def area_filter(area):
@@ -178,7 +200,9 @@ def profile(teacher_id):
 	this_teach=Teacher.query.filter_by(id=teacher_id).first()
 	return render_template('small_profile.html', teacher=this_teach)
 
-@app.route('/edit_profile')
-def edit_profile():
-	return render_template('edit_profile_template.html')
+@app.route('/<int:teacher_id>/edit_profile')
+def edit_profile(teacher_id):
+	teach=Teacher.query.filter_by(id=teacher_id).first()
+	return render_template('edit_profile_template.html',teacher=teach)
+
 

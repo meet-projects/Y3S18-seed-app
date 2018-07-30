@@ -82,7 +82,7 @@
 }
 /*#############################Signup Modal Style########################*/
 body {
-    background-color: #36d02a;
+    background-color: #fefefe;
 }
 
 }
@@ -126,6 +126,7 @@ button:hover {
 .cancelbtn1 {
     padding: 14px 20px;
     background-color: #f44336;
+    color: #fefefe;
 }
 
 /* Float cancel and signup buttons and add an equal width */
@@ -325,8 +326,10 @@ span.psw {
 }
 
 .signbutton{
-color: black;
-background-color: white;
+color: #fefefe;
+font-weight: 300;
+font-size: 25px;
+background-color: rgb(0,115,168);
 height: 100px;
 width: 200px;
 border-radius: 20px;
@@ -352,6 +355,7 @@ border-radius: 20px;
     background-color:rgb(0, 115, 168);
     margin:5%;
     color: #d7dee5;
+    box-shadow: 2.5px 5px 4px #888888;
 }
 #login_title{
     color: #fefefe;

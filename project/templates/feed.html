@@ -101,7 +101,7 @@
 							</select>
 						</li>
 					<li class="filter"><h3 class="filter_title"> No Filter</h3>
-						<a href="{{ url_for('feed') }}"><button class="filters">No Filter </button></a>
+					
 					</li>
 				</ul>-->
 				<p id="sort_bar">Sort(Price):
@@ -141,10 +141,14 @@
 	  					<p>{{teacher.description}}</p>
 	  					<h3 style="color: black;">{{teacher.languages}}</h3>
 	  					<h2>{{teacher.cost}}&#8362</h2>
+	  					<a href="profile/{{teacher.id}}"><button class="button">Contact</button></a>
 	  				</span>
 	  			</div>
 	  			</center>
 	  			{% endfor %}
-	  		</div></span>
+
+	  		</div>
+	  	</span>
+
 	</body>
 </html>
