@@ -7,13 +7,14 @@
         </div>
       <div class="login_container">
         <form id="login_form" class=" form_instance" action="{{ url_for('users.login') }}" method="post">
+          {{ form.csrf_token }}
           <center>
-            <input type="text" name="login_text" id="login_textbox_username" 
-            class="username_textbox" placeholder="Username">
-            <input type="password" name="login_text" id="login_textbox_password" 
-            class="username_textbox" placeholder="Password">
+            <input type="text" name="username" id="login_textbox_username" 
+            class=" login_page_textbox" placeholder="Username">
+            <input type="password" name="password" id="login_textbox_password" 
+            class=" login_page_textbox" placeholder="Password">
            <button class="btn" type="submit">Log in</button>
-            <span id="open_signup_form_span">
+            <span id="open_signup_form_span" class="form_switch_span">
               don't have an account?
               <a href="#" onclick="open_signup_form()" class="form_switch_link"> Sign Up here! </a>
             </span>
@@ -23,15 +24,18 @@
 
       <div class="signup_container">
         <form id="signup_form" class="form_instance" action="{{url_for('users.register')}}" method="post">
+          {{ form.csrf_token }}
           <center>
-            <input type="text" name="signup_text" id="signup_textbox_displayname" 
-              class="username_textbox" placeholder="Display Name">
-            <input type="text" name="signup_text" id="signup_textbox_username" 
-              class="username_textbox" placeholder="Username">
-              <input type="password" name="signup_text" id="signup_textbox_password" 
-              class="username_textbox" placeholder="Password">
+            <input type="text" name="displayname" id="signup_textbox_displayname" 
+              class=" login_page_textbox" placeholder="Display Name">
+            <input type="text" name="username" id="signup_textbox_username" 
+              class=" login_page_textbox" placeholder="Username">
+              <input type="password" name="password" id="signup_textbox_password" 
+              class=" login_page_textbox" placeholder="Password">
+              <input type="password" name="confirm_pass" id="signup_textbox_password_confirm" 
+              class=" login_page_textbox" placeholder="Confirm Password">
              <button class="btn" type="submit">Sign Up</button>
-              <span id="open_login_form_span">
+              <span id="open_login_form_span" class="form_switch_span">
                 already have an account?
                 <a href="#" onclick="open_login_form()" class="form_switch_link"> Log In here! </a>
               </span>
