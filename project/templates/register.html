@@ -1,36 +1,100 @@
 {% extends "layout.html" %}
-{% block content %}
- 
+{% block content %} 
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title>EasyLicense</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/register.css">
+ </head>
+ <body>
+
 <div class="add-user">
  
 <div class="page-header">
- 
-
  
   </div>
  
  <div class="signup_container">
 <form action="{{ url_for('users.register') }}" method="post"
 >
-	<h2 style="color: white; margin-top: 0;">SIGN UP</h2>
+	<h2 id="h2">SIGN UP</h2>
     {{ form.csrf_token }}
     <span class="field" style="float: left; width: 50%;">
-    	<label for="fname" style="color: white; float: left;"><b>FIRST NAME</b></label>
-    	<input type="text" name="fname" style="background: white; border-radius: 0px; height: 50px; width: 90%;">
+    	<label for="fname" class="label"><b>First Name</b></label>
+    	<input type="text" name="fname" class="bars" placeholder="First Name" required>
     </span>
     <span class="field" style="float: left; width: 50%;">
-    	<label for="lname" style="color: white; float: left;"><b>LAST NAME</b></label>
-    	<input type="text" name="lname" style="background: white; border-radius: 0px; height: 50px; width: 90%;">
+    	<label for="lname"  class="label"><b>Last Name</b></label>
+    	<input type="text" name="lname" class="bars" placeholder="Last Name" required>
     </span>
     <span>
-    <label for="email" style="color: white; float: left; margin-right: 100px;"><b>EMAIL</b></label>
-      <input type="text" placeholder="email@example.com" name="email" required style="background: white; border-radius: 0px; height: 50px; width: 95%;"></span>
-    <label for="psw" style="color: white; float: left;"><b>PASSWORD</b></label>
-      <input type="password" placeholder="********" name="psw" required style="background: white; border-radius: 0px; height: 50px; width: 95%;"><br><br>
+
+    <span class="field" style="float: left; width: 100%;">
+    <label for="email" class="label"><b>Email</b></label>
+      <input type="text" placeholder="email@example.com" name="email" class="bars2" required></span>
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+    <label for="psw" class="label">Password</b></label>
+      <input type="password" placeholder="********" name="psw" class="bars2" required><br><br>
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="psw-repeat" class="label"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" class="bars2" required>
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="city" class="label"><b>City</b></label>
+      <input type="text" placeholder="Enter Your City" name="city" class="bars2" required>
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="Fee" class="label"><b>Charge per Hour</b></label>
+      <input type="text" placeholder="Charge per Hour" name="charge" class="bars2" required>
+
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="phonenum" class="label"><b>Phone Number</b></label>
+      <input type="text" placeholder="Enter your phone number" name="phonenum" class="bars2" required>
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="Languages" class="label"><b>Languages You Teach In</b></label>
+      <br>
+      <form action="/action_page.php" class="bars2">
+        <input type="checkbox" name="languages_ar" value="Arabic" class=""> Arabic <br>
+        <input type="checkbox" name="languages_en" value="English"> English <br>
+        <input type="checkbox" name="languages_hb" value="Hebrew"> Hebrew <br>
+      </form>
+      <br>
+
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="car_type" class="label"><b>Gearbox</b></label>
+      <input type="text" placeholder="Gearbox Type" name="gearbox" class="bars2" required>
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="description" class="label"><b>Description</b></label>
+      <input type="text" placeholder="Describe Yourself" name="description" maxlength="200" style="height: 300px, width: 500px" class="bars2" required>
+    </span>
+
+    <span class="field" style="float: left; width: 100%;">
+      <label for="profilepic" class="label"><b>Profile Picture link (Optional)</b></label>
+      <input type="text" placeholder="Enter Profile Picture link" name="profilepic" class="bars2">
+    </span>
+
+
       <input type="checkbox" name="keep" style="float: left;margin: 5px;"><p style="color: white; float: left;">Keep me signed in</p> <br><br>
-    <button class="btn btn-sm btn-success" type="submit" style="background: white; border-radius: 0; color: rgb(0,115,168); width: 95%; height: 50px;">SIGN UP</button>
+    <button class="btn btn-sm btn-success" type="submit" class="bars2" ">SIGN UP</button>
   </form>
  </div>
 </div>
  
-{% endblock %}
+</body>
+</html>
+<!-- {% endblock %} -->
