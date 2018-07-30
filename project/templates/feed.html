@@ -1,4 +1,5 @@
 <a href="post" >post</a>
+
 <link rel="stylesheet" href="../static/css/style.css">
 <ul class="navigation_bar" >
   <li><a class="active" href="#home">Home</a></li>
@@ -14,8 +15,8 @@
 {% for post in posts %}
 
   <div class="post_block">
-      <div class="valid_text_space">
-          <div class="stori_title"> {{post.title}} </div>            
+      <div class="valid_text_space" >
+          <div class="stori_title"> {{post.get_title()}} </div>            
           <div class="description_block">
               {{ post.get_description() }}
           </div>
