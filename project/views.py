@@ -40,6 +40,7 @@ def send_message():
 	for user in users:
 		print("Print flag:")
 		print(user.flag)
+		print(user.number)
 		client.messages.create(to=user.number, from_=FROM, body=BODY)
 
 def activate():
