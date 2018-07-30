@@ -1,42 +1,3 @@
-<<<<<<< HEAD
-=======
-html
-        {
-        box-sizing:border-box;  
-
-        }
-
-      *, *:before, *:after
-        {
-              box-sizing: inherit;
-        }         
-  .login-body          
-        { 
-            background-image: url("../pictures/bacpicRed.jpg") ;
-            background-position: center;
-            align-items: center;
-            background-size: 100% 1000px; 
-            justify-content: center;
-            font-size: 1rem;
-            background-color: rgba(255,255,255,0.89);
-
-
-
-     
-       }
-
-    /* container */
-    .container 
-    { 
-       border-radius: 15px;
-       width: 500px;
-       height: 600px;
-       display: block;
-       margin-left: auto;
-       margin-right: auto;
-       background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));
-    }
->>>>>>> 58137998c6f320515bc93227188b31c72ec5dd1d
 
 #main_table{
   width: 100%;
@@ -44,15 +5,7 @@ html
   background-image: url("../pictures/bacpicRed.jpg");
   background-repeat: no-repeat;
 
-<<<<<<< HEAD
 }
-=======
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      color: rgb(242, 242, 242);
-      font-size: 20px;
->>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb
 
 .top_bar{
   height: 100px;
@@ -70,7 +23,6 @@ html
   background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));
 }
 
-<<<<<<< HEAD
     
 .textsboxes{
 
@@ -83,8 +35,6 @@ html
 
 }
 
-=======
->>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb
 /* Full-width inputs */
 input[type=text], input[type=password] 
       { 
@@ -164,13 +114,9 @@ PROFILE PAGE
        margin-right: auto;
        background: linear-gradient(to top, rgba(204,0,0), rgba(230, 92, 0));
  
-
-<<<<<<< HEAD
-/* Center the  image inside this container */
+}
 .imgcontainer {
     text-align: center;
-=======
->>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb
 }
 
 .avatar{
@@ -206,7 +152,6 @@ button {
     font-size: 18px;
 }
 
-<<<<<<< HEAD
 #signup_form{
   display: none;
 }
@@ -215,30 +160,3 @@ button {
   color: white;
   text-decoration: underline;
 }
-=======
-a {
-    text-decoration: none;
-    font-size: 22px;
-    color: black;
-}
-
-button:hover, a:hover {
-    opacity: 0.7;
-}
-.profilecontainer{
-
-       border-radius: 15px;
-       width: 500px;
-       height: 600px;
-       display: block;
-       margin-left: auto;
-       margin-right: auto;
-       background: linear-gradient(to top, rgba(204,0,0), rgba(230, 92, 0);
-
-}
-
-
-
-
-
->>>>>>> 70f0e2f0efd7d13e81c39d1fade0f3421e2c49cb

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="../static/css/style.css">
 <ul class="navigation_bar" >
   <li><a class="active" href="#home">Home</a></li>
-  <li><a href="post">post</a></li>
+  <li><a href="add_post">post</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
 </ul>
@@ -38,16 +38,40 @@
                       CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();" /> -->
               </div>
           </div>
+            <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+Add your Art </button>
 
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Share your art...</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
-      <div class="cover_image_space">
-          <asp:ImageButton ClientIDMode="Static" ID="cover_image" CommandName="image_click"
-              CommandArgument='<%# Eval("StoriID") %>' ClientID='<%# string.Format("cover_image{0}", Eval("StoriID")) %>'
-              ImageURL="Images/Book-icon-black.png" runat="server" CssClass="cover_photo" OnClientClick="GetScrollerPosition();"/>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="{{ url_for('add_post.add_art') }}" method="post">
+    {{ form.csrf_token }}
+ <p class="text">URL:</p>   {{ form.art_url(placeholder= "Add URL") }}<br><br>
+    <button class="btn btn-sm btn-success" type="submit">Share</button>
+</form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
       </div>
   </div>
-  <br><br>
 {% endfor %}
 
  </div>
