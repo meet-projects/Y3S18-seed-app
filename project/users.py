@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User,Teacher,Booking
+from project.models import User,Teacher,Request
 
 users_bp = Blueprint('users', __name__)
 
@@ -24,7 +24,7 @@ def register():
         city=request.form.get('city')
         fee=request.form.get('fee')
         description=request.form.get('description')
-        area=request.form.get('area')
+        #area=request.form.get('area')
         phonenum=request.form.get('phonenum')
         car_type=request.form.get('car_type')
         license_num=request.form.get('license_num')
@@ -47,7 +47,7 @@ def register():
                     lan=lan+"Arabic "
                 if profilepic == "":
                     profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
-                teacher=Teacher(user.id,name,area,city,description,fee,phonenum,lan,profilepic,car_type,license_num)
+                teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,car_type,license_num)
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -59,7 +59,7 @@ def register():
         else:
             return Response("<p>invalid form</p>")
 
-    return render_template('login_signup.html', form=form)
+    return render_template('register.html', form=form)
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])

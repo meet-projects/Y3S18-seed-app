@@ -2,7 +2,7 @@ from flask import render_template, session
 from flask_login import login_required
 
 from project import db
-from project.models import User,Teacher,Booking
+from project.models import User,Teacher,Request
 from . import app
 from sqlalchemy import desc,asc
 
@@ -12,14 +12,36 @@ import sys, math
 def index():
 	return render_template('index.html')
 
-@app.route('/feed')
+'''@app.route('/feed')
 def feed():
 	all_teachers = db.session.query(Teacher).order_by("id desc").all()
 	teachers = []
-	for t in range(4*(1-1),1*4):
+	print(len(all_teachers))
+	print(math.ceil((len(all_teachers))/4))
+	pages = int(math.ceil((len(all_teachers))/4))
+	if len(all_teachers)>=4:
+		for t in range(0,4):
+			teachers.append(all_teachers[t])
+	else:
+		teachers = all_teachers
+	print(teachers)
+	return render_template('feed.html', teachers=teachers,pages=pages)'''
+
+@app.route('/feed/<int:pagenum>')
+def feed_num(pagenum):
+	all_teachers = db.session.query(Teacher).order_by("id desc").all()
+	teachers = []
+	pages = math.ceil(len(all_teachers)/4)
+	if len(all_teachers)>=4*pagenum:
+		for t in range(4*(pagenum-1),pagenum*4):
+			teachers.append(all_teachers[t])
+	else:
+		for x in range(4*(pagenum-1),len(all_teachers)-1):
+			teachers.append(all_teachers[x])
+	for t in range(4*(pagenum-1),pagenum*4):
 		teachers.append(t)
 	print(teachers)
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers,pages=pages)
 
 @app.route('/lowtohigh',)
 def lowtohigh():
