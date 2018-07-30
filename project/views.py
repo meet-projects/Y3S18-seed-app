@@ -22,7 +22,6 @@ def feed():
 	#		teachers.append(all_teachers[t])
 	#else:
 	#teachers = all_teachers
-	print(teachers)
 	return render_template('feed.html', teachers=all_teachers)
 
 @app.route('/feed/<int:pagenum>')
@@ -41,15 +40,18 @@ def feed_num(pagenum):
 	print(pages)
 	return render_template('feed.html', teachers=teachers,pages=pages)
 
-@app.route('/lowtohigh',)
-def lowtohigh():
-	teachers=db.session.query(Teacher).order_by("cost asc").all()
+@app.route('/sort/<sorting>',)
+def price_sort(sorting):
+	if sorting == "low":
+		teachers=db.session.query(Teacher).order_by("cost asc").all()
+	elif sorting == "high":
+		teachers=db.session.query(Teacher).order_by("cost desc").all()
 	return render_template('feed.html', teachers=teachers)
 
-@app.route('/hightolow',)
+'''@app.route('/hightolow',)
 def hightolow():
 	teachers=db.session.query(Teacher).order_by("cost desc").all()
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers)'''
 
 @app.route('/<area>')
 def area_filter(area):
