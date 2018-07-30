@@ -81,4 +81,5 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return Response("<p>Logged out</p>")
+    form = LoginForm(request.form)
+    return render_template('login.html', form=form)

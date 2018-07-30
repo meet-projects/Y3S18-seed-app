@@ -30,7 +30,8 @@ STORYTELLER PROFILE
 
 
 {% for journey in st_journeys %}
-{{ journey.title }} <br>
+<a href="{{url_for('display_journey' , journey_id=journey.id)}}">{{ journey.title }}</a> 
+<br>
 {% endfor %}
 
 
