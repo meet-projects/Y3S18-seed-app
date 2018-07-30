@@ -53,7 +53,7 @@
 			<h3 id="profile_name">
 				Your profile: {{teacher.name}}</h3>
 				<br>
-			<a href="{{ url_for('edit_profile') }}" id="edit_link"><button id="edit_button"><b> EDIT PROFILE</b></button></a>
+			<a href="{{ url_for('edit_profile',teacher_id=teacher.id) }}" id="edit_link"><button id="edit_button"><b> EDIT PROFILE</b></button></a>
 			<br>
 			<br><br>
 			<h4 class="profile_title">
