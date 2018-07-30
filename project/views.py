@@ -3,49 +3,29 @@ from flask_login import login_required
 from project import db
 from project.models import User
 
+from sqlalchemy import update
 import os
 from twilio.rest import Client
 import threading
 
 from . import app
 
-NEED = 0
-USER = 0
+#NEED = 0
+#USER = 0
 
+#Robert's phone:
 ACC_SID = "AC28c8c4fb97d6e0949e2ce45135ad2c9c"
 AUTH_TOKEN = "c55558a79a700c94d537b33d63fe85c6"
 FROM = "+18604312585"
 BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
+#George's phone:
+ACC_SID1 = "ACd03777f4973c4f1ffc3efed677cc57b1"
+AUTH_TOKEN1 = "b22f0d66110237b42ebf63ccd2b4241e"
+FROM1 = "+18482088916"
 
-@app.route('/')
-def index():
-    return render_template('landingpage.html')
-
-@app.route('/info')
-def info():
-    return render_template('info.html')
-
-@app.route('/private', methods=['GET', 'POST'])
-@login_required
-def private_route():
-	global NEED
-	global USER
-	NEED = 0
-
-	USER = User.query.filter_by(id=session['user_id']).first()
-	session['name'] = USER.username
-	session['phone'] = USER.number
-
-	if request.method == 'POST':
-
-		NEED = 1
-
-		user_is_bad()
-
-		return render_template('check.html')
-
-	return render_template('private.html')
+#Indicator
+IN = 0
 
 def user_is_bad():
 	#Threading delay between 2 messages going to be 4 minutes
@@ -54,10 +34,57 @@ def user_is_bad():
 
 def send_message():
 	#This function will send the messages
-	global NEED
-	global USER
+	users = User.query.all()
 	client = Client(ACC_SID, AUTH_TOKEN)
-	if NEED == 1:
-		client.messages.create(to=USER.number, from_=FROM, body=BODY)
-		NEED = 1
+	client1 = Client(ACC_SID1, AUTH_TOKEN1)
+	for user in users:
+		print("Print flag:")
+		print(user.flag)
+		client.messages.create(to=user.number, from_=FROM, body=BODY)
 
+def activate():
+	global IN
+	if IN == 0:
+		user_is_bad()
+		IN = 1
+
+@app.route('/')
+def index():
+	activate()
+	return render_template('landingpage.html')
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
+
+@app.route('/private', methods=['GET', 'POST'])
+@login_required
+def private_route():
+
+	user = User.query.filter_by(id=session['user_id']).first()
+	session['name'] = user.username
+	session['phone'] = user.number
+	user.flag = 0
+	db.session.commit()
+
+	if request.method == "POST":
+		form = AddContactForm(request.form)
+		if user.name is null:
+			user.name = form.name.data
+			user.phone = form.phone.data
+		elif user.name1 is null:
+			user.name1 = form.name.data
+			user.phone1 = form.phone.data
+		elif user.name2 is null:
+			user.name2 = form.name.data
+			user.phone2 = form.phone.data
+		db.session.commit()   
+
+	return render_template('private.html')
+
+@app.route('/test')
+@login_required
+def check():
+	user = User.query.filter_by(username=session['name']).first()
+	user.flag = 1
+	db.session.commit()
