@@ -100,21 +100,47 @@
 <div id="id02" class="modal">
   
   <form class="modal-content animate" action="{{ url_for('users.login') }}" method="post">
-    <div class="imgcontainer">
+    
+    <div class="container" id="login_box">
+      <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="../static/img/avatar.png" alt="Avatar" class="avatar">
     </div>
 
-    <div class="container">
       <form action="{{ url_for('users.login') }}" method="post">
+       <h2 id="login_title">SIGN IN TO YOUR ACCOUNT</h2>
+        
     {{ loginform.csrf_token }}
+    <br>
+    <br>
     {{ loginform.username(placeholder="Email") }} 
+    <br>
+    <br>
     {{ loginform.password(placeholder="Password") }}
-    <button class="btn btn-sm btn-success" type="submit">Log in</button>
+    <br>
+    <br>
+    <div id="keep_sign_in">
+      <input type="checkbox" name="keep_sign_in" style="float:left;margin-left: 10%;" checked> Keep me signed in
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-sm btn-success" type="submit">SIGN IN</button>
   </form>
-      </div>
+    <div>
+      <table style="width: 80%;">
+      <tr>
+        <td align="left">
+          <a>Forgot your password?</a>
+        </td>
+        <td align="right">
+          <a>No account? Create one!</a>
+        </td>
+      </tr> 
+      </table>
+    </div>
+  </div>
 
-    <div class="container" style="background-color:#f1f1f1">
+
+    <div class="container">
       <center> <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button> </center>
     </div>
   </form>
