@@ -24,7 +24,6 @@ def register():
         city=request.form.get('city')
         fee=request.form.get('fee')
         description=request.form.get('description')
-        #area=request.form.get('area')
         phonenum=request.form.get('phonenum')
         car_type=request.form.get('car_type')
         license_num=request.form.get('license_num')
@@ -108,6 +107,7 @@ def booking(teacher_id):
     db.session.commit()
     return redirect('feed')
 
+<<<<<<< HEAD
 # @users_bp.route('/booking/<int:teacher_id>')
 # def booking(teacher_id):
 #     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
@@ -116,3 +116,9 @@ def booking(teacher_id):
 @users_bp.route('/edit_profile')
 def edit_profile():
     return render_template('edit_profile_template.html')
+=======
+
+@users_bp.route('/editing')
+def editing():
+    pass
+>>>>>>> ffe62dbf8fb4e424de6065b3fcfbf6618a2c1842
