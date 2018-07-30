@@ -121,7 +121,6 @@ td{
   padding: 8px;
   text-align: center;
   cursor: pointer;
-  width: 100%;
 }
 .feed_insturctor{
   color: rgb(246, 246, 246); 
@@ -462,3 +461,6 @@ div{
 .pagenumbers{
   align-items: center;
 }
+
+.link { color: #000000; } /* CSS link color (red) */
+.link:hover { color: #00c2ff; } /* CSS link hover (green) */

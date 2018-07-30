@@ -56,7 +56,7 @@
 		<span>
 			<center>
 				<br><br>
-				<button onclick="document.getElementById('filter_div').style.display='block'">Filter</button>
+				<button onclick="document.getElementById('filter_div').style.display='block'" class="button">Filter</button>
 			</center>
 			<center><div id="filter_div" class="popup">
 				<!--<ul class="filter" id="instructordiv">
@@ -97,14 +97,15 @@
 					
 					</li>
 				</ul>-->
+				<p id="sort_bar" ><a href="{{url_for('feed')}}" class="link">Filterless</a></p>
 				<p id="sort_bar">Sort(Price):
-					<a href="">Low-->High</a>
-					<a href="">High-->Low</a>
+					<a href="{{url_for('price_sort',sorting='low')}}" class="link">Low-->High</a>
+					<a href="{{url_for('price_sort',sorting='high')}}" class="link">High-->Low</a>
 				</p>
 				<p id="sort_bar">Language:
-					<a href="{{url_for('language_filter',language='arabic')}}">Arabic</a>
-					<a href="{{url_for('language_filter',language='hebrew')}}">Hebrew</a>
-					<a href="{{url_for('language_filter',language='english')}}">English</a>
+					<a href="{{url_for('language_filter',language='arabic')}}" class="link">Arabic</a>
+					<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
+					<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
 				</p>
 			</div></center> 
 				<br>
@@ -133,7 +134,7 @@
 	  					<h1>{{teacher.name}}</h1>
 	  					<p>{{teacher.description}}</p>
 	  					<h3 style="color: black;">{{teacher.languages}}</h3>
-	  					<h2>{{teacher.cost}}&#8362</h2>
+	  					<h2>{{teacher.cost}} &#8362</h2>
 	  					<a href="profile/{{teacher.id}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
 	  				</span>
 	  			</div>
