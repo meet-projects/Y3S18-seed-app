@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-
-<body>
   
+<center>
   Hi {{ current_user.name }},
   <br><br><br>
   <p>Becoming a storyteller means you will get to share your ambitious insipring story of your life. you will be free to take people on a journey in the places you grew in or places you would like.</p>
@@ -26,10 +25,12 @@
   Phone Number<br>
   <input type="text" name="number" placeholder="Enter Your Phone Number please" required>
   <br><br>
-<input type="hidden" name="user_id" value= "{{ session['user_id'] }}" >
+  <input type="hidden" name="user_id" value= "{{ session['user_id'] }}" >
   <button class="btn btn-lg postbtn" type="submit">Submit!</button>
 
   </form>
+
+</center>
 </body>
 
 {% endblock %}
