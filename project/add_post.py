@@ -4,7 +4,7 @@ from flask import (
         )
 from flask_login import login_user, login_required, logout_user
 from project import db
-from project.forms import PostForm
+from project.forms import PostForm, AddArtForm
 from project.models import Post, User
 
 
@@ -48,7 +48,7 @@ def add_art():
             return redirect(url_for('feed', user = user))   
         else:
             return Response("<p>invalid form</p>")
-    return render_template('add_art.html', form=form)
+    return render_template('feed.html', form=form)
 
 
 

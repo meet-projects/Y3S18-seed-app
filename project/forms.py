@@ -7,7 +7,7 @@ class RegisterForm(Form):
 	displayname = StringField('Display Name', validators=[DataRequired(), Length(max=40)])
 	username = StringField('Username', validators=[DataRequired(), Length(max=16)])
 	password = PasswordField('Password', validators=[DataRequired(), Length(max=40)])
-	confirm = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+	confirm_pass = PasswordField('Confirm Password', validators=[DataRequired(), Length(max=40)])
 
 
 class LoginForm(Form):
