@@ -12,28 +12,6 @@ h1{
 	font-size: 100px
 }
 
-h3{ /*Username*/
-
-  left: 400px;
-  top: 250px;
-  font-size: 30px;
-}
-
-h4{   /*Phone*/
-
-
-  left: 400px;
-  top:300px;
-  font-size: 30px;
-}
-h5{   /*Password*/
-
-  left: 400px;
-  top:350px;
-  font-size: 30px;
-}
-
-
 p{
 	text-align: center;
 	font-family: cursive;
@@ -110,6 +88,7 @@ p{
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
 }
+  
 
 @-webkit-keyframes animatezoom {
     from {-webkit-transform: scale(0)}
@@ -119,7 +98,9 @@ p{
 @keyframes animatezoom {
     from {transform: scale(0)}
     to {transform: scale(1)}
-} </style>
+} 
+
+</style>
 
 <a href="{{ url_for('users.login') }}"><img src="static/pictures/back_button.gif" width="15%" style="padding-top: 10px;"></a>
 
@@ -129,35 +110,36 @@ p{
 		<h1>SIGN UP</h1> <br> <br> <br> 
 	</div>
 <center>
+  
 	<div class='row'>
 		<img src="{{ url_for('static', filename = 'pictures/LOGO1080.png')}}" align= "left" height="300" width="300"> 
-
+  <table>
 		 <form action="/register" method = "POST" >
-		 
-		    <div class="form-group">
-          <label for="username"><b>Username: </b></label>
-		      <input type="username" class="form-control3" id="username"  name="username"><br><br>
-		    </div>
-		    <div class="form-group">
-          <label for="number"><b>Phone #: </b></label>
-          <select>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
-
-		      <input type="phone num." class="form-control1" id="number"  name="number"><br><br>
-		    </div>
-		    <div class="form-group">
-          <label for="password"><b>Password: </b></label>
-		     <input type="password" class="form-control2" id="password"  name="password"><br><br>
-		    </div>
-
-		     <button type="submit" class="btn btn-default">Submit</button>
-		    		
-		  </form> 
 		
+     <tr colspan="2">
+      <div class="form-group">
+         <td> <label class="signup_form_label" for="username"><b>Username  : </b></label></td>
+		      <td><input type="username" class="form-control3" id="username"  name="username"><br><br></td>
+		    </div>
+      </tr>
+
+      <tr>
+		    <div class="form-group">
+          <td><label class="signup_form_label" for="number"><b>phone #  :</b></label></td>
+		      <td><input type="phone num." class="form-control1" id="number" placeholder="+972xxxxxxxxx"  name="number"><br><br></td>
+		    </div>
+      </tr>
+
+      <tr>
+		    <div class="form-group">
+         <td> <label class="signup_form_label" for="password"><b>Password  : </b></label></td>
+		     <td><input type="password" class="form-control2" id="password"  name="password"><br><br></td>
+		    </div>
+      </tr>
+  </table>
+		     <button type="submit" class="btn btn-default">Submit</button>
+		  </form> 
+
 </center>
 	<div class='row'>
 	</div>
