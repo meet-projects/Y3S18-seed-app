@@ -82,7 +82,7 @@ function myFunction() {
 
 
 <!-- The Modal -->
-<div class="modal" id="myModal">
+<div class="modal" id="addArt">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -94,7 +94,7 @@ function myFunction() {
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action="{{ url_for('add_post.add_art') }}" method="post">
+        <form action="{{ url_for('add_post.add_art', PostID = post.id) }}" method="post">
     {{ form.csrf_token }}
  <p class="text">URL:</p>   {{ form.art_url(placeholder= "Add URL") }}<br><br>
     <button class="btn btn-sm btn-success" type="submit">Share</button>

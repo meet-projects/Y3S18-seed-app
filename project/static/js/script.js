@@ -15,7 +15,7 @@ open_login_form = function(){
 }
 
 open_add_art = function(id){
-	var modal = document.getElementById("");
+	var modal = document.getElementById("addArt");
 	modal.style["display"] = 'block';
 
 
