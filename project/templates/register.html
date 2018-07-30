@@ -5,18 +5,32 @@
  
 <div class="page-header">
  
-<h2>Register New User</h2>
+
  
   </div>
  
-<form action="{{ url_for('users.register') }}" method="post">
+ <div class="signup_container">
+<form action="{{ url_for('users.register') }}" method="post"
+>
+	<h2 style="color: white; margin-top: 0;">SIGN UP</h2>
     {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }}
-    {{ form.confirm(placeholder="Confirm Password") }}
-    <button class="btn btn-sm btn-success" type="submit">Register User</button>
+    <span class="field" style="float: left; width: 50%;">
+    	<label for="fname" style="color: white; float: left;"><b>FIRST NAME</b></label>
+    	<input type="text" name="fname" style="background: white; border-radius: 0px; height: 50px; width: 90%;">
+    </span>
+    <span class="field" style="float: left; width: 50%;">
+    	<label for="lname" style="color: white; float: left;"><b>LAST NAME</b></label>
+    	<input type="text" name="lname" style="background: white; border-radius: 0px; height: 50px; width: 90%;">
+    </span>
+    <span>
+    <label for="email" style="color: white; float: left; margin-right: 100px;"><b>EMAIL</b></label>
+      <input type="text" placeholder="email@example.com" name="email" required style="background: white; border-radius: 0px; height: 50px; width: 95%;"></span>
+    <label for="psw" style="color: white; float: left;"><b>PASSWORD</b></label>
+      <input type="password" placeholder="********" name="psw" required style="background: white; border-radius: 0px; height: 50px; width: 95%;"><br><br>
+      <input type="checkbox" name="keep" style="float: left;margin: 5px;"><p style="color: white; float: left;">Keep me signed in</p> <br><br>
+    <button class="btn btn-sm btn-success" type="submit" style="background: white; border-radius: 0; color: rgb(0,115,168); width: 95%; height: 50px;">SIGN UP</button>
   </form>
- 
+ </div>
 </div>
  
 {% endblock %}

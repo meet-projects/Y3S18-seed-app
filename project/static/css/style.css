@@ -1,3 +1,458 @@
-h1 {
-  color: blue;
+.signup_container{
+  width: 50%;
+  min-height: 450px;
+  background-color: rgb(0,115,168);
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  margin-top: 0;
+}
+
+#sort_bar{
+  word-spacing: 2em;
+}
+
+.biglogo{
+  height: 350px;
+}
+
+body{
+	color: rgb(246,246,246);
+  background-color: #f6f6f6;
+  font: helvetica;
+}
+h3{
+	color: rgb(31, 122, 140)
+}
+p{
+	color: rgb(31, 122, 140);
+	font: helvetica;
+}
+form{
+	color: rgb(31, 122, 140);
+	font: helvetica;
+}
+table{
+	font-family: "Avenir Next";
+}
+th{
+	text-align: left;
+  color: rgb(40,40,40);
+}
+td{
+	text-align: right;
+  color:grey;
+}
+.logo{
+	height:75px;
+}
+#profile_picture{
+	border: 5px solid rgb(184, 255, 114);
+	border-radius: 50%;
+  max-height: 340px;
+  max-width:340px;
+  display: block;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.column {
+  float: left;
+  width: 25%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  background-color: #838783;
+  border-radius: 20px;
+  max-height: 50%;
+  min-height: 50%;
+  margin-left: 5%;
+  box-shadow: 2px 2px 1px 1px rgb(136,136,136);
+}
+
+.instructor{
+  width: 80%;
+  height: 350px;
+  border-bottom-width: 1px;
+}
+
+.instructor_pic{
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  float: left;
+  margin: 25px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+    box-shadow: 2px 2px 1px 1px rgb(36,36,36);
+  }
+}
+
+.card {
+
+  min-height: 550px;
+  max-height: 550px;
+  padding: 10px;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: rgb(246, 246, 246);
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.feed_insturctor{
+  color: rgb(246, 246, 246); 
+}
+
+.filter{
+  background-color: #f6f6f6
+}
+ul.filter {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li.filter {
+    float: left;
+}
+
+li.filter select {
+    display: block;
+    color: rgb(31, 122, 140);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+#login{
+  float: right;
+}
+#signup{
+  float: right;
+}
+
+#side_profile{
+  width: 350px;
+  max-height: 800px;
+  color:rgb(246,246,246);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  float: left;
+}
+h3{
+color:white;
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 30px;
+}
+
+.whitelogo{
+
+  height: 100px;
+}
+
+.landingbutton{
+color: black;
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size:17px;
+background-color: white;
+height: 110px;
+width: 225px;
+border: none;
+border-radius: 20px;
+font-weight: bold;
+}
+.profile_page{
+  background-color: #f6f6f6;
+  margin-right: 60px;
+  margin-left: 60px;
+}
+#main_profile{
+  margin-left:33%;
+  padding:10px;
+  width:800px;
+
+}
+#profile_container{
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+}
+#profile_name{
+  color:rgb(0,170,170);
+}
+#edit_button{
+  background-color:rgb(31,122,140);
+  width:120px;
+  height:30px;
+  border: none;
+  color: white;
+}
+#edit_link{
+  color: white;
+  text-decoration: none;
+}
+.profile_title{
+  font-weight: bold;
+  color: black;
+}
+#about_p{
+  vertical-align: middle;
+  line-height: normal;
+  display: inline-block;
+  color: rgb(70,70,70);
+}
+#profile_about{
+  text-align: justify;
+  height:100px;
+  width: 750px;
+}
+#about_text{
+  max-width:20px;
+  height:250px;
+}
+
+.div{
+  background-color: #36d02a;
+  width: 100%;
+}
+
+#feed_btn {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+.book_lesson_btn{
+  background-color:rgb(31,122,140);
+  width:120px;
+  height:40px;
+  border: none;
+  color: white;
+}
+#book_lesson_link{
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+/* The Modal (background) */
+
+
+
+
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+#edit_about{
+    width: 618px;
+    height: 85px;
+}
+
+.filters{
+  height: 59px;
+  width:180px;
+  color: rgb(31, 122, 140);
+}
+.filter_title{
+  color: rgb(31,122,140);
+  font-family: sans-serif;
+  font-size: 20px;
+}
+.filter{
+  margin-left: 8.5%;
+  background-color: rgb(246,246,246);
+}
+#filter_div{
+  background-color: rgb(246,246,246);
+}
+#no_filter{
+  height: 47px;
+  color: rgb(31, 122, 140);
+}
+
+.book_btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+#booking_table{
+  border: 3px solid rgb(184, 255, 114);
+  width: 500px;
+  min-height: 200px; 
+}
+.booking_table_header{
+  color: rgb(31,122,140);
+  font-size: 16px;
+}
+
+.booking_table_title{
+  color:rgb(0,170,170);
+  text-align: right;
+  font-size: 20px;
+}
+
+.profilepic{
+
+min-height: 250px;
+max-height: 250px;
+border-radius: 20px;
+}
+
+.popup{
+  display: none; /* Hidden by default */
+  /*position: fixed;  Stay in place */
+  z-index: 1; /* Sit on top */
+  overflow: auto; /* Enable scroll if needed */
+  top: 50%;
+  left: 50%;
+  background-color: #36d02a;
+  padding-top: 50px;
+}
+
+#title{
+  font-size: 24px;
+  color: rgb(255,255,250);
+}
+
+.header a{
+  color: white;
+}
+
+.header{
+  background-color: rgb(6,174,213);
+  list-style: none;
+  color: white;
+  position: sticky;
+  top: 0;
+  text-align: center;
+}
+
+.header li{
+  display: inline-block;
+  margin: auto;
+  margin: 10px;
+  text-align: center;
+}
+
+div{
+  background-color: rgb(255,255,250);
+}
+
+#profile{
+  width: 85px;
+  height: 85px;
+  margin: 10px;
+  float: left;
 }

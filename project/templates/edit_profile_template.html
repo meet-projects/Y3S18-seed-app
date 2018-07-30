@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<title>
+			EasyLicense	
+		</title>
+	</head>
+	
+	<body class="profile_page">
+		<a href="{{ url_for('feed') }}" id="feed_btn">Feed</a>
+		<center><img src="../static/img/Small.png" class="logo"></center>
+
+		<form>
+		<section id="profile_container">
+			<div id="side_profile" align="left">
+				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
+			<br>
+			<p>Your name:<input type="text"> </p>
+			<br>
+			<table>
+				<tr>
+					<th> <u> Phone number:</u></th> 
+					<td> <input type="text" maxlength="10" minlength="9"> </td>
+				</tr>
+				<tr> 
+
+					<th> <u> Area:</u></th> 
+					<td> <select>
+						<option value="galil_elion"> Galil Elion </option>
+						<option value="hof_hagalil"> Hof Hagalil </option>
+						<option value="golan">Golan </option>
+						<option value="carmel"> Carmel </option>
+						<option value="sharon"> Sharon </option>
+						<option value="emek_israel">  Emek Israel </option>
+						<option value="beit_shean">Beit Shean </option>
+						<option value="mishor_hakhof"> Mishor Hakhof </option>
+						<option value="jerusalem_district">Jerusalem District </option>
+						<option value="negev"> Negev </option>
+						<option value="shfelat_yehuda"> <Shfelat Yehuda </option>
+						<option value="judea_district"> Judea District </option>
+						<option value="west_bank">West Bank </option>
+						<option value="arava"> Arava</option>
+							</select> </td>
+				</tr>
+				<tr> 
+					<th> <u> Languages:</u></th> 
+					<td> 	  
+						<select>
+								<option value="hebrew">Hebrew </option>
+								<option value="arabic">Arabic </option>
+								<option value="english">English </option>
+							</select> </td>
+				</tr>
+				<tr> 
+					<th><u> License Number:</u></th>
+					<td> <input type="text" name="license" minlength="6" maxlength="8"> </td>
+				</tr>
+				<tr>
+					<th> <u> Car Type:</u></th> 
+					<td> <input type="text" name="car_type"> </td>
+				</tr>
+			</table>
+			<br> 
+		</div>
+		<div id="main_profile">
+			<h3 id="profile_name">
+				EDIT PROFILE</h3>
+			<br>
+			<h4 class="profile_title">
+			ABOUT
+			</h4>
+			<div id="profile_about">
+				<textarea id="edit_about">
+					About yourself...
+				</textarea>
+					 
+			</div>
+			<input type="submit" name="submit">
+		</div>
+	</section>
+</form>
+	</body>
+</html>
