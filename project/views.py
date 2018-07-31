@@ -1,4 +1,4 @@
-from flask import render_template, request, session
+from flask import render_template, request, session, redirect, url_for
 from flask_login import login_required
 from project.forms import AddContactForm
 from project import db
@@ -74,3 +74,9 @@ def check():
 	user = User.query.filter_by(username=session['name']).first()
 	user.flag = 1
 	db.session.commit()
+
+@app.route('/private', methods=['GET','POST'])
+@login_required
+def private():
+	activate()
+	return redirect(url_for('account'))
