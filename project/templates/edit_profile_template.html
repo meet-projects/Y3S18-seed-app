@@ -11,7 +11,7 @@
 		<h4><a href="{{url_for('index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 		<center><img src="../static/img/easylicense_logo.png" class="logo"></center>
 
-		<form>
+		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}">
 		<section id="profile_container">
 			<div id="side_profile" align="left">
 				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
@@ -62,8 +62,8 @@
 				</textarea>
 					 
 			</div>
-			<input type="submit" name="submit">
-			<a href="{{url_for('profile_template')}}">Cancel</a>
+			<input type="submit" name="submit" class="edit_button">
+			<a href="{{url_for('profile_template')}}" class="edit_link"><button class="edit_button">Cancel</button></a>
 		</div>
 	</section>
 </form>
