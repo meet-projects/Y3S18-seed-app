@@ -10,10 +10,30 @@
   <li><a href="#about">About</a></li>
 </ul>
 -->
+
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+
+
 {% extends "layout.html" %}
 {% block content %}
 
- <div id="feed_space">
+<div id="feed_space">
 <style type="text/css">
   body{
     background: url("../static/pictures/background.jpg");
@@ -61,38 +81,19 @@
 <button type="button" class="btn btn-primary" onclick="open_add_art({{post.id}})">
 Add your Art </button>
           
-<!--<script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
 
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
-  }
-}
-</script>
-</script>-->
-
-
-<!-- The Modal -->
+<!-- The Modal 
 <div class="modal" id="addArt">
   <div class="modal-dialog">
     <div class="modal-content">
 
-      <!-- Modal Header-->
+      <!-- Modal Header
       <div class="modal-header">
         <h4 class="modal-title">Share your art...</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
-      <!-- Modal body -->
+      <!-- Modal body 
       <div class="modal-body">
         <form action="{{ url_for('add_post.add_art', PostID = post.id) }}" method="post">
     {{ form.csrf_token }}
@@ -100,7 +101,7 @@ function myFunction() {
     <button class="btn btn-sm btn-success" type="submit">Share</button>
 </form>
       </div>
-      <!-- Modal footer -->
+      <!-- Modal footer 
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
@@ -109,7 +110,7 @@ function myFunction() {
   </div>
 </div>
       </div>
-  </div> 
+  </div> -->
 {% endfor %}
 
  </div>

@@ -14,11 +14,6 @@ open_login_form = function(){
 	signup_form.style["display"] = 'none';
 }
 
-open_add_art = function(id){
-	var modal = document.getElementById("addArt");
-	modal.style["display"] = 'block';
-
-
 
 
 

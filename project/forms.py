@@ -18,7 +18,6 @@ class PostForm(Form):
 	title = StringField('Title', validators=[DataRequired()])
 	text = StringField('Text', validators=[DataRequired()])
 
-class AddArtForm(Form):
-	art_url = StringField('ArtUrl', validators = [DataRequired()])
+
      
 
