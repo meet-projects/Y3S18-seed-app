@@ -6,21 +6,16 @@
 
 }
 
-.top_bar{
- height: 100px;
- background-color: green;
-}
-
-/* container */
 .login_page_container {
  padding: 20px;
  color: white;
  margin: auto;
  border-radius: 15px;
  width: 500px;
- /*height: 60%;*/
+ /*make the shades*/
  background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));
 }
+
 
 /* Full-width inputs */
 .login_page_textbox { 
@@ -107,14 +102,6 @@
  text-align: center;
 }
 
-.avatar{
- width: 30%;
- border-radius: 50%;
- display: block;
- margin-left: auto;
- margin-right: auto;
- background-color:rgba(255,255,255,1)
-}
 .card {
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
  max-width: 300px;
@@ -141,3 +128,4 @@
  text-decoration: underline;
  margin-top: 30px;
 }
+

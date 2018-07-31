@@ -17,7 +17,6 @@ open_login_form = function(){
 
 
 
-
 function myFunction() {
   var dots = document.getElementById("dots");
   var moreText = document.getElementById("more");
