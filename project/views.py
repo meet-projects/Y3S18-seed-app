@@ -2,7 +2,7 @@ from flask import render_template, request, session
 from flask_login import login_required
 from project.models import *
 from . import app
-from project.forms import AddArtForm	
+from project.forms import AddArtForm    
 
 
 @app.route('/feed')
@@ -28,3 +28,10 @@ def profile():
     user = User.query.filter_by(id = profileID).first()
     posts = Post.query.filter_by(AuthorID = profileID).first()
     return render_template('profile.html', user = user, posts = posts)
+
+
+@app.route('/viewstory/<int:PostID>', methods = ['GET','POST'])
+def view_story(PostID):
+    form = AddArtForm(request.form)
+    post = Post.query.filter_by(id = PostID).first()
+    return render_template('viewstory.html', post = post, form = form)
