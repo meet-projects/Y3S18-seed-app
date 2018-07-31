@@ -66,6 +66,7 @@ def profile(user_id):
 	else:
 		current_user = 'Not Logged In'
 		logged_in = False
+		is_user = False
 	if user.is_storyteller==True:
 		st_journeys = Journey.query.filter_by(creator_id=user_id).all()
 		return render_template('st_profile.html', user=user, is_user=is_user, current_user=current_user,st_journeys=st_journeys, is_storyteller=True, logged_in=logged_in)
