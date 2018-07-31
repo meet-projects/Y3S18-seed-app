@@ -52,8 +52,8 @@ def register():
                 #    lan=lan+"Arabic "
                 #if profilepic == "":
                 #    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
-                #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,car_type)
-                teacher=Teacher(user.id,name,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","undefined yet")
+                #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,gearbox)
+                teacher=Teacher(user.id,name,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","")
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -159,7 +159,7 @@ def editing(teacher_id):
         teacher.gearbox+="Automatic"
     if manu is not None:
         teacher.gearbox+="Manual"
-    
+
     db.session.commit()
     return redirect('profile_template')
 

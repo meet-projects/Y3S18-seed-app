@@ -63,7 +63,12 @@ class Teacher(db.Model):
         user_id, 
         name,
         city,
-        description,cost,phone_num,languages,profile_picture, car_type,gearbox):
+        description,
+        cost,
+        phone_num,
+        languages,
+        profile_picture,
+        gearbox):
         self.user_id = user_id
         self.name=name
         self.city=city
