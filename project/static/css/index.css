@@ -8,6 +8,12 @@ h1{
 	font-size: 40px;
 }
 
+.login-titles{
+	float: left;
+	font-family: helveticaneuelight;
+	font-size: 24px;
+}
+
 .btn{
 	font-family: helveticaneuelight;
 	background-color: #188fc4;
@@ -206,6 +212,19 @@ border-radius: 20px;
 	color: white;
 }
 
+.login{
+	background-color: #4CAF50;
+	font-size: 24px;
+	font-family: helveticaneuelight;
+	color: white;
+	width: 25%;
+}
+
+.login:hover{
+	background-color: white;
+	color: #4CAF50;
+	font-family: helveticaneuelight;
+}
 #feed_btn {
     background-color: white;
     border: none;
@@ -220,6 +239,7 @@ border-radius: 20px;
     border-radius: 20px;
 
 }
+
 #login_box{
     background-color: #0073a8;
     margin:5%;
@@ -230,8 +250,7 @@ border-radius: 20px;
 
 #login_title{
     color: white;
-    font-weight:2000;
-    font-size: 30px;
+    font-weight: lighter;
     font-family: helveticaneuelight;
 }
 
