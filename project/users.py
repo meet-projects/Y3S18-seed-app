@@ -61,8 +61,8 @@ def register():
             ##return redirect(next_page)
         else:
             return Response("<p>invalid form</p>")
-
-    return render_template('register.html', form=form)
+    else:
+        return render_template('register.html', form=form)
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])
