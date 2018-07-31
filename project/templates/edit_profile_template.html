@@ -4,12 +4,12 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<title>
-			EasyLicense	
+			Edit Your profile
 		</title>
 	</head>
 	
 	<body class="profile_page">
-		<h4><a href="{{url_for('index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
+		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 	<div class="row" style="background-color: rgb(246,246,246);">
 		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}">
 			<div id="side_profile" align="left" class="col-md-3">
@@ -20,31 +20,32 @@
 			<table>
 				<tr>
 					<th> <u> Phone number:</u></th> 
-					<td> <input type="text" maxlength="10" minlength="9" value="{{ teacher.phone_num }}"> </td>
+					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}"> </td>
 				</tr>
 				<tr> 
 
 					<th> <u> City:</u></th> 
 					<td>
-					<input type="text" value="{{ teacher.city }}"> 
+					<input type="text" placeholder="{{ teacher.city }}"> 
 					 </td>
 				</tr>
 				<tr> 
 					<th> <u> Languages:</u></th> 
-					<td> 	  
-						<select>
-								<option value="hebrew">Hebrew </option>
-								<option value="arabic">Arabic </option>
-								<option value="english">English </option>
-							</select> </td>
+					<td> 							
+						<input type="checkbox" name="hebrew" value="hebrew">Hebrew </option>
+						<input type="checkbox" name="arabic" value="arabic">Arabic </option>
+						<input type="checkbox" name="english" value="english">English </option>
+						</td>
 				</tr>
 				<tr> 
 					<th><u> License Number:</u></th>
-					<td> <input type="text" name="license" minlength="6" maxlength="8" value="{{ teacher.license_num }}"> </td>
+					<td> <input type="text" name="license" minlength="6" maxlength="8" placeholder="{{ teacher.license_num }}"> </td>
 				</tr>
 				<tr>
 					<th> <u> Gearbox:</u></th> 
-					<td> <input type="text" name="car_type" value="{{ teacher.car_type }}"> </td>
+					<td> <input type="checkbox" name="car_type" name="automatic">Automatic
+					 <input type="checkbox" name="car_type" name="manual">Manual
+					  </td>
 				</tr>
 			</table>
 			<br> 
