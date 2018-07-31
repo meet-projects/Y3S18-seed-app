@@ -34,3 +34,10 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return 'User %d %s' % (self.id, self.username)
+
+'''class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+    phone = db.Column(db.String, nullable=False)
+    relation = db.Column(db.String(50), nullable=False)
+    user = db.relationship('User', backref='user', lazy=True)'''

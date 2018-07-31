@@ -2,105 +2,28 @@
 {% block content %}
     <!-- FOR THE MODAL STYLE -->
 <style>  /* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-}
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5px auto; /* 15% from the top and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-    /* Position it in the top right corner outside of the modal */
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-/* Close button on hover */
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
-} 
-
-body{
-style="overflow:hidden;"}
-#profile{
-
-	position: fixed;
-	left: 300px;
-	top:100px;
 }
  h1 { /*LOG OUT*/
-
-	position: fixed;
-	left: 700px;
-	top: 160px;
 	font-size: 30px;
  }
 
  h2{ /*INFORMATION*/
-
- 	position: fixed;
- 	left: 700px;
- 	top: 120px;
  	font-size: 30px;
  }
 
-h3{ /*MOM123*/
-	position: fixed;
-	left: 450px;
-	top: 120px;
-}
+ p{
 
-h4{
-	position: fixed;
-	left: 450px;
-	top: 180px;
+ text-align: center;
+ }
 
-}
 
 .noa{
 	background: linear-gradient( to right, #6F95AD , #D9EBF5); 
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-right: 30px;
+	padding-left: 30px;
 }
 
 .orange{
@@ -117,72 +40,14 @@ button{
 .btn-warning{font-weight: bold;}
 .btn-warning{font-size: 15px;}
 
-/*make contact button on the same pos as the piture*/
-#addcontact1{
-	position: fixed;
-	left:250px;
-	top: 300px;
+ 
+.btn-warning {background-color: #FFA400}
+.btn-warning {border-color: #FFA400} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+.btn-warning{margin: 0 auto;}
 
-
-}
-
-#addcontact2{
-position: fixed;
-left: 550px;
-top: 300px;
-
-}
-
-#addcontact3{
-position: fixed;
-left: 850px;
-top: 300px;
-
-}
-
-#contact-1-button{
-	position: fixed;
-left: 250px;
-top: 300px;
-width: 250px;
-height: 250px;
-background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-
-}
-
-#contact-2-button{
-	position: fixed;
-left: 550px;
-top: 300px;
-width: 250px;
-height: 250px;
-background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-
-
-}
-
-#contact-3-button{
-	position: fixed;
-left: 850px;
-top: 300px;
-width: 250px;
-height: 250px;
-background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
 
 
 
@@ -192,123 +57,117 @@ background-color: Transparent;
 .enter{margin-left: 70px;}
 
 </style>
-<br><br><br><br><br><br><br><br><br><br><br>
 
 
 
 
+<!--  profile info -->
+<div class = "row" style="margin-top:100px">
+	<div class="col-sm-6">   
+		<div class = "row">
+			<div class="col-sm-6">
+				<img id="profile" src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="100" width="100">
+			</div>
+			<div class="col-sm-6">
+				<span id="userid">{{session['user_id']}} {{user.id}}</span>
 
-<div>
-   <img id="profile" src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="100" width="100">
-   </div>
+				<form action="/private" method = "POST" >
+					<button type="submit" class="btn btn-default">BABY IN CAR</button>
+				</form>
 
-{{session['user_id']}}
-<form action="/private" method = "POST" >
-	<button type="submit" class="btn btn-default">BABY IN CAR</button>
-</form>
-<h1><a href="{{ url_for('users.login') }}">LOG OUT</a></h1>
-<h2><a href="{{ url_for('info') }}">INFORMATION!</a></h2>
-<h3>{{session['name']}}</h3>
-<h4>{{session['phone']}}</h4>
+				<span id="name"> {{user.username}}</span>
+				<span id="phone">{{user.phone}}</span>
+			</div>
 
-<div class='noa'>
-    <img id="addcontact1" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
- 		
-    <img id="addcontact2" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
-
-    <img id="addcontact3" src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250">
-
-
-
-<div class='container'>
-
-		
-</center>
-	<div class='row'>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<h1><a href="{{ url_for('users.login') }}">LOG OUT</a></h1>
+		<h2><a href="{{ url_for('info') }}">INFORMATION!</a></h2>
 	</div>
 </div>
 
 
+<script>
+function openModal(name, relation, phone) {
+	$('[name$=name]').val(name);
+	$('[name$=relation]').val(relation);
+	$('[name$=phone]').val(phone);
+}
 
-<!--  THIS IS ALL FOR THE MODAL POPUP -->
- <!-- Button to open the modal login form -->
-<button id="contact-1-button" onclick="document.getElementById('id01').style.display='block'"></button>
+function submitModal(){
 
-<button id="contact-2-button" onclick="document.getElementById('id02').style.display='block'"></button>
+alert($('[name$=Name]').val())
+}
+</script>
 
-<button id="contact-3-button" onclick="document.getElementById('id03').style.display='block'"></button>
+<!--  contacts -->
+<div class = "row noa">
+	  <div class="col-sm-4">
+	 	{% if user.name %}
+		    <span>{{ user.name }} {{ user.phone }}</span>
+		{% else %} <!-- this contact doesn't exist in the database -->
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="openModal(user.name,user.relation, user.phone)" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>
+		{% endif %}
+	  </div>
+	  <div class="col-sm-4">
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="openModal('Gilead','family','00')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+	  </div>
+	  <div class="col-sm-4">
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+	  </div>
+</div>
 
-<!-- The first Modal -->
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
-<p>Add the first contact:</p>
-    <div class="container">
-      <label class="name" for="uname"><b>Name</b></label>
-      <input type="text" placeholder="Enter Name" name="uname" required>
+<div class="row orange">
+	  <div class="col-sm-4">
+	  	<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to the police department');"" type="police"><a href="tel:+9720529553327"></a> Police Department</button>
+	  </div>
 
-      <label class="phone_num" for="psw"><b>Phone Number</b></label>
-      <input type="text" placeholder="Enter Phone Number" name="psw" required>
+	 <div class="col-sm-4">
+	 	<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to the police department');"" type="police"><a href="tel:+9720529553327"></a> MDA</button>
+	  </div>
+	<div class="col-sm-4">
+		<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to the police department');"" type="police"><a href="tel:+9720529553327"></a> fire Department</button>
+	 </div>
+</div>
 
-      <button class="enter" type="submit">ENTER</button>
-      <br><br>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>These contacts are here to help you. In case you don't approve the alert sent, we will be contacting these contacts by order. </p>
+		<form action="{{ url_for('users.login') }}" method="post">
+		    {{ form.csrf_token }}
+		    {{ form.name() }} <br>
+		    {{ form.relation() }} <br>
+		    {{ form.phone(placeholder="+972xxxxxxxxx") }}
+		    <br>
+		    <button class="btn btn-sm btn-warning"  onclick="submitModal()"  type="submit">ENTER </button>
+		  </form>
+
+      </div> 
+      <div class="modal-footer">
+
+      </div>
     </div>
-  </form>
-</div> 
 
-<!-- The second Modal -->
-<div id="id02" class="modal">
-  <span onclick="document.getElementById('id02').style.display='none'"
-class="close" title="Close Modal">&times;</span>
-
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
-<p>Add the second contact:</p>
-    <div class="container">
-      <label class="name" for="uname"><b>Name</b></label>
-      <input type="text" placeholder="Enter Name" name="uname" required>
-
-      <label class="phone_num" for="psw"><b>Phone Number</b></label>
-      <input type="text" placeholder="Enter Phone Number" name="psw" required>
-
-      <button class="enter" type="submit">ENTER</button>
-      <br><br>
-    </div>
-  </form>
-</div> 
-
-<!-- The second Modal -->
-<div id="id03" class="modal">
-  <span onclick="document.getElementById('id03').style.display='none'"
-class="close" title="Close Modal">&times;</span>
-
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
-<p>Add the third contact:</p>
-    <div class="container">
-      <label class="name" for="uname"><b>Name</b></label>
-      <input type="text" placeholder="Enter Name" name="uname" required>
-
-      <label class="phone_num" for="psw"><b>Phone Number</b></label>
-      <input type="text" placeholder="Enter Phone Number" name="psw" required>
-
-      <button class="enter" type="submit">ENTER</button>
-      <br><br>
-    </div>
-  </form>
-</div> 
+  </div>
+</div>	
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </div>
 
-<div class="orange">
-	<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to the police department');"" type="police"><a href="tel:+9720529553327"></a> Police Department</button>
-	<br><br><br><br><br>
-</div>
+
 
 
 
