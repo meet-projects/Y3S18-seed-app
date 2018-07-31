@@ -82,6 +82,34 @@ class Journey(UserMixin, db.Model):
         return 'Journey %d %s' % (self.id, self.title)
 
 
+
+class Ratings(UserMixin, db.Model):
+    __tablename__ = "ratings"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    journey_id = db.Column(db.Integer, db.ForeignKey('journey.id'), nullable=False)
+    user = db.Column(db.String(30), nullable= False)
+    stars = db.Column(db.Integer, nullable = False)
+    title = db.Column(db.String(30), nullable= False)
+    review = db.Column(db.String(30), nullable= False)
+    #time = db.Column(db.String(80), nullable = False)
+    journey = db.relationship(Journey)
+
+    def __init__(self, journey_id='', user='', stars='', title='', review=''):
+        self.journey_id =journey_id
+        self.user = user
+        self.stars = stars
+        self.title = title
+        self.review = review
+
+    def __repr__(self):
+        return 'Ratings %r %s %r %s %r %s' % (self.id, self.title, self.journey_id, self.user, self.stars ,self.review)
+
+
+
+
+
+
+
 # db.drop_all()
 # db.create_all()
 

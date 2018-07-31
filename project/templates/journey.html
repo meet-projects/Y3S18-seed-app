@@ -13,6 +13,35 @@
 	<h1> requirements : {{journey.requirements}} </h1>
 	<h1> people range : {{journey.people_range}} </h1>
 
+---------------------------------------------------------------------------------------
+
+
+<br><br><br>
+<h2>Reviews of {{ journey.title }}</h2>
+
+{% for rating in all_ratings %}
+<div>
+{{rating.stars}} <br>
+{{rating.title}}
+By:{{rating.user}} <br>
+{{rating.review}}<br>
+-------------------
+</div> 
+{%endfor%}
+
+
+
+<form action="{{url_for('add_rating', journey_id=journey.id)}}" method="POST">
+	How many stars?
+	<input type="text" name="stars" required>
+	Title of review:
+	<input type="text" name="title" required>
+	Review:
+	<input type="text" name="review" required>
+	<button type="submit"> Add Review </button>
+
+</form>
+
 
 
 {% endblock %}

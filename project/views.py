@@ -3,7 +3,7 @@ from flask import session as login_session
 from flask_login import login_required
 from . import app, db
 
-from project.models import Journey, User
+from project.models import Journey, User, Ratings
 
 @app.route('/browse')
 def browse():
@@ -122,8 +122,36 @@ def display_journey(journey_id):
 		logged_in =  False
 	journey = Journey.query.filter_by(id=journey_id).first()
 	creator = User.query.filter_by(id=journey.creator_id).first()
+	all_ratings = Ratings.query.filter_by(journey_id=journey_id).all()
 	print('creator ---->', creator)
-	return render_template('journey.html', journey=journey, creator=creator, logged_in=logged_in)
+	return render_template('journey.html', journey=journey, creator=creator, logged_in=logged_in, all_ratings=all_ratings)
+
+
+@app.route('/ratings/<int:journey_id>', methods=['GET','POST'])
+@login_required
+def add_rating(journey_id):
+	current_user_id = session['user_id']
+	current_user = User.query.filter_by(id=current_user_id).first()
+	journey = Journey.query.filter_by(id=journey_id).first()
+	all_ratings = Ratings.query.filter_by(journey_id=journey_id).all()
+	creator_id= journey.creator_id
+	creator= User.query.filter_by(id=creator_id).first()
+	print(request.method)
+	if request.method=="POST":
+		new_rating = Ratings()
+		new_rating.journey_id = journey_id
+		new_rating.user = current_user.name
+		new_rating.stars = request.form.get('stars')
+		new_rating.title =  request.form.get('title')
+		new_rating.review = request.form.get('review')
+		print('111111111', new_rating.review)
+		db.session.add(new_rating)
+		db.session.commit() # I had a bug with this line. The problem was that I did "new_rating.user = current_user" and current_user in an object, but in the DB it is defined as a String.
+		return render_template('journey.html', current_user=current_user, logged_in=True, all_ratings=all_ratings, journey=journey, creator=creator)
+	else:
+		return redirect('journey.html')
+		#return render_template('journey.html', current_user=current_user, logged_in=True, all_ratings=all_ratings, journey=journey, creator=creator)	
+
 
 
 
