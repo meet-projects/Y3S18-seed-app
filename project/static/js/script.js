@@ -1,3 +1,4 @@
+
 open_signup_form = function(){
 	var login_form = document.getElementById("login_form");
 	var signup_form = document.getElementById("signup_form");

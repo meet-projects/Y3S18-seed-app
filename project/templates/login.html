@@ -3,7 +3,7 @@
 
    <div class="login_page_container">
         <div class="imgcontainer">
-          <img src="static/pictures/newlogo.jpg" alt="logo" id="logo">
+          <img src="static/pictures/whitelogo.png" alt="logo" id="logo">
         </div>
       <div class="login_container">
         <form id="login_form" class=" form_instance" action="{{ url_for('users.login') }}" method="post">
@@ -11,6 +11,11 @@
           <center>
             <input type="text" name="username" id="login_textbox_username" 
             class=" login_page_textbox" placeholder="Username">
+            {% if error_message and error_message == "wrong username or pass" %}
+            <span class="error_message">
+              wrong username or password
+            </span>
+            {% endif %}
             <input type="password" name="password" id="login_textbox_password" 
             class=" login_page_textbox" placeholder="Password">
            <button class="btn" type="submit">Log in</button>
@@ -30,10 +35,20 @@
               class=" login_page_textbox" placeholder="Display Name">
             <input type="text" name="username" id="signup_textbox_username" 
               class=" login_page_textbox" placeholder="Username">
+            {% if error_message and error_message == "name taken" %}
+            <span class="error_message">
+              username is taken
+            </span>
+            {% endif %}
               <input type="password" name="password" id="signup_textbox_password" 
               class=" login_page_textbox" placeholder="Password">
               <input type="password" name="confirm_pass" id="signup_textbox_password_confirm" 
               class=" login_page_textbox" placeholder="Confirm Password">
+            {% if error_message and error_message == "passwords do not match" %}
+            <span class="error_message">
+              passwords do not match
+            </span>
+            {% endif %}
              <button class="btn" type="submit">Sign Up</button>
               <span id="open_login_form_span" class="form_switch_span">
                 already have an account?

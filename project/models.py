@@ -10,7 +10,8 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
     id                  = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username            = db.Column(db.String, unique=True, nullable=False)
-    displayname            = db.Column(db.String)
+    displayname         = db.Column(db.String)
+    profile_pic_url     = db.Column(db.String, nullable=True)
     password_hash       = db.Column(db.String, nullable=False)
 
     def __init__(self, username, displayname, password):
