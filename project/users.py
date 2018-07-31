@@ -2,7 +2,7 @@ from flask import (
         Blueprint, redirect, render_template,
         Response, request, url_for
 )
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from sqlalchemy.exc import IntegrityError
 
 from project import db
@@ -13,8 +13,11 @@ users_bp = Blueprint('users', __name__)
 
 @users_bp.route('/')
 def index():
-    loginform = LoginForm(request.form)
-    return render_template('index.html',loginform=loginform)
+    if not(current_user.is_authenticated):
+        loginform = LoginForm(request.form)
+        return render_template('index.html',loginform=loginform)
+    else:
+        return redirect('profile_template')
 
 @users_bp.route('/signup', methods=['GET', 'POST'])
 def register():
@@ -155,5 +158,5 @@ def editing(teacher_id):
     if profilepic!="":
         user.profilepic=profilepic
     db.session.commit()
-    redirect('profile_template')
+    return redirect('profile_template')
 
