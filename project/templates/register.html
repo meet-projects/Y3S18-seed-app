@@ -2,7 +2,8 @@
 {% block content %}
 
 <style>
-
+ 
+  
 h1{
 	border-style: none;
 	background-color: powderblue;
@@ -31,7 +32,9 @@ p{
     border-radius: 5px;
     height: 30px;
   }
-
+.BG {
+float: right;
+}
 
 </style>
 
@@ -105,17 +108,17 @@ p{
 <a href="{{ url_for('users.login') }}"><img src="static/pictures/back_button.gif" width="15%" style="padding-top: 10px;"></a>
 
 <div class='container'>
-
 	<div class='row'>
 		<h1>SIGN UP</h1> <br> <br> <br> 
 	</div>
 <center>
-  
+
+
 	<div class='row'>
 		<img src="{{ url_for('static', filename = 'pictures/LOGO1080.png')}}" align= "left" height="300" width="300"> 
   <table>
 		 <form action="/register" method = "POST" >
-		
+		<br><br><br>
      <tr colspan="2">
       <div class="form-group">
          <td> <label class="signup_form_label" for="username"><b>Username  : </b></label></td>

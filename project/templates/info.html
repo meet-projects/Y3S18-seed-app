@@ -33,12 +33,52 @@ h1{
 	color: orange;
 	text-align: center; 
 	font-size: 100px;	
-	font-style: normal;
+	font-family: cursive ;
 
 }
+
 hr{
 	border-width: 7px;
-	border-style: dashed;
+	border-style: hidden;
+}
+.slideshow-container {
+align-content: center
+
+}
+.block1{
+  background-color: white;
+    width: 90%;
+    border: 50px solid orange;
+    padding: 50px;
+    margin: 25px;
+
+}
+.block2{
+background-color: white;
+    width: 90%;
+    border: 50px solid orange;
+    padding: 50px;
+    margin: 25px;
+}
+.table{
+  }
+  
+h2{
+  align-self: right;
+}
+
+.numbertext{
+  left: 10%;
+}
+
+.prev{
+  right: 85%;
+  max-width: 45px;
+}
+
+.next{
+  left: 85%;
+  max-width: 45px;
 }
 
 </style>
@@ -51,6 +91,7 @@ hr{
 <hr>
     
 <!--<h1><a href="{{ url_for('private_route') }}">Back</a></h1>-->
+<div class="block1">
  <div>
 
 	<h2>How does it work?</h2>
@@ -60,7 +101,8 @@ So basically, each person that has a booster with the device in it, has to insta
 receiving the message within 2 minutes, so the message is sent to the other contact. The app turns off when there is no weight on the booster. 
 </p>
 </div>
-
+</div>
+<div class="block2"> 
 <hr>
 <div>
 	<h2>Who are we?</h2> 
@@ -70,35 +112,36 @@ Our task was to choose a problem and come up with the best solution, so the prob
 Our product was designed in a way that will help reduce the possibilities of people forgetting children in vehicles. 
 </p>
 </div>
+</div>
+<br> <br> <br> 
 
-
-
+<center>
  <!-- Slideshow container -->
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
   <div class="mySlides">
     <div class="numbertext">1 / 4</div>
-    <img src="../static/pictures/pm1.jpg" style="width:100%">
+    <img src="../static/pictures/pm1.jpg" style="width:80%";>
     <div class="text"></div>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">2 / 4</div>
-    <img src="../static/pictures/marketing.jpg" style="width:100%">
+    <img src="../static/pictures/marketing.jpg" style="width:80%";>
     <div class="text"></div>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">3 / 4</div>
-    <img src="../static/pictures/design.jpg" style="width:100%">
+    <img src="../static/pictures/design.jpg" style="width:80%";>
     <div class="text"></div>
   </div>
 
 
   <div class="mySlides">
     <div class="numbertext">4 / 4</div>
-    <img src="../static/pictures/developers.jpg" style="width:100%">
+    <img src="../static/pictures/developers.jpg" style="width:80%">
     <div class="text"></div>
   </div>
   <!-- Next and previous buttons -->
@@ -114,16 +157,16 @@ Our product was designed in a way that will help reduce the possibilities of peo
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
 </div> 
-
+</center>
 <br>
-
+<div class="table"> 
 	<table style="background-color: lightgrey">
   <tr>
-    <th>Development team <br> <p style="font-size:20px;">Gilead, George, Robert, Mahd & Warrd</p>
-      <p style="font-size:18px";> The devopment team are the ones that devolped this very website! They are the ones that devolped the app and continue to improve upon it (Notice how they put devopment first). </p></th>
+    <th>Development team <br> <p style="font-size:20px;">Warrd, George, Robert, Mahd & Gilead</p>
+      <p style="font-size:18px";> The devopment team are the main cource of our team. Check how cool the website they made! An app will follow soon, stay tuned. (Notice how they put development first). </p></th>
 
 
-    <th>Design team <br> <p style="font-size:20px;">Nasif, Leen, Noa & Nicole</p> <p style="font-size:18px";>The deisgn team are the ones who work on the designing for the app, website, product, and workplace. They have made hundreds of sketches of the website and app. They are the creative force behind the product.</p>
+    <th>Design team <br> <p style="font-size:20px;">Nasif, Leen, Noa & Nicole</p> <p style="font-size:18px";>The deisgn team are the sugar of our team who make everything sweeter and lovelier. They designed the app, website, product, and workplace. Hundreds of sketches were made for the website and app. Salute the creative force behind the product.</p>
 </th>
 </tr>
 <tr>
@@ -135,10 +178,10 @@ Our product was designed in a way that will help reduce the possibilities of peo
 
 	</th>
 	<th>Project manegers <br> <p style="font-size:20px;">Mahd & Nicole</p>
-		  <p style="font-size:18px";>The project manegers are the base of this team. No building can be built without a solid foundation. They are the ones that pave the way for other members.</p> </th>
+		  <p style="font-size:18px";>The project manegers are the spices of this meal. No food can be made without a special taste. They are the ones that lighten the way for other members.</p> </th>
 </tr>
 </table>	
-
+</div>
 <hr>
 
 

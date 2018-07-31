@@ -23,5 +23,5 @@ htmlcov/
 .coverage.*
 *,cover
 
-*venv/
+*y3-venv
 *.db
