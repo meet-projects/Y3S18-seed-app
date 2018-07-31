@@ -32,7 +32,6 @@ def register():
                 return redirect(url_for("feed",  user=user))
         else:
             return Response("<p>invalid form</p>")
-
     return render_template('login.html', form = form)
                 
 
@@ -61,5 +60,6 @@ def logout():
     logout_user()
 
     return Response("<p>Logged out</p>")
+
 
 
