@@ -36,14 +36,18 @@
 					<th>City:</th> 
 					<td> {{teacher.city | truncate(13)}} </td>
 				</tr>
+				<tr>
+					<th>Fee:</th> 
+					<td> {{teacher.cost}} </td>
+				</tr>
 				<tr> 
 					<th>Languages:</th> 
-					<td> {{teacher.languages | truncate(13)}} </td>
+					<td> {{teacher.languages | truncate(25)}} </td>
 				</tr>
 
 				<tr>
 					<th>Gearbox:</th> 
-					<td> {{teacher.car_type | truncate(13)}} </td>
+					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
 			<br>
