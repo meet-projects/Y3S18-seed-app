@@ -61,7 +61,7 @@ def register():
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
-                return redirect('profile_template')
+                return redirect('editing',teacher_id=teacher.id)
             ##next_page = request.args.get('next')
             ##if not next_page or url_parse(next_page).netloc != '':
                ## next_page = url_for('private_route')
