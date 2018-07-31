@@ -106,21 +106,21 @@ function prefill_modal(name, relation, phone, contact_num) {
 	  	    <img src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="250" width="250" onclick="prefill_modal("{{user.name1}}", "{{user.relation1}}", "{{user.phone1}}", '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
 		    <span>{{ user.name1 }} {{ user.phone1 }}</span>
 		{% else %} <!-- this contact doesn't exist in the database -->
-	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal(user.name1, user.relation1, user.phone1, '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal("u", "r", user.phone1, '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
 		{% endif %}
 	  </div>
 	  <div class="col-sm-4">
 	 	{% if user.name2 %}
 		    <span>{{ user.name2 }} {{ user.phone2 }}</span>
 		{% else %} <!-- this contact doesn't exist in the database -->
-	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal(user.name2, user.relation2, user.phone2, '2')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal("user.name2", "user.relation2", "user.phone2", '2')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
 		{% endif %}
 	  </div>
 	  <div class="col-sm-4">
 	 	{% if user.name3 %}
 		    <span>{{ user.name3 }} {{ user.phone3 }}</span>
 		{% else %} <!-- this contact doesn't exist in the database -->
-	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal(user.name3, user.relation3, user.phone3, '3')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal("user.name3", "user.relation3", "user.phone3", '3')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
 		{% endif %}
 	  </div>
 </div>

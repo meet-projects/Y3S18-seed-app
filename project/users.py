@@ -28,8 +28,8 @@ def register():
     	login_user(user, remember=True)
     	next_page = request.args.get('next')
     	if not next_page or url_parse(next_page).netloc != '':
-    		next_page = url_for('private_route')
-    	return redirect(url_for('private_route'))
+    		next_page = url_for('account')
+    	return redirect(url_for('account'))
     return render_template('register.html', form=form)
                 
 
@@ -46,7 +46,7 @@ def login():
             login_user(user, remember=True)
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
+                next_page = url_for('account')
             return redirect(next_page)
         else:
             return Response("<p>invalid form</p>")
@@ -80,6 +80,6 @@ def add_contact():
     login_user(user, remember=True)
     next_page = request.args.get('next')
     if not next_page or url_parse(next_page).netloc != '':
-        next_page = url_for('private_route')
-    return redirect(url_for('private_route'))'''
+        next_page = url_for('account')
+    return redirect(url_for('account'))'''
 
