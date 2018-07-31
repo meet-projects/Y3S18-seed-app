@@ -1,5 +1,6 @@
 
 open_signup_form = function(){
+  console.log("rr")
 	var login_form = document.getElementById("login_form");
 	var signup_form = document.getElementById("signup_form");
 
@@ -15,7 +16,37 @@ open_login_form = function(){
 	signup_form.style["display"] = 'none';
 }
 
+// $(function() {
+//   $('a#test').bind('click', function() {
+//     $.getJSON('/background_process_test',
+//         function(data) {
+//       //do nothing
+//     });
+//     return false;
+//   });
+// });
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
 
+
+$(function(){
+
+  $('#register_submit').click(function() {
+        $.ajax({
+            url: '/register_test',
+            data: $('#signup_form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+
+});
 
 
 function myFunction() {
