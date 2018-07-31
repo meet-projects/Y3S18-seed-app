@@ -29,21 +29,21 @@
       <form action="{{ url_for('users.login') }}" method="post">
        <h2 class="login_title">Login</h2>
         
-<!--     {{ loginform.csrf_token }} -->
+    {{ loginform.csrf_token }}
     <br>
     <br>
-<!--     {{ loginform.username(placeholder="Email") }}  -->
+    {{ loginform.username(placeholder="Email") }} 
     <br>
     <br>
-<!--     {{ loginform.password(placeholder="Password") }} -->
+    {{ loginform.password(placeholder="Password") }}
     <br>
     <br>
-    <div id="keep_sign_in">
+<!--     <div id="keep_sign_in">
       <input type="checkbox" name="keep_sign_in" style="float:left;margin-left: 10%;" checked> Keep me signed in
-    </div>
+    </div> -->
     <br>
     <br>
-    <button class="btn btn-sm btn-success" type="submit">SIGN IN</button>
+    <button class="btn btn-sm btn-success" type="submit">Login</button>
   </form>
     <div>
       <table style="width: 80%;">
@@ -52,7 +52,7 @@
           <a>Forgot your password?</a>
         </td>
         <td align="right">
-          <a>No account? Create one!</a>
+          <p style="font-family: helveticaneuelight;">No account? <a href="#Signup">Create one here!</a></p>
         </td>
       </tr> 
       </table>
