@@ -87,9 +87,9 @@ def signup():
 @app.route('/profile_template')
 @login_required
 def profile_template():
-	teacher_id = session['user_id']
-	user=User.query.filter_by(id=teacher_id).first()
-	teacher2=Teacher.query.filter_by(user_id=teacher_id).first()
+	user_id = session['user_id']
+	user=User.query.filter_by(id=user_id).first()
+	teacher2=Teacher.query.filter_by(user_id=user_id).first()
 	this_teach_id=teacher2.id
 	return render_template('profile_template.html',teacher=teacher2,user=user)
 
