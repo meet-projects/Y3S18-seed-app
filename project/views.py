@@ -1,7 +1,6 @@
 from flask import render_template, request, session
 from flask_login import login_required
 from project.forms import AddContactForm
-
 from project import db
 from project.models import User
 
@@ -40,10 +39,11 @@ def send_message():
 	client = Client(ACC_SID, AUTH_TOKEN)
 	client1 = Client(ACC_SID1, AUTH_TOKEN1)
 	for user in users:
-		print("Print flag:")
-		print(user.flag)
-		print(user.number)
-		client.messages.create(to=user.number, from_=FROM, body=BODY)
+		try:
+			client.messages.create(to=user.number, from_=FROM, body=BODY)
+		except Exception as ex:
+			print('Error with user %s. Error: %s' % (user.id, ex))
+
 
 def activate():
 	global IN
@@ -60,13 +60,16 @@ def index():
 def info():
     return render_template('info.html')
 
-@app.route('/account', methods=['GET', 'POST'])
+@app.route('/private', methods=['GET', 'POST'])
 @login_required
 def private_route():
-	form = AddContactForm(request.form)
+
 	user = User.query.filter_by(id=session['user_id']).first()
+	session['name'] = user.username
+	session['phone'] = user.number
 	user.flag = 0
 	db.session.commit()
+
 	if request.method == "POST":
 		form = AddContactForm(request.form)
 		if user.name is null:
@@ -79,17 +82,8 @@ def private_route():
 			user.name2 = form.name.data
 			user.phone2 = form.phone.data
 		db.session.commit()   
-	return render_template('private.html', user=user, form=form)
 
-'''@app.route('/add-contact', methods=['GET', 'POST'])
-@login_required
-def add_contact():
-    newtitle = request.form.get("newtitle")
-    oldtitle = request.form.get("oldtitle")
-	user = User.query.filter_by(id=session['user_id']).first()
-    user.name = newtitle
-    db.session.commit()
-    return redirect("/")'''
+	return render_template('private.html')
 
 @app.route('/test')
 @login_required
