@@ -205,14 +205,14 @@ font-weight: bold;
 #profile_name{
   color:rgb(0,115,168);
 }
-#edit_button{
+.edit_button{
   background-color:rgb(31,122,140);
   width:120px;
   height:30px;
   border: none;
   color: white;
 }
-#edit_link{
+.edit_link{
   color: white;
   text-decoration: none;
 }
@@ -463,4 +463,4 @@ div{
 }
 
 .link { color: #000000; } /* CSS link color (red) */
-.link:hover { color: #00c2ff; } /* CSS link hover (green) */
+.link:hover { color: rgb(0, 115, 168); } /* CSS link hover (green) */

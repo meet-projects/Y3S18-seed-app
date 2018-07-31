@@ -120,4 +120,6 @@ def edit_profile(teacher_id):
 	teach=Teacher.query.filter_by(id=teacher_id).first()
 	return render_template('edit_profile_template.html',teacher=teach)
 
-
+@app.route('/test_feed')
+def feed_test():
+	return render_template('new_feed.html')
