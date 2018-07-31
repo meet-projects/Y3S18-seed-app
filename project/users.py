@@ -53,7 +53,7 @@ def register():
                 #if profilepic == "":
                 #    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
                 #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,car_type)
-                teacher=Teacher(user.id,name,"undefined yet","undefined yet",0,"undefined yet","undefined yet","undefined yet","undefined yet")
+                teacher=Teacher(user.id,name,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","undefined yet")
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -119,40 +119,47 @@ def booking(teacher_id):
 #     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
 #     return render_template('booking.html', teacher=teacher)
 
-@users_bp.route('/editing/<int:teacher_id>')
+@users_bp.route('/editing/<int:teacher_id>', methods=['POST'])
 def editing(teacher_id):
-    user=Teacher.query.filter_by(id=teacher_id).first()
+    teacher=Teacher.query.filter_by(id=teacher_id).first()
     name= request.form.get('name')
     city=request.form.get('city')
     fee=request.form.get('fee')
+    fee=int(fee)
     description=request.form.get('description')
     phone_num=request.form.get('phone_num')
     car_type=request.form.get('car_type')
-    license_num=request.form.get('license_num')
     arabic=request.form.get('arabic')
     hebrew=request.form.get('hebrew')
     english=request.form.get('english')
     profilepic=request.form.get('pic')
+    auto=request.form.get('automatic')
+    manu=request.form.get('manual')
     if name!="":
-        user.name=name
+        teacher.name=name
     if city!="":
-        user.city=city
+        teacher.city=city
     if fee!=0:
-        user.cost=fee
+        teacher.cost=fee
     if description!="":
-        user.description=description
+        teacher.description=description
     if phone_num!="":
-        user.phone_num=phone_num
+        teacher.phone_num=phone_num
     if car_type!="":
-        user.car_type=car_type
+        teacher.car_type=car_type
     if arabic is not None:
-        user.languages+="Arabic "
+        teacher.languages+="Arabic "
     if hebrew is not None:
-        user.languages+="Hebrew "
+        teacher.languages+="Hebrew "
     if english is not None:
-        user.languages+="English "
+        teacher.languages+="English "
     if profilepic!="":
-        user.profilepic=profilepic
+        teacher.profilepic=profilepic
+    if auto is not None:
+        teacher.gearbox+="Automatic"
+    if manu is not None:
+        teacher.gearbox+="Manual"
+    
     db.session.commit()
     return redirect('profile_template')
 
