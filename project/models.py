@@ -33,6 +33,8 @@ class Post(db.Model):
     AuthorID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     ArtURL         = db.Column(db.String)
     ArtistID       = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    #ArtistID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     Title          = db.Column(db.String(20), nullable=False)
     Text           = db.Column(db.String, nullable=False)
     Rating         = db.Column(db.Integer)

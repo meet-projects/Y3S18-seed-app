@@ -18,44 +18,104 @@
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
+
 <title>Profile</title>
 </head>
 
 
-<body class="profile-body">
-      
-      <img src="static/pictures/newlogo.jpg" alt="logo" id="logo" style="position: absolute;
-    top: 8px;
-    left: 16px;
-    font-size: 18px;
-    width:80px;
-    height: 80px ">
-
-      <div class="card">
-        <img src="/static/pictures/avatar.png" alt="avatar" class="avatar">
-        <h1>artist name/h1>
-        <p class="title">info about the artist</p>
-        <p>more</p>
-        <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i></a> 
-        <a href="https://www.linkedin.com/uas/login"><i class="fa fa-linkedin"></i></a> 
-        <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
-        <p><button>Contact</button></p>
-</div>
-      <!--<div class="profilecontainer">
-      <div class="profileform">                              
-
-            <form action="{{ url_for('users.profile') }}" method="post">
-                  <div class="imgcontainer">
-                        <img src="static/pictures/avatar.png" alt="logo" id="logo">
-                  </div>
-            </form>
-
-       </div>-->
-
-
+<body>
+<div class="container">
+<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Artflict</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="post">post</a></li>
+          <li><a href="#">Page 2</a></li>
+          <li><a href="#">Page 3</a></li>
+        </ul>
       </div>
+    </nav>
 
-                            
+      <div class="row float-left">
+
+      <img src="/static/pictures/avatar.png" alt="avatar" class="container-fluid img-circle w-10 p-3 img-thumbnail row float-left col-sm-2" style="width: 150px; height:150px;">
+      <div class="row col-sm-4"></div>
+      <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary btn-lg row col-sm-6" data-toggle="modal" data-target="#myModal">CONTACT ME</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">contact</h4>
+      </div>
+      <div class="modal-body">
+        <h1>phone number:000000000</h1>
+        <br><h2>email:XXXXXXXXX@gmail.com</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+       <h1 class="row float-left col-sm-12" style="padding:40px;">'{{user.username}}'</h1>
+       <h2 class="row float-left col-sm-12" style="width:300px;">INFO ABOUT THE ARTISTart is fun art is amezing </h3>
+       </div>
+
+  
+
+
+        
+</div>
+<div class="container">
+  <h2>Image Gallery</h2>
+  <p>The .thumbnail class can be used to display an image gallery.</p>
+  <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
+  <p>Click on the images to enlarge them.</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/static/pictures/image1.jpg" target="_blank">
+          <img src="/static/pictures/image1.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+            <p>image1</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/static/pictures/image2.jpg" target="_blank">
+          <img src="/static/pictures/image2.jpg" alt="Nature" style="width:100%">
+          <div class="caption">
+            <p>image2</p>
+          </div>1 
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/static/pictures/image3.jpg" target="_blank">
+          <img src="/static/pictures/image3.jpg" alt="Fjords" style="width:100%">
+          <div class="caption">
+            <p>img3.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
