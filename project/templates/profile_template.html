@@ -11,7 +11,8 @@
 	<body class="profile_page">
 		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 		<div class="row" style="background-color: rgb(246,246,246);">
-			<div id="side_profile" align="left" class="col-md-3">
+			<div class="col-md-3" style="background-color: rgb(246,246,246);">
+				<div id="side_profile">
 
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
 			
@@ -23,32 +24,34 @@
 			<br>
 			<table>
 				<tr>
-					<th> <u> Phone number:</u></th> 
-					<td> {{teacher.phone_num}} </td>
+					<th>Phone Number:</th> 
+					<td> {{teacher.phone_num | truncate(13)}} </td>
 				</tr>
 				
 				<tr>
-					<th> <u> Email:</u></th> 
-					<td> {{user.email}} </td>
+					<th>Email:</th> 
+					<td> {{user.email | truncate(13)}} </td>
 				</tr>
 				<tr>
-					<th> <u> City:</u></th> 
-					<td> {{teacher.city}} </td>
+					<th>City:</th> 
+					<td> {{teacher.city | truncate(13)}} </td>
 				</tr>
 				<tr> 
-					<th> <u> Languages:</u></th> 
-					<td> {{teacher.languages}} </td>
+					<th>Languages:</th> 
+					<td> {{teacher.languages | truncate(13)}} </td>
 				</tr>
 
 				<tr>
-					<th> <u> Gearbox:</u></th> 
-					<td> {{teacher.car_type}} </td>
+					<th>Gearbox:</th> 
+					<td> {{teacher.car_type | truncate(13)}} </td>
 				</tr>
 			</table>
 			<br>
 			</center> 
 		</div>
-		<div id="main_profile" class="col-md-9">
+	</div>
+		<div class="col-md-9" style="background-color: rgb(246,246,246);">
+			<div id="main_profile">
 			<h3 id="profile_name">
 				Your profile: {{teacher.name}}</h3>
 				<br>
@@ -71,7 +74,7 @@
 						<th class="booking_table_title">
 						Booking number {{loop.index}}
 						</th>
-
+						<th></th>
 					</tr>
 					<tr>
 						<th class="booking_table_header">
@@ -91,6 +94,7 @@
 				<br><br>
 			{% endfor %}
 		</div>
+	</div>
 	</div>
 	</body>
 </html>
