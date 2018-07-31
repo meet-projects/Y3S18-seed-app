@@ -201,7 +201,7 @@ hr {
 
 
 
-/*###############################Login Modal Style##################################*/
+/*###############################inin Modal Style##################################*/
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -357,12 +357,77 @@ border-radius: 20px;
     color: #d7dee5;
     box-shadow: 2.5px 5px 4px #888888;
 }
+
 #login_title{
     color: #fefefe;
     font-weight:2000;
     font-size: 30px;
 }
+
 #keep_sign_in{
     text-align: left;
     width: 100%;
+}
+
+#signup_box{
+    background-color:rgb(0, 115, 168);
+    margin:5%;
+    color: #d7dee5;
+    box-shadow: 2.5px 5px 4px #888888;
+}
+
+#login_title{
+    color: #fefefe;
+    font-weight:2000;
+    font-size: 30px;
+}
+
+#signup_title{
+    color: #fefefe;
+    font-weight:2000;
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+#h2{
+    color: white; 
+    margin-top: 0;
+    font-family: helveticaneuelight;
+}
+
+.bars2{
+    background: white; 
+    border-radius: 0px; 
+    height: 50px; 
+    width: 100%;
+    font-size: 24px;
+}
+
+.bars{
+    background: white;
+     border-radius: 0px;
+     height: 50px; 
+     width: 100%;
+     font-size: 18px;
+}
+
+.label{
+    color: white;
+    float: left;
+    font-size: 20px;
+    padding: 0px;
+    font-family: helveticaneuelight;
+    padding-top: 20px;
+}
+
+.input{
+    font-family: helveticaneuelight;
+    color: grey;
 }

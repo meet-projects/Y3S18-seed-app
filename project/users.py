@@ -130,4 +130,15 @@ def editing(teacher_id):
         user.name=name
     if city!="":
         user.city=city
+    if fee!=0:
+        user.fee=fee
+    if description!="":
+        user.description=description
+    if phonenum!="":
+        user.phonenum=phonenum
+    if car_type!="":
+        user.car_type=car_type
+    if profilepic!="":
+        user.profilepic=profilepic
+    db.session.commit()
 

@@ -10,7 +10,7 @@
 		</title>
 	</head>
 	<body class="profile_page">
-		<a href="{{ url_for('feed') }}" id="feed_btn">Feed</a> 
+		<h4><a href="{{url_for('feed')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 		<center><img src="../static/img/easylicense_logo.png" class="logo"></center>
 
 		<section id="profile_container">
@@ -28,13 +28,13 @@
 				</tr>
 				<tr> 
 
-					<th> <u> Area:</u></th> 
-					<td> {{teacher.area}} </td>
+					<th> <u> City::</u></th> 
+					<td> {{teacher.city}} </td>
 				</tr>
 				<tr> 
 
 					<th> <u> Cost:</u></th> 
-					<td> {{teacher.fee}} Shekel</td>
+					<td> {{teacher.cost}} &#8362</td>
 				</tr>
 				<tr> 
 					<th> <u> Languages:</u></th> 
