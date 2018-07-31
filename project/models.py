@@ -12,12 +12,15 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
     number = db.Column(db.String, nullable=False)
-    name = db.Column(db.String, nullable=True)
     name1 = db.Column(db.String, nullable=True)
     name2 = db.Column(db.String, nullable=True)
-    phone = db.Column(db.String, nullable=True)
+    name3 = db.Column(db.String, nullable=True)
     phone1 = db.Column(db.String, nullable=True)
     phone2 = db.Column(db.String, nullable=True)
+    phone3 = db.Column(db.String, nullable=True)
+    relation1 = db.Column(db.String, nullable=True)
+    relation2 = db.Column(db.String, nullable=True)
+    relation3 = db.Column(db.String, nullable=True)
     flag = db.Column(db.Integer, nullable=False)
 
     def __init__(self, username, password, number):
