@@ -80,26 +80,9 @@ def language_filter(language):
 			teachers.append(t)
 	return render_template('feed.html', teachers=teachers)
 
-'''@app.route('/english')
-def english():
-	all_teachers=db.session.query(Teacher).all()
-	teachers = []
-	for t in all_teachers:
-		l = t.languages.split(" ")
-		if l.count("English") > 0:
-			teachers.append(t)
-	return render_template('feed.html', teachers=teachers)
-
-@app.route('/hebrew')
-def hebrew():
-	all_teachers=db.session.query(Teacher).all()
-	teachers = []
-	for t in all_teachers:
-		l = t.languages.split(" ")
-		if l.count("Arabic") > 0:
-			teachers.append(t)
-	return render_template('feed.html', teachers=teachers)'''
-
+@app.route('/signup')
+def signup():
+	render_template('register.html')
 
 @app.route('/profile_template')
 @login_required

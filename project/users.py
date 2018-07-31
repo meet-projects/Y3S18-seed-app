@@ -103,8 +103,8 @@ def profile(teacher_id):
 
 @users_bp.route('/<int:teacher_id>/booking')
 def booking(teacher_id):
-    studentname=request.form.get('name')
-    studentnum=request.form.get('num')
+    studentname=request.form.get('studentname')
+    studentnum=request.form.get('studentnum')
     thisteacher=Teacher.query.filter_by(id=teacher_id).first()
     book=Booking(studentname,studentnum,thisteacher.id,False)
     db.session.add(book)
