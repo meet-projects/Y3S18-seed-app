@@ -11,6 +11,10 @@ from project.models import User,Teacher,Request
 
 users_bp = Blueprint('users', __name__)
 
+@users_bp.route('/')
+def index():
+    loginform = LoginForm(request.form)
+    return render_template('index.html',loginform=loginform)
 
 @users_bp.route('/signup', methods=['GET', 'POST'])
 def register():

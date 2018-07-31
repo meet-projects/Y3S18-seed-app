@@ -8,9 +8,10 @@ from sqlalchemy import desc,asc
 
 import sys, math
 
-@app.route('/')
-def index():
-	return render_template('index.html')
+##@app.route('/')
+##def index():
+##	loginform = LoginForm(request.form)
+##	return render_template('index.html',loginform=loginform)
 
 @app.route('/feed')
 def feed():
