@@ -12,6 +12,8 @@ class LoginForm(Form):
     username = StringField('Username', validators=[DataRequired(), Length(max=40)])
     password = PasswordField('Password', validators=[DataRequired(), Length(max=40)])
 
-class AddContactForm():
-    name = StringField('name', validators=[DataRequired(), Length(max=40)])
-    phone = StringField('phone', validators=[DataRequired(), Length(max=40)])
+class AddContactForm(Form):
+    name = StringField('Name', validators=[DataRequired(), Length(max=40)])
+    phone = StringField('Phone', validators=[DataRequired(), Length(max=40)])
+    relation = StringField('Relation', validators=[DataRequired(), Length(max=40)])
+

@@ -15,6 +15,7 @@ _mailinglist
 .idea/
 docs/_build/
 .vscode/
+y3-venv/
 
 # Coverage reports
 htmlcov/
@@ -22,5 +23,5 @@ htmlcov/
 .coverage.*
 *,cover
 
-*venv/
+*y3-venv
 *.db

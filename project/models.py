@@ -12,12 +12,15 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
     number = db.Column(db.String, nullable=False)
-    name = db.Column(db.String, nullable=True)
     name1 = db.Column(db.String, nullable=True)
     name2 = db.Column(db.String, nullable=True)
-    phone = db.Column(db.String, nullable=True)
+    name3 = db.Column(db.String, nullable=True)
     phone1 = db.Column(db.String, nullable=True)
     phone2 = db.Column(db.String, nullable=True)
+    phone3 = db.Column(db.String, nullable=True)
+    relation1 = db.Column(db.String, nullable=True)
+    relation2 = db.Column(db.String, nullable=True)
+    relation3 = db.Column(db.String, nullable=True)
     flag = db.Column(db.Integer, nullable=False)
 
     def __init__(self, username, password, number):
@@ -34,3 +37,10 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return 'User %d %s' % (self.id, self.username)
+
+'''class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+    phone = db.Column(db.String, nullable=False)
+    relation = db.Column(db.String(50), nullable=False)
+    user = db.relationship('User', backref='user', lazy=True)'''

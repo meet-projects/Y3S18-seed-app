@@ -66,6 +66,21 @@ background-color: white;
 h2{
   align-self: right;
 }
+
+.numbertext{
+  left: 10%;
+}
+
+.prev{
+  right: 85%;
+  max-width: 45px;
+}
+
+.next{
+  left: 85%;
+  max-width: 45px;
+}
+
 </style>
 
 <a href="{{ url_for('private_route') }}"><img src="static/pictures/back_button.gif" width="15%" style="padding-top: 10px;"></a>
@@ -100,33 +115,33 @@ Our product was designed in a way that will help reduce the possibilities of peo
 </div>
 <br> <br> <br> 
 
-
+<center>
  <!-- Slideshow container -->
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
   <div class="mySlides">
     <div class="numbertext">1 / 4</div>
-    <img src="../static/pictures/pm1.jpg" style="width:80%"; align="center">
+    <img src="../static/pictures/pm1.jpg" style="width:80%";>
     <div class="text"></div>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">2 / 4</div>
-    <img src="../static/pictures/marketing.jpg" style="width:80%"; align="center">
+    <img src="../static/pictures/marketing.jpg" style="width:80%";>
     <div class="text"></div>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">3 / 4</div>
-    <img src="../static/pictures/design.jpg" style="width:80%"; align="center">
+    <img src="../static/pictures/design.jpg" style="width:80%";>
     <div class="text"></div>
   </div>
 
 
   <div class="mySlides">
     <div class="numbertext">4 / 4</div>
-    <img src="../static/pictures/developers.jpg" style="width:80%"; align="center">
+    <img src="../static/pictures/developers.jpg" style="width:80%">
     <div class="text"></div>
   </div>
   <!-- Next and previous buttons -->
@@ -142,7 +157,7 @@ Our product was designed in a way that will help reduce the possibilities of peo
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
 </div> 
-
+</center>
 <br>
 <div class="table"> 
 	<table style="background-color: lightgrey">

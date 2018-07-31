@@ -6,7 +6,7 @@ from flask_login import login_user, login_required, logout_user
 from sqlalchemy.exc import IntegrityError
 
 from project import db
-from project.forms import RegisterForm, LoginForm
+from project.forms import RegisterForm, LoginForm, AddContactForm
 from project.models import User
 
 
@@ -57,4 +57,22 @@ def login():
 def logout():
     logout_user()
     return Response("<p>Logged out</p>")
+
+@users_bp.route('/private', methods=['GET', 'POST'])
+def add_contacts():
+    form = AddContactForm(request.form)
+    if request.method == 'POST':
+        name=form.name.data
+        relation = form.relation.data
+        number= form.number.data
+        user = User.query.filter_by(username=username).first()
+        user = User(name, relation, number)
+        db.session.add(user)
+        db.session.commit()
+        login_user(user, remember=True)
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('private_route')
+        return redirect(url_for('private_route'))
+    return render_template('register.html', form=form)
 
