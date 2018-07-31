@@ -141,4 +141,5 @@ def editing(teacher_id):
     if profilepic!="":
         user.profilepic=profilepic
     db.session.commit()
+    redirect('profile_template')
 

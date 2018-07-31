@@ -4,6 +4,9 @@ from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
+import geonamescache
+
+gc = geonamescache.GeonamesCache()
 
 
 class User(UserMixin, db.Model):
@@ -83,17 +86,23 @@ class Request(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     phone_num = db.Column(db.String)
-    date_d = db.Column('date_d', db.Integer)
-    date_m = db.Column('date_m', db.Integer)
-    date_y = db.Column('date_y', db.Integer)
-    time = db.Column('time', db.Integer)
     teacher_id = db.Column(db.Integer, ForeignKey('teachers.id'))
     done = db.Column(db.Boolean)
 
-    def __init__(self,name,phone_num,date_d,date_m,date_y,time,teacher_id,done):
+    def __init__(self,name,phone_num,teacher_id,done):
         self.name = name
         self.phone_num = phone_num
-        self.date = [date_d,date_m,date_y]
-        self.time = time
         self.teacher_id = teacher_id
         self.done = done
+
+
+class City(db.Model):
+
+    __tablename__ = "cities"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    city = db.Column(db.String)
+    country = db.Column(db.String)
+
+    def __repr__(self):
+        return 'City %d %s' % (self.id, self.city)
