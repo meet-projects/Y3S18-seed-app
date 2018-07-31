@@ -15,18 +15,25 @@
 			<div id="side_profile" align="left" class="col-md-3">
 				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
 			<br>
-			<p>Your name:<input type="text" value="{{ teacher.name }}"> </p>
+			<p>Your name:<input type="text" name="name" value="{{ teacher.name }}"> </p>
 			<br>
 			<table>
 				<tr>
 					<th> <u> Phone number:</u></th> 
-					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}"> </td>
+					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}" name="phone_num"> </td>
 				</tr>
 				<tr> 
 
 					<th> <u> City:</u></th> 
 					<td>
-					<input type="text" placeholder="{{ teacher.city }}"> 
+					<input type="text" placeholder="{{ teacher.city }}" name="city"> 
+					 </td>
+				</tr>
+				<tr> 
+
+					<th> <u> Fee (only in numbers, by Shekel) :</u></th> 
+					<td>
+					<input type="text" placeholder="{{ teacher.fee }}" name="fee"> 
 					 </td>
 				</tr>
 				<tr> 

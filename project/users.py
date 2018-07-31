@@ -16,7 +16,7 @@ def index():
     loginform = LoginForm(request.form)
     return render_template('index.html',loginform=loginform)
 
-@users_bp.route('/signup', methods=['GET', 'POST'])
+@users_bp.route('/sign_up', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
 
@@ -54,11 +54,10 @@ def register():
                 #    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
                 #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,car_type)
                 teacher=Teacher(user.id,name,"undefined yet","undefined yet",0,"undefined yet","undefined yet","undefined yet","undefined yet")
-
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
-                return redirect('editing',teacher_id=teacher.id)
+                return redirect('users.editing')
             ##next_page = request.args.get('next')
             ##if not next_page or url_parse(next_page).netloc != '':
                ## next_page = url_for('private_route')
@@ -127,33 +126,33 @@ def editing(teacher_id):
     city=request.form.get('city')
     fee=request.form.get('fee')
     description=request.form.get('description')
-    phonenum=request.form.get('phonenum')
+    phone_num=request.form.get('phone_num')
     car_type=request.form.get('car_type')
     license_num=request.form.get('license_num')
-    languages_ar=request.form.get('languages_ar')
-    languages_hb=request.form.get('languages_hb')
-    languages_en=request.form.get('languages_en')
-    profilepic=request.form.get('profilepic')
+    arabic=request.form.get('arabic')
+    hebrew=request.form.get('hebrew')
+    english=request.form.get('english')
+    profilepic=request.form.get('pic')
     if name!="":
         user.name=name
     if city!="":
         user.city=city
     if fee!=0:
-        user.fee=fee
+        user.cost=fee
     if description!="":
         user.description=description
-    if phonenum!="":
-        user.phonenum=phonenum
+    if phone_num!="":
+        user.phone_num=phone_num
     if car_type!="":
         user.car_type=car_type
-    if languages_ar is not None:
+    if arabic is not None:
         user.languages+="Arabic "
-    if languages_hb is not None:
+    if hebrew is not None:
         user.languages+="Hebrew "
-    if languages_en is not None:
+    if english is not None:
         user.languages+="English "
     if profilepic!="":
         user.profilepic=profilepic
     db.session.commit()
-    redirect('profile_template')
+    return redirect('profile_template')
 
