@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<title>
 			EasyLicense	
@@ -8,12 +9,10 @@
 	</head>
 	
 	<body class="profile_page">
-		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
-		<center><img src="../static/img/easylicense_logo.png" class="logo"></center>
-
+		<h4><a href="{{url_for('index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
+	<div class="row" style="background-color: rgb(246,246,246);">
 		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}">
-		<section id="profile_container">
-			<div id="side_profile" align="left">
+			<div id="side_profile" align="left" class="col-md-3">
 				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
 			<br>
 			<p>Your name:<input type="text" value="{{ teacher.name }}"> </p>
@@ -50,7 +49,7 @@
 			</table>
 			<br> 
 		</div>
-		<div id="main_profile">
+		<div id="main_profile" class="col-md-9">
 			<h3 id="profile_name">
 				EDIT PROFILE</h3>
 			<br>
@@ -65,7 +64,7 @@
 			<input type="submit" name="submit" class="edit_button">
 			<a href="{{url_for('profile_template')}}" class="edit_link"><button class="edit_button">Cancel</button></a>
 		</div>
-	</section>
 </form>
+</div>
 	</body>
 </html>
