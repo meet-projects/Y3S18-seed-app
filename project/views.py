@@ -60,25 +60,26 @@ def index():
 def info():
     return render_template('info.html')
 
-@app.route('/account', methods=['GET', 'POST'])
+@app.route('/account', methods=['GET'])
 @login_required
-def private_route():
+def account():
 	form = AddContactForm(request.form)
 	user = User.query.filter_by(id=session['user_id']).first()
-	user.flag = 0
+	session['user_id'] = user.id
+	'''user.flag = 0
 	db.session.commit()
 	if request.method == "POST":
 		form = AddContactForm(request.form)
-		if user.name is null:
-			user.name = form.name.data
-			user.phone = form.phone.data
-		elif user.name1 is null:
+		if user.name1 is null:
 			user.name1 = form.name.data
 			user.phone1 = form.phone.data
 		elif user.name2 is null:
 			user.name2 = form.name.data
 			user.phone2 = form.phone.data
-		db.session.commit()   
+		elif user.name3 is null:
+			user.name3 = form.name.data
+			user.phone3 = form.phone.data
+		db.session.commit() '''  
 	return render_template('private.html', user=user, form=form)
 
 '''@app.route('/add-contact', methods=['GET', 'POST'])

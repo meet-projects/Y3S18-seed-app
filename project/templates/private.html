@@ -89,32 +89,39 @@ button{
 
 
 <script>
-function openModal(name, relation, phone) {
+function prefill_modal(name, relation, phone, contact_num) {
+	console.log(contact_num)
 	$('[name$=name]').val(name);
 	$('[name$=relation]').val(relation);
 	$('[name$=phone]').val(phone);
-}
-
-function submitModal(){
-
-alert($('[name$=Name]').val())
+	$('[name$=contact_num]').val(contact_num)
+	//$('[name$=modal_num]').val(modal_num);
 }
 </script>
 
 <!--  contacts -->
 <div class = "row noa">
 	  <div class="col-sm-4">
-	 	{% if user.name %}
-		    <span>{{ user.name }} {{ user.phone }}</span>
+	 	{% if user.name1 %}
+	  	    <img src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="250" width="250" onclick="prefill_modal("{{user.name1}}", "{{user.relation1}}", "{{user.phone1}}", '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
+		    <span>{{ user.name1 }} {{ user.phone1 }}</span>
 		{% else %} <!-- this contact doesn't exist in the database -->
-	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="openModal(user.name,user.relation, user.phone)" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal(user.name1, user.relation1, user.phone1, '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
 		{% endif %}
 	  </div>
 	  <div class="col-sm-4">
-	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="openModal('Gilead','family','00')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+	 	{% if user.name2 %}
+		    <span>{{ user.name2 }} {{ user.phone2 }}</span>
+		{% else %} <!-- this contact doesn't exist in the database -->
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal(user.name2, user.relation2, user.phone2, '2')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
+		{% endif %}
 	  </div>
 	  <div class="col-sm-4">
-	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+	 	{% if user.name3 %}
+		    <span>{{ user.name3 }} {{ user.phone3 }}</span>
+		{% else %} <!-- this contact doesn't exist in the database -->
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal(user.name3, user.relation3, user.phone3, '3')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
+		{% endif %}
 	  </div>
 </div>
 
@@ -145,13 +152,16 @@ alert($('[name$=Name]').val())
       </div>
       <div class="modal-body">
         <p>These contacts are here to help you. In case you don't approve the alert sent, we will be contacting these contacts by order. </p>
-		<form action="{{ url_for('users.login') }}" method="post">
+		<form action="/add_contact" method="post">
 		    {{ form.csrf_token }}
-		    {{ form.name() }} <br>
-		    {{ form.relation() }} <br>
-		    {{ form.phone(placeholder="+972xxxxxxxxx") }}
+
+		    Name <input type="text" name="name" value="">
+ 			Relation <input type="text" name="relation" value="">
+ 			Phone <input type="text" name="phone" value="">
+
+ 			<input type="hidden" name="contact_num" value="">
 		    <br>
-		    <button class="btn btn-sm btn-warning"  onclick="submitModal()"  type="submit">ENTER </button>
+		    <button class="btn btn-sm btn-warning"  type="submit">ENTER </button>
 		  </form>
 
       </div> 
