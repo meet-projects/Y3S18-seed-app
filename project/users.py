@@ -43,6 +43,7 @@ def register():
                 return redirect(url_for('users.login'))
 
     else:
+        logout_user()
         return render_template('register.html', form=form)
    
 
@@ -81,4 +82,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return Response("<p>Logged Out</p>")
+
+    form = LoginForm(request.form)
+    return render_template('login.html', form=form)
+

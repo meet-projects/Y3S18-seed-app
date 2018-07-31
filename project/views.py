@@ -7,14 +7,29 @@ from project.models import Journey, User
 
 @app.route('/browse')
 def browse():
-	user_id = session['user_id']
-	current_user = User.query.filter_by(id=user_id).first()
 	all_journeys = Journey.query.all()
-	return render_template('browse.html', all_journeys=all_journeys, current_user=current_user)
+
+	print(session)
+	if 'user_id' in session:
+		user_id = session['user_id']
+		current_user = User.query.filter_by(id=user_id).first()
+		logged_in = True
+		print(logged_in)
+	else:
+		logged_in = False
+		current_user = 'Not Logged In'
+	return render_template('browse.html', all_journeys=all_journeys, logged_in=logged_in, current_user=current_user)
+
 
 @app.route('/apply', methods=['GET', 'POST'])
 @login_required
 def apply():
+	if 'user_id' in session:
+		user_id = session['user_id']
+		current_user = User.query.filter_by(id=user_id).first()
+		logged_in = True
+	else:
+		logged_in =  False
 	user_id = session['user_id']
 	user = User.query.filter_by(id=user_id).first()
 	print(user.name)
@@ -28,29 +43,35 @@ def apply():
 		user_info.is_storyteller = True
 		db.session.add(user_info)
 		db.session.commit()
-		return render_template('st_profile.html', current_user=user, user=user_info, is_user=True)
+		return render_template('st_profile.html', current_user=user, user=user_info, is_user=True, logged_in=logged_in)
 	else:
 		if user.is_storyteller==True:
-			return render_template('st_profile.html', current_user=user, user=user_info, is_user=True)
+			return render_template('st_profile.html', current_user=user, user=user_info, is_user=True, logged_in=logged_in) 
 		else:
-			return render_template('apply.html', current_user=user)
+			return render_template('apply.html', current_user=user, logged_in=logged_in)
 
 
 @app.route('/profile/<int:user_id>')
 def profile(user_id):
-	user=User.query.filter_by (id=user_id).first()
-	is_user=False
-	current_user_id = session['user_id']
-	current_user = User.query.filter_by(id=current_user_id).first()
-	if user.id==current_user.id:
-		is_user=True
-	if user.is_storyteller==True:
-		print('i am here!!!!!!!!!')
-		st_journeys = Journey.query.filter_by(creator_id=user_id).all()
-		print(st_journeys)
-		return render_template('st_profile.html', user=user, is_user=is_user, current_user=current_user,st_journeys=st_journeys, is_storyteller=True)
+	user = User.query.filter_by(id=user_id).first()
+	if 'user_id' in session: #If there is a user logged in
+		logged_in = True
+		current_user = User.query.filter_by(id=user_id).first()
+		current_user_id = session['user_id']
+		current_user = User.query.filter_by(id=current_user_id).first()
+		if user.id == current_user.id:
+			is_user=True
+		else:
+			is_user=False
 	else:
-		return render_template('profile.html',user=user, is_user=is_user, current_user=current_user, is_storyteller=False)
+		current_user = 'Not Logged In'
+		logged_in = False
+		is_user = False
+	if user.is_storyteller==True:
+		st_journeys = Journey.query.filter_by(creator_id=user_id).all()
+		return render_template('st_profile.html', user=user, is_user=is_user, current_user=current_user,st_journeys=st_journeys, is_storyteller=True, logged_in=logged_in)
+	else:
+		return render_template('profile.html',user=user, is_user=is_user, current_user=current_user, is_storyteller=False, logged_in=logged_in)
 
 
 
@@ -58,6 +79,12 @@ def profile(user_id):
 @app.route('/add_journey', methods=['GET', 'POST'])
 @login_required
 def add_journey():
+	if 'user_id' in session:
+		user_id = session['user_id']
+		current_user = User.query.filter_by(id=user_id).first()
+		logged_in = True
+	else:
+		logged_in =  False
 	user_id = session['user_id']
 	user = User.query.filter_by(id=user_id).first()
 	if request.method=='POST':
@@ -76,9 +103,9 @@ def add_journey():
 		new_journey.picture  = request.form.get('picture')
 		db.session.add(new_journey)
 		db.session.commit()
-		return render_template('journey.html', journey=new_journey, current_user=user, creator=user)
+		return render_template('journey.html', journey=new_journey, current_user=user, creator=user, logged_in=logged_in)
 	else:
-		return render_template('add_journey.html', current_user=user)
+		return render_template('add_journey.html', current_user=user, logged_in=logged_in)
 
 
 
@@ -87,10 +114,16 @@ def add_journey():
 
 @app.route('/journeys/<int:journey_id>')
 def display_journey(journey_id):
-        journey = Journey.query.filter_by(id=journey_id).first()
-        creator = User.query.filter_by(id=journey.creator_id).first()
-        print('creator ---->', creator)
-        return render_template('journey.html', journey=journey, creator=creator)
+	if 'user_id' in session:
+		user_id = session['user_id']
+		current_user = User.query.filter_by(id=user_id).first()
+		logged_in = True
+	else:
+		logged_in =  False
+	journey = Journey.query.filter_by(id=journey_id).first()
+	creator = User.query.filter_by(id=journey.creator_id).first()
+	print('creator ---->', creator)
+	return render_template('journey.html', journey=journey, creator=creator, logged_in=logged_in)
 
 
 
