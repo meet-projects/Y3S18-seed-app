@@ -4,7 +4,7 @@ from flask import (
         )
 from flask_login import login_user, login_required, logout_user
 from project import db
-from project.forms import PostForm
+from project.forms import PostForm, AddArtForm
 from project.models import Post, User
 
 
@@ -28,4 +28,34 @@ def adding_posts():
         else:
             return Response("<p>invalid form</p>")
     return render_template('add_post.html', form=form)
+
+@post_bp.route('/add-art/<int:PostID>', methods= ['POST'])
+@login_required
+def add_art(PostID):
+    #PostID = session['post_id']
+    artistID = session['user_id']
+    form = AddArtForm(request.form)
+    if request.method == 'POST':
+        print(form.validate_on_submit())
+        if form.validate_on_submit():
+            post = Post.query.filter_by(id = PostID).first()
+            art_url = form.art_url.data    
+            post.ArtURL = art_url
+            post.ArtistID = artistID 
+            db.session.commit()
+            #user = User.query.filter_by(id=artistID).first()
+            return redirect(url_for('feed'))   
+        else:
+            return Response("<p>invalid form</p>")
+
+
+
+
+
+
+
+
+
+
+
 

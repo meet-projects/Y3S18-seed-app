@@ -48,8 +48,10 @@
 <form action="{{ url_for('add_post.adding_posts') }}" method="post">
     {{ form.csrf_token }}
  <p class="text">Title:</p>   {{ form.title(placeholder= "Title") }}<br><br>
- <p class="text">Story:</p>   {{ form.text(placeholder="Tell us your story") }} <br><br>
-    <button class="btn btn-sm btn-success" type="submit" id="button">Share</button>
+  <p class="text">Title:</p>   {{ form.text(placeholder= "Story") }}<br><br>
+
+    <button class="btn btn-sm btn-success" type="submit">Share</button>
+
 </form>
 
 </body>

@@ -1,3 +1,4 @@
+
 from project import db
 from datetime import datetime
 
@@ -9,7 +10,8 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
     id                  = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username            = db.Column(db.String, unique=True, nullable=False)
-    displayname            = db.Column(db.String)
+    displayname         = db.Column(db.String)
+    profile_pic_url     = db.Column(db.String, nullable=True)
     password_hash       = db.Column(db.String, nullable=False)
 
     def __init__(self, username, displayname, password):
@@ -31,6 +33,8 @@ class Post(db.Model):
     id             = db.Column(db.Integer, primary_key=True, autoincrement=True)
     AuthorID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     ArtURL         = db.Column(db.String)
+    ArtistID       = db.Column(db.Integer, db.ForeignKey('users.id'))
+
     #ArtistID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     Title          = db.Column(db.String(20), nullable=False)
     Text           = db.Column(db.String, nullable=False)
@@ -44,6 +48,7 @@ class Post(db.Model):
         self.Text = Text
         self.Date = self.format_date()
         self.Rating = 0
+        self.ArtistID = None
 
     def relate(self, userid):
         getpostlike = Like.query.filter(and_((postID == self.id), (userID == userid))).first()
