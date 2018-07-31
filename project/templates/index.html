@@ -15,7 +15,7 @@
 <!-- 	<button onclick="location.href='login_signup'" type="button" class="btn" id="inst-btn">
      <h2>I'm an Instructor</h2></button> -->
 
-<button onclick="document.getElementById('id02').style.display='block'" class="signbutton btn" id="inst-btn"><h2>I'm an Instructor</h2></button>
+<button onclick="document.getElementById('id02').style.display='block'" class="btn" id="inst-btn"><h2>I'm an Instructor</h2></button>
 
 <div id="id02" class="modal">
   
@@ -27,7 +27,7 @@
     </div>
 
       <form action="{{ url_for('users.login') }}" method="post">
-       <h2 class="login_title">Login</h2>
+       <h2 class="login_title">Log In</h2>
         
     {{ loginform.csrf_token }}
     <br>
@@ -43,7 +43,7 @@
     </div> -->
     <br>
     <br>
-    <button class="btn btn-sm btn-success" type="submit">Login</button>
+    <button class="btn btn-sm btn-success" type="submit">Log In</button>
   </form>
     <div>
       <table style="width: 80%;">
@@ -52,7 +52,7 @@
           <a>Forgot your password?</a>
         </td>
         <td align="right">
-          <p style="font-family: helveticaneuelight;">No account? <a href="#Signup">Create one here!</a></p>
+          <p style="font-family: helveticaneuelight;">No account? <a href="{{url_for('signup')}}" style="color: white; font-family: helveticaneuelight;">Create one here!</a></p>
         </td>
       </tr> 
       </table>
@@ -60,22 +60,6 @@
   </div>
   </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	<button  onclick="location.href='feed'"  type="button" class="btn" id="stu-btn">
      <h2>I'm a Student</h2></button>

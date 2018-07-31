@@ -3,22 +3,22 @@
  <!DOCTYPE html>
  <html>
  <head>
-   <title>EasyLicense</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/register.css">
+  <title>Sign up</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/register.css">
  </head>
  <body>
 
 <div class="add-user">
  
+
 <div class="page-header">
- 
+
   </div>
- 
+ <h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 <div class="signup_container">
 <form action="{{ url_for('users.register') }}" method="post">
 	<h2 id="h2">SIGN UP</h2>
-    {{ form.csrf_token }}
     <span class="field" style="float: left; width: 50%;">
     	<label for="fname" class="label"><b>First Name</b></label>
     	<input type="text" name="fname" class="bars input" placeholder="First Name" required>

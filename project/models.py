@@ -54,7 +54,6 @@ class Teacher(db.Model):
     languages = db.Column(db.String)
     profile_picture = db.Column(db.String)
     car_type = db.Column(db.String)
-    license_num = db.Column(db.String)
 
     '''def set_city(self, city):
         if  in list:
@@ -64,7 +63,7 @@ class Teacher(db.Model):
         user_id, 
         name,
         city,
-        description,cost,phone_num,languages,profile_picture, car_type,license_num):
+        description,cost,phone_num,languages,profile_picture, car_type):
         self.user_id = user_id
         self.name=name
         self.city=city
@@ -73,7 +72,6 @@ class Teacher(db.Model):
         self.phone_num=phone_num
         self.languages=languages
         self.car_type=car_type
-        self.license_num=license_num
         self.profile_picture=profile_picture
 
     def __repr__(self):

@@ -8,7 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type="text/javascript" src="../static/js/script.js"> </script>
 		<title>
-			Profile
+			{{teacher.name}}'s Profile
 		</title>
 	</head>
 	<body class="profile_page">
@@ -31,6 +31,7 @@
 
 					<th>Cost:</th> 
 					<td> {{teacher.cost | truncate(13)}} &#8362</td>
+
 				</tr>
 				<tr> 
 					<th>Languages:</th> 
@@ -68,13 +69,12 @@
 						<br>
 						<form name="booking_form" id="book" action="{{ url_for( 'users.booking' , teacher_id=teacher.id ) }}">
 							Full Name<br>
-							<input type="text" name="name" placeholder="Full Name">
+							<input type="text" name="studentname" placeholder="Full Name">
 							<br>
 							<br>
 							Phone Number<br>
-							<input type="text" name="num" placeholder="Phone Number">
+							<input type="text" name="studentnum" placeholder="Phone Number">
 							<br>
-							<input type="text" name="teacher" value="{{teacher.id}}" style="visibility: hidden;">
 							<br>
 							<input type="submit" name="submit" value="Book" class="book_btn">
 						</form>
