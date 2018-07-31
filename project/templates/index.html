@@ -12,8 +12,71 @@
 
 	<h1 id="motto">The right guidance with EasyLicense</h1>
 
-	<button onclick="location.href='login_signup'" type="button" class="btn" id="inst-btn">
-     <h2>I'm an Instructor</h2></button>
+<!-- 	<button onclick="location.href='login_signup'" type="button" class="btn" id="inst-btn">
+     <h2>I'm an Instructor</h2></button> -->
+
+<button onclick="document.getElementById('id02').style.display='block'" class="signbutton btn" id="inst-btn"><h2>I'm an Instructor</h2></button>
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="{{ url_for('users.login') }}" method="post">
+    
+    <div class="container" id="login_box">
+      <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+      <form action="{{ url_for('users.login') }}" method="post">
+       <h2 class="login_title">Login</h2>
+        
+    {{ loginform.csrf_token }}
+    <br>
+    <br>
+    {{ loginform.username(placeholder="Email") }} 
+    <br>
+    <br>
+    {{ loginform.password(placeholder="Password") }}
+    <br>
+    <br>
+<!--     <div id="keep_sign_in">
+      <input type="checkbox" name="keep_sign_in" style="float:left;margin-left: 10%;" checked> Keep me signed in
+    </div> -->
+    <br>
+    <br>
+    <button class="btn btn-sm btn-success" type="submit">Login</button>
+  </form>
+    <div>
+      <table style="width: 80%;">
+      <tr>
+        <td align="left">
+          <a>Forgot your password?</a>
+        </td>
+        <td align="right">
+          <p style="font-family: helveticaneuelight;">No account? <a href="#Signup">Create one here!</a></p>
+        </td>
+      </tr> 
+      </table>
+    </div>
+  </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<button  onclick="location.href='feed'"  type="button" class="btn" id="stu-btn">
      <h2>I'm a Student</h2></button>
 

@@ -38,28 +38,31 @@
   <form action="{{ url_for('users.register') }}" method="post">
   <h2>Sign Up</h2>
   <center>
-    <span style="float: left; width: 50%;">
-      <label for="fname" class="label"><b>First Name</b></label>
-      <input type="text" name="fname" placeholder="First Name" required>
+    <span style="float: left; width: 100%;">
+      <label for="fname" class="label"><b>Full Name</b></label>
+      <input type="text" name="name" placeholder="First Name" required>
     </span>
-    <span style="float: left; width: 50%;">
-      <label for="lname" class="label"><b>Last Name</b></label>
-      <input type="text" name="lname" placeholder="Last Name" required>
-    </span>
-    <span class="field" style="float: left; width: 100%;">
+
+    <span style="float: left; width: 100%;">
     <label for="email" class="label"><b>Email</b></label>
       <input type="text" placeholder="email@example.com" name="email" required></span>
 
-    <span class="field" style="float: left; width: 100%;">
-    <label for="psw" class="label">Password</b></label>
+    <span style="float: left; width: 100%;">
+    <label for="psw" class="label"><b>Password</b></label>
       <input type="password" placeholder="********" name="psw"required>
     </span>
+
     <span>
-      <label for="psw-repeat" class="label"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <label for="psw-repeat" class="label"><b>Confirm Password</b></label>
+      <input type="password" placeholder="********" name="psw-repeat" required>
     </span>
+    <br>
+    <span>
+      <button type="submit" class="btn btn-sm btn-success">Sign Up</button>
+    </span>
+    </center>
+
   </form>
-</center>
 </div>
 </form>
 </div>
@@ -104,7 +107,7 @@
           <a>Forgot your password?</a>
         </td>
         <td align="right">
-          <a>No account? Create one!</a>
+          <p style="font-family: helveticaneuelight;">No account? <a href="#Signup">Create one here!</a></p>
         </td>
       </tr> 
       </table>

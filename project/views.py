@@ -8,9 +8,10 @@ from sqlalchemy import desc,asc
 
 import sys, math
 
-@app.route('/')
-def index():
-	return render_template('index.html')
+##@app.route('/')
+##def index():
+##	loginform = LoginForm(request.form)
+##	return render_template('index.html',loginform=loginform)
 
 @app.route('/feed')
 def feed():
@@ -120,4 +121,6 @@ def edit_profile(teacher_id):
 	teach=Teacher.query.filter_by(id=teacher_id).first()
 	return render_template('edit_profile_template.html',teacher=teach)
 
-
+@app.route('/test_feed')
+def feed_test():
+	return render_template('new_feed.html')

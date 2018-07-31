@@ -11,6 +11,10 @@ from project.models import User,Teacher,Request
 
 users_bp = Blueprint('users', __name__)
 
+@users_bp.route('/')
+def index():
+    loginform = LoginForm(request.form)
+    return render_template('index.html',loginform=loginform)
 
 @users_bp.route('/signup', methods=['GET', 'POST'])
 def register():
@@ -138,6 +142,12 @@ def editing(teacher_id):
         user.phonenum=phonenum
     if car_type!="":
         user.car_type=car_type
+    if languages_ar is not None:
+        user.languages+="Arabic "
+    if languages_hb is not None:
+        user.languages+="Hebrew "
+    if languages_en is not None:
+        user.languages+="English "
     if profilepic!="":
         user.profilepic=profilepic
     db.session.commit()

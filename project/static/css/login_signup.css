@@ -82,7 +82,7 @@
 }
 /*#############################Signup Modal Style########################*/
 body {
-    background-color: #fefefe;
+    background-color: #f6f6f6;
 }
 
 }
@@ -107,7 +107,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 /* Set a style for all buttons */
 button {
-    background-color: #fefefe;
+    background-color: #188fc4;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -119,7 +119,7 @@ button {
 }
 
 button:hover {
-    opacity:0.9;
+    background-color: #0073a8;
 }
 
 /* Extra styles for the cancel button */
@@ -150,13 +150,13 @@ button:hover {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: #36d02a;
+    background-color: #d7dee5;
     padding-top: 50px;
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #f6f6f6;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
@@ -216,7 +216,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-    background-color: #fefefe;
+    background-color: #d7dee5;
     color: #188fc4;
     padding: 14px 20px;
     margin: 8px 0;
@@ -264,7 +264,7 @@ span.psw {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: #f6f6f6; /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 10px;
 }
@@ -326,10 +326,10 @@ span.psw {
 }
 
 .signbutton{
-color: #fefefe;
+color: white;
 font-weight: 300;
 font-size: 25px;
-background-color: rgb(0,115,168);
+background-color: #188fc4;
 height: 100px;
 width: 200px;
 border-radius: 20px;
@@ -352,16 +352,18 @@ border-radius: 20px;
 
 }
 #login_box{
-    background-color:rgb(0, 115, 168);
+    background-color: #0073a8;
     margin:5%;
-    color: #d7dee5;
+    color: white;
     box-shadow: 2.5px 5px 4px #888888;
+    font-family: helveticaneuelight;
 }
 
 #login_title{
-    color: #fefefe;
+    color: white;
     font-weight:2000;
     font-size: 30px;
+    font-family: helveticaneuelight;
 }
 
 #keep_sign_in{
@@ -370,31 +372,27 @@ border-radius: 20px;
 }
 
 #signup_box{
-    background-color:rgb(0, 115, 168);
+    background-color: #0073a8;
     margin:5%;
-    color: #d7dee5;
+    color: white;
     box-shadow: 2.5px 5px 4px #888888;
+    font-family: helveticaneuelight;
+
 }
 
 #login_title{
-    color: #fefefe;
+    color: white;
     font-weight:2000;
     font-size: 30px;
+    font-family: helveticaneuelight;
 }
 
 #signup_title{
-    color: #fefefe;
+    color: white;
     font-weight:2000;
     font-size: 30px;
+    font-family: helveticaneuelight;
 }
-
-
-
-
-
-
-
-
 
 #h2{
     color: white; 
@@ -408,14 +406,18 @@ border-radius: 20px;
     height: 50px; 
     width: 100%;
     font-size: 24px;
+    width: 100%;
+    padding-left: 0px;
 }
 
 .bars{
     background: white;
-     border-radius: 0px;
-     height: 50px; 
-     width: 100%;
-     font-size: 18px;
+    border-radius: 0px;
+    height: 50px; 
+    width: 100%;
+    font-size: 18px;
+    width: 100%;
+
 }
 
 .label{
@@ -425,6 +427,7 @@ border-radius: 20px;
     padding: 0px;
     font-family: helveticaneuelight;
     padding-top: 20px;
+    width: 100%;
 }
 
 .input{
