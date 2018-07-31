@@ -28,14 +28,11 @@
 
 					<th> <u> City:</u></th> 
 					<td>
-					<input type="text" placeholder="{{ teacher.city }}" name="city"> 
-					 </td>
-				</tr>
-				<tr> 
-
-					<th> <u> Fee (only in numbers, by Shekel) :</u></th> 
-					<td>
-					<input type="text" placeholder="{{ teacher.fee }}" name="fee"> 
+						<select>
+							{% for c in all_cities %}
+							<option value="{{c.city}}">{{c.city}}</option>
+							{% endfor %}
+						</select> 
 					 </td>
 				</tr>
 				<tr> 
