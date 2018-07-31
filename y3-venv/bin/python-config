@@ -1,4 +1,4 @@
-#!/home/georger/Desktop/Bsafe/y3-venv/bin/python
+#!/home/students/Desktop/Bsafe/y3-venv/bin/python
 
 import sys
 import getopt
