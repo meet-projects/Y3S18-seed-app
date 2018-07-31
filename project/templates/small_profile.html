@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -11,10 +13,9 @@
 	</head>
 	<body class="profile_page">
 		<h4><a href="{{url_for('feed')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
-		<center><img src="../static/img/easylicense_logo.png" class="logo"></center>
-
-		<section id="profile_container">
-			<div id="side_profile" align="left">
+	<div class="row" style="background-color: rgb(246,246,246);">
+		<!--<section id="profile_container"> -->
+			<div id="side_profile" align="left" class="col-md-3">
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
 		<center>
 			<br>
@@ -23,29 +24,24 @@
 			<table>
 				<tr> 
 
-					<th> <u> City:</u></th> 
+					<th>City:</th> 
 					<td> {{teacher.city}} </td>
 				</tr>
 				<tr> 
 
-					<th> <u> City::</u></th> 
-					<td> {{teacher.city}} </td>
-				</tr>
-				<tr> 
-
-					<th> <u> Cost:</u></th> 
+					<th>Cost:</th> 
 					<td> {{teacher.cost}} &#8362</td>
 				</tr>
 				<tr> 
-					<th> <u> Languages:</u></th> 
+					<th>Languages:</th> 
 					<td> {{teacher.languages}} </td>
 				</tr>
 				<tr> 
-					<th><u> License Number:</u></th>
+					<th>License Number:</th>
 					<td> {{teacher.license_num}} </td>
 				</tr>
 				<tr>
-					<th> <u> Gearbox:</u></th> 
+					<th>Gearbox:</th> 
 					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
@@ -89,10 +85,12 @@
 				</div>
 
 			</div>
+			</center>
+		</div>
 
 			
-		</div>
-		<div id="main_profile">
+		
+		<div id="main_profile" class="col-md-9">
 			<h3 id="profile_name">
 				{{teacher.name}}</h3>
 			<br>
@@ -106,7 +104,7 @@
 			</div>
 			<br>
 		</div>
-	</section>
-</center>
+	 <!--</section>-->
+	 </div> 
 	</body>
 </html>
