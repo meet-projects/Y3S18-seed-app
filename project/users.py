@@ -140,7 +140,7 @@ def editing(teacher_id):
         user.car_type=car_type
     if languages_ar is not None:
         user.languages+="Arabic "
-     if languages_hb is not None:
+    if languages_hb is not None:
         user.languages+="Hebrew "
     if languages_en is not None:
         user.languages+="English "
