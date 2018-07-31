@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">		
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<title>
 			EasyLicense	
@@ -8,11 +9,10 @@
 	</head>
 	
 	<body class="profile_page">
-		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
-		<center><img src="../static/img/easylicense_logo.png" class="logo"></center>
+		<h4><a href="{{url_for('index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
+		<div class="row" style="background-color: rgb(246,246,246);">
+			<div id="side_profile" align="left" class="col-md-3">
 
-		<section id="profile_container">
-			<div id="side_profile" align="left">
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
 			
 			<br>
@@ -45,9 +45,10 @@
 					<td> {{teacher.car_type}} </td>
 				</tr>
 			</table>
-			<br> 
+			<br>
+			</center> 
 		</div>
-		<div id="main_profile">
+		<div id="main_profile" class="col-md-9">
 			<h3 id="profile_name">
 				Your profile: {{teacher.name}}</h3>
 				<br>
@@ -90,7 +91,6 @@
 				<br><br>
 			{% endfor %}
 		</div>
-	</section>
-	</center>
+	</div>
 	</body>
 </html>
