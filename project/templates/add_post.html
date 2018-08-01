@@ -1,144 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-     
+{% extends "layout.html" %}
+{% block content %}
+	  
+{% if error %}
+	Error
+{% endif %}
 
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
-      
-
-
-      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-      
 	
-	<title>post</title>
-	<link rel="stylesheet" href="../static/css/style.css">
-	<link rel="stylesheet" type="text/css" href="css1.css">
-	<link rel="stylesheet" type="text/css" href="postcss.css">
-	  <link href="../static/css/css2.css" rel="stylesheet" type="text/css">
-	  <style type="text/css">
-	  body{
-	  	background: url("../static/pictures/background.jpg");
-	  	color: white;
-	  }	
-	  .text{
-	  	color: black;
-	  }
-
-#button {
-  padding: 5px 55px;
-  font-size: 20px;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color:black;
-  border: none;
-  border-radius: 25px;
-  box-shadow: 0 9px #999;
-}
-
-#button:hover 
-{background-color: #67300d}
-
-#button:active {
-  background-color: black;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-{
-
-}
-#header{
-	font-family: "Montserrat", sans-serif;
-    font-size: 40px;
-}
- .explain{
-    font-family: "Montserrat", sans-serif;
- 	font-size: 20px;
- }
-
-
-#title{
-	font-family: "Montserrat", sans-serif;
-	font-size: 25px
-	text-align: left;
-}
-.post_textbox { 
- position: center;
- background: transparent;
- border-top: none;
- border:none;
- box-sizing: border-box;
- width: 70%;
- padding: 12px 20px;
- margin: 50px 0 35px;
- border-bottom: 2px solid rgb(242, 242, 242);
- box-sizing: border-box;
- opacity: 0.9;
- text-align: center;
- vertical-align: middle;
- color: black;
- display: block;
- }
-.row{
- padding: 12px 20px;
- margin: 50px 0 35px;
-
-}
- #title{
- border-top: none;
-
- border:none;
- box-sizing: border-box;
- width: 70%;
- padding: 12px 20px;
- border-bottom: 2px solid rgb(242, 242, 242);
- box-sizing: border-box;
- opacity: 0.9;
- text-align: center;
- color: black;
- vertical-align: middle;
- display: block;
- }
-
-#text{
-	height:200px;
-	width:500px;
-	color: black;
-
-}
-
-.container{
-	margin-top: 30px;
-	margin-left: 30px;
-}
-
-.btn {
-	margin-bottom: 15px;
-}
-
-}
-
-	  </style>
-</head>
-<body >
 	<div class = 'container'>
-	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+
+	<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag"><br>
 	<a href="feed">Home</a>
 	<h1 id = 'header'>ADD A POST</h1><br><br>
 	<p class ='explain '>Share your story with the Artflict community </p><br>
 	<p class = "explain"> Have an artist illustrate your story, and bring it to life</p><br>
-	<form action="{{ url_for('add_post.adding_posts') }}" method="post">
+	<form action="{{ url_for('add_post.add_post') }}" method="post">
     {{ form.csrf_token }}
 	<div class="row" >
     <div class="col-md-1">  TITLE:</div>
@@ -154,5 +29,4 @@
 </div>
 </form>
 </div>
-</body>
-</html>
+{% endblock %}

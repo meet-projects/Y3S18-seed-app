@@ -16,7 +16,7 @@
            </div>
            <div class="description_block">
              <span id="more"> {{ post.get_description2() }} </span> 
-             <a href="{{url_for('view_story', PostID = post.id)}}" class="btn btn-default">Read More</a>
+             <a href="{{url_for('list_detail_stories', post_id = post.id)}}" class="btn btn-default">Read More</a>
            </div>
 
            <div class="publish_date_block">

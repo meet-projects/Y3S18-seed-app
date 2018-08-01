@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	
-</head>
-<body>
+{%extends "layout.html" %}
 
 
- <img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
-
- <script>
-/*function myFunction() {
+<script>/*function myFunction() {
   var dots = document.getElementById("dots");
    var moreText = document.getElementById("more");
    var btnText = document.getElementById("myBtn");
@@ -25,14 +17,13 @@
   }
 }*/
 </script>
- {% extends "layout.html" %}
+
 {% block content %}
   <div id="feed_space">
 <div id="feed_space">
 <style type="text/css">
-  body{
-    background: url("../static/pictures/background.jpg");
- 
+  body {
+    background: url("{{ url_for('static', filename='pictures/backgroundfeed.jpg') }}");
    }
  
  
@@ -51,7 +42,7 @@
            </div>
            <div class="description_block">
              <span id="more"> {{ post.get_description2() }} </span> 
-             <a href="{{url_for('view_story', PostID = post.id)}}" class="btn btn-default">Read More</a>
+             <a href="{{url_for('list_detail_stories', post_id = post.id)}}" class="btn btn-default">Read More</a>
            </div>
 
            <div class="publish_date_block">
@@ -81,6 +72,4 @@
   </div>
  
 </div>
-  {% endblock %} 
-</body>
-</html>
+  {% endblock %}
