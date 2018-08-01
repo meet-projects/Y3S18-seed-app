@@ -11,31 +11,56 @@
 
 body {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .container {
-    background-image: url( {{ url_for('static', filename = 'pictures/homepicture.png') }});
+    background-image: url( {{ url_for('static', filename = 'pictures/homepicture2.png') }});
     background-repeat:no-repeat;
-    background-size: 40%;
+    background-size: 200%;
     background-position: center; 
+    height: 100%;
+    width: 100%;
 }   
+#logo{
+  width: 300px;
+}
+
+#logodiv{
+  left: 9vh;
+}
+
+#login{
+  top: 150px; 
+  right: 20vh;
+}
 
 
 @media (max-width: 800px) {
   /* CSS that should be displayed if width is equal to or less than 800px goes here */
   .container {
-    background-image: url( {{ url_for('static', filename = 'pictures/homepicture.png') }});
-    height: 720px;
-    width: 640px;
+    background-image: url( {{ url_for('static', filename = 'pictures/homepicture2.png') }});
+
+    width: 200%;
     background-repeat:no-repeat;
-    background-size: 40%;
-    background-position: right; 
+    background-size: 200vh;
+    background-position: center; 
   } 
-  #login {
-    margin-right: 0px;
+
+  #logo{
+    width: 40%;
   }
-}
+
+  #logodiv{
+    left: -5vh;
+  }
+
+  #login { 
+    top: 0px;
+    right: 0;
+  }
   
+}
 
 .form-hello{
 
@@ -47,7 +72,7 @@ body {
 
   background-color: #D8D8D8;
   border-radius: 5px;
-  heightight: 30px;
+
 
 }
 .btn-warning {background-color: #FFA400}
@@ -86,11 +111,11 @@ p2{
 
 <div class="container" style="max-width: 960px">
   <div class="row">
-    <div class="col-sm-4"> 
-      <img src="{{ url_for('static', filename = 'pictures/logosmall1.png')}}" width="300px" >
+    <div class="col-sm-4" id="logodiv"> 
+      <img src="{{ url_for('static', filename = 'pictures/logosmall1.png')}}" id="logo" >
     	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </div>
-    <div class="col-sm-8" style="top:120px" id="login">
+    <div class="col-sm-8" id="login">
           <h2> Log In:</h2> 
           <form action="{{ url_for('users.login') }}" method="post">
             {{ form.csrf_token }}
