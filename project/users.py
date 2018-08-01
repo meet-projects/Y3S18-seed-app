@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User,Teacher,Request
+from project.models import User,Teacher,Request, City
 
 users_bp = Blueprint('users', __name__)
 
@@ -25,17 +25,6 @@ def register():
         password = request.form.get('psw')
         password2= request.form.get('psw-repeat')
         name= request.form.get('name')
-        #city=request.form.get('city')
-        #fee=request.form.get('fee')
-        #description=request.form.get('description')
-        #phonenum=request.form.get('phonenum')
-        #car_type=request.form.get('car_type')
-        #license_num=request.form.get('license_num')
-        #languages_ar=request.form.get('languages_ar')
-        #languages_hb=request.form.get('languages_hb')
-        #languages_en=request.form.get('languages_en')
-        #profilepic=request.form.get('profilepic')
-        #lan=""
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
@@ -55,7 +44,8 @@ def register():
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
-                return redirect(url_for('users.editing',teacher_id=teacher.id))
+
+                return redirect(url_for('edit_profile',teacher_id=teacher.id))
 
             ##next_page = request.args.get('next')
             ##if not next_page or url_parse(next_page).netloc != '':
@@ -138,7 +128,9 @@ def editing(teacher_id):
         teacher.name=name
     if city!="":
         teacher.city=city
-    if fee!=0:
+    if fee=="":
+        pass
+    else:
         teacher.cost=fee
     if description!="":
         teacher.description=description
@@ -146,7 +138,8 @@ def editing(teacher_id):
         teacher.phone_num=phone_num
     if car_type!="":
         teacher.car_type=car_type
-    teacher.languages=""
+    if arabic is not None or english is not None or hebrew is not None:
+        teacher.languages=""
     if arabic is not None:
         teacher.languages+="Arabic "
     if hebrew is not None:
@@ -155,12 +148,16 @@ def editing(teacher_id):
         teacher.languages+="English "
     if profilepic!="":
         teacher.profilepic=profilepic
-    teacher.gearbox=""
+    if automatic is not None or manual is not None:
+        teacher.gearbox=""
     if automatic is not None:
         teacher.gearbox+="Automatic "
     if manual is not None:
         teacher.gearbox+="Manual "
     db.session.commit()
     return redirect('profile_template')
-
+    #else:
+    #    teach = Teacher.query.filter_by(id=teacher_id).first()
+    #    all_cities = City.query.all()
+    #    return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 

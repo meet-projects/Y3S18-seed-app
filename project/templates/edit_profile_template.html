@@ -11,39 +11,39 @@
 	<body class="profile_page">
 		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 	<div class="row" style="background-color: rgb(246,246,246);">
-		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}">
-			<div align="left" class="col-md-4" style="background-color: rgb(246,246,246);">b8
+
+		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}" method="POST">
+			<div align="left" class="col-md-3" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
 
 				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
 			<br>
-			<p>Your name:<input type="text" name="name" value="{{ teacher.name }}"> </p>
+			<p>Your name:<input type="text" name="name" value="{{ teacher.name }}" float="right"> </p>
 			<br>
 			<table>
 				<tr>
-					<th> <u> Phone number:</u></th> 
-					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}" name="phone_num"> </td>
+					<th>Phone number:</th> 
+					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}" name="phone_num" float="right"> </td>
 				</tr>
 				<tr> 
 
-					<th> <u> City:</u></th> 
-					<td>
-				<tr> 
-
-					<th> <u> Fee (only in numbers, by Shekel) :</u></th> 
-					<td>
-					<input type="text" placeholder="{{teacher.cost}}" name="fee"> 
-					</td>
+					<th>City:</th> 
 					<td>
 						<select>
 							{% for c in all_cities %}
-							<option value="{{c.city}}">{{c.city}}</option>
+							<option value="{{c.city}}" float="right">{{c.city}}</option>
 							{% endfor %}
 						</select> 
 					 </td>
+				<tr> 
+
+					<th>Fee (only in numbers, by Shekel):</th> 
+					<td>
+					<input type="text" placeholder="{{teacher.cost}}" name="fee" float="right"> 
+					</td>
 				</tr>
 				<tr> 
-					<th> <u> Languages:</u></th> 
+					<th>Languages:</th> 
 					<td> 							
 						<input type="checkbox" name="hebrew" value="hebrew">Hebrew </option>
 						<input type="checkbox" name="arabic" value="arabic">Arabic </option>
@@ -51,9 +51,9 @@
 						</td>
 				</tr>
 				<tr>
-					<th> <u> Gearbox:</u></th> 
-					<td> <input type="checkbox" name="automatic" value="automatic">Automatic
-					 	<input type="checkbox" name="manual" value="manual">Manual
+					<th>Gearbox:</th> 
+					<td> <input type="checkbox" name="automatic" value="automatic" float="right">Automatic
+					 	<input type="checkbox" name="manual" value="manual" float="right">Manual
 					  </td>
 				</tr>
 			</table>
@@ -73,7 +73,7 @@
 				</textarea>
 					 
 			</div>
-			<input type="submit" name="submit" class="edit_button">
+			<input type="submit" name="submit" class="edit_button" value="Done!">
 			<a href="{{url_for('profile_template')}}" class="edit_link"><button class="edit_button">Cancel</button></a>
 		</div>
 	</div>

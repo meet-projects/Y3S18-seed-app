@@ -91,6 +91,8 @@ def profile_template():
 	user=User.query.filter_by(id=user_id).first()
 	teacher2=Teacher.query.filter_by(user_id=user_id).first()
 	this_teach_id=teacher2.id
+	print(user)
+	print(teacher2)
 	return render_template('profile_template.html',teacher=teacher2,user=user)
 
 
@@ -104,7 +106,3 @@ def edit_profile(teacher_id):
 	teach = Teacher.query.filter_by(id=teacher_id).first()
 	all_cities = City.query.all()
 	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
-
-@app.route('/test_feed')
-def feed_test():
-	return render_template('new_feed.html')
