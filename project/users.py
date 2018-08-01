@@ -58,28 +58,3 @@ def logout():
     logout_user()
     return Response("<p>Logged out</p>")
 
-@users_bp.route('/add_contact', methods=['POST'])
-def add_contact():
-    # form = AddContactForm(request.form)
-    print(request.form)
-    user = User.query.filter_by(id=session['user_id']).first()
-    user.name1 = request.form['name']
-    user.relation1 = request.form['relation']
-    user.phone1 = request.form['phone']
-    db.session.commit()
-    '''if request.method == 'POST':
-        print(form)'''
-    return redirect(url_for('account'))
-    '''name=form.name.data
-    relation = form.relation.data
-    number= form.number.data'''
-    '''user = User.query.filter_by(username=username).first()
-    user = User(name, relation, number)
-    db.session.add(user)
-    db.session.commit()
-    login_user(user, remember=True)
-    next_page = request.args.get('next')
-    if not next_page or url_parse(next_page).netloc != '':
-        next_page = url_for('account')
-    return redirect(url_for('account'))'''
-

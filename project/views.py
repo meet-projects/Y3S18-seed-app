@@ -80,3 +80,40 @@ def check():
 def private():
 	activate()
 	return redirect(url_for('account'))
+
+@app.route('/add_contact/<int:contact_num>', methods=['POST'])
+def add_contact(contact_num):
+	# form = AddContactForm(request.form)
+	print(request.form)
+	user = User.query.filter_by(id=session['user_id']).first()
+	if (contact_num == 1):
+		user.name1 = request.form['name1']
+		user.relation1 = request.form['relation1']
+		user.phone1 = request.form['phone1']
+	elif (contact_num==2):
+		user.name2 = request.form['name2']
+		user.relation2 = request.form['relation2']
+		user.phone2 = request.form['phone2']
+	elif (contact_num==3):
+		user.name3 = request.form['name3']
+		user.relation3 = request.form['relation3']
+		user.phone3 = request.form['phone3']
+	else:
+		return redirect(url_for('account'))
+	db.session.commit()
+	'''if request.method == 'POST':
+		print(form)'''
+	return redirect(url_for('account'))
+	'''name=form.name.data
+	relation = form.relation.data
+	number= form.number.data'''
+	'''user = User.query.filter_by(username=username).first()
+	user = User(name, relation, number)
+	db.session.add(user)
+	db.session.commit()
+	login_user(user, remember=True)
+	next_page = request.args.get('next')
+	if not next_page or url_parse(next_page).netloc != '':
+	    next_page = url_for('account')
+	return redirect(url_for('account'))'''
+
