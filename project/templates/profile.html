@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
 
-
+<div id="profile_image_section">
+    <img src="{{user.profile_pic_url}}" class="profile_pic">
+    <span id="profile_name">{{user.username}}</span>
+</div>
 
 {% endblock %}

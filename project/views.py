@@ -4,9 +4,9 @@ from project.models import *
 from . import app
 from project.forms import AddArtForm	
 
-@app.route('/feed')
+@app.route('/feed', methods=['POST','GET'])
 @login_required
-def feed(username = None):
+def feed():
     print("Hello World")
     form = AddArtForm(request.form)
     u = User.query.filter_by(id=session['user_id']).first()
@@ -19,13 +19,10 @@ def feed(username = None):
 def private_route():
     return render_template('private.html')
 
-@app.route('/profile', defaults={'username':None})
-@app.route('/profile/<username>',methods=['GET','POST'])
+@app.route('/profiles/<username>',methods=['GET','POST'])
 @login_required
-def profile(username = None):
+def profile(username):
     profileID = session['user_id']
-    if username is None:
-        username = User.query.filter_by(id = profileID).first().username
     visitedID = User.query.filter_by(username = username).first().id
     user = User.query.filter_by(id = profileID).first()
     return render_template('profile.html', user = user, my_profile = (profileID == visitedID))

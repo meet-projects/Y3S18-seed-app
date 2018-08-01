@@ -1,56 +1,74 @@
 {% extends "layout.html" %}
 {% block content %}
 
-   <div class="login_page_container">
-        <div class="imgcontainer">
-          <img src="static/pictures/whitelogo.png" alt="logo" id="logo">
-        </div>
-      <div class="login_container">
-        <form id="login_form" class=" form_instance" onsubmit="login_submit()" >
-          {{ form.csrf_token }}
-          <center>
-            <input type="text" name="username" id="login_textbox_username" 
-            class=" login_page_textbox" placeholder="Username">
-            <span id="wrong_cred_msg" class="error_message">
-              wrong username or password
-            </span>
-            <input type="password" name="password" id="login_textbox_password" 
-            class=" login_page_textbox" placeholder="Password">
-           <button id="login_submit" class="btn" type="submit">Log in</button>
-            <span id="open_signup_form_span" class="form_switch_span">
-              don't have an account?
-              <span onclick="open_signup_form()" class="form_switch_link"> Sign Up here! </span>
-            </span>
-          </center>
-        </form>
-      </div>
+		<script type="text/javascript">
+			 var getdata = '{{data | tojson}}';
+		</script>
+		<script src="{{ url_for('static', filename='js/loginjs.js') }}"></script>
 
-      <div class="signup_container">
-        <form id="signup_form" class="form_instance" onsubmit="signup_submit()" >
-          {{ form.csrf_token }}
-          <center>
-            <input type="text" name="displayname" id="signup_textbox_displayname" 
-              class=" login_page_textbox" placeholder="Display Name">
-            <input type="text" name="username" id="signup_textbox_username" 
-              class=" login_page_textbox" placeholder="Username">
-            <span id="taken_username_msg" class="error_message">
-              username is taken
-            </span>
-              <input type="password" name="password" id="signup_textbox_password" 
-              class=" login_page_textbox" placeholder="Password">
-              <input type="password" name="confirm_pass" id="signup_textbox_password_confirm" 
-              class=" login_page_textbox" placeholder="Confirm Password">
-            <span id="pass_dont_match_msg" class="error_message">
-              passwords do not match
-            </span>
-             <button id="register_submit" class="btn" type="submit">Sign Up</button>
-              <span id="open_login_form_span" class="form_switch_span">
-                already have an account?
-                <span onclick="open_login_form()" class="form_switch_link"> Log In here! </span>
-              </span>
-            </center>
-        </form>
-      </div>
-    </div>
+		<div class="login_page_container">
+			<div class="imgcontainer">
+				<img src="static/pictures/whitelogo.png" alt="logo" id="logo">
+			</div>
+
+			<div id="login_container">
+				<center>
+					<form id="login_form" class=" form_instance" action="{{ url_for('users.login') }}" method="post">
+						{{ form.csrf_token }}
+							<input type="text" name="username" id="login_textbox_username" 
+							class=" login_page_textbox" placeholder="Username">
+							<span id="wrong_cred_msg" class="error_message">
+								wrong username or password
+							</span>
+							<input type="password" name="password" id="login_textbox_password" 
+							class=" login_page_textbox" placeholder="Password">
+						<button id="login_submit" class="btn" type="submit">Log in</button>
+					</form>
+
+					<span id="open_signup_form_span" class="form_switch_span">
+						don't have an account?
+						<button onclick="{{ url_for('users.register') }}" method="get" class="form_switch_link"> Sign Up here! </button>
+					</span>
+				</center>
+			</div>
+
+			<div id="signup_container">
+				<center>
+					<form id="signup_form" class="form_instance" action="{{ url_for('users.register') }}" method="post">
+						{{ form.csrf_token }}
+						<input type="text" name="displayname" id="signup_textbox_displayname" 
+								class=" login_page_textbox" placeholder="Display Name">
+						<span id="displayname_error_message" class="error_message">
+								displayname cannot be empty
+						</span>
+
+						<input type="text" name="username" id="signup_textbox_username" 
+								class=" login_page_textbox" placeholder="Username">
+						<span id="username_error_message" class="error_message">
+								username is taken
+						</span>
+
+						<input type="password" name="password" id="signup_textbox_password" 
+								class=" login_page_textbox" placeholder="Password">
+						<span id="password_err_msg" class="error_message">
+								password cannot be empty
+						</span>
+
+						<input type="password" name="confirm_pass" id="signup_textbox_password_confirm" 
+								class=" login_page_textbox" placeholder="Confirm Password">
+						<span id="pass_dont_match_msg" class="error_message">
+								passwords do not match
+						</span>
+
+						<button id="register_submit" class="btn" type="submit">Sign Up</button>
+					</form>
+
+					<span id="open_login_form_span" class="form_switch_span">
+						already have an account?
+						<span onclick="open_login_form()" class="form_switch_link"> Log In here! </span>
+					</span>
+				</center>
+			</div>
+		</div>
 
 {% endblock %}

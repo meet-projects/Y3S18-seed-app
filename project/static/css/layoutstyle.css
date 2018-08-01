@@ -31,7 +31,7 @@ body {
  box-sizing: border-box;
  width: 70%;
  padding: 12px 20px;
- margin: 50px 0 35px;
+ margin: 35px 0 10px 0;
  border-bottom: 2px solid rgb(242, 242, 242);
  box-sizing: border-box;
  opacity: 0.9;
@@ -112,10 +112,6 @@ body {
  font-size: 18px;
 }
 
-#signup_form {
- display: none;
-}
-
 .form_switch_span {
   display: block;
   margin-top: 20px;
@@ -128,6 +124,8 @@ body {
 }
 
 .error_message {
+	margin: 0;
+	display: none;
 	color: red;
 }
 
@@ -170,4 +168,8 @@ body {
 	max-width: 250px;
 	max-height: 70px;
 	background-color: red;
+}
+
+.form_switch_link{
+	cursor: pointer;
 }
