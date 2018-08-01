@@ -8,7 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type="text/javascript" src="../static/js/script.js"> </script>
 		<title>
-			{{teacher.name}}'s Profile
+			{{teacher.fname}}'s Profile
 		</title>
 	</head>
 	<body class="profile_page">
@@ -19,7 +19,7 @@
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
 		<center>
 			<br>
-			<p align="center"><i> {{teacher.name}}</i> </p>
+			<p align="center"><i> {{teacher.fname}}</i> </p>
 			<br>
 			<table>
 				<tr> 
@@ -36,10 +36,6 @@
 				<tr> 
 					<th>Languages:</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(13)}} </td>
-				</tr>
-				<tr> 
-					<th>License Number:</th>
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.license_num | truncate(13)}} </td>
 				</tr>
 				<tr>
 					<th>Gearbox:</th> 
