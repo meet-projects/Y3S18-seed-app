@@ -2,7 +2,7 @@ from flask import (
         Blueprint, redirect, render_template,
         Response, request, url_for
 )
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from sqlalchemy.exc import IntegrityError
 
 from project import db
@@ -24,9 +24,7 @@ def register():
         email = request.form.get('email')
         password = request.form.get('psw')
         password2= request.form.get('psw-repeat')
-        fname= request.form.get('fname')
-        lname=request.form.get('lname')
-        name= fname+ " "+ lname
+        name= request.form.get('name')
         #city=request.form.get('city')
         #fee=request.form.get('fee')
         #description=request.form.get('description')
@@ -57,7 +55,8 @@ def register():
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
-                return redirect('users.editing')
+                return redirect(url_for('editing',teacher_id=teacher.id))
+
             ##next_page = request.args.get('next')
             ##if not next_page or url_parse(next_page).netloc != '':
                ## next_page = url_for('private_route')
@@ -65,7 +64,7 @@ def register():
         else:
             return Response("<p>invalid form</p>")
 
-    return render_template('register.html', form=form)
+    return render_template('feed.html', form=form)
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])
@@ -120,12 +119,12 @@ def booking(teacher_id):
 #     return render_template('booking.html', teacher=teacher)
 
 @users_bp.route('/editing/<int:teacher_id>', methods=['POST'])
+@login_required
 def editing(teacher_id):
     teacher=Teacher.query.filter_by(id=teacher_id).first()
     name= request.form.get('name')
     city=request.form.get('city')
     fee=request.form.get('fee')
-    fee=int(fee)
     description=request.form.get('description')
     phone_num=request.form.get('phone_num')
     car_type=request.form.get('car_type')
@@ -133,8 +132,8 @@ def editing(teacher_id):
     hebrew=request.form.get('hebrew')
     english=request.form.get('english')
     profilepic=request.form.get('pic')
-    auto=request.form.get('automatic')
-    manu=request.form.get('manual')
+    automatic=request.form.get('automatic')
+    manual=request.form.get('manual')
     if name!="":
         teacher.name=name
     if city!="":
@@ -147,6 +146,7 @@ def editing(teacher_id):
         teacher.phone_num=phone_num
     if car_type!="":
         teacher.car_type=car_type
+    teacher.languages=""
     if arabic is not None:
         teacher.languages+="Arabic "
     if hebrew is not None:
@@ -155,11 +155,13 @@ def editing(teacher_id):
         teacher.languages+="English "
     if profilepic!="":
         teacher.profilepic=profilepic
-    if auto is not None:
-        teacher.gearbox+="Automatic"
-    if manu is not None:
-        teacher.gearbox+="Manual"
+    teacher.gearbox=""
+    if automatic is not None:
+        teacher.gearbox+="Automatic "
+    if manual is not None:
+        teacher.gearbox+="Manual "
 
     db.session.commit()
     return redirect('profile_template')
+
 

@@ -11,7 +11,7 @@
 	<body class="profile_page">
 		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 		<div class="row" style="background-color: rgb(246,246,246);">
-			<div class="col-md-3" style="background-color: rgb(246,246,246);">
+			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
 
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
@@ -25,37 +25,51 @@
 			<table>
 				<tr>
 					<th>Phone Number:</th> 
-					<td> {{teacher.phone_num | truncate(13)}} </td>
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.phone_num | truncate(13)}} </td>
 				</tr>
 				
 				<tr>
 					<th>Email:</th> 
-					<td> {{user.email | truncate(13)}} </td>
+					<td data-toggle="tooltip" data-placement="top"> {{user.email | truncate(13)}} </td>
 				</tr>
 				<tr>
 					<th>City:</th> 
-					<td> {{teacher.city | truncate(13)}} </td>
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.city | truncate(13)}} </td>
+				</tr>
+				<tr>
+					<th>Fee:</th> 
+					<td> {{teacher.cost}} </td>
 				</tr>
 				<tr> 
 					<th>Languages:</th> 
-					<td> {{teacher.languages | truncate(13)}} </td>
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(13)}} </td>
 				</tr>
 
 				<tr>
 					<th>Gearbox:</th> 
-					<td> {{teacher.car_type | truncate(13)}} </td>
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.car_type | truncate(13)}} </td>
 				</tr>
 			</table>
 			<br>
 			</center> 
 		</div>
 	</div>
-		<div class="col-md-9" style="background-color: rgb(246,246,246);">
+		<div class="col-md-8" style="background-color: rgb(246,246,246);">
 			<div id="main_profile">
+
+			{% if user.id == current_user.id %}
+        </div>
+
 			<h3 id="profile_name">
 				Your profile: {{teacher.name}}</h3>
 				<br>
-			<a href="{{ url_for('edit_profile',teacher_id=teacher.id) }}" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
+			<a href="{{ url_for('users.editing',teacher_id=teacher.id) }}" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
+			{% else %}
+			<h3 id="profile_name">
+				Profile: {{teacher.name}}</h3>
+				<br>
+			<a href="#" class="edit_link"><button class="edit_button"><b>BOOK!</b></button></a>
+			{% endif %}
 			<br>
 			<br><br>
 			<h4 class="profile_title">
