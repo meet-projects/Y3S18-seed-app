@@ -53,9 +53,13 @@ def login():
 			return redirect(url_for('feed'))
 		else:
 			return Response("<p>invalid login form</p>")
-	if current_user:
-		return redirect(url_for('feed'))
-	return render_template('login.html', form = form)
+
+	else:		
+		return render_template('login.html', form = form)
+
+	#if current_user:
+	#	return redirect(url_for('feed'))
+	#return render_template('login.html', form = form)
 
 @users_bp.route('/logout')
 @login_required
