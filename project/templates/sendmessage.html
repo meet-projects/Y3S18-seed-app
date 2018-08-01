@@ -1,52 +1,42 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<style type="text/css">
+	
+/*#BSID{
+	font-size: 2em;
+}*/	
+
+#sendbutton{
+	height: 25vh;
+	width: 25vh;
+}
+
+.jumbotron-button{
+
+}
+
+</style>
 
 
 <center>
-<img id="sendbutton" src="{{ url_for('static', filename = 'pictures/Button1.png')}}" height="500" width="500" class="btn btn-info btn-lg">
+{% if booster_seat_id %}
+<!-- <div id="BSID">{{booster_seat_id}}</div> -->
+{% else %}
+<p>hi</p>
+{% endif %}
+
+<div class="container">
+	<div class="jumbotron jumbotron-button">
+	<form action="/booster_seat_alert/{{booster_seat_id}}" method="post" >
+	<button id="sendbutton" type="submit" class="btn btn-info btn-lg"></button>
+	</form>
+	</div>
+</div>
+<!-- <form action="/booster_seat_stop/{{booster_seat_id}}" method="post" >
+<button id="sendbutton1" style="background: url(../static/pictures/Button1.png);" height="500" width="500" type="submit" class="btn btn-info btn-lg"></button>
+</form> -->
+
 </center>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {%endblock%} 

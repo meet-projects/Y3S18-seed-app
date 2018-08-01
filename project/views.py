@@ -26,17 +26,11 @@ BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
 
 
-#Robert's phone:
-ACC_SID = "AC28c8c4fb97d6e0949e2ce45135ad2c9c"
-AUTH_TOKEN = "c55558a79a700c94d537b33d63fe85c6"
-FROM = "+18604312585"
+#Mahd's phone:
+ACC_SID = "ACefef234a7dcd3cb22413db1ecab742a5"
+AUTH_TOKEN = "4a6cd830f3a7b69ec5cae4fde76e34b9"
+FROM = "+18647546228"
 BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
-
-#George's phone:
-ACC_SID1 = "ACd03777f4973c4f1ffc3efed677cc57b1"
-AUTH_TOKEN1 = "b22f0d66110237b42ebf63ccd2b4241e"
-FROM1 = "+18482088916"
-
 
 #Indicator
 IN = 0
@@ -44,19 +38,19 @@ IN = 0
 def user_is_bad():
 	#Threading delay between 2 messages going to be 4 minutes
 	threading.Timer(30.0, user_is_bad).start()
+	print("Thread startred")
 	send_message()
 
 def send_message():
+	#Print debugger
 	#This function will send the messages
 	users = User.query.all()
 	client = Client(ACC_SID, AUTH_TOKEN)
 	#client1 = Client(ACC_SID1, AUTH_TOKEN1)
 	for user in users:
-		try:
-			client.messages.create(to='+972525511099', from_=FROM, body=BODY)
-		except Exception as ex:
-			print('Error with user %s. Error: %s' % (user.id, ex))
-
+		if user.flag == 1:
+			client.messages.create(to=user.number , from_=FROM, body=BODY)
+		print(user.flag)
 
 def activate():
 	global IN
@@ -97,7 +91,7 @@ def check():
 @app.route('/private', methods=['GET','POST'])
 @login_required
 def private():
-	activate()
+
 	return redirect(url_for('account'))
 
 @app.route('/add_contact/<int:contact_num>', methods=['POST'])
@@ -141,21 +135,34 @@ def add_contact(contact_num):
 
 @app.route('/booster_seat_alert/<int:booster_seat_id>', methods=["GET","POST"])
 def booster_seat_alert(booster_seat_id):
-	if request.method == 'POST':
+	print(str(booster_seat_id) + "<<<<<<<<<<<<<<")
+	user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
+	print(request.method)
+	user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
+	if request.method == "POST":
 		user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 		user.flag = 1
-		db.session.commit()	
+		db.session.commit()
+		return redirect(url_for('booster_seat_stop', booster_seat_id = booster_seat_id))
 	else:
-		return render_template('sendmessage.html', user=user , form=form)
+		return render_template('sendmessage.html' ,booster_seat_id = booster_seat_id, user=user)
 
 	
 	##GET : show a button on a template which will send POST request for this booster
 	## POST: set flag to 1 for the user this booster belongs to
 
 
-@app.route('/booster_seat_stop/<int:booster_seat_id>', methods=["GET","POST"])
+@app.route('/booster_seat_stop/<int:booster_seat_id>', methods=["GET","POST"]) 
 def booster_seat_stop(booster_seat_id):
-	if methods
+	user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
+	if request.method == 'POST':
+		user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
+		user.flag = 0
+		db.session.commit()
+		return redirect(url_for('account'))	
+	else:
+		return render_template('sendmessage.html',booster_seat_id=booster_seat_id, user = user)
+
 	##GET : show a button on a template which will send POST request for this booster
  	# POST: set flag to 0 for the user this booster belongs to
 
