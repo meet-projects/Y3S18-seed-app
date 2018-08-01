@@ -146,7 +146,8 @@ def editing(teacher_id):
         teacher.phone_num=phone_num
     if car_type!="":
         teacher.car_type=car_type
-    teacher.languages=""
+    if arabic is not None or english is not None or hebrew is not None:
+        teacher.languages=""
     if arabic is not None:
         teacher.languages+="Arabic "
     if hebrew is not None:
@@ -155,7 +156,8 @@ def editing(teacher_id):
         teacher.languages+="English "
     if profilepic!="":
         teacher.profilepic=profilepic
-    teacher.gearbox=""
+    if automatic is not None or manual is not None:
+        teacher.gearbox=""
     if automatic is not None:
         teacher.gearbox+="Automatic "
     if manual is not None:
