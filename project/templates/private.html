@@ -104,7 +104,7 @@ function prefill_modal(name, relation, phone, contact_num) {
 	  <div class="col-sm-4">
 	 	{% if user.name1 %}
 	  	    <img src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="250" width="250" onclick="prefill_modal("{{user.name1}}", "{{user.relation1}}", "{{user.phone1}}", '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button><br>
-		    <span>{{ user.name1 }} {{ user.phone1 }}</span>
+		    <span>{{ user.name1 }} {{ user.relation1 }} {{ user.phone1 }} </span>
 		{% else %} <!-- this contact doesn't exist in the database -->
 	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal("u", "r", user.phone1, '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>'
 		{% endif %}
@@ -155,13 +155,15 @@ function prefill_modal(name, relation, phone, contact_num) {
 		<form action="/add_contact" method="post">
 		    {{ form.csrf_token }}
 
-		    Name <input type="text" name="name" value=""> <br>
- 			Relation <input type="text" name="relation" value=""> <br>
- 			Phone <input type="text" name="phone" value="">
+		    Name: <input type="text" name="name" value=""> <br> <br>
+ 			Relation: <input type="text" name="relation" value=""> <br> <br>
+ 			Phone: <input type="text" name="phone" value="">
 
  			<input type="hidden" name="contact_num" value="">
 		    <br>
-		    <button class="btn btn-sm btn-warning"  type="submit">ENTER </button>
+		    <center>
+		    <button class="btn btn-sm btn-warning"  type="submit">SUBMIT </button>
+		    </center>
 		  </form>
 
       </div> 
