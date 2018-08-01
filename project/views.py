@@ -84,7 +84,8 @@ def city(city):
 
 	if len(teachers)==0:
 		results="No Results"
-	return render_template('feed.html', teachers=teachers,page="Filtering by City", all_cities=all_cities,results=results,thing=city.capitalize())
+	cityname=City.query.filter_by(id=city).first().city
+	return render_template('feed.html', teachers=teachers,page="Filtering by City", all_cities=all_cities,results=results,thing=cityname)
 
 @app.route('/signup')
 def signup():

@@ -49,7 +49,8 @@ td{
 #profile_picture{
 	border: 2px solid #868A8E;
 	border-radius: 50%;
-  max-width:90%;
+  width:18em;
+  height: 18em;
   display: block;
   margin-top: 15px;
   margin-right: auto;
@@ -80,9 +81,11 @@ td{
 
 .instructor_pic{
   border-radius: 50%;
-  width: 90%;
-  text-align: center;
+  width: 15em;
+  height:15em;
+  display: inline-block;
   margin: 3%;
+  padding-left: 2%;
 }
 
 @media screen and (max-width: 650px) {
