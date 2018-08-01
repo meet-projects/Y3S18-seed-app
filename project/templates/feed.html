@@ -116,8 +116,10 @@
 					<a href="{{url_for('city',city=c.id)}}" class="link">{{c.city}}</a>
 					{% endfor %}
 				</p>
-			</div>		
-				<h3 style="color: black;">{{page}}</h3>
+			</div>
+				<br>
+			<h3 style="color: black;">{{page}}</h3>
+			<h2 style="color: black;">{{thing}}</h2>
 			</center> 
 			<br>
 			<div class="container" style="background-color: rgb(246,246,246);">
@@ -152,12 +154,14 @@
 	  					<button id="contact_btn" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
 	  				</span> 
 	  			</div>
-
+	  			{% endfor %}
+	  		</center>
 	  		</div>
-	  			{% endfor %} 
-	  			<h2 style="color: black;">{{results}}</h2> 		
-	  	</div>
-	  </div>
+	  		<center>
+	  		<h2 style="color: black;">{{results}}</h2>
+	  		</center>
+        </div></div>
+	  	</span>
 
 	</body>
 </html>
