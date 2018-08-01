@@ -25,6 +25,7 @@
 {{rating.title}}
 By:{{rating.user}} <br>
 {{rating.review}}<br>
+at: {{rating.time}}
 -------------------
 </div> 
 {%endfor%}
@@ -42,6 +43,11 @@ By:{{rating.user}} <br>
 
 </form>
 
+
+
+<form action="{{url_for('im_interested', interested_user_id=current_user.id, st_id=creator.id, journey_id=journey.id)}}" method="POST">
+	<button type="submit"> I'm Interested! </button>
+</form>
 
 
 {% endblock %}
