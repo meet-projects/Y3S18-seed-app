@@ -153,7 +153,7 @@ def editing(teacher_id):
     if profile_picture!="":
         teacher.profile_picture=profile_picture
     else:
-        teacher.profile_picture=""
+        pass
     if automatic is not None or manual is not None:
         teacher.gearbox=""
     if automatic is not None:
