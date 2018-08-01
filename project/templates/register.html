@@ -10,8 +10,8 @@
  <body>
 
   </div>
-  
- <br>
+
+<br>
 <div class="signup_container">
 
 <form action="{{ url_for('users.register') }}" method="POST">
@@ -38,7 +38,7 @@
       <input type="password" placeholder="********" name="psw" class="bars input" required>
     </span>
 
-    <span class="field" style="float: left; width: 100%;">
+    <span class="field" style="float: left; width: 100%; margin-bottom: 20px;">
       <label for="psw-repeat" class="label"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" class="bars input" required>
     </span>
@@ -88,9 +88,8 @@
  -->
 
       <!-- <input type="checkbox" name="keep" style="float: left;margin: 5px;"><p style="color: white; float: left;">Keep me signed in</p> --> 
-      <br>
-      <span>
-        <button class="btn btn-sm btn-success signup-btn" type="submit">Sign Up</button>     
+        <span>
+        <button class="signup-btn" type="submit" style="text-align: center;">Sign Up</button>  
       </span>
   </form> 
  </div>
