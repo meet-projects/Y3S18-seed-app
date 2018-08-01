@@ -35,6 +35,12 @@
 							{% endfor %}
 						</select> 
 					 </td>
+				<tr> 
+
+					<th> <u> Fee (only in numbers, by Shekel) :</u></th> 
+					<td>
+					<input type="text" placeholder="{{teacher.cost}}" name="fee"> 
+					</td>
 				</tr>
 				<tr> 
 					<th> <u> Languages:</u></th> 
@@ -44,21 +50,17 @@
 						<input type="checkbox" name="english" value="english">English </option>
 						</td>
 				</tr>
-				<tr> 
-					<th><u> License Number:</u></th>
-					<td> <input type="text" name="license" minlength="6" maxlength="8" placeholder="{{ teacher.license_num }}"> </td>
-				</tr>
 				<tr>
 					<th> <u> Gearbox:</u></th> 
-					<td> <input type="checkbox" name="car_type" name="automatic">Automatic
-					 <input type="checkbox" name="car_type" name="manual">Manual
+					<td> <input type="checkbox" name="automatic" value="automatic">Automatic
+					 	<input type="checkbox" name="manual" value="manual">Manual
 					  </td>
 				</tr>
 			</table>
 			<br> 
 		</div>
 		</div>
-		<div class="col-md-9" style="background-color: rgb(246,246,246);">
+		<div class="col-md-8" style="background-color: rgb(246,246,246);">
 			<div id="main_profile">
 			<h3 id="profile_name">
 				EDIT PROFILE</h3>
@@ -67,11 +69,11 @@
 			ABOUT
 			</h4>
 			<div id="profile_about">
-				<textarea id="edit_about">{{ teacher.description }}
+				<textarea name="description" id="edit_about">{{ teacher.description }}
 				</textarea>
 					 
 			</div>
-			<input type="submit" name="submit" class="edit_button">
+			<input type="submit" name="submit" class="edit_button" value="Done!">
 			<a href="{{url_for('profile_template')}}" class="edit_link"><button class="edit_button">Cancel</button></a>
 		</div>
 	</div>
