@@ -31,9 +31,9 @@
     
 
     <li><a href="{{url_for('browse')}}">LOGO</a></li>
-    {% if logged_in==True %}
+    {% if current_user %}
   
-        {% if current_user.is_storyteller == True %}
+        {% if current_user.is_storyteller %}
         <li><a href="{{url_for('display_notifications', st_id=current_user.id)}}"><span class="glyphicon glyphicon-bell"></span> </a> </li>
         {%else%}
 

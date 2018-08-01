@@ -1,18 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html>
-<head>
-	<title> Profile </title>
-</head>
-<body>
 
-
-{%if user%}
 <img src="{{url_for('static', filename='profile.png')}}">
-<h2> {{user.name}} </h2>
-<h3> {{user.email}} </h3>
-{%if is_user == True%}
+<h2> {{profile.name}} </h2>
+<h3> {{profile.email}} </h3>
+{% if current_user.id == profile.id %}
 	<p>this is your profile<p>
 
 
@@ -20,13 +12,8 @@
 			<button class="button" type="submit">Become a Storyteller</button>
 		</form>
 
-{%else%}
+{% else %}
 	<p>this is not your profile</p>
-{%endif%}
-{%endif%}
-
-</body>
-</html>
-
+{% endif %}
 
 {% endblock %}

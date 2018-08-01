@@ -1,79 +1,49 @@
 from flask import render_template, request, Flask, session, redirect, url_for
 from flask import session as login_session
-from flask_login import login_required
+from flask_login import login_required, current_user
 from . import app, db
 import time
 
 from project.models import Journey, User, Ratings, Notification
 
+########################################
+
+############################################
 
 
 @app.route('/browse')
+@login_required
 def browse():
 	all_journeys = Journey.query.all()
-	print(session)
-	if 'user_id' in session:
-		user_id = session['user_id']
-		current_user = User.query.filter_by(id=user_id).first()
-		logged_in = True
-		print(logged_in)
-	else:
-		logged_in = False
-		current_user = 'Not Logged In'
-	return render_template('browse.html', all_journeys=all_journeys, logged_in=logged_in, current_user=current_user)
+	return render_template('browse.html', all_journeys=all_journeys)
 
 
 @app.route('/apply', methods=['GET', 'POST'])
 @login_required
 def apply():
-	if 'user_id' in session:
-		user_id = session['user_id']
-		current_user = User.query.filter_by(id=user_id).first()
-		logged_in = True
-	else:
-		logged_in =  False
-	user_id = session['user_id']
-	user = User.query.filter_by(id=user_id).first()
-	print(user.name)
-	user_info = User.query.filter_by(id=request.form.get('user_id')).first()
 	if request.method=='POST':
-		user_info.country = request.form.get('country')
-		user_info.profession = request.form.get('profession')
-		user_info.birthday = request.form.get('birthday')
-		user_info.city = request.form.get('city')
-		user_info.number = request.form.get('number')
-		user_info.is_storyteller = True
-		db.session.add(user_info)
+		current_user.country    	= request.form.get('country')
+		current_user.profession 	= request.form.get('profession')
+		current_user.birthday   	= request.form.get('birthday')
+		current_user.city      		= request.form.get('city')
+		current_user.number         = request.form.get('number')
+		current_user.is_storyteller = True
 		db.session.commit()
-		return render_template('st_profile.html', current_user=user, user=user_info, is_user=True, logged_in=logged_in)
+		return redirect(url_for('profile', user_id=current_user))
 	else:
-		if user.is_storyteller==True:
-			return render_template('st_profile.html', current_user=user, user=user_info, is_user=True, logged_in=logged_in) 
+		if current_user.is_storyteller==True:
+			return redirect(url_for('profile', user_id=current_user.id))
 		else:
-			return render_template('apply.html', current_user=user, logged_in=logged_in)
-
+			return render_template('apply.html')
 
 @app.route('/profile/<int:user_id>')
 def profile(user_id):
-	user = User.query.filter_by(id=user_id).first()
-	if 'user_id' in session: #If there is a user logged in
-		logged_in = True
-		current_user = User.query.filter_by(id=user_id).first()
-		current_user_id = session['user_id']
-		current_user = User.query.filter_by(id=current_user_id).first()
-		if user.id == current_user.id:
-			is_user=True
-		else:
-			is_user=False
-	else:
-		current_user = 'Not Logged In'
-		logged_in = False
-		is_user = False
-	if user.is_storyteller==True:
+	profile = User.query.filter_by(id=user_id).first()
+	if profile.is_storyteller==True:
 		st_journeys = Journey.query.filter_by(creator_id=user_id).all()
-		return render_template('st_profile.html', user=user, is_user=is_user, current_user=current_user,st_journeys=st_journeys, is_storyteller=True, logged_in=logged_in)
+		return render_template('st_profile.html',st_journeys=st_journeys, profile=profile)
 	else:
-		return render_template('profile.html',user=user, is_user=is_user, current_user=current_user, is_storyteller=False, logged_in=logged_in)
+		return render_template('profile.html', profile=profile)
 
 
 
