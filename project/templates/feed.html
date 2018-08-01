@@ -112,9 +112,10 @@
 					<a href="{{url_for('city',city=c.id)}}" class="link">{{c.city}}</a>
 					{% endfor %}
 				</p>
-			</div></center> 
+			</div>
 				<br>
-<h3 style="color: black;">{{page}}</h3>
+			<h3 style="color: black;">{{page}}</h3>
+			</center> 
 			<div class="row">
 	  			{% for teacher in teachers %}
 	  			<!--<div class="column">
@@ -146,10 +147,10 @@
 	  					<a href="{{url_for('profile', teacher_id=teacher.id)}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
 	  				</span>
 	  			</div>
-	  			</center>
 	  			{% endfor %}
 	  			<h2 style="color: black;">{{results}}</h2>
 	  		</div>
+	  		</center>
 	  	</span>
 
 	</body>
