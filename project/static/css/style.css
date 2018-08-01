@@ -6,6 +6,7 @@
   text-align: center;
   margin: auto;
   margin-top: 0;
+  min-height: 700px;
 }
 
 #sort_bar{
