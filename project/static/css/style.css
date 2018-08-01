@@ -35,9 +35,6 @@ form{
 	color: rgb(31, 122, 140);
 	font: helvetica;
 }
-table{
-	font-family: "Avenir Next";
-}
 th{
 	text-align: left;
   color: rgb(40,40,40);
@@ -229,11 +226,13 @@ font-weight: bold;
   line-height: normal;
   display: inline-block;
   color: rgb(70,70,70);
+  height:80%;
+  width: 100%;
 }
 #profile_about{
   text-align: justify;
-  height:100px;
-  width: 750px;
+  height:80%;
+  width: 100%;
 }
 #about_text{
   max-width:20px;
@@ -271,19 +270,7 @@ font-weight: bold;
   text-decoration: none;
 }
 
-
-
-
-
-
-
 /* The Modal (background) */
-
-
-
-
-
-
 
 .modal {
     display: none; /* Hidden by default */
@@ -354,8 +341,12 @@ font-weight: bold;
     color: #fefefe;
 }
 #edit_about{
-    width: 618px;
-    height: 85px;
+    width: 80%;
+    height: 80%;
+    font-size: 18px;
+    font-family: helveticaneuelight;
+    color: grey;
+    resize: none;
 }
 
 .filters{

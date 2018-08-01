@@ -1,5 +1,5 @@
 from flask import render_template, session
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from project import db
 from project.models import User,Teacher,Request, City
@@ -87,9 +87,7 @@ def signup():
 @app.route('/profile_template')
 @login_required
 def profile_template():
-	user_id = session['user_id']
-	user=User.query.filter_by(id=user_id).first()
-	teacher2=Teacher.query.filter_by(user_id=user_id).first()
+	teacher2=Teacher.query.filter_by(user_id=current_user.id).first()
 	this_teach_id=teacher2.id
 	all_cities = City.query.all()
 	print(user)

@@ -8,7 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type="text/javascript" src="../static/js/script.js"> </script>
 		<title>
-			{{teacher.name}}'s Profile
+			{{teacher.fname}}'s Profile
 		</title>
 	</head>
 	<body class="profile_page">
@@ -19,9 +19,9 @@
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
 		<center>
 			<br>
-			<p align="center"><i> {{teacher.name}}</i> </p>
+			<p align="center"><i> {{teacher.fname}}</i> </p>
 			<br>
-			<table>
+			<table class="side_profile_table">
 				<tr> 
 
 					<th>City:</th> 
@@ -36,10 +36,6 @@
 				<tr> 
 					<th>Languages:</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(13)}} </td>
-				</tr>
-				<tr> 
-					<th>License Number:</th>
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.license_num | truncate(13)}} </td>
 				</tr>
 				<tr>
 					<th>Gearbox:</th> 
@@ -88,16 +84,15 @@
 			</center>
 		</div>
 	</div>
-</div>
 			
 		
-		<div class="col-md-8" >
+		<div class="col-md-8" style="background-color: rgb(246,246,246);">
 			<div id="main_profile">
 			<h3 id="profile_name">
 				{{teacher.name}}</h3>
 			<br>
 			<h4 class="profile_title">
-			ABOUT
+			About
 			</h4>
 			<div id="profile_about">
 				<p id="about_p">
@@ -106,6 +101,7 @@
 			</div>
 			<br>
 		</div>
+	 </div>
 	 </div> 
 	</body>
 </html>
