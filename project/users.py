@@ -138,7 +138,9 @@ def editing(teacher_id):
         teacher.name=name
     if city!="":
         teacher.city=city
-    if fee!=0:
+    if fee=="":
+        pass
+    else:
         teacher.cost=fee
     if description!="":
         teacher.description=description
