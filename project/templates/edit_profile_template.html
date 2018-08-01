@@ -61,9 +61,9 @@
 				</tr>
 			</table>
 			<br> 
-		</div>
-		</div>
-		<div class="col-md-8" style="background-color: rgb(246,246,246);">
+			</div>
+			</div>
+			<div class="col-md-8" style="background-color: rgb(246,246,246);">
 			<div id="main_profile">
 			<h3 id="profile_name">
 				Edit Profile</h3>
@@ -72,15 +72,17 @@
 			About
 			</h4>
 			<div id="profile_about">
-				<textarea name="description" id="edit_about">{{ teacher.description }}
-				</textarea>
+				<textarea name="description" id="edit_about">{{ teacher.description }}</textarea>
 					 
 			</div>
-			<input type="submit" name="submit" class="edit_button" value="Done">
-			<a onclick="goBack()" class="edit_link"><button class="edit_button">Cancel</button></a>
+			<input type="submit" name="submit" class="edit_button" value="Done!">
+		</form>
+		<a href="{{url_for('profile_template')}}" class="edit_link">Cancel</a><br><br>
+
+		<center><a href="{{url_for('users.delete',teacher_id=teacher.id) }}" class="edit_link" >Delete user</a></center>
+
 		</div>
 	</div>
-</form>
 </div>
 	</body>
 </html>
