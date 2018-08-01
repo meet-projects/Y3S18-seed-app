@@ -52,7 +52,7 @@ def price_sort(sorting):
 	elif sorting == "high":
 		teachers=db.session.query(Teacher).order_by("cost desc").all()
 
-	return render_template('feed.html', teachers=teachers, all_cities=all_cities, page="Filtering by Price",results="",thing=sorting)
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities, page="Filtering by Price",results="",thing=sorting.capitalize())
 
 
 @app.route('/lang/<language>')
@@ -70,7 +70,7 @@ def language_filter(language):
 			teachers.append(t)
 	if len(teachers)==0:
 		results="No Results"
-	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results, all_cities=all_cities,thing=language)
+	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results, all_cities=all_cities,thing=language.capitalize())
 
 @app.route('/city/<int:city>')
 def city(city):
@@ -84,7 +84,7 @@ def city(city):
 
 	if len(teachers)==0:
 		results="No Results"
-	return render_template('feed.html', teachers=teachers,page="Filtering by City", all_cities=all_cities,results=results,thing=city)
+	return render_template('feed.html', teachers=teachers,page="Filtering by City", all_cities=all_cities,results=results,thing=city.capitalize())
 
 @app.route('/signup')
 def signup():
