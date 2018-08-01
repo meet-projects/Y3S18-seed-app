@@ -16,6 +16,7 @@ import sys, math
 @app.route('/feed')
 def feed():
 	all_teachers = db.session.query(Teacher).order_by("id desc").all()
+	all_cities = City.query.all()
 	#teachers = []
 	#pages = int(math.ceil(len(all_teachers)/4))
 	#if len(all_teachers)>=4:
@@ -23,7 +24,7 @@ def feed():
 	#		teachers.append(all_teachers[t])
 	#else:
 	#teachers = all_teachers
-	return render_template('feed.html', teachers=all_teachers)
+	return render_template('feed.html', teachers=all_teachers, all_cities=all_cities)
 
 ##@app.route('/feed/<int:pagenum>')
 ##def feed_num(pagenum):
@@ -43,12 +44,13 @@ def feed():
 
 @app.route('/sort/<sorting>',)
 def price_sort(sorting):
+	all_cities = City.query.all()
 	teachers=[]
 	if sorting == "low":
 		teachers=db.session.query(Teacher).order_by("cost asc").all()
 	elif sorting == "high":
 		teachers=db.session.query(Teacher).order_by("cost desc").all()
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities)
 
 '''@app.route('/hightolow',)
 def hightolow():
@@ -69,6 +71,7 @@ def area_filter(area):
 
 @app.route('/lang/<language>')
 def language_filter(language):
+	all_cities = City.query.all()
 	all_teachers=db.session.query(Teacher).all()
 	teachers = []
 	for t in all_teachers:
@@ -78,7 +81,17 @@ def language_filter(language):
 			l = []
 		if l.count(language.capitalize()) > 0:
 			teachers.append(t)
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities)
+
+@app.route('/city/<int:city>')
+def city(city):
+	all_cities = City.query.all()
+	all_teachers = Teacher.query.all()
+	teachers = []
+	for t in all_teachers:
+		if t.city == City.query.filter_by(id=city).first().city:
+			teachers.append(t)
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities)
 
 @app.route('/signup')
 def signup():
@@ -90,9 +103,8 @@ def profile_template():
 	teacher2=Teacher.query.filter_by(user_id=current_user.id).first()
 	this_teach_id=teacher2.id
 	all_cities = City.query.all()
-	print(user)
 	print(teacher2)
-	return render_template('profile_template.html',teacher=teacher2,user=user, all_cities=all_cities)
+	return render_template('profile_template.html',teacher=teacher2,user=current_user, all_cities=all_cities)
 
 
 @app.route('/profile/<int:teacher_id>')
