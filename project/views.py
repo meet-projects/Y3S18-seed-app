@@ -2,7 +2,7 @@ from flask import render_template, session
 from flask_login import login_required
 
 from project import db
-from project.models import User,Teacher,Request
+from project.models import User,Teacher,Request, City
 from . import app
 from sqlalchemy import desc,asc
 
@@ -82,14 +82,14 @@ def language_filter(language):
 
 @app.route('/signup')
 def signup():
-	render_template('register.html')
+	return render_template('register.html')
 
 @app.route('/profile_template')
 @login_required
 def profile_template():
-	teacher_id = session['user_id']
-	user=User.query.filter_by(id=teacher_id).first()
-	teacher2=Teacher.query.filter_by(user_id=teacher_id).first()
+	user_id = session['user_id']
+	user=User.query.filter_by(id=user_id).first()
+	teacher2=Teacher.query.filter_by(user_id=user_id).first()
 	this_teach_id=teacher2.id
 	return render_template('profile_template.html',teacher=teacher2,user=user)
 
@@ -101,8 +101,9 @@ def profile(teacher_id):
 
 @app.route('/<int:teacher_id>/edit_profile')
 def edit_profile(teacher_id):
-	teach=Teacher.query.filter_by(id=teacher_id).first()
-	return render_template('edit_profile_template.html',teacher=teach)
+	teach = Teacher.query.filter_by(id=teacher_id).first()
+	all_cities = City.query.all()
+	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
 @app.route('/test_feed')
 def feed_test():

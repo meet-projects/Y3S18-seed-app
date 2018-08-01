@@ -2,7 +2,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css'}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
 		<title>
 			Edit Your profile
 		</title>
@@ -12,21 +12,34 @@
 		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 	<div class="row" style="background-color: rgb(246,246,246);">
 		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}">
-			<div id="side_profile" align="left" class="col-md-3">
+			<div align="left" class="col-md-4" style="background-color: rgb(246,246,246);">b8
+				<div id="side_profile">
+
 				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
 			<br>
-			<p>Your name:<input type="text" value="{{ teacher.name }}"> </p>
+			<p>Your name:<input type="text" name="name" value="{{ teacher.name }}"> </p>
 			<br>
 			<table>
 				<tr>
 					<th> <u> Phone number:</u></th> 
-					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}"> </td>
+					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}" name="phone_num"> </td>
 				</tr>
 				<tr> 
 
 					<th> <u> City:</u></th> 
 					<td>
-					<input type="text" placeholder="{{ teacher.city }}"> 
+				<tr> 
+
+					<th> <u> Fee (only in numbers, by Shekel) :</u></th> 
+					<td>
+					<input type="text" placeholder="{{teacher.cost}}" name="fee"> 
+					</td>
+					<td>
+						<select>
+							{% for c in all_cities %}
+							<option value="{{c.city}}">{{c.city}}</option>
+							{% endfor %}
+						</select> 
 					 </td>
 				</tr>
 				<tr> 
@@ -37,20 +50,18 @@
 						<input type="checkbox" name="english" value="english">English </option>
 						</td>
 				</tr>
-				<tr> 
-					<th><u> License Number:</u></th>
-					<td> <input type="text" name="license" minlength="6" maxlength="8" placeholder="{{ teacher.license_num }}"> </td>
-				</tr>
 				<tr>
 					<th> <u> Gearbox:</u></th> 
-					<td> <input type="checkbox" name="car_type" name="automatic">Automatic
-					 <input type="checkbox" name="car_type" name="manual">Manual
+					<td> <input type="checkbox" name="automatic" value="automatic">Automatic
+					 	<input type="checkbox" name="manual" value="manual">Manual
 					  </td>
 				</tr>
 			</table>
 			<br> 
 		</div>
-		<div id="main_profile" class="col-md-9">
+		</div>
+		<div class="col-md-8" style="background-color: rgb(246,246,246);">
+			<div id="main_profile">
 			<h3 id="profile_name">
 				EDIT PROFILE</h3>
 			<br>
@@ -58,13 +69,14 @@
 			ABOUT
 			</h4>
 			<div id="profile_about">
-				<textarea id="edit_about">{{ teacher.description }}
+				<textarea name="description" id="edit_about">{{ teacher.description }}
 				</textarea>
 					 
 			</div>
 			<input type="submit" name="submit" class="edit_button">
 			<a href="{{url_for('profile_template')}}" class="edit_link"><button class="edit_button">Cancel</button></a>
 		</div>
+	</div>
 </form>
 </div>
 	</body>
