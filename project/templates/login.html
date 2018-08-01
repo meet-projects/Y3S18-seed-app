@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
 
 {% extends "layout.html" %}
+{% block head %}
+      <title>Log In!</title>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/loginstyle.css') }}">
+{% endblock %}
+
+
 {% block content %}
-
-
-
-
-
 
 <style>
 .form-hello{
@@ -20,19 +19,7 @@
 
   background-color: #D8D8D8;
   border-radius: 5px;
-  height: 30px;
-
-}
-h3{ /*Username*/
-
-  font-size: 30px;
-}
-h4{   /*Password*/
-
-
-  font-size: 30px;
-}
-button{
+  heightight: 30px;
 
 }
 .btn-warning {background-color: #FFA400}
@@ -69,69 +56,28 @@ p2{
 </style>
 
 
+<div class="container" style="max-width: 960px">
+  <div class="row">
+    <div class="col-sm-6"> <img src="{{ url_for('static', filename = 'pictures/logosmall1.png')}}" width="360px" >
+    	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <h2> Log In:</h2> 
+          <form action="{{ url_for('users.login') }}" method="post">
+            {{ form.csrf_token }}
+            {{ form.username(class="form-hello", placeholder="Username:") }} 
+            <br>
+            {{ form.password(class="form-hello1", placeholder="Password:") }}
 
+            <br>
+            <button class="btn btn-sm btn-warning" type="submit">ENTER </button>
+          </form>
+    </div>
+    <div class="col-sm-6">
 
-
-
-
-
-
-
-
-
-  <head>
-      <title>Log In!</title>
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/loginstyle.css') }}">
-  </head>
-
-
-
-
-  <body>
-
-  	 <div class="row">
-  <div class="col-sm-4"> <img src="{{ url_for('static', filename = 'pictures/logosmall1.png')}}" >
-    	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> </div>
-
-
-
-  <div class="col-sm-4">
-  	<br>
-	  <br><br><br><br><br><br><br><br>
-
-<!-- <div class="add-user" class="relative" > -->
-
-
-
-
-
-
-<center>
-
-
-<h2> Log In:</h2> 
-<form action="{{ url_for('users.login') }}" method="post">
-      {{ form.csrf_token }}
-    {{ form.username(class="form-hello") }} 
-    <br>
-    {{ form.password(class="form-hello1") }}
-
-    <br>
-    <button class="btn btn-sm btn-warning" type="submit">ENTER </button>
-  </form>
- 
-
-<h3>Username:</h3>
- <h4>Password:</h4>
- <p>Don't have an account?</p>
- <p1> Create one</p1>
- <p2> <a href="{{url_for('users.register')}}"> HERE</a></p2>
-
-</div>
-
-
-
-</div>
-</center>
+           <p>Don't have an account?</p>
+           <p1> Create one</p1>
+           <p2> <a href="{{url_for('users.register')}}"> HERE</a></p2>
+      </div>
+    </div>
+  </div>
 	
 {% endblock %}
