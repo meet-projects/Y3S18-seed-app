@@ -84,7 +84,7 @@ def language_filter(language):
 			l = []
 		if l.count(language.capitalize()) > 0:
 			teachers.append(t)
-    if teachers.length()==0:
+		if teachers.length()==0:
 			results="No Results"
 	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results, all_cities=all_cities)
 
