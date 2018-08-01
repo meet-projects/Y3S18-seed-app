@@ -38,3 +38,16 @@ h2{
 	font-family: helveticaneuelight;
 	color: grey;
 }
+
+.signup-btn{
+	background-color: #4CAF50;
+	font-size: 24px;
+	font-family: helveticaneuelight;
+	color: white;
+	width: 25%;
+}
+
+.signup-btn:hover{
+	background-color: white;
+	color: #4CAF50;
+	font-family: helveticaneuelight;

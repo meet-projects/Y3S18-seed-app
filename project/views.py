@@ -82,7 +82,7 @@ def language_filter(language):
 
 @app.route('/signup')
 def signup():
-	render_template('register.html')
+	return render_template('register.html')
 
 @app.route('/profile_template')
 @login_required
