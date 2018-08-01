@@ -123,7 +123,7 @@ def editing(teacher_id):
     arabic=request.form.get('arabic')
     hebrew=request.form.get('hebrew')
     english=request.form.get('english')
-    profilepic=request.form.get('profilepic')
+    profile_picture=request.form.get('profile_picture')
     automatic=request.form.get('automatic')
     manual=request.form.get('manual')
     if fname!="":
@@ -150,10 +150,10 @@ def editing(teacher_id):
         teacher.languages+="Hebrew "
     if english is not None:
         teacher.languages+="English "
-    if profilepic!="":
-        teacher.profilepic=profilepic
+    if profile_picture!="":
+        teacher.profile_picture=profile_picture
     else:
-        teacher.profilepic=""
+        teacher.profile_picture=""
     if automatic is not None or manual is not None:
         teacher.gearbox=""
     if automatic is not None:
