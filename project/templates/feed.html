@@ -111,10 +111,13 @@
 					<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
 					<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
 				</p>
-			</div></center> 
+			</div>		
+				<h3 style="color: black;">{{page}}</h3>
+</center> 
 			<br>
 			<div class="container" style="background-color: rgb(246,246,246);">
 			<div class="row" style="background-color: rgb(246,246,246);">
+
 	  			{% for teacher in teachers %}
 	  			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 	  			<!--<div class="column">
@@ -146,7 +149,8 @@
 	  				</span> 
 	  			</div>
 	  		</div>
-	  			{% endfor %}  		
+	  			{% endfor %} 
+	  			<h2 style="color: black;">{{results}}</h2> 		
 	  	</div>
 	  </div>
 	</body>

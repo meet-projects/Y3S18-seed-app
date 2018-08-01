@@ -44,7 +44,7 @@ def register():
                 teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","")
                 db.session.add(teacher)
                 db.session.commit()
-                login_user(user, remember=True)
+                login_user(user, rsemember=True)
 
                 return redirect(url_for('edit_profile',teacher_id=teacher.id))
 
@@ -123,7 +123,7 @@ def editing(teacher_id):
     arabic=request.form.get('arabic')
     hebrew=request.form.get('hebrew')
     english=request.form.get('english')
-    profilepic=request.form.get('pic')
+    profile_picture=request.form.get('profile_picture')
     automatic=request.form.get('automatic')
     manual=request.form.get('manual')
     if fname!="":
@@ -150,8 +150,10 @@ def editing(teacher_id):
         teacher.languages+="Hebrew "
     if english is not None:
         teacher.languages+="English "
-    if profilepic!="":
-        teacher.profilepic=profilepic
+    if profile_picture!="":
+        teacher.profile_picture=profile_picture
+    else:
+        teacher.profile_picture=""
     if automatic is not None or manual is not None:
         teacher.gearbox=""
     if automatic is not None:
