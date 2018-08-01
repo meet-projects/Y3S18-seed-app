@@ -39,10 +39,46 @@
 }
 
 	  </style>
+
+
+	  <style>
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 105px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #727272;
+}
+</style>
 </head>
 <body >
-	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
-	<a href="feed">Home</a>
+	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag">
+	<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="feed">Stories</a></li>
+  <li><a href="#contact">Saved artist</a></li>
+  <li><a href="aboutus">About</a></li>
+  <li><a href="post">Post</a></li>
+</ul>
+  <h1> Add a story</h1>
 	<p>Share your story with the Artflict community </p>
 	<p> Have an artist illustrate your story, and bring it to life</p><br>
 <form action="{{ url_for('add_post.adding_posts') }}" method="post">
@@ -50,7 +86,7 @@
  <p class="text">Title:</p>   {{ form.title(placeholder= "Title") }}<br><br>
   <p class="text">Title:</p>   {{ form.text(placeholder= "Story") }}<br><br>
 
-    <button class="btn btn-sm btn-success" type="submit">Share</button>
+    <button class="btn btn-sm btn-success" type="submit" id="button">Share</button>
 
 </form>
 

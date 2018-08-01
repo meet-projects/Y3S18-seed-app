@@ -15,16 +15,47 @@
 	  	color: white;
 	  }
 	  </style>
+
+	  <style>
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 100px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #727272;
+}
+</style>
+
 </head>
 <body>
-	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag">
+<!--	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag">-->
 
-<ul>
-	  <li class="menu_item"><a href="{{url_for('users.index_page')}}">Home</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.stories')}}">Stories</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.Saved_artist')}}">Saved Artist</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.aboutus')}}">About us</a></li>
-	  <li class="menu_item"><a href="{{url_for('users.post')}}">Post</a></li>
+<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+	
+	<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="feed">Stories</a></li>
+  <li><a href="#contact">Saved artist</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="post">Post</a></li>
 </ul>
 <h1>About ArtFlict</h1><br>
 <br>
@@ -36,7 +67,7 @@
 <header>Project meneger:</header>
 <header>Designer:</header>
 <header>Developers:</header>
-<header>Business developers"</header>
+<header>Business developers:</header>
 <br>
 <h2>About us</h2>
 <p>We are a students from meet</p>

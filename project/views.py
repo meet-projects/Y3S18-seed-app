@@ -28,3 +28,11 @@ def profile():
     user = User.query.filter_by(id = profileID).first()
     posts = Post.query.filter_by(AuthorID = profileID).first()
     return render_template('profile.html', user = user, posts = posts)
+
+
+@app.route('/aboutus')
+def aboutus():
+    return render_template('aboutus.html')
+
+
+
