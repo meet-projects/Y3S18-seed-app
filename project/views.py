@@ -5,6 +5,8 @@ from . import app
 from project.forms import AddArtForm    
 
 
+
+#stories without pics
 @app.route('/stories')
 @login_required
 def stories():
@@ -14,14 +16,16 @@ def stories():
     return render_template('stories.html', user=u, posts = posts, form = form)
 
 
-@app.route('/main')
+
+@app.route('/feed')
 @login_required
-def main():
+def feed():
     print("Hello World")
     form = AddArtForm(request.form)
     u = User.query.filter_by(id=session['user_id']).first()
     posts = Post.query.filter(Post.ArtURL != '').all()
     return render_template('mainfeed.html', user=u, posts = posts, form = form)
+
 
 
 @app.route('/profile', defaults={'username':None})
@@ -38,7 +42,7 @@ def profile(username = None):
     #posts = Post.query.filter_by(AuthorID = profileID).first()
     #return render_template('profile.html', user = user, posts = posts)
 
-
+#read more function and add art
 @app.route('/viewstory/<int:PostID>', methods = ['GET','POST'])
 def view_story(PostID):
     form = AddArtForm(request.form)
