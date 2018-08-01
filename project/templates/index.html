@@ -51,6 +51,7 @@
       <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
+    <div style="color: grey; font-family: helveticaneuelight;">
       <form action="{{ url_for('users.login') }}" method="post">
        <h2 id="login_title">Log In</h2>
     {{ loginform.csrf_token }}
@@ -60,6 +61,7 @@
     {{ loginform.password(placeholder="Password") }}
     <br>
     <br>
+	</div>
 <!--     <div id="keep_sign_in">
       <input type="checkbox" name="keep_sign_in" style="float:left;margin-left: 10%;" checked> Keep me signed in
     </div> -->
