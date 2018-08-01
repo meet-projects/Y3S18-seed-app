@@ -42,12 +42,15 @@
 				</tr>
 				<tr> 
 					<th>Languages:</th> 
+
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(13)}} </td>
+
 				</tr>
 
 				<tr>
 					<th>Gearbox:</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.car_type | truncate(13)}} </td>
+
 				</tr>
 			</table>
 			<br>
@@ -63,7 +66,7 @@
 			<h3 id="profile_name">
 				Your profile: {{teacher.name}}</h3>
 				<br>
-			<a href="{{ url_for('users.editing',teacher_id=teacher.id) }}" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
+			<a href="{{ url_for('edit_profile',teacher_id=teacher.id) }}" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
 			{% else %}
 			<h3 id="profile_name">
 				Profile: {{teacher.name}}</h3>

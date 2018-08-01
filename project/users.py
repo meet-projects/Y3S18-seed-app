@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User,Teacher,Request
+from project.models import User,Teacher,Request, City
 
 users_bp = Blueprint('users', __name__)
 
@@ -160,8 +160,13 @@ def editing(teacher_id):
         teacher.gearbox+="Automatic "
     if manual is not None:
         teacher.gearbox+="Manual "
-
     db.session.commit()
     return redirect('profile_template')
 
+        db.session.commit()
+        return redirect('profile_template')
+    else:
+        teach = Teacher.query.filter_by(id=teacher_id).first()
+        all_cities = City.query.all()
+        return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 

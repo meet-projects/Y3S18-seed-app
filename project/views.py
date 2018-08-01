@@ -55,7 +55,7 @@ def hightolow():
 	teachers=db.session.query(Teacher).order_by("cost desc").all()
 	return render_template('feed.html', teachers=teachers)'''
 
-@app.route('/<area>')
+'''@app.route('/<area>')
 def area_filter(area):
 	l = area.split("_")
 	area = ""
@@ -63,7 +63,7 @@ def area_filter(area):
 		w = w.capitalize()
 		area = area+w
 	teachers=db.session.query(Teacher).filter_by(city="area").all()
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers)'''
 
 
 
@@ -98,12 +98,6 @@ def profile_template():
 def profile(teacher_id):
 	this_teach=Teacher.query.filter_by(id=teacher_id).first()
 	return render_template('small_profile.html', teacher=this_teach)
-
-@app.route('/<int:teacher_id>/edit_profile')
-def edit_profile(teacher_id):
-	teach = Teacher.query.filter_by(id=teacher_id).first()
-	all_cities = City.query.all()
-	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
 @app.route('/test_feed')
 def feed_test():
