@@ -60,12 +60,11 @@
 		<div class="col-md-8" style="background-color: rgb(246,246,246);">
 			<div id="main_profile">
 
-        </div>
 
 			<h3 id="profile_name">
 				Your profile: {{teacher.name}}</h3>
 				<br>
-			<a href="{{ url_for('edit_profile',teacher_id=teacher.id) }}" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
+			<a href="{{ url_for('edit_profile',teacher_id=teacher.id) }}" method="POST" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
 			<br><br>
 			<h4 class="profile_title">
 			ABOUT
@@ -102,6 +101,7 @@
 				</table>
 				<br><br>
 			{% endfor %}
+		</div>
 		</div>
 	</div>
 	</div>

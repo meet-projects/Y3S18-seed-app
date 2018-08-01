@@ -25,17 +25,6 @@ def register():
         password = request.form.get('psw')
         password2= request.form.get('psw-repeat')
         name= request.form.get('name')
-        #city=request.form.get('city')
-        #fee=request.form.get('fee')
-        #description=request.form.get('description')
-        #phonenum=request.form.get('phonenum')
-        #car_type=request.form.get('car_type')
-        #license_num=request.form.get('license_num')
-        #languages_ar=request.form.get('languages_ar')
-        #languages_hb=request.form.get('languages_hb')
-        #languages_en=request.form.get('languages_en')
-        #profilepic=request.form.get('profilepic')
-        #lan=""
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
@@ -55,7 +44,7 @@ def register():
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
-                return redirect(url_for('editing',teacher_id=teacher.id))
+                return redirect(url_for('edit_profile',teacher_id=teacher.id))
 
             ##next_page = request.args.get('next')
             ##if not next_page or url_parse(next_page).netloc != '':
