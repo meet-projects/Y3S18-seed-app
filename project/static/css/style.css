@@ -342,11 +342,12 @@ font-weight: bold;
     color: #fefefe;
 }
 #edit_about{
-    width: 618px;
-    height: 85px;
+    width: 80%;
+    height: 80%;
     font-size: 18px;
     font-family: helveticaneuelight;
     color: grey;
+    resize: none;
 }
 
 .filters{
