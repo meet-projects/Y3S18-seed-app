@@ -69,6 +69,12 @@ def index():
 	activate()
 	return render_template('landingpage.html')
 
+
+
+@app.route('/hello')
+def function():
+	return render_template ('sendmessage.html')
+
 @app.route('/info')
 def info():
     return render_template('info.html')
@@ -131,15 +137,3 @@ def add_contact(contact_num):
 	return redirect(url_for('account'))'''
 
 
-# @app.route('/booster_seat_alert/<int:booster_seat_id>', methods=["GET","POST"])
-# def booster_seat_alert(booster_seat_id):
-# 	if methods
-# 	##GET : show a button on a template which will send POST request for this booster
-# 	## POST: set flag to 1 for the user this booster belongs to
-
-
-# @app.route('/booster_seat_stop/<int:booster_seat_id>', methods=["GET","POST"])
-# def booster_seat_stop(booster_seat_id):
-# 	if methods
-# 	##GET : show a button on a template which will send POST request for this booster
-# 	## POST: set flag to 0 for the user this booster belongs to
