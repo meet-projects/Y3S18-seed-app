@@ -11,8 +11,9 @@
 	<body class="profile_page">
 		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 	<div class="row" style="background-color: rgb(246,246,246);">
-		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}">
-			<div align="left" class="col-md-4" style="background-color: rgb(246,246,246);">
+
+		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}" method="POST">
+			<div align="left" class="col-md-3" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
 
 				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
@@ -28,19 +29,18 @@
 
 					<th> <u> City:</u></th> 
 					<td>
-				<tr> 
-
-					<th> <u> Fee (only in numbers, by Shekel) :</u></th> 
-					<td>
-					<input type="text" placeholder="{{teacher.cost}}" name="fee"> 
-					</td>
-					<td>
 						<select>
 							{% for c in all_cities %}
 							<option value="{{c.city}}">{{c.city}}</option>
 							{% endfor %}
 						</select> 
 					 </td>
+				<tr> 
+
+					<th> <u> Fee (only in numbers, by Shekel) :</u></th> 
+					<td>
+					<input type="text" placeholder="{{teacher.cost}}" name="fee"> 
+					</td>
 				</tr>
 				<tr> 
 					<th> <u> Languages:</u></th> 
