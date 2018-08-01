@@ -2,7 +2,7 @@ from flask import (
 		Blueprint, redirect, render_template,
 		Response, request, url_for , session
 )
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from sqlalchemy.exc import IntegrityError
 
 from project import db
@@ -33,7 +33,7 @@ def register():
 				db.session.add(user)
 				db.session.commit()
 				login_user(user, remember=True)
-				return redirect(url_for("main"))
+				return redirect(url_for("feed"))
 		else:
 			return Response("<p>invalid form</p>")
 	return render_template('login.html', form = form)
@@ -42,8 +42,6 @@ def register():
 @users_bp.route('/', methods=['GET', 'POST'])
 def login():
 	form = LoginForm(request.form)
-	print(form.username.data)
-	print(form.password.data)
 	if request.method == 'POST':
 		if form.validate_on_submit():
 			username = form.username.data
@@ -52,10 +50,11 @@ def login():
 			if user is None or not user.check_password(password):
 				return render_template('login.html', form = form, error_message = "wrong username or pass")
 			login_user(user, remember=True)
-			return redirect(url_for('main'))
-			#return render_template('index.html', user = user)
+			return redirect(url_for('feed'))
 		else:
 			return Response("<p>invalid login form</p>")
+	if current_user:
+		return redirect(url_for('feed'))
 	return render_template('login.html', form = form)
 
 @users_bp.route('/logout')
