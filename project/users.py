@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User,Teacher,Request
+from project.models import User,Teacher,Request, City
 
 users_bp = Blueprint('users', __name__)
 
@@ -139,28 +139,23 @@ def editing(teacher_id):
         languages_hb=request.form.get('languages_hb')
         languages_en=request.form.get('languages_en')
         profilepic=request.form.get('profilepic')
-        if name!="":
-            user.name=name
-        if city!="":
-            user.city=city
-        if fee!=0:
-            user.fee=fee
-        if description!="":
-            user.description=description
-        if phonenum!="":
-            user.phonenum=phonenum
-        if car_type!="":
-            user.car_type=car_type
+        user.name=name
+        user.city=city
+        user.fee=fee
+        user.description=description
+        user.phonenum=phonenum
+        user.car_type=car_type
         if languages_ar is not None:
             user.languages+="Arabic "
         if languages_hb is not None:
             user.languages+="Hebrew "
         if languages_en is not None:
             user.languages+="English "
-        if profilepic!="":
-            user.profilepic=profilepic
+        user.profilepic=profilepic
         db.session.commit()
-        return redirect('profile_template')
+        return redirect(url_for('profile_template'))
     else:
-        return("method's not post")
+        teach = Teacher.query.filter_by(id=teacher_id).first()
+        all_cities = City.query.all()
+        return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
