@@ -13,11 +13,8 @@ users_bp = Blueprint('users', __name__)
 
 @users_bp.route('/')
 def index():
-    if not(current_user.is_authenticated):
-        loginform = LoginForm(request.form)
-        return render_template('index.html',loginform=loginform)
-    else:
-        return redirect('profile_template')
+    loginform = LoginForm(request.form)
+    return render_template('index.html',loginform=loginform)
 
 @users_bp.route('/sign_up', methods=['GET', 'POST'])
 def register():
@@ -65,13 +62,8 @@ def register():
             ##return redirect(next_page)
         else:
             return Response("<p>invalid form</p>")
-<<<<<<< HEAD
 
     return render_template('feed.html', form=form)
-=======
-    else:
-        return render_template('register.html', form=form)
->>>>>>> 86689b071576b3b6a4849c4df00c98230e3e5134
                 
 
 @users_bp.route('/login', methods=['GET', 'POST'])
