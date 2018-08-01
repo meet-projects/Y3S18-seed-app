@@ -167,3 +167,10 @@ def editing(teacher_id):
     #    all_cities = City.query.all()
     #    return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
+
+@users_bp.route('/delete/<int:teacher_id>')
+def delete(teacher_id):
+    teach=Teacher.query.filter_by(id=teacher_id).first()
+    db.session.delete(teach)
+    db.session.commit()
+    return redirect('index')

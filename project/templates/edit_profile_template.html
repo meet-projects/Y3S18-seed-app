@@ -77,6 +77,7 @@
 			</div>
 			<input type="submit" name="submit" class="edit_button" value="Done!">
 			<a onclick="goBack()" class="edit_link"><button class="edit_button">Cancel</button></a>
+			<a href="{{url_for('delete',teacher_id=teacher.id) }}"><button class="edit_button">Delete</button></a>
 		</div>
 	</div>
 </form>
