@@ -462,3 +462,45 @@ div{
 
 .link { color: #000000; } /* CSS link color (red) */
 .link:hover { color: rgb(0, 115, 168); } /* CSS link hover (green) */
+
+a:hover{
+  text-decoration: none;
+}
+#contact_btn{
+  width: 30%;
+  border: none; 
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  margin-bottom: 2%; 
+  text-align: center; 
+  cursor: pointer; 
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+button#contact_btn > a{
+  position: relative;
+  text-decoration: none;
+  color: #000;
+}
+button#contact_btn > a:hover {
+  color: #000;
+}
+button#contact_btn > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+button#contact_btn > a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
