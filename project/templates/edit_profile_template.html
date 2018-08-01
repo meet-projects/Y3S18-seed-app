@@ -16,11 +16,11 @@
 			<div align="left" class="col-md-3" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
 
-				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
+				 <p>Picture:<input type="file" name="pic" accept="image/*"></p>
 			<br>
-			<p>Your Name:<input type="text" name="name" value="{{ teacher.name }}"> </p>
+			<p>Your Name:<input type="text" name="name" value="{{ teacher.name }}" style="float: right;"> </p>
 			<br>
-			<table>
+			<table class="side_profile_table">
 				<tr>
 					<th>Phone Number:</th> 
 					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}" name="phone_num"> </td>
@@ -73,7 +73,7 @@
 				</textarea>
 					 
 			</div>
-			<input type="submit" name="submit" class="edit_button" value="Done!">
+			<input type="submit" name="submit" class="edit_button" value="Done">
 			<a href="{{ url_for('profile_template')}}" class="edit_link"><button class="edit_button">Cancel</button></a>
 		</div>
 	</div>
