@@ -103,7 +103,6 @@ def profile_template():
 	teacher2=Teacher.query.filter_by(user_id=current_user.id).first()
 	this_teach_id=teacher2.id
 	all_cities = City.query.all()
-	print(teacher2)
 	return render_template('profile_template.html',teacher=teacher2,user=current_user, all_cities=all_cities)
 
 

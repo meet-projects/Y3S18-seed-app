@@ -142,7 +142,7 @@
 	  					<h3 style="color: black;">Languages: {{teacher.languages}}</h3>
 	  					<h2>{{teacher.city}}</h2>
 	  					<h2>{{teacher.cost}} &#8362</h2>
-	  					<a href="profile/{{teacher.id}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
+	  					<a href="{{url_for('profile', teacher_id=teacher.id)}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
 	  				</span>
 	  			</div>
 	  			</center>
