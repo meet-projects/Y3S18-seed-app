@@ -76,7 +76,7 @@ def login():
         else:
             return Response("<p>invalid form</p>")
     else:
-        return render_template('login.html', loginform=loginform)
+        return render_template('index.html', loginform=loginform)
 
 @users_bp.route('/login_signup')
 def login_signup():
