@@ -1,18 +1,20 @@
 from flask import render_template, request, session
 from flask_login import login_required
-from project.models import *
+from project.models import User, Post, Like
 from . import app
 from project.forms import AddArtForm    
 
-@app.route('/feed')
+
+@app.route('/stories')
 @login_required
-def feed():
+def stories():
     form = AddArtForm(request.form)
     u = User.query.filter_by(id=session['user_id']).first()
     posts = Post.query.filter_by(ArtURL = '').all()
-    return render_template('feed.html', user=u, posts = posts, form = form)
+    return render_template('stories.html', user=u, posts = posts, form = form)
 
-@app.route('/main111')
+
+@app.route('/main')
 @login_required
 def main():
     print("Hello World")
@@ -21,11 +23,6 @@ def main():
     posts = Post.query.filter(Post.ArtURL != '').all()
     return render_template('mainfeed.html', user=u, posts = posts, form = form)
 
-
-@app.route('/private')
-@login_required
-def private_route():
-    return render_template('private.html')
 
 @app.route('/profile', defaults={'username':None})
 @app.route('/profile/<username>',methods=['GET','POST'])

@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField
+from wtforms import StringField, PasswordField, TextAreaField
 from wtforms.validators import DataRequired, Length, EqualTo
 
 
@@ -16,7 +16,7 @@ class LoginForm(Form):
 
 class PostForm(Form):
 	title = StringField('Title', validators=[DataRequired()])
-	text = StringField('Text', validators=[DataRequired()])
+	text = TextAreaField('Text', validators=[DataRequired()])
 
 class AddArtForm(Form):
     art_url = StringField('ArtUrl', validators = [DataRequired()])
