@@ -130,3 +130,16 @@ def add_contact(contact_num):
 	    next_page = url_for('account')
 	return redirect(url_for('account'))'''
 
+
+# @app.route('/booster_seat_alert/<int:booster_seat_id>', methods=["GET","POST"])
+# def booster_seat_alert(booster_seat_id):
+# 	if methods
+# 	##GET : show a button on a template which will send POST request for this booster
+# 	## POST: set flag to 1 for the user this booster belongs to
+
+
+# @app.route('/booster_seat_stop/<int:booster_seat_id>', methods=["GET","POST"])
+# def booster_seat_stop(booster_seat_id):
+# 	if methods
+# 	##GET : show a button on a template which will send POST request for this booster
+# 	## POST: set flag to 0 for the user this booster belongs to
