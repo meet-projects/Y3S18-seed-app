@@ -44,6 +44,7 @@ def register():
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
+
                 return redirect(url_for('edit_profile',teacher_id=teacher.id))
 
             ##next_page = request.args.get('next')
@@ -127,7 +128,9 @@ def editing(teacher_id):
         teacher.name=name
     if city!="":
         teacher.city=city
-    if fee!=0:
+    if fee=="":
+        pass
+    else:
         teacher.cost=fee
     if description!="":
         teacher.description=description
