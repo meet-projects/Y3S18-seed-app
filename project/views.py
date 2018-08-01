@@ -105,4 +105,4 @@ def profile(teacher_id):
 def edit_page(teacher_id):
 	teach = Teacher.query.filter_by(id=teacher_id).first()
 	all_cities = City.query.all()
-    return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
+	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
