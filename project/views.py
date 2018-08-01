@@ -16,6 +16,7 @@ import sys, math
 @app.route('/feed')
 def feed():
 	all_teachers = db.session.query(Teacher).order_by("id desc").all()
+	all_cities = City.query.all()
 	#teachers = []
 	#pages = int(math.ceil(len(all_teachers)/4))
 	#if len(all_teachers)>=4:
@@ -23,7 +24,8 @@ def feed():
 	#		teachers.append(all_teachers[t])
 	#else:
 	#teachers = all_teachers
-	return render_template('feed.html', teachers=all_teachers, page="All Instructors",results="")
+
+	return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="All Instructors",results="")
 
 ##@app.route('/feed/<int:pagenum>')
 ##def feed_num(pagenum):
@@ -43,12 +45,14 @@ def feed():
 
 @app.route('/sort/<sorting>',)
 def price_sort(sorting):
+	all_cities = City.query.all()
 	teachers=[]
 	if sorting == "low":
 		teachers=db.session.query(Teacher).order_by("cost asc").all()
 	elif sorting == "high":
 		teachers=db.session.query(Teacher).order_by("cost desc").all()
-	return render_template('feed.html', teachers=teachers, page="Filtering by Price",results="")
+
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities, page="Filtering by Price",results="")
 
 '''@app.route('/hightolow',)
 def hightolow():
@@ -69,6 +73,7 @@ def area_filter(area):
 
 @app.route('/lang/<language>')
 def language_filter(language):
+	all_cities = City.query.all()
 	all_teachers=db.session.query(Teacher).all()
 	teachers = []
 	results=""
@@ -79,9 +84,19 @@ def language_filter(language):
 			l = []
 		if l.count(language.capitalize()) > 0:
 			teachers.append(t)
-		if teachers.length()==0:
+    if teachers.length()==0:
 			results="No Results"
-	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results)
+	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results, all_cities=all_cities)
+
+@app.route('/city/<int:city>')
+def city(city):
+	all_cities = City.query.all()
+	all_teachers = Teacher.query.all()
+	teachers = []
+	for t in all_teachers:
+		if t.city == City.query.filter_by(id=city).first().city:
+			teachers.append(t)
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities)
 
 @app.route('/signup')
 def signup():
