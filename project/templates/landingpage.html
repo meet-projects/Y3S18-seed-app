@@ -13,7 +13,7 @@
 
 	.jumbotron-img{
 		background-color: white;
-		height: 75vh;
+
 		width: 50vh;
 	}
 
@@ -28,8 +28,22 @@
 	}
 
 	.bigText {
-		font-size: 3em;
+		font-size: 2em;
 	}
+
+	.HERE{
+		font-size: 2.5em;
+	}
+
+	@media (max-width: 800px) {
+	  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+	
+	.jumbotron-img{
+		background-color: white;
+	  	width: 35vh;
+	}
+
+}
 /*	img{
 		margin-left: auto;
 		margin-right: auto;
@@ -82,9 +96,9 @@
 		 		<span class="bigText">
 					& learn more 
 				</span>
+			<br>
 
-
-			<p><a href="{{url_for('users.login')}}" style="font-size: 50px;  color: #78add4;">Click Here</a></p>
+			<span class="HERE"><a href="{{url_for('users.login')}}">Click Here</a></span>
 			</div>
 		</div>
 		</center>
