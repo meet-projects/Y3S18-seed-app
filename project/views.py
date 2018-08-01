@@ -137,6 +137,8 @@ def booster_seat_alert(booster_seat_id):
 
 		user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 		user.flag = 1
+		db.session.commit()
+
 		
 	else:
 		return render_template('sendmessage.html', user=user , form=form)
