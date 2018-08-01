@@ -35,6 +35,7 @@ def register():
 			data = {'show':'signup', 'err_msg':test_result}
 			return render_template('login.html',form = form, data = data)
 	else:
+		logout_user()
 		print('opening register page')
 		data = {'show':'signup', 'err_msg':None}
 		return render_template('login.html',form = form, data = data)
@@ -45,11 +46,11 @@ def register_test(form):
 	displayname = form.displayname.data
 	confirm_pass = form.confirm_pass.data
 
-	if not username or username == '':
-		return "username cannot be empty"
-
 	if not displayname or displayname == '':
 		return "display name cannot be empty"
+
+	if not username or username == '':
+		return "username cannot be empty"
 
 	if not password or password == '':
 		return "password cannot be empty"
@@ -82,6 +83,7 @@ def login():
 			return render_template('login.html', data = data, form = form)
 
 	else:
+		logout_user()
 		data = {'show':'signup', 'err_msg':None}
 		return render_template('login.html', data = {}, form = form)
 
