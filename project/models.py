@@ -99,17 +99,14 @@ class Request(db.Model):
         self.done = done
 
 
-
-class Student(db.Model):
+class Students(db.Model):
 
     __tablename__="students"
-
-
+    
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id=db.Column(db.Integer, ForeignKey('users.id'))
     name = db.Column(db.String)
     phone_num = db.Column(db.String)
-
 
     def __init__(self, user_id,name,phone_num):
         self.name=name
