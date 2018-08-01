@@ -2,7 +2,11 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/js/script.js"> </script>		
 		<title>
 			EasyLicense	
 		</title>
@@ -53,7 +57,7 @@
 			<br>
 				
 			</div>-->
-		<span>
+		
 			<center>
 				<br><br>
 				<button onclick="document.getElementById('filter_div').style.display='block'" class="button">Filter</button>
@@ -117,8 +121,11 @@
 			<h3 style="color: black;">{{page}}</h3>
 			<h2 style="color: black;">{{thing}}</h2>
 			</center> 
-			<div class="row">
+			<br>
+			<div class="container" style="background-color: rgb(246,246,246);">
+			<div class="row" style="background-color: rgb(246,246,246);">
 	  			{% for teacher in teachers %}
+	  			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 	  			<!--<div class="column">
 	    			<div class="card">
 	      				<img src="{{teacher.profile_picture}}" style="width:100%" class="profilepic">
@@ -134,10 +141,9 @@
 		      				</div>
 	    			</div>
 	  			</div> -->
-	  			<center>
 	  			<div class="instructor">
 	  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
-	  				<span class="ins_info"  style="color: black; margin: 10px;">
+	  				<span class="ins_info" style="color: black;">
 	  					<br>
 	  					<h1>{{teacher.fname}}</h1>
 	  					<p>{{teacher.description}}</p>
@@ -145,8 +151,8 @@
 	  					<h3 style="color: black;">Languages: {{teacher.languages}}</h3>
 	  					<h2>{{teacher.city}}</h2>
 	  					<h2>{{teacher.cost}} &#8362</h2>
-	  					<a href="{{url_for('profile', teacher_id=teacher.id)}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
-	  				</span>
+	  					<button id="contact_btn" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
+	  				</span> 
 	  			</div>
 	  			{% endfor %}
 	  		</center>
@@ -154,6 +160,7 @@
 	  		<center>
 	  		<h2 style="color: black;">{{results}}</h2>
 	  		</center>
+        </div></div>
 	  	</span>
 
 	</body>

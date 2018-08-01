@@ -154,13 +154,6 @@ button:hover {
     padding-top: 50px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #f6f6f6;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
 
 /* Style the horizontal ruler */
 hr {
@@ -271,9 +264,7 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #f6f6f6;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
@@ -354,8 +345,8 @@ border-radius: 20px;
 #login_box{
     background-color: #0073a8;
     margin:5%;
-    color: white;
-    box-shadow: 2.5px 5px 4px #888888;
+    color: none;
+    box-shadow: 5px 10px 8px #888888;
     font-family: helveticaneuelight;
 }
 
