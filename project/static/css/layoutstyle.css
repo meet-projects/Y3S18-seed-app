@@ -2,23 +2,25 @@ body {
 	font-family: ;
 }
 
-#main_table{
+.main_table{
  width: 100%;
- height:100vh;
+ height:800px;
  background-image: url("../pictures/bacpicRed.jpg");
  background-repeat: no-repeat;
+ padding-top: 70px;
 
 }
 
 .login_page_container {
  padding: 20px;
  color: white;
- margin: auto;
- /*border-radius: 15px;*/
+ border-radius: 15px;
  width: 500px;
- /*make the shades*/
- /*background: linear-gradient(to top, rgba(204,0,0,0.89), rgba(230, 92, 0, 0.89));*/
- background-color: black;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ background: black;
+ background: -webkit-linear-gradient(top, rgb(0, 0, 0, 0.89), rgb(116,116,116,0.89));
 }
 
 
@@ -131,45 +133,37 @@ body {
 	color: red;
 }
 
-.navbar {
-	width: 100%;
-	height: 70px;
-	border-radius: 0;
-	background-color: black;
-	color: white;
+
+/*MAIN FEED PAGE */
+.main_feed_body{
+	background-color: rgb(51, 17, 0);
+}
+/*LAYOUT HTML*/
+layoutbody {
+	margin-left: 50px;
+	margin-right: 50px;
 }
 
-.menu_items {
-	height: 100%;
+.icon-bar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
 }
 
-.menu_item {
-	height: 100%;
-	background-color: green;
-	padding-right: 20px;
-	padding-left: 20px;
-	float: left;
-	color: white;
-	font-size: 30px;
-	/*vertical-align: ;*/
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
 }
 
-.menu_item:hover{
-	color: white;
-	text-decoration: none;
-	background-color: rgba(255,255,255,0.1);
-	cursor: pointer;
+.icon-bar a:hover {
+    background-color: #000;
 }
 
-.nav_logo {
-	padding: 0 10px 0 10px;
-	float: left;
-	display: inline-block;
-	width: 763px;
-	height: 216px;
-	max-width: 250px;
-	max-height: 70px;
-	background-color: red;
+.active {
+    background-color: #4CAF50;
 }
-
-

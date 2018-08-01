@@ -24,7 +24,7 @@ def adding_posts():
             db.session.add(post)
             db.session.commit()
             user = User.query.filter_by(id=authorID).first()
-            return redirect(url_for('feed', user = user))   
+            return redirect(url_for('mainfeed', user = user))   
         else:
             return Response("<p>invalid form</p>")
     return render_template('add_post.html', form=form)
@@ -44,7 +44,7 @@ def add_art(PostID):
             post.ArtistID = artistID
             db.session.commit()
             #user = User.query.filter_by(id=artistID).first()
-            return redirect(url_for('feed'))   
+            return redirect(url_for('view_story'))   
         else:
             return Response("<p>invalid form</p>")
 

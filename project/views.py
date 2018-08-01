@@ -3,16 +3,16 @@ from flask_login import login_required
 from project.models import *
 from . import app
 from project.forms import AddArtForm    
-
-@app.route('/feed')
+#stories without pics
+@app.route('/stories')
 @login_required
-def feed():
+def stories():
     form = AddArtForm(request.form)
     u = User.query.filter_by(id=session['user_id']).first()
     posts = Post.query.filter_by(ArtURL = '').all()
-    return render_template('feed.html', user=u, posts = posts, form = form)
-
-@app.route('/main111')
+    return render_template('stories.html', user=u, posts = posts, form = form)
+#trying
+@app.route('/feed')
 @login_required
 def main():
     print("Hello World")
@@ -22,10 +22,6 @@ def main():
     return render_template('mainfeed.html', user=u, posts = posts, form = form)
 
 
-@app.route('/private')
-@login_required
-def private_route():
-    return render_template('private.html')
 
 @app.route('/profile', defaults={'username':None})
 @app.route('/profile/<username>',methods=['GET','POST'])
@@ -41,7 +37,7 @@ def profile(username = None):
     #posts = Post.query.filter_by(AuthorID = profileID).first()
     #return render_template('profile.html', user = user, posts = posts)
 
-
+#read more function and add art
 @app.route('/viewstory/<int:PostID>', methods = ['GET','POST'])
 def view_story(PostID):
     form = AddArtForm(request.form)
