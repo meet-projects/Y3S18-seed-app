@@ -1,10 +1,26 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginstyle.css') }}">
+
+      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>  
+  </head>
+<body id="login_page_body">
 		<script type="text/javascript">
 			 var getdata = '{{data | tojson}}';
 		</script>
-		<script src="{{ url_for('static', filename='js/loginjs.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/loginjs.js') }}">
+		</script>
 
 		<div class="login_page_container">
 			<div class="imgcontainer">
@@ -15,20 +31,27 @@
 				<center>
 					<form id="login_form" class=" form_instance" action="{{ url_for('users.login') }}" method="post">
 						{{ form.csrf_token }}
+						
 							<input type="text" name="username" id="login_textbox_username" 
 							class=" login_page_textbox" placeholder="Username">
 							<span id="wrong_cred_msg" class="error_message">
 								wrong username or password
 							</span>
+
 							<input type="password" name="password" id="login_textbox_password" 
 							class=" login_page_textbox" placeholder="Password">
+
 						<button id="login_submit" class="btn" type="submit">Log in</button>
 					</form>
 
 					<span id="open_signup_form_span" class="form_switch_span">
 						don't have an account?
-						<button onclick="{{ url_for('users.register') }}" method="get" class="form_switch_link"> Sign Up here! </button>
 					</span>
+					<form class="page_switch_form" action="{{url_for('users.register')}}" method="get">
+						<button class="form_switch_link" type="submit">
+							Sign Up here!
+						</button>
+					</form>
 				</center>
 			</div>
 
@@ -65,10 +88,14 @@
 
 					<span id="open_login_form_span" class="form_switch_span">
 						already have an account?
-						<span onclick="open_login_form()" class="form_switch_link"> Log In here! </span>
 					</span>
+					<form class="page_switch_form" action="{{url_for('users.login')}}" method="get">
+						<button class="form_switch_link" type="submit">
+							Log In here!
+						</button>
+					</form>
 				</center>
 			</div>
 		</div>
-
-{% endblock %}
+	</body>
+</html>

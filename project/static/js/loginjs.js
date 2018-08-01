@@ -23,6 +23,8 @@ $( document ).ready(function() {
   console.log(warning)
   if(warning != null){
     console.log('warning confirmed')
+
+    //signup warning(s)
     if(warning == "username cannot be empty"){
       var textbox = document.getElementById("signup_textbox_username");
       textbox.style["border-color"] = "red";
@@ -63,16 +65,29 @@ $( document ).ready(function() {
       message.style["display"] = "block";
     }
 
+    //login warning(s)
+    if(warning == "wrong username or pass"){
+      var textbox = document.getElementById("login_textbox_username");
+      textbox.style["border-color"] = "red";
+      var message = document.getElementById("wrong_cred_msg");
+      message.innerText = "wrong username or password";
+      message.style["display"] = "block";
+    }
+
   }
+
 });
+
 
 open_signup_form = function(){
   console.log("opening signup")
 	var login_form = document.getElementById("login_container");
 	var signup_form = document.getElementById("signup_container");
+  var login_body = document.getElementById("login_page_body")
 
   reset_warnings();
 
+  login_page_body.style["padding-top"] = "10px";
 	login_form.style["display"] = 'none';
 	signup_form.style["display"] = 'block';
 }
@@ -80,9 +95,11 @@ open_signup_form = function(){
 open_login_form = function(){
 	var login_form = document.getElementById("login_container");
 	var signup_form = document.getElementById("signup_container");
+  var login_body = document.getElementById("login_page_body")
 
   reset_warnings();
 
+  login_page_body.style["padding-top"] = "100px";
 	login_form.style["display"] = 'block';
 	signup_form.style["display"] = 'none';
 }

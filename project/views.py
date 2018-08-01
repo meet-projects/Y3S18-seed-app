@@ -1,28 +1,31 @@
 from flask import render_template, request, session
-from flask_login import login_required
-from project.models import *
+from flask_login import login_required, current_user
+from project.models import User, Post, Like
 from . import app
-from project.forms import AddArtForm	
+from project.forms import AddArtForm    
+
 
 @app.route('/feed', methods=['POST','GET'])
 @login_required
 def feed():
-    print("Hello World")
-    form = AddArtForm(request.form)
-    u = User.query.filter_by(id=session['user_id']).first()
-    posts = Post.query.all()
-    return render_template('feed.html', user=u, posts = posts, form = form)
+    posts = Post.query.filter(Post.ArtURL != '').all()
+    return render_template('mainfeed.html', posts=posts)
 
-
-@app.route('/private')
-@login_required
-def private_route():
-    return render_template('private.html')
-
-@app.route('/profiles/<username>',methods=['GET','POST'])
+@app.route('/profiles/<username>')
 @login_required
 def profile(username):
-    profileID = session['user_id']
-    visitedID = User.query.filter_by(username = username).first().id
-    user = User.query.filter_by(id = profileID).first()
-    return render_template('profile.html', user = user, my_profile = (profileID == visitedID))
+    visiting_user = User.query.filter_by(username=username)
+    return render_template('profile.html', visiting_user=visiting_user)
+
+
+#read more function and add art
+@app.route('/stories/<int:post_id>', methods = ['GET','POST'])
+@login_required
+def list_detail_stories(post_id):
+    if post_id:
+        form = AddArtForm(request.form)
+        post = Post.query.filter_by(id = post_id).first()
+        return render_template('viewstory.html', post=post, form=form)
+    else:
+        posts = Post.query.filter_by(ArtURL = '').all()
+        return render_template('stories.html', posts=posts)
