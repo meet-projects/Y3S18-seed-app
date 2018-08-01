@@ -24,7 +24,8 @@ def register():
         email = request.form.get('email')
         password = request.form.get('psw')
         password2= request.form.get('psw-repeat')
-        name= request.form.get('name')
+        fname= request.form.get('fname')
+        lname= request.form.get('lname')
         if password== password2:
             user = User.query.filter_by(email=email).first()
             if user is None:
@@ -40,7 +41,7 @@ def register():
                 #if profilepic == "":
                 #    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
                 #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,gearbox)
-                teacher=Teacher(user.id,name,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","")
+                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","")
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -112,7 +113,8 @@ def booking(teacher_id):
 @login_required
 def editing(teacher_id):
     teacher=Teacher.query.filter_by(id=teacher_id).first()
-    name= request.form.get('name')
+    fname= request.form.get('fname')
+    lname= request.form.get('lname')
     city=request.form.get('city')
     fee=request.form.get('fee')
     description=request.form.get('description')
@@ -124,8 +126,10 @@ def editing(teacher_id):
     profilepic=request.form.get('pic')
     automatic=request.form.get('automatic')
     manual=request.form.get('manual')
-    if name!="":
-        teacher.name=name
+    if fname!="":
+        teacher.fname=fname
+    if lname!="":
+        teacher.lname=lname
     if city!="":
         teacher.city=city
     if fee=="":

@@ -46,7 +46,8 @@ class Teacher(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, ForeignKey('users.id'))
-    name = db.Column(db.String) 
+    fname = db.Column(db.String) 
+    lname = db.Column(db.String) 
     city = db.Column(db.String)
     description = db.Column(db.String)
     cost = db.Column(db.Float)
@@ -61,7 +62,7 @@ class Teacher(db.Model):
 
     def __init__(self,
         user_id, 
-        name,
+        fname,lname,
         city,
         description,
         cost,
@@ -70,7 +71,8 @@ class Teacher(db.Model):
         profile_picture,
         gearbox):
         self.user_id = user_id
-        self.name=name
+        self.fname=fname
+        self.lname=lname
         self.city=city
         self.description=description
         self.cost=cost
@@ -87,8 +89,7 @@ class Request(db.Model):
     __tablename__ = "requests"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String)
-    phone_num = db.Column(db.String)
+    student_id= db.Column(db.Integer,ForeignKey('students.id'))
     teacher_id = db.Column(db.Integer, ForeignKey('teachers.id'))
     done = db.Column(db.Boolean)
 
@@ -98,6 +99,24 @@ class Request(db.Model):
         self.teacher_id = teacher_id
         self.done = done
 
+
+
+class Student(db.Model):
+
+    __tablename__="students"
+
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id=db.Column(db.Integer, ForeignKey('users.id'))
+    name = db.Column(db.String)
+    phone_num = db.Column(db.String)
+
+
+    def __init__(self, user_id,name,phone_num):
+        self.name=name
+        self.user_id=user_id
+        self.phone_num=phone_num
+        
 
 class City(db.Model):
 
