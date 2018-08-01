@@ -101,8 +101,8 @@ def profile(teacher_id):
 	this_teach=Teacher.query.filter_by(id=teacher_id).first()
 	return render_template('small_profile.html', teacher=this_teach)
 
-@app.route('/<int:teacher_id>/edit_page')
-def edit_page(teacher_id):
+@app.route('/<int:teacher_id>/edit_profile')
+def edit_profile(teacher_id):
 	teach = Teacher.query.filter_by(id=teacher_id).first()
 	all_cities = City.query.all()
 	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
