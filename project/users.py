@@ -173,4 +173,4 @@ def delete(teacher_id):
     teach=Teacher.query.filter_by(id=teacher_id).first()
     db.session.delete(teach)
     db.session.commit()
-    return redirect('index')
+    return redirect('/')
