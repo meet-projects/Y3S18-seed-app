@@ -159,7 +159,6 @@ def editing(teacher_id):
         teacher.gearbox+="Automatic "
     if manual is not None:
         teacher.gearbox+="Manual "
-
     db.session.commit()
     return redirect('profile_template')
 
