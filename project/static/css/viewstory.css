@@ -1,11 +1,14 @@
 #story_title{
 	font-size: 50px;
+	color:black;
 	font-family:  "Montserrat", sans-serif;
 
 
 }
 #description_block	{
-font-family:  "Montserrat", sans-serif;
+	font-family:  "Montserrat", sans-serif;
+	color:black;
+	font-size: 30px;
 }
 /*#img_wrapper {
 	width: 500px;

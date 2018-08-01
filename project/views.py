@@ -29,4 +29,8 @@ def stories():
 def list_detail_stories(post_id):
     form = AddArtForm(request.form)    
     post = Post.query.filter_by(id = post_id).first()
-    return render_template('viewstory.html', post=post, form=form)
+    if (post.ArtURL != ''):
+        artist = User.query.filter_by(id = post.ArtistID).first()
+        return render_template('viewstory.html', post=post, form=form, user = artist)
+    else:
+        return render_template('viewstory.html', post=post, form=form)
