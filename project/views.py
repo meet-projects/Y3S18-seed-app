@@ -6,19 +6,19 @@ from project.forms import AddArtForm
 
 @app.route('/feed')
 @login_required
-def feed(username = None):
+def feed():
     form = AddArtForm(request.form)
     u = User.query.filter_by(id=session['user_id']).first()
     posts = Post.query.filter_by(ArtURL = '').all()
     return render_template('feed.html', user=u, posts = posts, form = form)
 
-@app.route('/main')
+@app.route('/main111')
 @login_required
-def feed(username = None):
+def main():
     print("Hello World")
     form = AddArtForm(request.form)
     u = User.query.filter_by(id=session['user_id']).first()
-    posts = Post.query.filter_by(ArtURL =! '').all()
+    posts = Post.query.filter(Post.ArtURL != '').all()
     return render_template('mainfeed.html', user=u, posts = posts, form = form)
 
 

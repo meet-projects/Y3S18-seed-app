@@ -33,7 +33,7 @@ def register():
 				db.session.add(user)
 				db.session.commit()
 				login_user(user, remember=True)
-				return redirect(url_for("feed"))
+				return redirect(url_for("main"))
 		else:
 			return Response("<p>invalid form</p>")
 	return render_template('login.html', form = form)
@@ -52,7 +52,7 @@ def login():
 			if user is None or not user.check_password(password):
 				return render_template('login.html', form = form, error_message = "wrong username or pass")
 			login_user(user, remember=True)
-			return redirect(url_for('feed'))
+			return redirect(url_for('main'))
 			#return render_template('index.html', user = user)
 		else:
 			return Response("<p>invalid login form</p>")
