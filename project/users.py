@@ -164,8 +164,8 @@ def editing(teacher_id):
         teacher.gearbox+="Manual "
     db.session.commit()
     return redirect('profile_template')
-    else:
-        teach = Teacher.query.filter_by(id=teacher_id).first()
-        all_cities = City.query.all()
-        return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
+    #else:
+    #    teach = Teacher.query.filter_by(id=teacher_id).first()
+    #    all_cities = City.query.all()
+    #    return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
