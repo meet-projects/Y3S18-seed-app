@@ -31,9 +31,9 @@
 
 					<th>City:</th> 
 					<td>
-						<select>
+						<select name="city">
 							{% for c in all_cities %}
-							<option value="{{c.city}}">{{c.city}}</option>
+							<option value="{{c.city}}" name="city">{{c.city}}</option>
 							{% endfor %}
 						</select> 
 					 </td>

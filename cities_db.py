@@ -4,7 +4,7 @@ import geonamescache
 gc = geonamescache.GeonamesCache()
 cities_dict = gc.get_cities()
 
-if len(City.query.all())<0:
+if len(City.query.all())==0:
 	for i in cities_dict:
 		if cities_dict[i]['countrycode'] == "IL" or cities_dict[i]['countrycode'] == "PS":
 			print(cities_dict[i]['name'])
@@ -17,4 +17,5 @@ if len(City.query.all())<0:
 		print(len(City.query.all()))
 	print("Done!")
 else:
+	print(len(City.query.all()))
 	print("Built already!")

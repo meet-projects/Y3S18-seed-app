@@ -82,7 +82,7 @@ class Teacher(db.Model):
         self.gearbox=gearbox
 
     def __repr__(self):
-        return 'Teacher %d %s' % (self.id, self.name)
+        return 'Teacher %d %s %s' % (self.id, self.fname, self.lname)
 
 class Request(db.Model):
 

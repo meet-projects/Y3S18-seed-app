@@ -44,7 +44,7 @@ def register():
                 teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","")
                 db.session.add(teacher)
                 db.session.commit()
-                login_user(user, rsemember=True)
+                login_user(user, remember=True)
 
                 return redirect(url_for('edit_profile',teacher_id=teacher.id))
 
@@ -153,7 +153,7 @@ def editing(teacher_id):
     if profile_picture!="":
         teacher.profile_picture=profile_picture
     else:
-        teacher.profile_picture=""
+        pass
     if automatic is not None or manual is not None:
         teacher.gearbox=""
     if automatic is not None:
