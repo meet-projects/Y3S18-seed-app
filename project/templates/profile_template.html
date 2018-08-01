@@ -42,20 +42,12 @@
 				</tr>
 				<tr> 
 					<th>Languages:</th> 
-<<<<<<< HEAD
-					<td> {{teacher.languages | truncate(25)}} </td>
-=======
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(13)}} </td>
->>>>>>> 86689b071576b3b6a4849c4df00c98230e3e5134
 				</tr>
 
 				<tr>
 					<th>Gearbox:</th> 
-<<<<<<< HEAD
-					<td> {{teacher.car_type}} </td>
-=======
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.car_type | truncate(13)}} </td>
->>>>>>> 86689b071576b3b6a4849c4df00c98230e3e5134
 				</tr>
 			</table>
 			<br>
@@ -71,7 +63,7 @@
 			<h3 id="profile_name">
 				Your profile: {{teacher.name}}</h3>
 				<br>
-			<a href="{{ url_for('editting',teacher_id=teacher.id) }}" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
+			<a href="{{ url_for('users.editing',teacher_id=teacher.id) }}" class="edit_link"><button class="edit_button"><b> EDIT PROFILE</b></button></a>
 			{% else %}
 			<h3 id="profile_name">
 				Profile: {{teacher.name}}</h3>
