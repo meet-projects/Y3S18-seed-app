@@ -5,7 +5,6 @@ from . import app
 from project.forms import AddArtForm    
 
 
-
 #stories without pics
 @app.route('/stories')
 @login_required
