@@ -30,3 +30,6 @@ def list_detail_stories(post_id):
     else:
         posts = Post.query.filter_by(ArtURL = '').all()
         return render_template('stories.html', posts=posts)
+
+
+      

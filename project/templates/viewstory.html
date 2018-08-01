@@ -2,37 +2,42 @@
 {% block content %}
 <div class="post_block">
        <div class="valid_text_space" >
-           <div class="stori_title"> {{post.get_title()}} </div>            
-           <div class="description_block">
-               {{ post.get_description1() }}
-           </div>
-           <div class="description_block">
-             <span id="more"> {{ post.get_description2() }} </span> 
-             <button onclick="myFunction()" id="myBtn">Read more</button>
-           </div>
-           <div class="publish_date_block">
+           <div id="story_title"> {{post.get_title()}} </div><br><br> 
+<!--Checking if post has picture, which will cancel button-->
+           {% if post.ArtURL != "" %}
+           <div class = 'row' id = 'info'>
+            <div class = "col-md-3">
+              <div class="jumbotron jumbotron-img">
+          <div> 
+            <img id = "post_img" src={{post.ArtURL}}> </div></div></div>
+           <div class="col-md-9" id="description_block"> {{post.Text}}</div></div>  
+           
+           <!--<div class="publish_date_block">
               <span class="publish_date_text"> Published on:    
                   {{ post.format_date() }}
               </span>
            </div>
-              <div class="vote_block"><!-- 
+              <div class="vote_block"> 
                   <asp:ImageButton ClientIDMode="Static" CssClass="vote_button up" ID="upvote" 
                       ClientID='<%# string.Format("upvote_{0}", Eval("StoriID")) %>' 
                        runat="server" ImageURL="Images/upvote-grey.png" CommandName="vote_up"
-                       CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();"/> -->
+                       CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();"/> 
  
-                   <span class="rating"> {{ post.format_rating() }} </span>
- <!-- 
-                   <asp:ImageButton ClientIDMode="Static" CssClass="vote_button down" ID="downvote" 
-                       ClientID='<%# string.Format("downvote_{0}", Eval("StoriID")) %>' 
-                      runat="server" ImageURL="Images/downvote-grey.png" CommandName="vote_down"
-                      CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();" /> -->
+                  
+                  
               </div>
           </div>
           
-        
-            <!-- Button to Open the Modal -->
-<button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#addArt'>Share</button>
+        -->
+        {% else %}
+        <div class = 'row'>
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id = "description_block"> {{post.Text}}</div>
+        <div class="col-md-2"></div>
+
+        <div class = 'row'>
+        <div class="col-md-9"></div>
+        <div class="col-md-3"> <button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#addArt'>ILLUSTRATE THIS STORY</button> 
             <!-- The Modal -->
 <div class="modal" id="addArt">
   <div class="modal-dialog">
@@ -68,5 +73,5 @@
 
 
 
-
+{% endif %}
 {% endblock %} 
