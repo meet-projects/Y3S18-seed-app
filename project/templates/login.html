@@ -2,13 +2,41 @@
 {% extends "layout.html" %}
 {% block head %}
       <title>Log In!</title>
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/loginstyle.css') }}">
-{% endblock %}
+{% endblock %}  
 
 
 {% block content %}
 
 <style>
+
+body {
+  height: 100vh;
+}
+
+.container {
+    background-image: url( {{ url_for('static', filename = 'pictures/homepicture.png') }});
+    background-repeat:no-repeat;
+    background-size: 40%;
+    background-position: center; 
+}   
+
+
+@media (max-width: 800px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  .container {
+    background-image: url( {{ url_for('static', filename = 'pictures/homepicture.png') }});
+    height: 720px;
+    width: 640px;
+    background-repeat:no-repeat;
+    background-size: 40%;
+    background-position: right; 
+  } 
+  #login {
+    margin-right: 0px;
+  }
+}
+  
+
 .form-hello{
 
     background-color: #D8D8D8;
@@ -45,21 +73,24 @@ p2{
   font-size: 25px;
 }
   
-  h2{ /*Log In*/
+/*  h2{ 
 
   text-align: center;
 
   font-size: 35px;
   font-weight: bold;  
-  
 }
+  */
 </style>
 
 
 <div class="container" style="max-width: 960px">
   <div class="row">
-    <div class="col-sm-6"> <img src="{{ url_for('static', filename = 'pictures/logosmall1.png')}}" width="360px" >
+    <div class="col-sm-4"> 
+      <img src="{{ url_for('static', filename = 'pictures/logosmall1.png')}}" width="300px" >
     	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </div>
+    <div class="col-sm-8" style="top:120px" id="login">
           <h2> Log In:</h2> 
           <form action="{{ url_for('users.login') }}" method="post">
             {{ form.csrf_token }}
@@ -70,8 +101,7 @@ p2{
             <br>
             <button class="btn btn-sm btn-warning" type="submit">ENTER </button>
           </form>
-    </div>
-    <div class="col-sm-6">
+    
 
            <p>Don't have an account?</p>
            <p1> Create one</p1>
