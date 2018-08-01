@@ -94,10 +94,10 @@ def signup():
 @app.route('/profile_template')
 @login_required
 def profile_template():
-	teacher2=Teacher.query.filter_by(user_id=current_user.id).first()
-	this_teach_id=teacher2.id
+	t=Teacher.query.filter_by(user_id=current_user.id).first()
+	this_teach_id=t.id
 	all_cities = City.query.all()
-	return render_template('profile_template.html',teacher=teacher2,user=current_user, all_cities=all_cities)
+	return render_template('profile_template.html',teacher=t,user=current_user, all_cities=all_cities)
 
 
 @app.route('/profile/<int:teacher_id>')
