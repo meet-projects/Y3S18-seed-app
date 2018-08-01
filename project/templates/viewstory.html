@@ -1,5 +1,45 @@
+ <img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+
+<style>
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+   
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 100px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #727272;
+}
+</style>
+
+
 {% extends "layout.html" %}
 {% block content %}
+
+<style type="text/css">
+  body{
+    background: url("../static/pictures/background.jpg");
+
+
+  }
+</style>
 <div class="post_block">
        <div class="valid_text_space" >
            <div id="story_title"> {{post.get_title()}} </div><br><br> 

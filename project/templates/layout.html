@@ -13,19 +13,27 @@
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/viewstory.css') }}">
-
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/feeds.css') }}">
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/script.js') }}"></script>  
+      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+      
+
+
+
+
+
   </head>
   <body>
+<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag"><br>
 
-  <div class="layoutbody"></div>
-    <a href="feed"><i class="fa fa-home"></i></a> 
-    <a href="profile"><i class="fa fa-user"></i></a>
-    <a href="post"><i class="fa fa-edit"></i></a>
-    <a href="stories"><i class="fa fa-book"></i></a> 
-   </div>
+  <div class="topnav">
+  <a class="active" href="feed">Home</a>
+  <a href="inspiration">Stories</a>
+  <a href="#saved_artist">Saved Artist</a>
+  <a href="#about">About</a>
+  <a href="posts">Post</a>
+</div>
   
   <div class="content_div">
     {% block content %}        

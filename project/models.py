@@ -81,11 +81,11 @@ class Post(db.Model):
         return str(now.month) + " - " + str(now.day) + " - " + str(now.year)
 
     def get_description1(self):
-        return self.Text[:10] + "..."
+        return self.Text[:10] 
 
 
     def get_description2(self):
-        return self.Text[:11:300] + "."
+        return self.Text[10:300] + "."
 
 
     def get_title(self):

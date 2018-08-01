@@ -18,10 +18,11 @@ open_login_form = function(){
 
 
 
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+function myFunction(postid) {
+  alert(postid)
+  var dots = document.getElementById("dots_"+postid);
+  var moreText = document.getElementById("more_"+postid);
+  var btnText = document.getElementById("myBtn_"+postid);
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
