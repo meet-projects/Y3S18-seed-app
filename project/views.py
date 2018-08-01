@@ -17,6 +17,11 @@ def profile(username):
     visiting_user = User.query.filter_by(username=username)
     return render_template('profile.html', visiting_user=visiting_user)
 
+@app.route('/inspiration')
+@login_required
+def stories():
+    posts = Post.query.filter_by(ArtURL = '').all()
+    return render_template('stories.html', posts=posts)
 
 #read more function and add art
 @app.route('/stories/<int:post_id>', methods = ['GET','POST'])

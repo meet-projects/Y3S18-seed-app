@@ -93,7 +93,6 @@ def login_test(form):
 		return "failed"
 	return "success"
 
-
 @users_bp.route('/logout')
 @login_required
 def logout():
