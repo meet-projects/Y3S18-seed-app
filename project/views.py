@@ -24,7 +24,8 @@ def feed():
 	#		teachers.append(all_teachers[t])
 	#else:
 	#teachers = all_teachers
-	return render_template('feed.html', teachers=all_teachers, all_cities=all_cities)
+
+	return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="All Instructors",results="")
 
 ##@app.route('/feed/<int:pagenum>')
 ##def feed_num(pagenum):
@@ -50,7 +51,8 @@ def price_sort(sorting):
 		teachers=db.session.query(Teacher).order_by("cost asc").all()
 	elif sorting == "high":
 		teachers=db.session.query(Teacher).order_by("cost desc").all()
-	return render_template('feed.html', teachers=teachers, all_cities=all_cities)
+
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities, page="Filtering by Price",results="")
 
 '''@app.route('/hightolow',)
 def hightolow():
@@ -74,6 +76,7 @@ def language_filter(language):
 	all_cities = City.query.all()
 	all_teachers=db.session.query(Teacher).all()
 	teachers = []
+	results=""
 	for t in all_teachers:
 		if t.languages != None:
 			l = t.languages.split(" ")
@@ -81,7 +84,9 @@ def language_filter(language):
 			l = []
 		if l.count(language.capitalize()) > 0:
 			teachers.append(t)
-	return render_template('feed.html', teachers=teachers, all_cities=all_cities)
+    if teachers.length()==0:
+			results="No Results"
+	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results, all_cities=all_cities)
 
 @app.route('/city/<int:city>')
 def city(city):
