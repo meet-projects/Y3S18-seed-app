@@ -25,7 +25,7 @@ def feed():
 	#else:
 	#teachers = all_teachers
 
-	return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="All Instructors",results="")
+	return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="All Instructors",results="",thing="")
 
 ##@app.route('/feed/<int:pagenum>')
 ##def feed_num(pagenum):
@@ -52,23 +52,7 @@ def price_sort(sorting):
 	elif sorting == "high":
 		teachers=db.session.query(Teacher).order_by("cost desc").all()
 
-	return render_template('feed.html', teachers=teachers, all_cities=all_cities, page="Filtering by Price",results="")
-
-'''@app.route('/hightolow',)
-def hightolow():
-	teachers=db.session.query(Teacher).order_by("cost desc").all()
-	return render_template('feed.html', teachers=teachers)'''
-
-'''@app.route('/<area>')
-def area_filter(area):
-	l = area.split("_")
-	area = ""
-	for w in l:
-		w = w.capitalize()
-		area = area+w
-	teachers=db.session.query(Teacher).filter_by(city="area").all()
-	return render_template('feed.html', teachers=teachers)'''
-
+	return render_template('feed.html', teachers=teachers, all_cities=all_cities, page="Filtering by Price",results="",thing=sorting.capitalize())
 
 
 @app.route('/lang/<language>')
@@ -86,17 +70,21 @@ def language_filter(language):
 			teachers.append(t)
 	if len(teachers)==0:
 		results="No Results"
-	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results, all_cities=all_cities)
+	return render_template('feed.html', teachers=teachers, page="Filtering by Language",results=results, all_cities=all_cities,thing=language.capitalize())
 
 @app.route('/city/<int:city>')
 def city(city):
 	all_cities = City.query.all()
 	all_teachers = Teacher.query.all()
 	teachers = []
+	results=""
 	for t in all_teachers:
 		if t.city == City.query.filter_by(id=city).first().city:
 			teachers.append(t)
-	return render_template('feed.html', teachers=teachers, all_cities=all_cities)
+
+	if len(teachers)==0:
+		results="No Results"
+	return render_template('feed.html', teachers=teachers,page="Filtering by City", all_cities=all_cities,results=results,thing=city.capitalize())
 
 @app.route('/signup')
 def signup():
