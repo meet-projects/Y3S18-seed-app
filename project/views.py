@@ -97,7 +97,8 @@ def profile_template():
 	t=Teacher.query.filter_by(user_id=current_user.id).first()
 	this_teach_id=t.id
 	all_cities = City.query.all()
-	return render_template('profile_template.html',teacher=t,user=current_user, all_cities=all_cities)
+	all_requests=Request.query.filter_by(teacher_id=t.id)
+	return render_template('profile_template.html',teacher=t,user=current_user, all_cities=all_cities,requests=all_requests)
 
 
 @app.route('/profile/<int:teacher_id>')
