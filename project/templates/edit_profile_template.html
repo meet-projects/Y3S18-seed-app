@@ -13,14 +13,15 @@
 	<div class="row" style="background-color: rgb(246,246,246);">
 
 		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}" method="POST">
-			<div align="left" class="col-md-3" style="background-color: rgb(246,246,246);">
+			<div align="left" class="col-md-4" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
-				 <p>Picture: <input type="file" name="pic" accept="image/*"></p>
+
+				 <p>Picture:<input type="text" name="pic" value="{{teacher.profile_picture}}" style="float: right;"></p>
 			<br>
-			<p>Your First Name:<input type="text" name="fname" value="{{ teacher.fname }}"> </p>
+			<p>Your Name:<input type="text" name="name" value="{{ teacher.name }}" style="float: right;"> </p>
 			<br>
-			<p>Your Last Name:<input type="text" name="lname" value="{{ teacher.lname }}"> </p>
-			<table>
+			<table class="side_profile_table">
+
 				<tr>
 					<th>Phone Number:</th> 
 					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}" name="phone_num"> </td>
