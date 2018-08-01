@@ -23,7 +23,7 @@ def feed():
 	#		teachers.append(all_teachers[t])
 	#else:
 	#teachers = all_teachers
-	return render_template('feed.html', teachers=all_teachers)
+	return render_template('feed.html', teachers=all_teachers, page="All Instructors")
 
 ##@app.route('/feed/<int:pagenum>')
 ##def feed_num(pagenum):
@@ -48,7 +48,7 @@ def price_sort(sorting):
 		teachers=db.session.query(Teacher).order_by("cost asc").all()
 	elif sorting == "high":
 		teachers=db.session.query(Teacher).order_by("cost desc").all()
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers, page="Filtering by Price")
 
 '''@app.route('/hightolow',)
 def hightolow():
@@ -78,7 +78,7 @@ def language_filter(language):
 			l = []
 		if l.count(language.capitalize()) > 0:
 			teachers.append(t)
-	return render_template('feed.html', teachers=teachers)
+	return render_template('feed.html', teachers=teachers, page="Filtering by Language")
 
 @app.route('/signup')
 def signup():
