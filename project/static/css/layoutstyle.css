@@ -1,5 +1,5 @@
 body {
-	font-family: ;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .main_table{
@@ -32,7 +32,7 @@ body {
  box-sizing: border-box;
  width: 70%;
  padding: 12px 20px;
- margin: 50px 0 35px;
+ margin: 35px 0 10px 0;
  border-bottom: 2px solid rgb(242, 242, 242);
  box-sizing: border-box;
  opacity: 0.9;
@@ -114,29 +114,21 @@ body {
  font-size: 18px;
 }
 
-#signup_form {
- display: none;
-}
-
 .form_switch_span {
-  display: block;
+  display: inline;
   margin-top: 20px;
 }
 
 .form_switch_link {
  color: white;
  text-decoration: underline;
- margin-top: 30px;
+ margin-top: 10px;
 }
 
 
-
-
-
-
-
-
 .error_message {
+	margin: 0;
+	display: none;
 	color: red;
 }
 
@@ -146,11 +138,7 @@ body {
 .main_feed_body{
 	background-color: rgb(51, 17, 0);
 }
-/*LAYOUT HTML*/
-layoutbody {
-	margin-left: 50px;
-	margin-right: 50px;
-}
+
 
 .icon-bar {
     width: 100%;
@@ -168,11 +156,32 @@ layoutbody {
     font-size: 36px;
 }
 
+.form_switch_link{
+	display: inline;
+	color: white;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+}
 
-/*###navigation bar*/
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+.page_switch_form{
+	display: inline;
+}
+
+.form_switch_link:hover{
+	cursor: pointer;
+}
+
+.form_switch_link:focus{
+	outline: none;
+}
+
+.icon-bar a:hover {
+    background-color: #000;
+}
+
+.active {
+    background-color: #4CAF50;
 }
 
 .topnav {

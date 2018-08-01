@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 
-{% if current_user.id == visiting_user.id %}
+{% if current_user.id != visiting_user.id %}
+<!-- show my page -->
+
+
 
 {% else %}
 

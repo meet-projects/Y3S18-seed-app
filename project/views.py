@@ -5,12 +5,11 @@ from . import app
 from project.forms import AddArtForm    
 
 
-@app.route('/feed')
+@app.route('/feed', methods=['POST','GET'])
 @login_required
 def feed():
     posts = Post.query.filter(Post.ArtURL != '').all()
     return render_template('mainfeed.html', posts=posts)
-
 
 @app.route('/profiles/<username>')
 @login_required
@@ -31,4 +30,3 @@ def list_detail_stories(post_id):
     form = AddArtForm(request.form)    
     post = Post.query.filter_by(id = post_id).first()
     return render_template('viewstory.html', post=post, form=form)
-    
