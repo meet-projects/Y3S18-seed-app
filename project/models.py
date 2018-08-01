@@ -93,9 +93,8 @@ class Request(db.Model):
     teacher_id = db.Column(db.Integer, ForeignKey('teachers.id'))
     done = db.Column(db.Boolean)
 
-    def __init__(self,name,phone_num,teacher_id,done):
-        self.name = name
-        self.phone_num = phone_num
+    def __init__(self,student_id,teacher_id,done):
+        self.student_id
         self.teacher_id = teacher_id
         self.done = done
 

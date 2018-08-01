@@ -94,12 +94,14 @@ def profile(teacher_id):
     teacher = db.session.query().filter_by(id=teacher_id).first()
     return render_template('profile_template.html', teacher=teacher)
 
-@users_bp.route('/<int:teacher_id>/booking')
-def booking(teacher_id):
+@users_bp.route('/request/<int:teacher_id>', methods=['POST'])
+def request(teacher_id):
     studentname=request.form.get('studentname')
     studentnum=request.form.get('studentnum')
     thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-    book=Booking(studentname,studentnum,thisteacher.id,False)
+    sid=thisteacher.user_id
+    student=Student(sid,studentname,studentnum)
+    book=Request(student.id,thisteacher.id,False)
     db.session.add(book)
     db.session.commit()
     return redirect('feed')
