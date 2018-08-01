@@ -6,7 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript" src="../static/js/script.js"> </script>		
+		<script type="text/javascript" src="../static/js/script.js"> </script>	
+		<script type="text/javascript" src="../static/js/bootstrap.bundle.min.js"></script>	
 		<title>
 			EasyLicense	
 		</title>
@@ -111,11 +112,17 @@
 					<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
 					<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
 				</p>
-				<p id="sort_bar">City:
-					{% for c in all_cities %}
-					<a href="{{url_for('city',city=c.id)}}" class="link">{{c.city}}</a>
+				<p id="sort_bar">City:</p>
+				<div class="dropdown" style="background-color: rgb(246,246,246);">
+					<button class="btn btn-secondary dropdown-toggle" id="dropmenu dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Choose a City <span class="caret"></span></button>
+					<div class="dropdown-menu" style="position: absolute;" aria-labelledby="dropdownMenuButton">
+						<!-- <ul> -->
+						{% for c in all_cities %}
+						<a href="{{url_for('city',city=c.id)}}" class="dropdown-item">{{c.city}}</a>
 					{% endfor %}
-				</p>
+					<!-- </ul> -->
+					</div>
+				</div>
 			</div>		
 				<h3 style="color: black;">{{page}}</h3>
 			</center> 

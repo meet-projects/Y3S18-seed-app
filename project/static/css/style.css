@@ -504,3 +504,11 @@ button#contact_btn > a:hover:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+#dropmenu > ul > li{
+  display: inline-block;
+  margin-left: 2%;
+  position: relative;
+}
+#dropmenu{
+  text-align: center;
+}

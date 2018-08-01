@@ -25,21 +25,21 @@
 				<tr> 
 
 					<th>City:</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.city}} </td>
+					<td data-toggle="tooltip" data-placement="top" title="{{teacher.city}}"> {{teacher.city | truncate(13)}} </td>
 				</tr>
 				<tr> 
 
 					<th>Cost:</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.cost}} &#8362</td>
+					<td data-toggle="tooltip" data-placement="top" title="{{teacher.cost}}"> {{teacher.cost}} &#8362</td>
 
 				</tr>
 				<tr> 
 					<th>Languages:</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(55)}} </td>
+					<td data-toggle="tooltip" data-placement="top" title="{{teacher.languages}}"> {{teacher.languages}} </td>
 				</tr>
 				<tr>
 					<th>Gearbox:</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.car_type | truncate(25)}} </td>
+					<td data-toggle="tooltip" data-placement="top" title="{{teacher.car_type}}"> {{teacher.car_type}} </td>
 				</tr>
 			</table>
 
