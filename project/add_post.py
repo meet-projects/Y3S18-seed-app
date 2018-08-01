@@ -39,9 +39,9 @@ def add_art(PostID):
         print(form.validate_on_submit())
         if form.validate_on_submit():
             post = Post.query.filter_by(id = PostID).first()
-            art_url = form.art_url.data    
+            art_url = form.art_url.data
             post.ArtURL = art_url
-            post.ArtistID = artistID 
+            post.ArtistID = artistID
             db.session.commit()
             #user = User.query.filter_by(id=artistID).first()
             return redirect(url_for('feed'))   

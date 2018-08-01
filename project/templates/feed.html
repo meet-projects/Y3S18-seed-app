@@ -1,10 +1,8 @@
 
-<!--<a href="post" >post</a><br> -->
-
-<link rel="stylesheet" href="../static/css/style.css">
-<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+ <img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
 <!--<ul class="navigation_bar" >
   <li><a class="active" href="#home">Home</a></li>
+  <li><a href="post">post</a></li>
   <li><a href="add_post">post</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
@@ -12,37 +10,17 @@
 -->
 
 
+<!--<<<<<<< HEAD
+-->
 
-<script>
 
-<!--<script type="text/javascript">
-  
-
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
-  }
-}
-
-</script>
 
 
 
 </script>
-
-{% extends "layout.html" %}
+ {% extends "layout.html" %}
 {% block content %}
-
+  <div id="feed_space">
 <div id="feed_space">
 <style type="text/css">
   body{
@@ -86,7 +64,12 @@ li a:hover {
     background-color: #727272;
 }
 </style>
+<style type="text/css">
+  .imag1{
 
+    width: 100;
+  }
+</style>
 
 
 <script>
@@ -108,7 +91,7 @@ $(document).ready(function () {
       moreText.style.display = "inline";
     }
   });
-})
+})=
 </script>
 
 {% for post in posts %}
@@ -128,65 +111,18 @@ $(document).ready(function () {
               <span class="publish_date_text"> Published on:    
                   {{ post.format_date() }}
               </span>
-
+<br><br>
           </div>
 
-          </p>
+          </p> 
+<br> 
 
-              <div class="vote_block"><!-- 
-                  <asp:ImageButton ClientIDMode="Static" CssClass="vote_button up" ID="upvote" 
-                      ClientID='<%# string.Format("upvote_{0}", Eval("StoriID")) %>' 
-                      runat="server" ImageURL="Images/upvote-grey.png" CommandName="vote_up"
-                      CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();"/> -->
-
-                  <span class="rating"> {{ post.format_rating() }} </span>
-<!-- 
-                  <asp:ImageButton ClientIDMode="Static" CssClass="vote_button down" ID="downvote" 
-                      ClientID='<%# string.Format("downvote_{0}", Eval("StoriID")) %>' 
-                      runat="server" ImageURL="Images/downvote-grey.png" CommandName="vote_down"
-                      CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();" /> -->
-              </div>
-          
-        
-            <!-- Button to Open the Modal -->
-<button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#addArt'>Share</button>
-            <!-- The Modal -->
-<div class="modal" id="addArt">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Share your art...</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-
-        <form action="{{ url_for('add_post.add_art', PostID = post.id) }}" method="post">
-        {{ form.csrf_token }}
-        <p class="text">URL:</p>   {{ form.art_url(placeholder= "Add URL") }}<br><br>
-        <button class="btn btn-sm btn-success" type="submit">Share</button>
-        </form>
-
-       
-      </div>
-      <!-- Modal footer --> 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
+ </div>
+ 
+ <img src="../static/pictures/line4.png" alt="Stickman" class="imag1"><br>
 </div>
-        </div>
-
-    </div>
-<br><br>
-{% endfor %}
 
  
-</div>
-
- {% endblock %}
+ {% endfor %}
+ 
+  {% endblock %} 
