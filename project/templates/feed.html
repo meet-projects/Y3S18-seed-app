@@ -107,10 +107,16 @@
 					<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
 					<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
 				</p>
+				<p id="sort_bar">City:
+					{% for c in all_cities %}
+					<a href="{{url_for('city',city=c.id)}}" class="link">{{c.city}}</a>
+					{% endfor %}
+				</p>
 			</div>
-			<h3 style="color: black;">{{page}}</h3>
-		</center> 
 				<br>
+			<h3 style="color: black;">{{page}}</h3>
+			<h2 style="color: black;">{{thing}}</h2>
+			</center> 
 			<div class="row">
 	  			{% for teacher in teachers %}
 	  			<!--<div class="column">
@@ -142,10 +148,12 @@
 	  					<a href="{{url_for('profile', teacher_id=teacher.id)}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
 	  				</span>
 	  			</div>
-	  			</center>
 	  			{% endfor %}
-	  			<h2 style="color: black;">{{results}}</h2>
+	  		</center>
 	  		</div>
+	  		<center>
+	  		<h2 style="color: black;">{{results}}</h2>
+	  		</center>
 	  	</span>
 
 	</body>
