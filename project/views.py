@@ -137,3 +137,27 @@ def add_contact(contact_num):
 	return redirect(url_for('account'))'''
 
 
+
+
+@app.route('/booster_seat_alert/<int:booster_seat_id>', methods=["GET","POST"])
+def booster_seat_alert(booster_seat_id):
+	if request.method == 'POST':
+
+		user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
+		user.flag = 1
+		db.session.commit()
+		
+	else:
+		return render_template('sendmessage.html', user=user , form=form)
+
+	
+	##GET : show a button on a template which will send POST request for this booster
+	## POST: set flag to 1 for the user this booster belongs to
+
+
+@app.route('/booster_seat_stop/<int:booster_seat_id>', methods=["GET","POST"])
+def booster_seat_stop(booster_seat_id):
+	if methods
+	##GET : show a button on a template which will send POST request for this booster
+ 	# POST: set flag to 0 for the user this booster belongs to
+
