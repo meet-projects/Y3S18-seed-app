@@ -58,7 +58,6 @@ h1{
 #motto{
 	position: relative;
 	top: 50px;
-
 }
 
 #img{
@@ -74,6 +73,17 @@ h1{
     height: 5%;
     float: left;
     padding-right: 20px;
+}
+
+.icons{
+    min-width: 50px;
+    min-height: 50px;
+    margin: 25px;
+    color: black;
+}
+
+.icons:hover{
+    color: #0073a8;
 }
 
 /* Full-width input fields */
