@@ -15,6 +15,7 @@ h1{
     float: left;
     clear: left;
     padding-left: 5px;
+    margin: 20px;
 }
 
 .login-titles{
@@ -48,17 +49,21 @@ h1{
 
 #inst-btn{
 	position: relative;
-	left: 300px;
-	top: 100px;
+	left: 100px;
+	top: 10px;
 	font-size: 24px;
 
 }
 
 #stu-btn{
 	position: relative;
-	right:300px;
-	top: 100px;
+	right: 85px;
+	top: 150px;
 	font-size: 24px;
+}
+
+.text{
+    padding-left: 5px;
 }
 
 #motto{
