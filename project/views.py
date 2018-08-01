@@ -14,6 +14,18 @@ from . import app
 #NEED = 0
 #USER = 0
 
+'''
+#Mahd's phone:
+ACC_SID = "ACefef234a7dcd3cb22413db1ecab742a5"
+AUTH_TOKEN = "4a6cd830f3a7b69ec5cae4fde76e34b9"
+FROM = "+18604312585"
+BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
+
+'''
+
+
+
+
 #Robert's phone:
 ACC_SID = "AC28c8c4fb97d6e0949e2ce45135ad2c9c"
 AUTH_TOKEN = "c55558a79a700c94d537b33d63fe85c6"
@@ -24,6 +36,7 @@ BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 ACC_SID1 = "ACd03777f4973c4f1ffc3efed677cc57b1"
 AUTH_TOKEN1 = "b22f0d66110237b42ebf63ccd2b4241e"
 FROM1 = "+18482088916"
+
 
 #Indicator
 IN = 0
@@ -37,10 +50,10 @@ def send_message():
 	#This function will send the messages
 	users = User.query.all()
 	client = Client(ACC_SID, AUTH_TOKEN)
-	client1 = Client(ACC_SID1, AUTH_TOKEN1)
+	#client1 = Client(ACC_SID1, AUTH_TOKEN1)
 	for user in users:
 		try:
-			client.messages.create(to=user.number, from_=FROM, body=BODY)
+			client.messages.create(to='+972525511099', from_=FROM, body=BODY)
 		except Exception as ex:
 			print('Error with user %s. Error: %s' % (user.id, ex))
 
