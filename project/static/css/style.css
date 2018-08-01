@@ -271,19 +271,7 @@ font-weight: bold;
   text-decoration: none;
 }
 
-
-
-
-
-
-
 /* The Modal (background) */
-
-
-
-
-
-
 
 .modal {
     display: none; /* Hidden by default */
@@ -356,6 +344,9 @@ font-weight: bold;
 #edit_about{
     width: 618px;
     height: 85px;
+    font-size: 18px;
+    font-family: helveticaneuelight;
+    color: grey;
 }
 
 .filters{

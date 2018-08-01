@@ -44,6 +44,7 @@ def register():
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
+
                 return redirect(url_for('edit_profile',teacher_id=teacher.id))
 
             ##next_page = request.args.get('next')
