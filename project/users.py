@@ -19,7 +19,7 @@ def register():
 		username=form.username.data
 		password = form.password.data
 		number = form.number.data
-		booster_seat_id = form.booster_seat_id
+		booster_seat_id = form.booster_seat_id.data   
 		user = User.query.filter_by(username=username).first()
 		if user:
 			return Response("<p>Username already exists</p>")

@@ -21,7 +21,7 @@ class User(UserMixin, db.Model):
     relation1 = db.Column(db.String, nullable=True)
     relation2 = db.Column(db.String, nullable=True)
     relation3 = db.Column(db.String, nullable=True)
-    booster_seat_id = db.Column(db.Integer, unique=True, nullable=False)
+    booster_seat_id = db.Column(db.String, unique=True, nullable=False)
     flag = db.Column(db.Integer, nullable=False)
 
     def __init__(self, username, password, number, booster_seat_id):
