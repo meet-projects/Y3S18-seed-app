@@ -76,7 +76,7 @@ def login():
         else:
             return Response("<p>invalid form</p>")
     else:
-        return render_template('login.html', loginform=loginform)
+        return render_template('index.html', loginform=loginform)
 
 @users_bp.route('/login_signup')
 def login_signup():
@@ -167,3 +167,10 @@ def editing(teacher_id):
     #    all_cities = City.query.all()
     #    return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
+
+@users_bp.route('/delete/<int:teacher_id>')
+def delete(teacher_id):
+    teach=Teacher.query.filter_by(id=teacher_id).first()
+    db.session.delete(teach)
+    db.session.commit()
+    return redirect('/')

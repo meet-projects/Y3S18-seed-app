@@ -7,10 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="../static/css/login_signup.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../static/js/login_signup.js"> </script>
-  <!--<img src="../static/img/easylicense_logo.png" class="logo" alt="EasyLicense"> -->
+
 </head>
 <body>
-<h4><a href="{{url_for('index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
+<h4><a href="{{url_for('index')}}"><img src="../static/img/logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 <center>
   <center>
 
@@ -39,7 +39,7 @@
   <h2>Sign Up</h2>
   <center>
     <span style="float: left; width: 100%;">
-      <label for="fname" class="label"><b>Full Name</b></label>
+      <label for="fname" class="label"><b>First Name</b></label>
       <input type="text" name="name" placeholder="First Name" required>
     </span>
 
@@ -84,37 +84,17 @@
       <form action="{{ url_for('users.login') }}" method="post">
        <h2 class="login_title">Login</h2>
         
-    {{ loginform.csrf_token }}
-    <br>
-    <br>
-    {{ loginform.username(placeholder="Email") }} 
-    <br>
-    <br>
-    {{ loginform.password(placeholder="Password") }}
-    <br>
-    <br>
-    <div id="keep_sign_in">
-      <input type="checkbox" name="keep_sign_in" style="float:left;margin-left: 10%;" checked> Keep me signed in
-    </div>
-    <br>
-    <br>
-    <button class="btn btn-sm btn-success" type="submit">SIGN IN</button>
-  </form>
-    <div>
-      <table style="width: 80%;">
-      <tr>
-        <td align="left">
-          <a>Forgot your password?</a>
-        </td>
-        <td align="right">
-          <p style="font-family: helveticaneuelight;">No account? <a href="{{url_for('register')}}">Create one here!</a></p>
-        </td>
-      </tr> 
-      </table>
-    </div>
-  </div>
-  </form>
-</div>
+    {{ loginform.csrf_token }}     <br>     <br>     {{
+loginform.username(placeholder="Email") }}      <br>     <br>     {{
+loginform.password(placeholder="Password") }}     <br>     <br>     <div
+id="keep_sign_in">       <input type="checkbox" name="keep_sign_in"
+style="float:left;margin-left: 10%;" checked> Keep me signed in     </div>
+<br>     <br>     <button class="btn btn-sm btn-success" type="submit">SIGN
+IN</button>   </form>     <div>       <table style="width: 80%;">       <tr>
+<td align="left">           <a>Forgot your password?</a>         </td>
+<td align="right">           <p style="font-family: helveticaneuelight;">No
+account? <a href="{{url_for('register')}}">Create one here!</a></p>
+</td>       </tr>        </table>     </div>   </div>   </form> </div>
 
 </center>
 
