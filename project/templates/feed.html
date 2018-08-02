@@ -130,7 +130,7 @@
 
 				<h2 style="color: black; font-size: 36px;">{{page}}</h2>
 				<br>
-				<h4 style="color: black; font-size: 24px;">{{thing}}</h4>
+				<h3 style="color: black; font-size: 24px;">{{thing}}</h3>
 
 			</center> 
 			<br>
@@ -161,28 +161,19 @@
 		  					<h1>{{teacher.fname}}</h1>
 		  					<p>{{teacher.description}}</p>
 
-		  					<h3 style="color: black;">Languages: {{teacher.languages}}</h3>
-		  					<h2>{{teacher.city}}</h2>
-		  					<h2>{{teacher.cost}} &#8362</h2>
+		  					<h4 style="color: black;">Languages: {{teacher.languages}}</h4>
+		  					<h4>{{teacher.city}}</h4>
+		  					<h4>{{teacher.cost}} &#8362</h4>
 		  					<button id="contact_btn" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
 		  				</span> 
-		  			</div>
-		  			  		</div>
-
-	  					<h4 style="color: black;">Languages: {{teacher.languages}}</h4>
-	  					<h4>City : {{teacher.city}}</h4>
-	  					<h4>{{teacher.cost}} &#8362</h4>
-	  					<button id="contact_btn" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
-	  				</span> 
+		  			</div> 
 	  			</div>
-	  		</div>
 	  			{% endfor %}
 	  		</div>
 	  	</div>
 	  		<center>
 	  		<h2 style="color: black;">{{results}}</h2>
 	  		</center>
-	  	</span>
 
 	</body>
 </html>
