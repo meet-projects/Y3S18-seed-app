@@ -12,3 +12,6 @@ fi
 export FLASK_APP='project'
 export FLASK_ENV='development'
 export FLASK_DEBUG=1
+
+celery -A project.tasks worker --loglevel=info
+

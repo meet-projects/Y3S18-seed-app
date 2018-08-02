@@ -8,6 +8,8 @@ from sqlalchemy import update
 import os
 from twilio.rest import Client
 import threading
+from project.tasks import alert, revoke
+#from celery.task.control import revoke
 
 from . import app
 
@@ -23,44 +25,14 @@ BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
 '''
 
-
-
-
 #Mahd's phone:
 ACC_SID = "ACefef234a7dcd3cb22413db1ecab742a5"
 AUTH_TOKEN = "4a6cd830f3a7b69ec5cae4fde76e34b9"
 FROM = "+18647546228"
 BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
-#Indicator
-IN = 0
-
-def user_is_bad():
-	#Threading delay between 2 messages going to be 4 minutes
-	threading.Timer(30.0, user_is_bad).start()
-	print("Thread startred")
-	send_message()
-
-def send_message():
-	#Print debugger
-	#This function will send the messages
-	users = User.query.all()
-	client = Client(ACC_SID, AUTH_TOKEN)
-	#client1 = Client(ACC_SID1, AUTH_TOKEN1)
-	for user in users:
-		if user.flag == 1:
-			client.messages.create(to=user.number , from_=FROM, body=BODY)
-		print(user.flag)
-
-def activate():
-	global IN
-	if IN == 0:
-		user_is_bad()
-		IN = 1
-
 @app.route('/')
 def index():
-	activate()
 	return render_template('landingpage.html')
 
 
@@ -135,13 +107,15 @@ def add_contact(contact_num):
 
 @app.route('/booster_seat_alert/<int:booster_seat_id>', methods=["GET","POST"])
 def booster_seat_alert(booster_seat_id):
-	print(str(booster_seat_id) + "<<<<<<<<<<<<<<")
-	user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
-	print(request.method)
 	user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 	if request.method == "POST":
 		user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 		user.flag = 1
+		if user.relation3:
+			revoke(user.relation3)
+		task = alert.delay(user.number, user.flag, user.phone1, user.phone2, user.phone3)
+		print(type(task.id))
+		user.relation3 = str(task.id)
 		db.session.commit()
 		return redirect(url_for('booster_seat_stop', booster_seat_id = booster_seat_id))
 	else:
@@ -158,6 +132,11 @@ def booster_seat_stop(booster_seat_id):
 	if request.method == 'POST':
 		user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 		user.flag = 0
+		task = user.relation3
+		print('before ' + task)
+		revoke(task)
+		print('revoked')
+		user.relation3 = 0
 		db.session.commit()
 		return redirect(url_for('booster_seat_alert', booster_seat_id=booster_seat_id))	
 	else:
