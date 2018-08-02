@@ -63,7 +63,8 @@
 				<br><br>
 				<button onclick="document.getElementById('filter_div').style.display='block'" class="button">Filter</button>
 			</center>
-			<center><div id="filter_div" class="popup">
+			<center>
+				<div id="filter_div" class="popup">
 				<!--<ul class="filter" id="instructordiv">
 				  <li class="filter"> <h3 class="filter_title">Location</h3>
 				  	<select onchange="window.location.href=this.value;" class="filters">
@@ -102,29 +103,33 @@
 					
 					</li>
 				</ul>-->
-				<p ><a href="{{url_for('feed')}}" class="link">No Filter</a></p>
-				<p id="sort_bar">Sort(Price):
-					<a href="{{url_for('price_sort',sorting='low')}}" class="link">Low-->High</a>
-					<a href="{{url_for('price_sort',sorting='high')}}" class="link">High-->Low</a>
-				</p>
-				<p id="sort_bar">Language:
-					<a href="{{url_for('language_filter',language='arabic')}}" class="link">Arabic</a>
-					<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
-					<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
-				</p>
-				<p id="sort_bar">City:</p>
-				<div class="dropdown" style="background-color: rgb(246,246,246);">
-					<button class="btn btn-secondary dropdown-toggle" id="dropmenu dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Choose a City <span class="caret"></span></button>
-					<div class="dropdown-menu" style="position: absolute;" aria-labelledby="dropdownMenuButton">
-						<!-- <ul> -->
-						{% for c in all_cities %}
-						<a href="{{url_for('city',city=c.id)}}" class="dropdown-item">{{c.city}}</a>
-					{% endfor %}
-					<!-- </ul> -->
+					<p><a href="{{url_for('feed')}}" class="link">No Filter</a></p>
+					<p id="sort_bar">Sort(Price):
+						<a href="{{url_for('price_sort',sorting='low')}}" class="link">Low-->High</a>
+						<a href="{{url_for('price_sort',sorting='high')}}" class="link">High-->Low</a>
+					</p>
+					<p id="sort_bar">Language:
+						<a href="{{url_for('language_filter',language='arabic')}}" class="link">Arabic</a>
+						<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
+						<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
+					</p>
+					<p id="sort_bar">City:</p>
+					<div class="dropdown" style="background-color: rgb(246,246,246);">
+						<button class="btn btn-secondary dropdown-toggle" id="dropmenu dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Choose a City <span class="caret"></span></button>
+						<div class="dropdown-menu" style="position: absolute;" aria-labelledby="dropdownMenuButton">
+							<!-- <ul> -->
+							{% for c in all_cities %}
+							<a href="{{url_for('city',city=c.id)}}" class="dropdown-item">{{c.city}}</a>
+						{% endfor %}
+
+						<!-- </ul> -->
+						</div>
 					</div>
 				</div>
-			</div>		
-				<h3 style="color: black;">{{page}}</h3>
+				<br>
+			<h3 style="color: black;">{{page}}</h3>
+			<h2 style="color: black;">{{thing}}</h2>
+
 			</center> 
 			<br>
 			<div class="container" style="background-color: rgb(246,246,246);">
@@ -146,25 +151,28 @@
 		      				</div>
 	    			</div>
 	  			</div> -->
-	  			<div class="instructor">
-	  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
-	  				<span class="ins_info" style="color: black;">
-	  					<br>
-	  					<h1>{{teacher.fname}}</h1>
-	  					<p>{{teacher.description}}</p>
+		  			<div class="instructor">
+		  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
+		  				<span class="ins_info" style="color: black;">
+		  					<br>
+		  					<h1>{{teacher.fname}}</h1>
+		  					<p>{{teacher.description}}</p>
 
-	  					<h3 style="color: black;">Languages: {{teacher.languages}}</h3>
-	  					<h2>{{teacher.city}}</h2>
-	  					<h2>{{teacher.cost}} &#8362</h2>
-	  					<button id="contact_btn" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
-	  				</span> 
-	  			</div>
+		  					<h3 style="color: black;">Languages: {{teacher.languages}}</h3>
+		  					<h2>{{teacher.city}}</h2>
+		  					<h2>{{teacher.cost}} &#8362</h2>
+		  					<button id="contact_btn" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
+		  				</span> 
+		  			</div>
+		  			  		</div>
 
-	  		</div>
-	  			{% endfor %} 
-	  			<h2 style="color: black;">{{results}}</h2> 		
-	  	</div>
-	  </div>
+	  			{% endfor %}
+	  		<center>
+	  		<h2 style="color: black;">{{results}}</h2>
+	  		</center>
+        </div>
+    </div>
+	  	</span>
 
 	</body>
 </html>
