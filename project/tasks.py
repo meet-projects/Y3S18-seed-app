@@ -2,10 +2,10 @@ from celery import Celery
 from twilio.rest import Client
 import time
 
-#Mahd's phone:
-ACC_SID = "ACefef234a7dcd3cb22413db1ecab742a5"
-AUTH_TOKEN = "4a6cd830f3a7b69ec5cae4fde76e34b9"
-FROM = "+18647546228"
+#Georges's phone:
+ACC_SID = "ACd03777f4973c4f1ffc3efed677cc57b1"
+AUTH_TOKEN = "b22f0d66110237b42ebf63ccd2b4241e"
+FROM = "+18482088916"
 BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
 
