@@ -9,7 +9,6 @@
      
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginstyle.css') }}">
 
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
@@ -31,7 +30,7 @@
 				<center>
 					<form id="login_form" class=" form_instance" action="{{ url_for('users.login') }}" method="post">
 						{{ form.csrf_token }}
-						
+
 							<input type="text" name="username" id="login_textbox_username" 
 							class=" login_page_textbox" placeholder="Username">
 							<span id="wrong_cred_msg" class="error_message">
@@ -41,7 +40,7 @@
 							<input type="password" name="password" id="login_textbox_password" 
 							class=" login_page_textbox" placeholder="Password">
 
-						<button id="login_submit" class="btn" type="submit">Log in</button>
+						<button id="login_submit" class="login_btn" type="submit">Log in</button>
 					</form>
 
 					<span id="open_signup_form_span" class="form_switch_span">
@@ -83,7 +82,7 @@
 								passwords do not match
 						</span>
 
-						<button id="register_submit" class="btn" type="submit">Sign Up</button>
+						<button id="register_submit" class="login_btn" type="submit">Sign Up</button>
 					</form>
 
 					<span id="open_login_form_span" class="form_switch_span">
