@@ -1,20 +1,15 @@
 #story_title{
 	font-size: 50px;
 	color:black;
-	font-family:  "Montserrat", sans-serif;
+	font-family:  "Avenir", sans-serif;
 
 
 }
 #description_block	{
-	font-family:  "Montserrat", sans-serif;
+	font-family:  "Avenir", sans-serif;
 	color:black;
 	font-size: 30px;
 }
-/*#img_wrapper {
-	width: 500px;
-	height: 600px;
-
-}*/
 
 #post_img {
 	max-width: 100%;
