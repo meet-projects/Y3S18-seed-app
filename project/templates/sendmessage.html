@@ -6,15 +6,15 @@
 /*#BSID{
 	font-size: 2em;
 }*/	
-
-#sendbutton{
+.jumbotron-send-button{
 	height: 25vh;
 	width: 25vh;
-}
-
-.jumbotron-button{
 
 }
+
+#sendbutton1{
+}
+
 
 </style>
 
@@ -26,13 +26,13 @@
 <p>hi</p>
 {% endif %}
 
-<div class="container">
-	<div class="jumbotron jumbotron-button">
+
+	<div class="jumbotron jumbotron-send-button">
 	<form action="/booster_seat_alert/{{booster_seat_id}}" method="post" >
-	<button id="sendbutton" type="submit" class="btn btn-info btn-lg"></button>
+	<button id="sendbutton1" type="submit" class="btn btn-info btn-lg"> <img src="../project/static/pictures/Button1"> </button>
 	</form>
 	</div>
-</div>
+
 <!-- <form action="/booster_seat_stop/{{booster_seat_id}}" method="post" >
 <button id="sendbutton1" style="background: url(../static/pictures/Button1.png);" height="500" width="500" type="submit" class="btn btn-info btn-lg"></button>
 </form> -->
