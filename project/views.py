@@ -133,8 +133,9 @@ def add_contact(contact_num):
 
 
 
-@app.route('/booster_seat_alert/<int:booster_seat_id>', methods=["GET","POST"])
+@app.route('/booster_seat_alert/<str:booster_seat_id>', methods=["GET","POST"])
 def booster_seat_alert(booster_seat_id):
+	
 	print(str(booster_seat_id) + "<<<<<<<<<<<<<<")
 	user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 	print(request.method)
@@ -152,7 +153,7 @@ def booster_seat_alert(booster_seat_id):
 	## POST: set flag to 1 for the user this booster belongs to
 
 
-@app.route('/booster_seat_stop/<int:booster_seat_id>', methods=["GET","POST"]) 
+@app.route('/booster_seat_stop/<str:booster_seat_id>', methods=["GET","POST"]) 
 def booster_seat_stop(booster_seat_id):
 	user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 	if request.method == 'POST':
