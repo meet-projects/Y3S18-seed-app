@@ -159,9 +159,9 @@ def booster_seat_stop(booster_seat_id):
 		user = User.query.filter_by(booster_seat_id=booster_seat_id).first()
 		user.flag = 0
 		db.session.commit()
-		return redirect(url_for('account'))	
+		return redirect(url_for('booster_seat_alert', booster_seat_id=booster_seat_id))	
 	else:
-		return render_template('sendmessage.html',booster_seat_id=booster_seat_id, user = user)
+		return render_template('stopmessage.html',booster_seat_id=booster_seat_id, user = user)
 
 	##GET : show a button on a template which will send POST request for this booster
  	# POST: set flag to 0 for the user this booster belongs to
