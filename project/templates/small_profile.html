@@ -63,7 +63,7 @@
 					</div>
 					<div class="modal-body">
 						<br>
-						<form name="booking_form" id="book" action="{{ url_for( 'users.booking' , teacher_id=teacher.id ) }}">
+						<form name="booking_form" id="book" action="{{ url_for( 'users.make_request' , teacher_id=teacher.id ) }}" method="POST">
 							Full Name<br>
 							<input type="text" name="studentname" placeholder="Full Name">
 							<br>
