@@ -7,14 +7,19 @@
 	font-size: 2em;
 }*/	
 
+.jumbotron-send-button{
+	height: 50vh;
+	width: 50vh;
+	
+
+}
+
 #sendbutton{
-	height: 25vh;
-	width: 25vh;
-}
-
-.jumbotron-button{
+	background-color: white;
+	border-color: white;
 
 }
+
 
 </style>
 
@@ -26,15 +31,14 @@
 <p>hi</p>
 {% endif %}
 
-<div class="container">
-	<div class="jumbotron jumbotron-button">
+	<div class="jumbotron jumbotron-send-button">
 	<form action="/booster_seat_alert/{{booster_seat_id}}" method="post" >
-	<button id="sendbutton" type="submit" class="btn btn-info btn-lg"></button>
+	<button id="sendbutton" type="submit" class="btn btn-info btn-lg" > <img src="../static/pictures/Button2.png"> </button>
 	</form>
 	</div>
-</div>
-<!-- <form action="/booster_seat_stop/{{booster_seat_id}}" method="post" >
-<button id="sendbutton1" style="background: url(../static/pictures/Button1.png);" height="500" width="500" type="submit" class="btn btn-info btn-lg"></button>
+
+ <!-- <form action="/booster_seat_stop/{{booster_seat_id}}" method="post" >
+<button id="sendbutton1" type="submit" class="btn btn-info btn-lg"> <img src="../static/pictures/Button1.png"> </button>
 </form> -->
 
 </center>
