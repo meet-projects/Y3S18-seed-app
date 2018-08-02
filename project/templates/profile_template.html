@@ -20,7 +20,7 @@
 
 			<center>
 			<p align="center"><i> Your Inofrmation</i> </p>
-			<p align="center"><i> {{teacher.name}}</i> </p>
+			<p align="center"><i> {{teacher.fname}} {{teacher.lname}}</i> </p>
 			<br>
 			<table class="side_profile_table">
 				<tr>
@@ -77,29 +77,15 @@
 				</p>
 			</div>
 			<var></var>
-			{% for booking in bookings %}
+			{% for request in requests %}
 				<table id="booking_table">
-					
 					<tr>
 						<th class="booking_table_title">
-						Booking number {{loop.index}}
+						I am request number {{loop.index}} awaiting your payment
 						</th>
-						<th></th>
+						<a href="paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a>
 					</tr>
-					<tr>
-						<th class="booking_table_header">
-							Name
-						</th>
-						<th class="booking_table_header">
-							Phone Number
-						</th>
-					</tr>
-						<td>
-							{{booking.name}}
-						</td>
-						<td>
-							{{booking.phone_num}}
-						</td>
+
 				</table>
 				<br><br>
 			{% endfor %}

@@ -94,20 +94,20 @@ def profile(teacher_id):
     teacher = db.session.query().filter_by(id=teacher_id).first()
     return render_template('profile_template.html', teacher=teacher)
 
-@users_bp.route('/<int:teacher_id>/booking')
-def booking(teacher_id):
+@users_bp.route('/make_request/<int:teacher_id>', methods=['POST'])
+def make_request(teacher_id):
     studentname=request.form.get('studentname')
     studentnum=request.form.get('studentnum')
     thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-    book=Booking(studentname,studentnum,thisteacher.id,False)
+    sid=thisteacher.user_id
+    student=Students(sid,studentname,studentnum)
+    book=Request(student.id,thisteacher.id,False)
+    db.session.add(student)
+    db.session.commit()
     db.session.add(book)
     db.session.commit()
     return redirect('feed')
 
-# @users_bp.route('/booking/<int:teacher_id>')
-# def booking(teacher_id):
-#     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
-#     return render_template('booking.html', teacher=teacher)
 
 @users_bp.route('/editing/<int:teacher_id>', methods=['POST'])
 @login_required
