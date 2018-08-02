@@ -24,6 +24,7 @@
 			<br>
 			<table class="side_profile_table">
 				<tr>
+
 					<th>Phone Number</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.phone_num | truncate(13)}} </td>
 				</tr>
@@ -43,13 +44,14 @@
 				<tr> 
 					<th>Languages</th> 
 
+
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(30)}} </td>
 
 				</tr>
 
 				<tr>
-					<th>Gearbox</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.gearbox | truncate(13)}} </td>
+					<th>Gearbox:</th> 
+					<td data-toggle="tooltip" data-placement="top" title="{{teacher.gearbox}}"> {{teacher.gearbox | truncate(13)}} </td>
 
 				</tr>
 			</table>
