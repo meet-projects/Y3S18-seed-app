@@ -1,3 +1,6 @@
+
+
+
 {% extends "layout.html" %}
 {% block content %}
 <div class="main_feed_body"></div>
@@ -8,14 +11,20 @@
  {% for post in posts %}
  
    <div class="post_block">
-    <img src={{post.ArtURL}}>
+    <div class = 'row'>
+    <div class="jumbotron jumbotron-img">
+         <div class = 'col-md-3'>
+           <img id = "feed_img" src={{post.ArtURL}}> </div><br><br><br>
+            <div class = 'col-md-2'></div>
+         <div class="description_block" class = 'col-md-9'></div>
+             <span id="more" > {{ post.get_description1() }} </span></div><br><br><br><br><br><br><br><br>
        <div class="valid_text_space" >
            <div class="stori_title"> {{post.get_title()}} </div>            
-           <div class="description_block">
+           <!--<div class="description_block">
                {{ post.get_description1() }}
-           </div>
+           </div>-->
            <div class="description_block">
-             <span id="more"> {{ post.get_description2() }} </span> 
+             <!--<span id="more"> {{ post.get_description2() }} </span> -->
              <a href="{{url_for('list_detail_stories', post_id = post.id)}}" class="btn btn-default">Read More</a>
            </div>
 
@@ -35,10 +44,16 @@
                    <asp:ImageButton ClientIDMode="Static" CssClass="vote_button down" ID="downvote" 
                        ClientID='<%# string.Format("downvote_{0}", Eval("StoriID")) %>' 
                       runat="server" ImageURL="Images/downvote-grey.png" CommandName="vote_down"
+                     
                       CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();" /> -->
+
+
+
               </div>
+                <img src="{{ url_for('static', filename='pictures/line3.png') }}" class="borders" >
+
           </div>
-          
+         
         
 
  {% endfor %}

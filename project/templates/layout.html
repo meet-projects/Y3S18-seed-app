@@ -21,18 +21,24 @@
       
   </head>
   <body>
+    <style type="text/css">
+    body{
 
-  <div class="navbar_full">
-  	<div class="navbar_top">
-  		
-  	</div>
-  	<div class="navbar_bottom">
-  		
-  	</div>
-  </div>
+      background: url("{{ url_for('static', filename='pictures/backgroundfeed.jpg') }}");
+    }
+    </style>
+<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag"><br>
 
+  <div class="topnav">
+  <a  href="feed">Home</a>
+  <a href="inspiration">Stories</a>
+  <a href="#saved_artist">Saved Artist</a>
+  <a href="#about">About</a>
+  <a href="posts">Post</a>
+</div>
+  
 
-  <div class="content_div">
+  
     {% block content %}        
     {% endblock %}
   </div>

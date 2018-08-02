@@ -89,3 +89,12 @@ body {
   
   color: white;
 }
+
+.jumbotron-img{
+    max-width: 100%;
+    background-color: black;
+}
+
+#feed_img{
+    max-width: 120%;
+}
