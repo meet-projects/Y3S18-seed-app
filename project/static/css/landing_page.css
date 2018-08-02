@@ -1,0 +1,9 @@
+body{
+	background-image: url("https://images.pexels.com/photos/1047524/pexels-photo-1047524.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+	overflow-y: hidden ! important;
+    overflow-x: hidden ! important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+);
+}	

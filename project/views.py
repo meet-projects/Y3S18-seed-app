@@ -34,3 +34,7 @@ def list_detail_stories(post_id):
         return render_template('viewstory.html', post=post, form=form, user = artist)
     else:
         return render_template('viewstory.html', post=post, form=form)
+
+@app.route('/landing')
+def landing_page():
+    return render_template('landing_page.html')
