@@ -7,7 +7,10 @@
 {% for notification in all_notifications %}
 {{notification.interested_user_name}} is interested in your journey {{notification.journey_title}}
 <br>
+{{notification.time}}
+<br>
 -------------------
+<br>
 {%endfor%}
 
 

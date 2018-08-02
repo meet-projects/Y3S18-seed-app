@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for wish in all_wishes %}
+{{current_user.id}}
+<a href="{{url_for('display_journey', journey_id=wish.journey_id)}}"> {{wish.journey_title}}</a>
+{% endfor %}
+
+
+{% endblock %}

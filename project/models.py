@@ -119,20 +119,56 @@ class Notification(db.Model):
 
     interested_user_name = db.Column(db.String(30), nullable= False)
     journey_title = db.Column(db.String(30), nullable= False)
+    time = db.Column(db.String(80), nullable = False)
 
 
-    def __init__(self, st_id='', journey_id='', interested_user_id='', interested_user_name='', journey_title=''):
+    def __init__(self, st_id='', journey_id='', interested_user_id='', interested_user_name='', journey_title='', time=''):
         self.st_id = st_id
         self.journey_id = journey_id
         self.interested_user_id = interested_user_id
         self.interested_user_name = interested_user_name
         self.journey_title = journey_title
+        self.time = time
 
     def __repr__(self):
         return 'Notification %r %r %r %r' % (self.id, self.st_id, self.journey_id, self.interested_user_id)
 
 
+class Wishlist(db.Model):
+    __tablename__ = "wishlist"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    journey_id = db.Column(db.Integer, db.ForeignKey('journey.id'), nullable=False)
+    journey_title = db.Column(db.String(30), nullable= False)
 
+    def __init__(self, user_id='', journey_id='', journey_title=''):
+        self.user_id = user_id
+        self.journey_id = journey_id
+        self.journey_title = journey_title
+
+    def __repr__(self):
+        return 'Wishlist %r %r' % (self.id, self.user_id, self.journey_id)
+
+
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    journey_id = db.Column(db.Integer, db.ForeignKey('journey.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    title = db.Column(db.String(30), nullable = False)
+    question = db.Column(db.String(80), nullable = False)
+    time = db.Column(db.String(80), nullable = False)
+    # reply = db.relationship('Reply', backref='question')
+    
+    def __init__(self, journey_id='',user_id='', title='', question='', time=''):
+        self.journey_id = user_id
+        self.user_id = user_id
+        self.title = title
+        self.question = question
+        self.time = time
+
+
+    def __repr__(self):
+        return '<Question %r>' % self.title
 
 
 
