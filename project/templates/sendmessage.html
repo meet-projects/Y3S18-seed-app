@@ -6,16 +6,18 @@
 /*#BSID{
 	font-size: 2em;
 }*/	
+
 .jumbotron-send-button{
-	height: 25vh;
-	width: 25vh;
+	height: 50vh;
+	width: 50vh;
+	
 
 }
 
-#sendbutton1{
+#sendbutton{
+	background-color: white;
+	border-color: white;
 }
-
-
 </style>
 
 
@@ -27,14 +29,18 @@
 {% endif %}
 
 
+
 	<div class="jumbotron jumbotron-send-button">
 	<form action="/booster_seat_alert/{{booster_seat_id}}" method="post" >
-	<button id="sendbutton1" type="submit" class="btn btn-info btn-lg"> <img src="../project/static/pictures/Button1"> </button>
+	<button id="sendbutton" type="submit" class="btn btn-info btn-lg"> <img src="../project/static/pictures/Button2.png"> </button>
 	</form>
 	</div>
 
-<!-- <form action="/booster_seat_stop/{{booster_seat_id}}" method="post" >
-<button id="sendbutton1" style="background: url(../static/pictures/Button1.png);" height="500" width="500" type="submit" class="btn btn-info btn-lg"></button>
+
+
+ <!-- <form action="/booster_seat_stop/{{booster_seat_id}}" method="post" >
+<button id="sendbutton1" type="submit" class="btn btn-info btn-lg"> <img src="../static/pictures/Button1.png"> </button>
+>>>>>>> dce50fc8e4ac8a95db86198e7477de24efdb6c1c
 </form> -->
 
 </center>
