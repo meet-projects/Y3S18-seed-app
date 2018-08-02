@@ -217,6 +217,7 @@ font-weight: bold;
   height:40px;
   border: none;
   color: white;
+  border-radius: 5%;   
 }
 .edit_link{ 
   background-color:rgb(31,122,140);
@@ -519,4 +520,10 @@ button#contact_btn > a:hover:before {
 }
 #dropmenu{
   text-align: center;
+}
+.side_profile_table{
+  width: 100%;
+}
+#delete_popup{
+  
 }
