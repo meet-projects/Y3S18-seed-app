@@ -1,8 +1,8 @@
 from flask import (
-        Blueprint, redirect, render_template,
-        Response, request, url_for
+		Blueprint, redirect, render_template,
+		Response, request, url_for , session
 )
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from sqlalchemy.exc import IntegrityError
 
 from project import db
@@ -12,35 +12,91 @@ from project.models import User
 
 users_bp = Blueprint('users', __name__)
 
-
-@users_bp.route('/register', methods=['GET', 'POST'])
+@users_bp.route('/register', methods=['POST', 'GET'])
 def register():
-    form = RegisterForm(request.form)
-    # TODO: Fill this in!
-    return render_template('register.html', form=form)
-                
+	print(request)
+	form = RegisterForm(request.form)
+	username = form.username.data
+	password = form.password.data
+	displayname = form.displayname.data
+	if request.method == 'POST':
+		print("reg submit")
+		
+		test_result = register_test(form)
+
+		if test_result == "success":
+			user = User(username, displayname, password)
+			db.session.add(user)
+			db.session.commit()
+			login_user(user, remember=True)
+			return redirect(url_for("feed"))
+
+		else:
+			data = {'show':'signup', 'err_msg':test_result}
+			return render_template('login.html',form = form, data = data)
+	else:
+		logout_user()
+		print('opening register page')
+		data = {'show':'signup', 'err_msg':None}
+		return render_template('login.html',form = form, data = data)
+				
+def register_test(form):
+	username = form.username.data
+	password = form.password.data
+	displayname = form.displayname.data
+	confirm_pass = form.confirm_pass.data
+
+	if not displayname or displayname == '':
+		return "display name cannot be empty"
+
+	if not username or username == '':
+		return "username cannot be empty"
+
+	if not password or password == '':
+		return "password cannot be empty"
+
+	user = User.query.filter_by(username=username).first()
+	if user:
+		print("name is taken")
+		return "name taken"
+	if password != confirm_pass:
+		print("passwords do not match")
+		return "passwords do not match"
+	# login_user(user, remember=True)
+	return "success"
 
 @users_bp.route('/login', methods=['GET', 'POST'])
+@users_bp.route('/', methods=['GET', 'POST'])
 def login():
-    form = LoginForm(request.form)
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            username = form.username.data
-            password = form.password.data
-            user = User.query.filter_by(username=username).first()
-            if user is None or not user.check_password(password):
-                return Response("<p>Incorrect username or password</p>")
-            login_user(user, remember=True)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('private_route')
-            return redirect(next_page)
-        else:
-            return Response("<p>invalid form</p>")
-    return render_template('login.html', form=form)
+	form = LoginForm(request.form)
+	if request.method == 'POST':
+		test_result = login_test(form)
+
+		if test_result == "success":
+			username = form.username.data
+			password = form.password.data
+			user = User.query.filter_by(username=username).first()
+			login_user(user, remember=True)
+			return redirect(url_for('feed'))
+		else:
+			data = {'show':'login', 'err_msg':"wrong username or pass"}
+			return render_template('login.html', data = data, form = form)
+
+	else:
+		logout_user()
+		data = {'show':'signup', 'err_msg':None}
+		return render_template('login.html', data = {}, form = form)
+
+def login_test(form):
+	username = form.username.data
+	password = form.password.data
+	user = User.query.filter_by(username = username).first()
+	if user is None or not user.check_password(password):
+		return "failed"
+	return "success"
 
 @users_bp.route('/logout')
 @login_required
 def logout():
-    logout_user()
-    return Response("<p>Logged out</p>")
+	logout_user()
+	return redirect('/')
