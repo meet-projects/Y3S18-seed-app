@@ -1,8 +1,7 @@
 
-<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+
 {% extends "layout.html" %}
 {% block content %}
-<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
 
 <div class="post_block">
        <div class="valid_text_space" >
@@ -11,11 +10,14 @@
            {% if post.ArtURL != "" %}
            <h1>The work of '{{user.displayname}}'</h1>
            <div class = 'row' id = 'info'>
-            <div class = "col-md-3">
+           <div class="col-md-9" id="description_block"> {{post.Text}}</div>
+           <div class = "col-md-3">
               <div class="jumbotron jumbotron-img">
           <div> 
-            <img id = "post_img" src={{post.ArtURL}}> </div></div></div>
-           <div class="col-md-9" id="description_block"> {{post.Text}}</div></div>  
+            <img id = "post_img" src={{post.ArtURL}}> </div></
+         </div>
+         </div> 
+          
            
            <!--<div class="publish_date_block">
               <span class="publish_date_text"> Published on:    
