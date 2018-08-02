@@ -27,10 +27,16 @@
 
   </head>
   <body>
+    <style type="text/css">
+    body{
+
+      background: url("{{ url_for('static', filename='pictures/backgroundfeed.jpg') }}");
+    }
+    </style>
 <img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag"><br>
 
   <div class="topnav">
-  <a class="active" href="feed">Home</a>
+  <a  href="feed">Home</a>
   <a href="inspiration">Stories</a>
   <a href="#saved_artist">Saved Artist</a>
   <a href="#about">About</a>
