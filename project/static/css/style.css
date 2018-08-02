@@ -6,6 +6,7 @@
   text-align: center;
   margin: auto;
   margin-top: 0;
+  min-height: 700px;
 }
 
 #sort_bar{
@@ -49,7 +50,8 @@ td{
 #profile_picture{
 	border: 2px solid #868A8E;
 	border-radius: 50%;
-  max-width:90%;
+  width:18em;
+  height: 18em;
   display: block;
   margin-top: 15px;
   margin-right: auto;
@@ -80,9 +82,11 @@ td{
 
 .instructor_pic{
   border-radius: 50%;
-  width: 90%;
-  text-align: center;
+  width: 15em;
+  height:15em;
+  display: inline-block;
   margin: 3%;
+  padding-left: 2%;
 }
 
 @media screen and (max-width: 650px) {
@@ -216,9 +220,14 @@ font-weight: bold;
   color: white;
   border-radius: 5%;   
 }
-.edit_link{
+.edit_link{ 
+  background-color:rgb(31,122,140);
+  width:120px;
+  height:40px;
+  border: none;
   color: white;
-  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 .profile_title{
   font-weight: bold;
@@ -512,4 +521,10 @@ button#contact_btn > a:hover:before {
 }
 #dropmenu{
   text-align: center;
+}
+.side_profile_table{
+  width: 100%;
+}
+#delete_popup{
+  
 }
