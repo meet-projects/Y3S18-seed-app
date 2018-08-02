@@ -11,8 +11,8 @@ BODY = "YOUR BABY MIGHT BE IN DANGER! CHECK YOUR CAR!"
 
 app = Celery('tasks', broker='redis://localhost' )
 
-@app.task
-def alert(number, flag, phone1, phone2, phone3):
+@app.task(bind = True)
+def alert(self, number, flag, phone1, phone2, phone3):
 	print('here')
 	dest = number
 	while True:
@@ -26,9 +26,9 @@ def alert(number, flag, phone1, phone2, phone3):
 		elif flag == 5:
 			flag = 1
 			dest = number
-		client.messages.create(to=dest, from_=FROM, body=BODY)
+		client.messages.create(to=dest, from_=FROM, body=BODY+' '+str(self.request.id))
 		flag+=1
-		time.sleep(30)
+		time.sleep(31)
 
 def revoke(task_id):
 	app.control.revoke(task_id, terminate=True)
