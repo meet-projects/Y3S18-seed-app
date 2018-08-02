@@ -214,6 +214,7 @@ font-weight: bold;
   height:40px;
   border: none;
   color: white;
+  border-radius: 5%;   
 }
 .edit_link{
   color: white;
