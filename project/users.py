@@ -87,7 +87,7 @@ def login_signup():
 @login_required
 def logout():
     logout_user()
-    return Response("<p>Logged out</p>")
+    return redirect(url_for('users.index'))
 
 @users_bp.route('/teacher/<int:teacher_id>')
 def profile(teacher_id):
