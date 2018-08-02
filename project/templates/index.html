@@ -44,11 +44,11 @@
 	<br>
 	<br>
 	<br>
+  <button onclick="document.getElementById('id02').style.display='block'" class="btn"><h2>I'm an Instructor</h2></button>
 	<!--{% if current_user.is_authenticated %}
 		<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
 	{% else %} -->
-	<button onclick="document.getElementById('id02').style.display='block'" class="btn"><h2>I'm an Instructor</h2></button>
-	<!--{%endif%} -->>
+	<!--{%endif%} -->
 <div id="id02" class="modal">
   
   <form class="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
