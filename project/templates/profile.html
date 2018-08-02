@@ -5,14 +5,9 @@
 <h1 class="profile_page_title"> ARTIST PROFILE </h1>
 <img src="{{visited_user.profile_pic_url}}" class="profile_page_pic" 
     onerror="this.src='../static/pictures/avatar.png'">
+<!--Art Gallery-->
+{% for art in art_pieces %}
+    <img id = "feed_img" src={{art.ArtURL}}><br><br><br>
 
-{% if current_user.id != visited_user.id %}
-
-
-{% else %}
-<!-- show my page -->
-
-
-{% endif %}
-
+{% endfor %}
 {% endblock %}
