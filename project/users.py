@@ -100,3 +100,4 @@ def login_test(form):
 def logout():
 	logout_user()
 	return redirect('/')
+

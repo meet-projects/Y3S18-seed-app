@@ -23,6 +23,10 @@ def stories():
     posts = Post.query.filter_by(ArtURL = '').all()
     return render_template('stories.html', posts=posts)
 
+@app.route('/landingpage')
+def landingpage():
+        return render_template('landingpage.html')    
+
 #read more function and add art
 @app.route('/stories/<int:post_id>', methods = ['GET','POST'])
 @login_required
