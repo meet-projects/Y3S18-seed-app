@@ -41,7 +41,7 @@ def register():
                 #if profilepic == "":
                 #    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
                 #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,gearbox)
-                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","")
+                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","https://static.thenounproject.com/png/214280-200.png","")
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -87,7 +87,7 @@ def login_signup():
 @login_required
 def logout():
     logout_user()
-    return Response("<p>Logged out</p>")
+    return redirect(url_for('users.index'))
 
 @users_bp.route('/teacher/<int:teacher_id>')
 def profile(teacher_id):
