@@ -25,6 +25,14 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def get_follower_count(self):
+        get_followers = Follower.query.filte_by(followedID = self.id)
+        return get_followers.count
+
+    def get_followed_count(self):
+        get_followed = Follower.query.filte_by(followerID = self.id)
+        return get_followed.count
+
     def __repr__(self):
         return 'User %d %s' % (self.id, self.username)
 
@@ -108,3 +116,14 @@ class Like(db.Model):
     def __init__(self, userID, postID):
         self.userID = userID
         self.postID = postID
+
+class Follower(db.Model):
+    __tablename__ = 'followers'
+    id             = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    followerID     = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    followedID     = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+    def __init__(self, followerID, followedID):
+         self.followerID = followerID
+         self.followedID = followedID
+         
