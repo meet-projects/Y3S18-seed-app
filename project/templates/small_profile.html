@@ -24,22 +24,22 @@
 			<table class="side_profile_table">
 				<tr> 
 
-					<th>City:</th> 
+					<th>City</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.city}} </td>
 				</tr>
 				<tr> 
 
-					<th>Cost:</th> 
+					<th>Cost</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.cost}} &#8362</td>
 
 				</tr>
 				<tr> 
-					<th>Languages:</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(55)}} </td>
+					<th>Language</th> 
+					<td data-toggle="tooltip" data-placement="top">{{teacher.languages | truncate(55)}}</td>
 				</tr>
 				<tr>
-					<th>Gearbox:</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.car_type | truncate(25)}} </td>
+					<th>Gearbox</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.gearbox | truncate(25)}} </td>
 				</tr>
 			</table>
 
@@ -63,7 +63,7 @@
 					</div>
 					<div class="modal-body">
 						<br>
-						<form name="booking_form" id="book" action="{{ url_for( 'users.booking' , teacher_id=teacher.id ) }}">
+						<form name="booking_form" id="book" action="{{ url_for( 'users.make_request' , teacher_id=teacher.id ) }}" method="POST">
 							Full Name<br>
 							<input type="text" name="studentname" placeholder="Full Name">
 							<br>
@@ -76,7 +76,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<h3>The right guidance with EasyLicense!</h3>
+						<h3 style="text-align: center;">The right guidance with EasyLicense!</h3>
 					</div>
 				</div>
 
