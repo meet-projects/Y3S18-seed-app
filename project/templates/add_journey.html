@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+  
+   <form action="{{url_for('add_journey')}}" method="POST">
+  Title:<br>
+  <input type="text" name="title" placeholder="Title of the journey" required>
+  <br>
+
+<h4> Tell us about your journey...</h4>
+<textarea name="description" rows="10" cols="30" placeholder=" culture activties more info about it " required>
+</textarea>
+
+<br><br>
+
+<h4>Locations</h4>
+<textarea name="location" rows="10" cols="30" placeholder="from telaviv rotchild street 60/57 to haifa gardens square 20/35" required>
+</textarea>
+<h4> Duration of Journey </h4>
+<textarea name="duration" rows="10" cols="30" placeholder="1hour to 2 hours" required>
+</textarea>
+
+<h4> Target Audience </h4>
+<textarea name="category" rows="10" cols="30" placeholder="music and nature lovers a bit of sportivic" required>
+</textarea>
+<br>
+<h4>Requirements</h4>
+<textarea name="requirements" rows="10" cols="30" placeholder="sport shoes dry fit shirts swiming suit" required>
+</textarea>
+<br><br>
+<h4> Number of Participants </h4>
+<textarea name="people_range" rows="10" cols="30" placeholder="5-10 people" required>
+</textarea>
+<br><br>
+<h4>Enter Intended Price </h4>
+<textarea name="price" rows="10" cols="30" placeholder="500 shekels, 250 for the place we will rent... 100 for the security...150 for me" required>
+</textarea>
+<br><br>
+<h4>add image url</h4>
+<textarea name="picture" rows="10" cols="30" placeholder="Regular Picture" required>
+</textarea>
+<button class="btn btn-lg postbtn" type="submit">Submit!</button>
+
+  </form>
+</body>
+
+{% endblock %}

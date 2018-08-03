@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div> <img class="img1" src="{{ journey.picture }}"> </div>
+<div> <h1> {{journey.title}} </h1>
+	<h1> storyteller : <a href="{{url_for('profile', user_id=journey.creator_id)}}"> {{creator.name}} </a> </h1>
+	<h1> location : {{journey.location}} </h1>
+	<h1> description : {{journey.description}} </h1>
+	<h1> duration : {{journey.duration}} </h1>
+	<h1> price : {{journey.price}} </h1>
+	<h1> category : {{journey.category}} </h1>
+	<h1> requirements : {{journey.requirements}} </h1>
+	<h1> people range : {{journey.people_range}} </h1>
+
+---------------------------------------------------------------------------------------
+
+
+<br><br><br>
+<h2>Reviews of {{ journey.title }}</h2>
+
+{% for rating in all_ratings %}
+<div>
+{{rating.stars}} <br>
+{{rating.title}}
+By:{{rating.user}} <br>
+{{rating.review}}<br>
+at: {{rating.time}}<br>
+-------------------<br>
+</div> 
+{%endfor%}
+
+
+<form action="{{url_for('add_rating', journey_id=journey.id)}}" method="POST">
+	How many stars?
+	<input type="text" name="stars" required>
+	Title of review:
+	<input type="text" name="title" required>
+	Review:
+	<input type="text" name="review" required>
+	<button type="submit"> Add Review </button>
+
+</form>
+________________________________________________________________________________________
+
+
+<h2> Questions about {{journey.title}} </h2>
+
+{% for question in all_questions %}
+{{question.title}} by {{question.user_id}} at {{question.time}}<br>
+{{question.question}}<br>
+---------------------<br>
+{%endfor%}
+
+<form action="{{url_for('question', journey_id=journey.id)}}" method="POST">
+	Title
+	<input type="text" name="title" required>
+	Question
+	<input type="text" name="question" required>
+	<button type="submit"> Ask! </button>
+</form>
+
+
+
+
+
+
+<form action="{{url_for('im_interested', interested_user_id=current_user.id, st_id=current_user.id, journey_id=journey.id)}}" method="POST">
+	<button type="submit"> I'm Interested! </button>
+</form>
+
+
+{% endblock %}

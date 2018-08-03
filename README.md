@@ -2,7 +2,7 @@
 
 This is a complete seed app project with: Flask, SQLAlchemy, Bootstrap, jQuery.
 You will need to fork this repo and then start working on your own project.
-
+//
 ### 1. Fork the repo
 
 1. Select a person in your group responsible for git management

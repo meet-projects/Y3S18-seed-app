@@ -1,0 +1,40 @@
+{%extends "layout.html"%}
+{%block content%}
+
+<br><br><br>
+<h2>Reviews of {{ this_journey.title }}</h2>
+
+{% for rating in all_ratings %}
+<div>
+{{rating.stars}} <br>
+{{rating.title}}
+By:{{rating.user}}
+<br>
+{{rating.review}}<br>
+{{rating.time}}<br>
+-------------------
+</div> 
+{%endfor%}
+
+
+
+<form action="{{url_for('add_rating', journey_id=this_journey.id)}}" method="POST">
+	How many stars?
+	<input type="text" name="stars" required>
+	Title of review:
+	<input type="text" name="title" required>
+	Review:
+	<input type="text" name="review" required>
+	<button type="submit"> Add Review </button>
+
+</form>
+
+
+
+
+
+
+
+
+
+{%endblock%}

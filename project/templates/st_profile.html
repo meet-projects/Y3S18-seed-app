@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+
+STORYTELLER PROFILE
+
+{% if current_user.id ==  profile.id %}
+	<p>this is your profile. You are a storyteller.<p>
+{% else %}
+	<p>this is not your profile</p>
+{% endif %}
+
+
+
+<img src="{{url_for('static', filename='profile.png')}}" />
+<h2> {{profile.name}} </h2>
+<h3> {{profile.email}} </h3>
+{{ profile.country }}
+
+
+<br><b>
+{{ profile.name }}'s journeys:
+<br></b>
+
+
+
+{% for journey in st_journeys %}
+<a href="{{url_for('display_journey' , journey_id=journey.id)}}">{{ journey.title }}</a> 
+<br>
+{% endfor %}
+
+
+
+
+
+{% if current_user.id == profile.id %}
+	<form action="/add_journey" method="GET">
+	<button type="submit"> Add Journey </button>
+	</form>
+{% endif %}
+
+
+{% endblock %}

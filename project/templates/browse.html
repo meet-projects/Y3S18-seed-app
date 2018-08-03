@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div>
+	{% for journey in all_journeys %}
+	 	<center>
+		<div>
+	    	<img src="{{ journey.picture }}"  width=500 height=265 >
+	    	<h2>{{ journey.title }}</h2	><br>
+
+	    	<h3> The journey will be at {{ journey.location }}</h3><br>
+	    	<h3>Price: {{ journey.price }}</h3><br>
+	    	<h3> This journey would intrest people who are {{ journey.category }}</h3><br>
+	    	<a href="{{url_for('display_journey', journey_id=journey.id)}}"> View Details </a>
+	    	<br><br>	
+	    ------------------------------------------------------------- 
+	    	
+	    </div>
+	</center>
+	{% endfor %}
+
+</div>
+
+
+
+{% endblock %}
