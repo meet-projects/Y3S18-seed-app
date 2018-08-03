@@ -1,30 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>STORYTELLER PROFILE</title>
-</head>
-<body>
 STORYTELLER PROFILE
 
-{%if is_user==True%}
+{% if current_user.id ==  profile.id %}
 	<p>this is your profile. You are a storyteller.<p>
-{%else%}
+{% else %}
 	<p>this is not your profile</p>
-{%endif%}
+{% endif %}
 
 
 
 <img src="{{url_for('static', filename='profile.png')}}" />
-<h2> {{user.name}} </h2>
-<h3> {{user.email}} </h3>
-{{ user.country }}
+<h2> {{profile.name}} </h2>
+<h3> {{profile.email}} </h3>
+{{ profile.country }}
 
 
 <br><b>
-{{ user.name }}'s journeys:
+{{ profile.name }}'s journeys:
 <br></b>
 
 
@@ -38,16 +32,11 @@ STORYTELLER PROFILE
 
 
 
-{%if is_user==True%}
+{% if current_user.id == profile.id %}
 	<form action="/add_journey" method="GET">
 	<button type="submit"> Add Journey </button>
 	</form>
-{%endif%}
-
-
-
-</body>
-</html>
+{% endif %}
 
 
 {% endblock %}

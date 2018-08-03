@@ -31,12 +31,19 @@
     
 
     <li><a href="{{url_for('browse')}}">LOGO</a></li>
-    {% if logged_in==True %}
-    <li><a href="{{url_for('profile', user_id=current_user.id)}}">{{current_user.name}}</a></li>
+    {% if current_user %}
+  
+        {% if current_user.is_storyteller %}
+        <li><a href="{{url_for('display_notifications', st_id=current_user.id)}}"><span class="glyphicon glyphicon-bell"></span> </a> </li>
+        {%else%}
+
+        {% endif %}
+    <li><a href="{{url_for('profile', user_id=current_user.id)}}"><span class="glyphicon glyphicon-user"></span>     {{current_user.name}}</a></li>
+    <li><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">Wishlist</a></li>
     <li><a href="{{url_for('users.logout')}}">Logout</a></li>
     {%else%}
     <li><a href="{{url_for('users.login')}}">Login</a></li>
-    {%endif%}
+    {% endif %}
     
   </ul>
 

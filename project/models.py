@@ -82,6 +82,97 @@ class Journey(UserMixin, db.Model):
         return 'Journey %d %s' % (self.id, self.title)
 
 
+
+class Ratings(UserMixin, db.Model):
+    __tablename__ = "ratings"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    journey_id = db.Column(db.Integer, db.ForeignKey('journey.id'), nullable=False)
+    user = db.Column(db.String(30), nullable= False)
+    stars = db.Column(db.Integer, nullable = False)
+    title = db.Column(db.String(30), nullable= False)
+    review = db.Column(db.String(30), nullable= False)
+    time = db.Column(db.String(80), nullable = False)
+    journey = db.relationship(Journey)
+
+    def __init__(self, journey_id='', user='', stars='', title='', review=''):
+        self.journey_id =journey_id
+        self.user = user
+        self.stars = stars
+        self.title = title
+        self.review = review
+#############  I DIDN'T DO SELF TIME BUT IT WORKED SO I JUST LEFT IT  #####################
+
+    def __repr__(self):
+        return 'Ratings %r %s %r %s %r %s' % (self.id, self.title, self.journey_id, self.user, self.stars ,self.review)
+
+
+class Notification(db.Model):
+    __tablename__ = "notification"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    st_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    interested_user_id = db.Column(db.Integer, db.ForeignKey('users.id') ,nullable=False)
+    journey_id = db.Column(db.Integer, db.ForeignKey('journey.id'), nullable=False)
+
+    st = db.relationship("User", foreign_keys="Notification.st_id")
+    user = db.relationship("User", foreign_keys="Notification.interested_user_id")
+    journey = db.relationship("Journey", foreign_keys="Notification.journey_id")
+
+    interested_user_name = db.Column(db.String(30), nullable= False)
+    journey_title = db.Column(db.String(30), nullable= False)
+    time = db.Column(db.String(80), nullable = False)
+
+
+    def __init__(self, st_id='', journey_id='', interested_user_id='', interested_user_name='', journey_title='', time=''):
+        self.st_id = st_id
+        self.journey_id = journey_id
+        self.interested_user_id = interested_user_id
+        self.interested_user_name = interested_user_name
+        self.journey_title = journey_title
+        self.time = time
+
+    def __repr__(self):
+        return 'Notification %r %r %r %r' % (self.id, self.st_id, self.journey_id, self.interested_user_id)
+
+
+class Wishlist(db.Model):
+    __tablename__ = "wishlist"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    journey_id = db.Column(db.Integer, db.ForeignKey('journey.id'), nullable=False)
+    journey_title = db.Column(db.String(30), nullable= False)
+
+    def __init__(self, user_id='', journey_id='', journey_title=''):
+        self.user_id = user_id
+        self.journey_id = journey_id
+        self.journey_title = journey_title
+
+    def __repr__(self):
+        return 'Wishlist %r %r' % (self.id, self.user_id, self.journey_id)
+
+
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    journey_id = db.Column(db.Integer, db.ForeignKey('journey.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    title = db.Column(db.String(30), nullable = False)
+    question = db.Column(db.String(80), nullable = False)
+    time = db.Column(db.String(80), nullable = False)
+    # reply = db.relationship('Reply', backref='question')
+    
+    def __init__(self, journey_id='',user_id='', title='', question='', time=''):
+        self.journey_id = user_id
+        self.user_id = user_id
+        self.title = title
+        self.question = question
+        self.time = time
+
+
+    def __repr__(self):
+        return '<Question %r>' % self.title
+
+
+
+
 # db.drop_all()
 # db.create_all()
 
