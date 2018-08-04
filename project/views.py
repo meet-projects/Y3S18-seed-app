@@ -44,10 +44,10 @@ def stories():
 @app.route('/stories/<int:post_id>', methods = ['GET','POST'])
 @login_required
 def list_detail_stories(post_id):
-    if post_id:
-        form = AddArtForm(request.form)
-        post = Post.query.filter_by(id = post_id).first()
-        return render_template('viewstory.html', post=post, form=form)
+    form = AddArtForm(request.form)    
+    post = Post.query.filter_by(id = post_id).first()
+    if (post.ArtURL != ''):
+        artist = User.query.filter_by(id = post.ArtistID).first()
+        return render_template('viewstory.html', post=post, form=form, user = artist)
     else:
-        posts = Post.query.filter_by(ArtURL = '').all()
-        return render_template('stories.html', posts=posts)
+        return render_template('viewstory.html', post=post, form=form)
