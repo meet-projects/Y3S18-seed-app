@@ -12,6 +12,8 @@
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/viewstory.css') }}">
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/feeds.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutnavstyle.css') }}">
 
 
@@ -19,6 +21,7 @@
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
       
+
   </head>
   <body>
     <style type="text/css">
@@ -30,11 +33,11 @@
 <img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag"><br>
 
   <div class="topnav">
-  <a  href="feed">Home</a>
-  <a href="inspiration">Stories</a>
+  <a  href="{{url_for('feed')}}">Home</a>
+  <a href="{{url_for('stories')}}">Stories</a>
   <a href="#saved_artist">Saved Artist</a>
   <a href="#about">About</a>
-  <a href="posts">Post</a>
+  <a href="{{url_for('add_post.add_post')}}">Post</a>
 </div>
   
 

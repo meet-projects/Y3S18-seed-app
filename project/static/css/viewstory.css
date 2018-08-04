@@ -1,0 +1,25 @@
+#story_title{
+	font-size: 50px;
+	color:white;
+	font-family:  "Avenir", sans-serif;
+
+
+}
+#description_block	{
+	font-family:  "Avenir", sans-serif;
+	color:white;
+	font-size: 20px;
+}
+
+#post_img {
+	max-width: 100%;
+}
+
+.jumbotron-img{
+	max-width: 100%;
+	background-color: transparent;
+}
+
+#info{
+	height: 100%;
+}

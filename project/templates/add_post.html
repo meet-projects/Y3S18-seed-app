@@ -8,6 +8,7 @@
 	
 	<div class = 'container'>
 
+
 	<!--<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag"><br>-->
 	<!--<a href="feed">Home</a>-->
 	<h1 id = 'header'>ADD A POST</h1><br><br>
@@ -16,16 +17,16 @@
 	<form action="{{ url_for('add_post.add_post') }}" method="post">
     {{ form.csrf_token }}
 	<div class="row" >
-    <div class="col-md-1">  TITLE:</div>
+    <div class="col-md-1" class = 'sub'>  TITLE:</div>
     <div class="col-md-4"  class = 'post_textbox'>   {{ form.title(placeholder= "Title") }}</div>
 	</div>
     <div class = 'row'>
-    <div class = col-md-1>  STORY:</div>
+    <div class = col-md-1 class = 'sub'>  STORY:</div>
     <div class='col-md-3'>   {{ form.text(placeholder= "Story")}}</div>
 </div>
 	<div class='row'>
 		<div class = "col-md-5"></div>
-    <div class col-md-2><button class="btn btn-sm btn-success" type="submit">Post</button></div>
+    <div class col-md-2><button class="btn btn-default" type="submit">Post</button></div>
 </div>
 </form>
 </div>
