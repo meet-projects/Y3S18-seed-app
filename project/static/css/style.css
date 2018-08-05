@@ -50,12 +50,13 @@ td{
 #profile_picture{
 	border: 2px solid #868A8E;
 	border-radius: 50%;
-  width:18em;
-  height: 18em;
+  width:16em;
+  height: 16em;
   display: block;
   margin-top: 15px;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
+
 }
 .column {
   float: left;
@@ -160,23 +161,22 @@ li.filter select {
   float: right;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
   #side_profile {
     margin-right: 10%;
   }
 }
 
 #side_profile{
-  width: 100%;
-  min-height: 350px;
-  max-height: 800px;
+  min-width: 16.944723125em;
+  min-height: 21.875em;
   color:rgb(246,246,246);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 3%;
 }
 #main_profile{
   width: 100%;
-  min-height: 350px;
+  min-height: 21.875em;
   color:rgb(246,246,246);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 3%;
