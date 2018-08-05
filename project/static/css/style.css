@@ -524,6 +524,7 @@ button#contact_btn > a:hover:before {
 .side_profile_table{
   width: 100%;
 }
-#delete_popup{
-  
+.navbar_logo{
+  height:3em;
+  width: 15.625em;
 }
