@@ -116,9 +116,10 @@ class Student(db.Model):
     city=db.Column(db.String)
     min_price =db.Column(db.Integer)
     max_price=db.Column(db.Integer)
+    languages=db.Column(db.String)
 
 
-    def __init__(self, user_id,fname,lname,phone_num,gearbox,city,min_price,max_price):
+    def __init__(self, user_id,fname,lname,phone_num,gearbox,city,min_price,max_price,languages):
         self.fname=fname
         self.lname=lname
         self.user_id=user_id
@@ -127,6 +128,7 @@ class Student(db.Model):
         self.city=city
         self.min_price=min_price
         self.max_price=max_price
+        self.languages=languages
         self.profile_picture="https://static.thenounproject.com/png/214280-200.png"
         
 
