@@ -2,7 +2,6 @@
 {% block content %}
 <!-- This is my profile -->
 {% if current_user.id == visited_user.id %}
-{{visited_user.displayname}}
 <div class="content">
 
       <h1 class="profile_page_title"> ARTIST PROFILE </h1>
@@ -30,7 +29,7 @@
               </div>
                <!-- Modal body -->
               <div class="modal-body">
-                 <form action="{{ url_for('profile.change_bio')}}" method="post">
+                 <form action="{{ url_for('profile.change_pic')}}" method="post">
                 {{ pic_form.csrf_token }}
                 <p class="text">Pic URL:</p>   {{ pic_form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
                 <button class="btn btn-sm btn-success" type="submit">Share</button>
@@ -67,6 +66,10 @@
         </div>
         {% endfor %}
       </div>
+
+
+
+      <!--Visiting User-->
       {% else %}
       <h1>Not You!!!!!</h1>
 

@@ -18,12 +18,11 @@ def add_post():
 
 		title = form.title.data
 		text = form.text.data
-		art_url = form.art_url.data
 
 		test_result = test_add_post(form)
 
 		if test_result == "success":
-			post = Post(current_user.id, title, text, art_url)
+			post = Post(current_user.id, title, text)
 			db.session.add(post)
 			db.session.commit()
 			return redirect(url_for("feed"))
@@ -37,7 +36,6 @@ def add_post():
 def test_add_post(form):
 	title = form.title.data
 	text = form.text.data
-	art_url = form.art_url.data
 	if not title or title == "":
 		return "post has to have a title"
 	if not text or text == "":
@@ -53,6 +51,7 @@ def add_art(post_id):
 			post = Post.query.filter_by(id = post_id).first()
 			art_url = form.art_url.data
 			post.ArtURL = art_url
+			post.ArtistNotes = form.artist_notes.data
 			post.ArtistID = current_user.id
 			db.session.commit()
 			return redirect(url_for('feed'))   

@@ -5,7 +5,7 @@
        <div class="valid_text_space" >
            <div id="story_title"> {{post.get_title()}} </div><br><br> 
 <!--Checking if post has picture, which will cancel button-->
-           {% if post.ArtURL != "" %}
+           {% if post.ArtURL != None %}
            <div class = 'row' id = 'info'>
         <div class="col-md-9" id="description_block"> {{post.Text}}</div>
        <div class = "col-md-3">
@@ -17,7 +17,11 @@
         <div class='col-md-4'></div>
       <div class = col-md-8><a href = "{{url_for('profile', username = user.username)}}">The work of '{{user.displayname}}'</a>
 </div>
+      <h1>Artist Notes:</h1>
+      <p id = 'notes'>{{post.ArtistNotes}}</p>
        </div>
+    
+     </div>
           
            
            <!--<div class="publish_date_block">
@@ -60,6 +64,7 @@
          <form action="{{ url_for('add_post.add_art', post_id = post.id) }}" method="post">
         {{ form.csrf_token }}
         <p class="text">URL:</p>   {{ form.art_url(placeholder= "Add URL") }}<br><br>
+        <p>Notes:</p>   {{ form.artist_notes(placeholder= "Notes") }}<br><br>
         <button class="btn btn-sm btn-success" type="submit">Share</button>
         </form>
         

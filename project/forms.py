@@ -17,10 +17,10 @@ class LoginForm(Form):
 class PostForm(Form):
 	title = StringField('Title', validators=[DataRequired()])
 	text = TextAreaField('Text', validators=[DataRequired()])
-	art_url = TextAreaField('Art URL', validators=[DataRequired()])
 
 class AddArtForm(Form):
     art_url = StringField('ArtUrl', validators = [DataRequired()])
+    artist_notes = TextAreaField('Notes', validators = [DataRequired()])
 
 class ProfilePicForm(Form):
 	profile_pic_url = StringField('URL', validators = [DataRequired()])
