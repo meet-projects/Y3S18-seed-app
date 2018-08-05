@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User,Teacher,Request, City
+from project.models import *
 
 users_bp = Blueprint('users', __name__)
 

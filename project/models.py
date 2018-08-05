@@ -105,11 +105,13 @@ class Students(db.Model):
     
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id=db.Column(db.Integer, ForeignKey('users.id'))
-    name = db.Column(db.String)
+    fname = db.Column(db.String)
+    lname = db.Column(db.String)
     phone_num = db.Column(db.String)
 
-    def __init__(self, user_id,name,phone_num):
-        self.name=name
+    def __init__(self, user_id,fname,lname,phone_num):
+        self.fname=name
+        self.lname=lname
         self.user_id=user_id
         self.phone_num=phone_num
         

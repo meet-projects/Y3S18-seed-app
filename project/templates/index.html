@@ -31,11 +31,6 @@
 	<div class="container">
 		<div class="row">
 		<div class="col-md-8">
-	<span class="info"><b style="font-size: larger; color: #0073a8;">	<i class="fas fa-search icon-resize-full" style="color: black; margin-right: 5px;"></i>Search</b> for the perfect driving instructor.</span>
-
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 <!-- 	<div class="row">
 	<div class="col-lg-1">
 			<img class="img-icon" src="../static/img/glass.svg" alt="Search" style="width: 100%; vertical-align: baseline;">
@@ -45,8 +40,6 @@
 		<div class="col-md-8">
 	<span class="info"><b style="font-size: larger; color: #0073a8;">	<i class="fas fa-search icon-resize-full" style="color: black; margin-right: 5px;"></i>Search</b> for the perfect driving instructor.</span>
 
-=======
->>>>>>> 3e0b8de3b8c4cee511e7cab6ed3580242854ffba
 	<!--<img src="../static/img/book.png" alt="Search" class="img-icon">-->
 	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="far fa-check-square" style="color: black; margin-right: 8px;"></i>Book</b> a lesson with the perfect instructor for you.</span>
 
@@ -58,20 +51,12 @@
 	<br>
 	<br>
 	<br>
-<<<<<<< HEAD
+
 	{% if current_user.is_authenticated %}
 		<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
 	{% else %}
     <button onclick="document.getElementById('id02').style.display='block'" class="btn"><h2>I'm an Instructor</h2></button>
 	{%endif%}
->>>>>>> Stashed changes
-=======
-  <button onclick="document.getElementById('id02').style.display='block'" class="btn"><h2>I'm an Instructor</h2></button>
-	<!--{% if current_user.is_authenticated %}
-		<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
-	{% else %} -->
-	<!--{%endif%} -->
->>>>>>> 3e0b8de3b8c4cee511e7cab6ed3580242854ffba
 <div id="id02" class="modal">
   
   <form class="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
