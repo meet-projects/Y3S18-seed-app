@@ -1,21 +1,138 @@
+
 {% extends "layout.html" %}
+{% block head %}
+      <title>Log In!</title>
+{% endblock %}  
+
+
 {% block content %}
- 
-<div class="add-user">
- 
-<div class="page-header">
- 
-<h2>Log in</h2>
- 
+
+<style>
+
+body {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.container {
+    background-image: url( {{ url_for('static', filename = 'pictures/homepicture2.png') }});
+    background-repeat:no-repeat;
+    background-size: 200%;
+    background-position: center; 
+    height: 100%;
+    width: 100%;
+}   
+#logo{
+  width: 300px;
+}
+
+#logodiv{
+  left: 9vh;
+}
+
+#login{
+  top: 150px; 
+  right: 20vh;
+}
+
+
+@media (max-width: 750px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  .container {
+    background-image: url( {{ url_for('static', filename = 'pictures/homepicture2.png') }});
+
+    width: 200%;
+    background-repeat:no-repeat;
+    background-size: 200vh;
+    background-position: center; 
+  } 
+
+  #logo{
+    width: 40%;
+  }
+
+  #logodiv{
+    left: -5vh;
+  }
+
+  #login { 
+    top: 0px;
+    right: 0;
+  }
+  
+}
+
+.form-hello{
+
+    background-color: #D8D8D8;
+    border-radius: 5px;
+    height: 30px;
+  }
+.form-hello1{
+
+  background-color: #D8D8D8;
+  border-radius: 5px;
+
+
+}
+.btn-warning {background-color: #FFA400}
+.btn-warning {border-color: #FFA400} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+
+p{
+
+  color: blue;
+  font-size: 20px;} 
+
+p1{
+
+  color:blue;
+  font-size: 20px;
+}
+p2{
+  
+  color:blue;
+  font-weight: bold;
+  font-size: 25px;
+}
+  
+/*  h2{ 
+
+  text-align: center;
+
+  font-size: 35px;
+  font-weight: bold;  
+}
+  */
+</style>
+
+
+<div class="container" style="max-width: 960px">
+  <div class="row">
+    <div class="col-sm-4" id="logodiv"> 
+      <img src="{{ url_for('static', filename = 'pictures/logosmall1.png')}}" id="logo" >
+    	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </div>
+    <div class="col-sm-8" id="login">
+          <h2> Log In:</h2> 
+          <form action="{{ url_for('users.login') }}" method="post">
+            {{ form.csrf_token }}
+            {{ form.username(class="form-hello", placeholder="Username:") }} 
+            <br>
+            {{ form.password(class="form-hello1", placeholder="Password:") }}
+
+            <br>
+            <button class="btn btn-sm btn-warning" type="submit">ENTER </button>
+          </form>
+    
+
+           <p>Don't have an account?</p>
+           <p1> Create one</p1>
+           <p2> <a href="{{url_for('users.register')}}"> HERE</a></p2>
+      </div>
+    </div>
   </div>
- 
-<form action="{{ url_for('users.login') }}" method="post">
-    {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }}
-    <button class="btn btn-sm btn-success" type="submit">Log in</button>
-  </form>
- 
-</div>
- 
+	
 {% endblock %}

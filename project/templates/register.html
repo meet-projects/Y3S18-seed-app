@@ -1,22 +1,243 @@
 {% extends "layout.html" %}
 {% block content %}
+
+<style>
  
-<div class="add-user">
- 
-<div class="page-header">
- 
-<h2>Register New User</h2>
- 
-  </div>
- 
-<form action="{{ url_for('users.register') }}" method="post">
-    {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }}
-    {{ form.confirm(placeholder="Confirm Password") }}
-    <button class="btn btn-sm btn-success" type="submit">Register User</button>
-  </form>
- 
+  
+h1{
+	border-style: none;
+	background-color: powderblue;
+	color: black; 
+	text-align: center; 
+	font-family: sans-serif;
+	font-size: 100px
+}
+
+p{
+	text-align: center;
+	font-family: cursive;
+	font-size: 30px
+}
+
+.form-group{
+
+}
+
+
+.form-control{
+    position: fixed;
+    left: 550px;
+    top: 274px;
+    background-color: #D8D8D8;
+    border-radius: 5px;
+    height: 30px;
+  }
+.BG {
+float: right;
+}
+
+</style>
+
+<!-- FOR THE MODAL STYLE -->
+<style>  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.btn-warning {background-color: #FFA400}
+.btn-warning {border-color: #FFA400} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+}
+/* The Close Button */
+.close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+  
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+} 
+
+</style>
+
+<a href="{{ url_for('users.login') }}"><img src="static/pictures/back_button.gif" width="15%" style="padding-top: 10px;"></a>
+
+<div class='container'>
+	<div class='row'>
+		<h1>SIGN UP</h1> <br> <br> <br> 
+	</div>
+<center>
+
+
+	<div class='row'>
+		<img src="{{ url_for('static', filename = 'pictures/LOGO1080.png')}}" align= "left" height="300" width="300"> 
+  <table>
+		 <form action="/register" method = "POST" >
+		<br><br><br>
+     <tr colspan="2">
+      <div class="form-group">
+         <td> <label class="signup_form_label" for="username"><b>Username  : </b></label></td>
+		      <td><input type="username" class="form-control3" id="username" placeholder="Username"  name="username"><br><br></td>
+		    </div>
+      </tr>
+
+      <tr>
+		    <div class="form-group">
+          <td><label class="signup_form_label" for="number"><b>phone #  :</b></label></td>
+		      <td><input type="phone num." class="form-control1" id="number" placeholder="+972xxxxxxxxx"  name="number"><br><br></td>
+		    </div>
+      </tr>
+
+
+
+    <tr>
+		    <div class="form-group">
+          <td><label class="signup_form_label" for="number"><b> Saftey Seat ID: </b></label></td>
+		      <td><input type="text" class="form-control1" id="booster_seat_id" placeholder="Booster Seat ID"  name="booster_seat_id"><br><br></td>
+		    </div>
+      </tr>
+
+
+
+      <tr>
+		    <div class="form-group">
+         <td> <label class="signup_form_label" for="password"><b>Password  : </b></label></td>
+		     <td><input type="password" class="form-control2" id="password"  placeholder = "Password" name="password"><br><br></td>
+		    </div>
+      </tr>
+  </table>
+		     <button type="submit" class="btn btn-default">Submit</button>
+		  </form> 
+
+</center>
+	<div class='row'>
+	</div>
 </div>
+
+
+
+<!--  THIS IS ALL FOR THE MODAL POPUP -->
+ <!-- Button to open the modal login form 
+<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+ The Modal 
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+   Modal Content 
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div> 
+
+--> 
+{% endblock %} 
+
+ <!-- 
+<p> These additional phone numbers are here to help you! <br> In case you don't approve the message, we will contact them.</p>
+>>>>>>> eba2339cba84e6aead9d8bebf27723f206fd2c1a
+			<div class="form-group">
+		     <input type="name" class="form-control" id="name" placeholder="NAME" name="name">
+		    </div>
+		    <div class="form-group">
+		     <input type="w" class="form-control" id="phone" placeholder="First Number" name="phone">
+		    </div>
+		    <br>
+		    <div class="form-group">
+		     <input type="name" class="form-control" id="name1" placeholder="NAME" name="name1">
+		    </div>
+		    <div class="form-group">
+		     <input type="w" class="form-control" id="phone1" placeholder="Second Number" name="phone1">
+		    </div>
+
+		    <br>
+		    <div class="form-group">
+		     <input type="w" class="form-control" id="name2" placeholder="NAME" name="name2">
+		    </div>
+		    <div class="form-group">
+		     <input type="w" class="form-control" id="phone2" placeholder="Third Number" name="phone2">
+		    </div>
+<<<<<<< HEAD
+		
+		    <button type="submit" class="btn btn-default">Submit</button>
+		  </form> 
+		
+</center>
+	<div class='row'>
+	</div>
+</div>
+
+
+
  
-{% endblock %}
+=======
+--->
+		   
+
+	

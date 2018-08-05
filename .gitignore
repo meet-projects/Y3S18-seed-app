@@ -4,7 +4,6 @@
 *.pyc
 *.pyo
 env/
-env*
 dist/
 build/
 *.egg
@@ -16,6 +15,7 @@ _mailinglist
 .idea/
 docs/_build/
 .vscode/
+y3-venv/
 
 # Coverage reports
 htmlcov/
@@ -23,5 +23,5 @@ htmlcov/
 .coverage.*
 *,cover
 
-*venv/
+*y3-venv
 *.db

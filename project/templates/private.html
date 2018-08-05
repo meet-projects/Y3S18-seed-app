@@ -1,4 +1,270 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Private!</h1>
+    <!-- FOR THE MODAL STYLE -->
+<style>  /* The Modal (background) */
+
+}
+ h1 { /*LOG OUT*/
+	font-size: 30px;
+ }
+
+ h2{ /*INFORMATION*/
+ 	font-size: 30px;
+ }
+
+ p{
+
+ text-align: center;
+ }
+
+ body { 
+
+  }
+
+
+.noa{
+	background: linear-gradient( to right, #6F95AD , #D9EBF5); 
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-right: 30px;
+	padding-left: 30px;
+	text-align: center;
+}
+
+.orange{
+	background-color: #FFA400;
+	padding: 5%;
+}
+button{
+
+}
+.btn-warning {background-color: transparent;}
+.btn-warning {border-color: white} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+
+ 
+.btn-warning {background-color: #FFA400}
+.btn-warning {border-color: #white} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+.btn-warning{margin: 0 auto;}
+
+
+
+
+}
+.name { margin-left: 10px; }
+.phone_num { margin-left: 100px; }
+.enter{margin-left: 70px;}
+
+.links {
+	text-align: center;
+	vertical-align: middle;
+}
+
+</style>
+
+
+
+
+<!--  profile info -->
+<div class = "row" style="margin-top:100px">
+	<div class="col-sm-6">   
+		<div class = "row">
+			<div class="col-sm-6">
+				<img id="profile" src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="100" width="100">
+			</div>
+			<div class="col-sm-6">
+				<span id="userid">{{session['user_id']}} {{user.id}}</span>
+
+				<form action="/private" method = "POST" >
+					<button type="submit" class="btn btn-default">BABY IN CAR</button>
+				</form>
+
+				<span id="name"> {{user.username}}</span>
+				<span id="phone">{{user.phone}}</span>
+			</div>
+
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<h1><a href="{{ url_for('users.login') }}">LOG OUT</a></h1>
+		<h2><a href="{{ url_for('info') }}">INFORMATION!</a></h2>
+	</div>
+</div>
+
+
+
+<!--  contacts -->
+<div class = "row noa">
+	  <div class="col-sm-4">
+	 	{% if user.name1 %}
+		    <span data-toggle="modal" data-target="#myModal1">Name: {{ user.name1 }}<br> Relation: {{ user.relation1 }} <br>  Phone: {{ user.phone1 }} </span>
+		{% else %} <!-- this contact doesn't exist in the database -->
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal("u", "r", user.phone1, '1')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1"></button>'
+		{% endif %}
+	  </div>
+	  <div class="col-sm-4">
+	 	{% if user.name2 %}
+		    <span data-toggle="modal" data-target="#myModal2">Name: {{ user.name2 }} <br> Relation: {{ user.relation2 }} <br> Phone:{{user.phone2 }}</span>
+		{% else %} <!-- this contact doesn't exist in the databaName: se -->
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal("user.name2", "user.relation2", "user.phone2", '2')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2"></button>
+		{% endif %}
+	  </div>
+	  <div class="col-sm-4">
+	 	{% if user.name3 %}
+		    <span>Name: {{ user.name3 }}  <br> Relation: {{ user.relation3 }} <br>x Phone:{{ user.phone3 }}</span>
+		{% else %} <!-- this contact doesn't exist in the database -->
+	  	    <img src="{{ url_for('static', filename = 'pictures/addcontact.png')}}" height="250" width="250" onclick="prefill_modal("user.name3", "user.relation3", "user.phone3", '3')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3"></button>
+		{% endif %}
+	  </div>
+</div>
+
+
+<div class="row orange">
+	  <div class="col-sm-4 links">
+	  	<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to the police department');"" type="police"><a href="tel:+9720529553327"></a> Police Department</button>
+	  </div>
+
+	 <div class="col-sm-4 links">
+	 	<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to MDA');"" type="Mda"><a href="tel:+9720529553327"></a> MDA</button>
+	  </div>
+	<div class="col-sm-4 links">
+		<button class="btn btn-sm btn-warning" onclick="window.alert('a call has been sent to the fire department');"" type="fire"><a href="tel:+9720529553327"></a> fire Department</button>
+	 </div>
+</div>
+
+
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>These contacts are here to help you. In case you don't approve the alert sent, we will be contacting these contacts by order. </p>
+		<form action="/add_contact/1" method="post">
+		    {{ form.csrf_token }}
+
+		    Name: <input type="text" name="name1" value="{{ user.name1 }}"> <br> <br>
+ 			Relation: <input type="text" name="relation1" value="{{ user.relation1 }}"> <br> <br>
+ 			Phone: <input type="text" name="phone1" value="{{ user.phone1 }}" placeholder="+972xxxxxxxxx">
+
+ 			<input type="hidden" name="contact_num" value="">
+		    <br>
+		    <center>
+		    <button class="btn btn-sm btn-warning"  type="submit">SUBMIT </button>
+		    </center>
+		  </form>
+
+      </div> 
+      <div class="modal-footer">
+
+      </div>
+    </div>
+
+  </div>
+</div>	
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>These contacts are here to help you. In case you don't approve the alert sent, we will be contacting these contacts by order. </p>
+		<form action="/add_contact/2" method="post">
+		    {{ form.csrf_token }}
+
+		    Name: <input type="text" name="name2" value="{{ user.name2 }}"> <br> <br>
+ 			Relation: <input type="text" name="relation2" value="{{ user.relation2 }}"> <br> <br>
+ 			Phone: <input type="text" name="phone2" value="{{ user.phone2 }}" placeholder="+972xxxxxxxxx">
+
+ 			<input type="hidden" name="contact_num" value="">
+		    <br>
+		    <center>
+		    <button class="btn btn-sm btn-warning"  type="submit">SUBMIT </button>
+		    </center>
+		  </form>
+
+      </div> 
+      <div class="modal-footer">
+
+      </div>
+    </div>
+
+  </div>
+</div>	
+
+<div id="myModal3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>These contacts are here to help you. In case you don't approve the alert sent, we will be contacting these contacts by order. </p>
+		<form action="/add_contact/3" method="post">
+		    {{ form.csrf_token }}
+
+		    Name: <input type="text" name="name3" value=""> <br> <br>
+ 			Relation: <input type="text" name="relation3" value=""> <br> <br>
+ 			Phone: <input type="text" name="phone3" value="" placeholder="+972xxxxxxxxx">
+
+ 			<input type="hidden" name="contact_num" value="">
+		    <br>
+		    <center>
+		    <button class="btn btn-sm btn-warning"  type="submit">SUBMIT </button>
+		    </center>
+		  </form>
+
+      </div> 
+      <div class="modal-footer">
+
+      </div>
+    </div>
+
+  </div>
+</div>	
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

@@ -1,0 +1,12 @@
+div.static{
+	position: relative;
+	left: 750px;
+
+}
+
+.container {
+		background-image: url(../pictures/homepicture.png);
+		background-repeat:no-repeat;
+		background-size: 40%;
+		background-position:right -150px;	
+}		
