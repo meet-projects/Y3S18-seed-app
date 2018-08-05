@@ -40,7 +40,6 @@
         </ul>
       </div>
   </div>
->>>>>>> Stashed changes
 		<div class="row" style="background-color: rgb(246,246,246);">
 			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
@@ -114,7 +113,10 @@
 						<th class="booking_table_title">
 						I am request number {{loop.index}} awaiting your payment
 						</th>
-						<a href="paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a>
+						<th class="booking_table_title">
+						{{request.student}}
+						</th>
+						<a href="https://www.paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a>
 					</tr>
 
 				</table>

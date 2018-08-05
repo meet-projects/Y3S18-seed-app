@@ -90,16 +90,18 @@ class Request(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     student_id= db.Column(db.Integer,ForeignKey('students.id'))
+    student = db.Column(db.String)
     teacher_id = db.Column(db.Integer, ForeignKey('teachers.id'))
     done = db.Column(db.Boolean)
 
     def __init__(self,student_id,teacher_id,done):
         self.student_id
+        self.student=Student.query.filter_by(id=student_id).first()
         self.teacher_id = teacher_id
         self.done = done
 
 
-class Students(db.Model):
+class Student(db.Model):
 
     __tablename__="students"
     
