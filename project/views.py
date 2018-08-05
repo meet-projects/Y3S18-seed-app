@@ -9,11 +9,8 @@ from sqlalchemy import desc,asc
 
 import sys, math
 
-##@app.route('/')
-##def index():
-##	loginform = LoginForm(request.form)
-##	return render_template('index.html',loginform=loginform)
 
+##catagories
 @app.route('/feed')
 @login_required
 def feed():
@@ -118,6 +115,12 @@ def city(city):
 	cityname=City.query.filter_by(id=city).first().city
 	return render_template('feed.html', teachers=teachers,page="Filtering by City", all_cities=all_cities,results=results,thing=cityname)
 
+
+
+
+#teachers
+
+
 @app.route('/signup')
 def signup():
 	return render_template('register.html')
@@ -132,6 +135,7 @@ def profile_template():
 	return render_template('profile_template.html',teacher=t,user=current_user, all_cities=all_cities,requests=all_requests)
 
 
+
 @app.route('/profile/<int:teacher_id>')
 def profile(teacher_id):
 	this_teach=Teacher.query.filter_by(id=teacher_id).first()
@@ -142,3 +146,30 @@ def edit_profile(teacher_id):
 	teach = Teacher.query.filter_by(id=teacher_id).first()
 	all_cities = City.query.all()
 	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##students
+
+@app.route('/studentsignup')
+def studentsignup():
+	return render_template('feed.html')
+
+
+
+@app.route('/student_edit_profile/<int:student_id>')
+def student_edit_profile(student_id):
+	student = Student.query.filter_by(id=student_id).first()
+	all_cities = City.query.all()
+	return render_template('edit_profile_template.html', student=student, all_cities=all_cities)
