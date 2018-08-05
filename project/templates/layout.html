@@ -37,8 +37,7 @@
     <li><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">Wishlist</a></li>
     <li><a href="{{url_for('users.logout')}}">Logout</a></li>
     {%else%}
-    <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button></li>
-    <li><a href="{{url_for('users.login')}}">Login</a></li>
+    <li><a data-toggle="modal" data-target="#login">Login</a></li>
     {% endif %}
     
   </ul>
@@ -49,9 +48,13 @@
       {% endblock %}
 </div>
 
+- add register & login forms
+- clean css for both forms
+- styles for button and inputs
+
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="login" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -61,6 +64,14 @@
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
+        <form action="{{ url_for('users.login') }}" method="post">
+
+          {{ form.csrf_token }}<br>
+          {{ form.email(placeholder="email") }} <br>
+          {{ form.password(placeholder="Password") }}<br>
+
+        <button class="button" type="submit">Log in</button>
+      </form>
         <p>Some text in the modal.</p>
       </div>
       <div class="modal-footer">
