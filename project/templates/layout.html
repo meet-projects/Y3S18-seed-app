@@ -21,7 +21,7 @@
       
 
 <style type="text/css">
-body, html {
+body {
     height: 100%;
 }
 .bg {
@@ -29,12 +29,14 @@ body, html {
     background-image: url("{{ url_for('static', filename='pictures/Backgroundsite.jpg') }}");
 
     /* Full height */
-    height: 100%;
+    height: 100vh;
 
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%, 100vh;
+    /*position: fixed;*/
+    
 }
    .content{
     margin-right: auto;
@@ -42,8 +44,8 @@ body, html {
     display: block;
     width: 90%;
     height: 100vh;
-    background-color: white
-;
+    background-color: white;
+    overflow: auto;
   }
 
   .topnav{
@@ -144,6 +146,7 @@ form.example::after {
   </head>
   <body>
 
+
 <!--<<<<<<< HEAD
     <style type="text/css">
     body{
@@ -160,6 +163,7 @@ form.example::after {
   <a href="{{url_for('aboutus')}}">About</a>
   <a href="{{url_for('add_post.add_post')}}">Post</a>
 =======-->
+
   <div class="bg">
     <div class="content">
     <div class="logoblock">
@@ -179,20 +183,23 @@ form.example::after {
     </div>
 
         <div class="nav navbar-nav topnav navbar" style="">
-        <a  href="feed" class="navblock color-me">Home</a>
+        <a  href="{{url_for('feed')}}" class="navblock color-me">Home</a>
         <a href="inspiration" class="navblock">Stories</a>
         <a href="#saved_artist" class="navblock" id="saved_artist">Saved Artist</a>
 
-        <a href="aboutus" class="navblock">About</a>
-        <a href="posts" class="navblock">Post</a>
+        <a href="{{url_for('aboutus')}}" class="navblock">About</a>
+        <a href="{{ url_for('add_post.add_post') }}" class="navblock">Post</a>
       </div>
+      <div class="content_main">
+        {% block content %}
+        {% endblock %}
 
+      </div>
 </div>
   
 
   
-    {% block content %}        
-    {% endblock %}
+    
   </div>
   </body>
 </html>
