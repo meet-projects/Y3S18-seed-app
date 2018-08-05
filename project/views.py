@@ -45,6 +45,11 @@ def stories():
 def landingpage():
         return render_template('landingpage.html')    
 
+@app.route('/aboutus')
+def aboutus():
+    return render_template('aboutus.html')
+
+
 #read more function and add art
 @app.route('/stories/<int:post_id>', methods = ['GET','POST'])
 @login_required
