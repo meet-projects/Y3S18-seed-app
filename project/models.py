@@ -96,7 +96,7 @@ class Request(db.Model):
 
     def __init__(self,student_id,teacher_id,done):
         self.student_id
-        self.student=Student.query.filter_by(id=student_id).first()
+        self.student=Student.query.filter_by(id=student_id).first().fname
         self.teacher_id = teacher_id
         self.done = done
 

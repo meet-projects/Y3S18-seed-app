@@ -101,7 +101,7 @@ def make_request(teacher_id):
     studentnum=request.form.get('studentnum')
     thisteacher=Teacher.query.filter_by(id=teacher_id).first()
     sid=thisteacher.user_id
-    student=Student(sid,studentname,studentnum)
+    student=Student(sid,studentfname,studentlname,studentnum)
     book=Request(student.id,thisteacher.id,False)
     db.session.add(student)
     db.session.commit()
