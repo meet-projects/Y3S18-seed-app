@@ -51,6 +51,11 @@ def landingpage():
 		else:
 			return redirect(url_for("feed"))
 
+@app.route('/aboutus')
+def aboutus():
+    return render_template('aboutus.html')
+
+
 #read more function and add art
 @app.route('/stories/<int:post_id>', methods = ['GET','POST'])
 @login_required
