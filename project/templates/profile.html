@@ -1,20 +1,77 @@
 {% extends "layout.html" %}
 {% block content %}
-
-{{visited_user.username}}
+<!-- This is my profile -->
+{% if current_user.id == visited_user.id %}
+<div class = 'container'>
+{{visited_user.displayname}}
 <h1 class="profile_page_title"> ARTIST PROFILE </h1>
-<img src="{{visited_user.profile_pic_url}}" class="profile_page_pic" 
-    onerror="this.src='../static/pictures/avatar.png'">
-<!--Art Gallery-->
+<!-- INFO-->
+<div class = 'row'>
+<div class = "jumbotron jumbotron-img">
+	<div class= 'col-md-3>'>
+<img id = 'profile_img' src="{{visited_user.profile_pic_url}}" class="profile_page_pic" 
+    onerror="this.src='../static/pictures/avatar.png'"></div></div>
+<div class = 'col-md-9'>
+	<button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#changeProfile'>Change your Pic</button> 
+	<p>{{visited_user.username}}</p>
+	</div>
+	</div>
+
+<div class="modal" id="changeProfile">
+  <div class="modal-dialog">
+    <div class="modal-content">
+       <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Share your art...</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+       <!-- Modal body -->
+      <div class="modal-body">
+         <form action="{{ url_for('profile.change_pic')}}" method="post">
+        {{ form.csrf_token }}
+        <p class="text">URL:</p>   {{ form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
+        <button class="btn btn-sm btn-success" type="submit">Share</button>
+        </form>
+        
+      </div>	
+
 <!-- About Artist -->
 <h1> About the Artist</h1>
 <p>{{visited_user.bio}}</p>
-
+<!--Art Gallery-->
 {% for art in art_pieces %}
 	<div class = 'row'>
 	<div class="jumbotron jumbotron-img">
          <div class = 'col-md-3'>
            <img id = "feed_img" src={{art.ArtURL}}> </div></div></div>
-</div>
 {% endfor %}
+</div>
+{% else %}
+<h1>Not You!!!!!</h1>
+<div class = 'container'>
+{{visited_user.displayname}}
+<h1 class="profile_page_title"> ARTIST PROFILE </h1>
+<!-- INFO-->
+<div class = 'row'>
+<div class = "jumbotron jumbotron-img">
+	<div class= 'col-md-3>'>
+<img id = 'profile_img' src="{{visited_user.profile_pic_url}}" class="profile_page_pic" 
+    onerror="this.src='../static/pictures/avatar.png'"></div></div>
+<div class = 'col-md-9'>
+	<p>{{visited_user.username}}</p>
+	</div>
+	</div>
+
+<!-- About Artist -->
+<h1> About the Artist</h1>
+<p>{{visited_user.bio}}</p>
+<!--Art Gallery-->
+{% for art in art_pieces %}
+	<div class = 'row'>
+	<div class="jumbotron jumbotron-img">
+         <div class = 'col-md-3'>
+           <img id = "feed_img" src={{art.ArtURL}}> </div></div></div>
+{% endfor %}
+{% endif %}
+</div>
 {% endblock %}

@@ -1,6 +1,3 @@
-
-
-
 {% extends "layout.html" %}
 {% block content %}
 <div class="main_feed_body"></div>
@@ -15,11 +12,12 @@
     <div class="jumbotron jumbotron-img">
          <div class = 'col-md-3'>
            <img id = "feed_img" src={{post.ArtURL}}> </div><br><br><br>
-            <div class = 'col-md-2'></div>
+            <div class = 'col-md-3'></div>
          <div class="description_block" class = 'col-md-9'></div>
-             <span id="more" > {{ post.get_description1() }} </span></div><br><br><br><br><br><br><br><br>
+            <h2> <span id="more" > {{ post.get_description1() }} </span></div></h2>
+              <br><br><br><br><br><br><br><br>
        <div class="valid_text_space" >
-           <div class="stori_title"> {{post.get_title()}} </div>            
+           <h1><div class="stori_title"> {{post.get_title()}} </div></h1>            
            <!--<div class="description_block">
                {{ post.get_description1() }}
            </div>-->
