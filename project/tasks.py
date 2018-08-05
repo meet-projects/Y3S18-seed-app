@@ -22,7 +22,7 @@ def alert(self, number, flag, phone1, phone2, phone3):
 		elif flag == 3 and phone2:
 			dest = phone2
 		elif flag == 4 and phone3:
-			dest = phon3
+			dest = phone3
 		elif flag == 5:
 			flag = 1
 			dest = number
