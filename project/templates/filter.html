@@ -1,16 +1,10 @@
 
-<div id="id04" class="modal">
-  
-  <form class ="modal-content animate" action="{{ url_for('users.filter') }}" method="POST">
-    
-    <div class="container" id="login_box">
-      <div class="imgcontainer">
-        <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
-      </div>
 
-    <div style="color: grey; font-family: helveticaneuelight;">
+      <div class="signup_container">
+      <form action="{{ url_for('users.student_signup') }}" method="POST">
 
-      <h2 id="login_title">Title</h2>
+
+      <h2 id="login_title">Help Us Personalize Your Experience</h2>
 
       <span class="field" style="float: left; width: 100%;">
         <label for="city" class="label"><b>City</b></label>
@@ -32,9 +26,9 @@
         <label for="Languages" class="label"><b>Languages You Want to Learn In</b></label>
         <br>
         <form action="/action_page.php" class="bars2">
-          <input type="checkbox" name="languages_ar" value="Arabic"> Arabic <br>
-          <input type="checkbox" name="languages_en" value="English"> English <br>
-          <input type="checkbox" name="languages_hb" value="Hebrew"> Hebrew <br>
+          <input type="checkbox" name="languages_ar" value="Arabic" style="font-family: helvticaneuelight; color: grey;"> Arabic <br>
+          <input type="checkbox" name="languages_en" value="English" style="font-family: helvticaneuelight; color: grey;"> English <br>
+          <input type="checkbox" name="languages_hb" value="Hebrew" style="font-family: helvticaneuelight; color: grey;"> Hebrew <br>
         </form>
       </span>
 
@@ -43,9 +37,7 @@
         <input type="text" placeholder="Gearbox Type" name="gearbox" class="bars2" required>
       </span>
 
-     </div>
     <button  class="login" type="submit">Continue</button>
     <button class="login" type="submit">Skip</button>
-  </div>
   </form>
   </div>
