@@ -2,7 +2,8 @@ from flask import render_template, session
 from flask_login import login_required, current_user
 
 from project import db
-from project.models import User,Teacher,Request, City
+from project.models import *
+from flask_login import login_user, login_required, logout_user, current_user
 from . import app
 from sqlalchemy import desc,asc
 
@@ -14,9 +15,39 @@ import sys, math
 ##	return render_template('index.html',loginform=loginform)
 
 @app.route('/feed')
+@login_required
 def feed():
-	all_teachers = db.session.query(Teacher).order_by("id desc").all()
-	all_cities = City.query.all()
+	if current_user.account_type == "student":
+		student = Student.query.filter_by(user_id = current_user.id)
+		teachers = db.session.query(Teacher).all()
+		all_teachers_tuples = []
+		for i in teachers:
+			matching = 0
+			if student.city == i.city:
+				matching+=1
+			if i.cost>=student.min_price and i.cost<=student.max_price:
+				matching+=1
+			sgb = student.gearbox.split(" ")
+			tgb = i.gearbox.split(" ")
+			for g in sgb:
+				if tgb.count(g)>0:
+					matching+=(1/len(sgb))
+			slang = student.languages.split(" ")
+			tlang = i.languages.split(" ")
+			for l in slang:
+				if tlang.count(l)>0:
+					matching+=(1/len(slang))
+			all_teachers_tuples.append((matching,i))
+
+		all_teachers_tuples.sort(reverse=True)
+		all_teachers = []
+		
+		for i in all_teachers_tuples:
+
+			all_teachers.append(i[1])
+
+
+		all_cities = City.query.all()
 	#teachers = []
 	#pages = int(math.ceil(len(all_teachers)/4))
 	#if len(all_teachers)>=4:
@@ -25,7 +56,7 @@ def feed():
 	#else:
 	#teachers = all_teachers
 
-	return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="All Instructors",results="",thing="")
+		return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="All Instructors",results="",thing="")
 
 ##@app.route('/feed/<int:pagenum>')
 ##def feed_num(pagenum):
