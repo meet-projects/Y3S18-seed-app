@@ -111,3 +111,34 @@ def edit_profile(teacher_id):
 	teach = Teacher.query.filter_by(id=teacher_id).first()
 	all_cities = City.query.all()
 	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##students
+
+@app.route('/studentsignup')
+def studentsignup():
+	return render_template('stu_signup.html')
+
+@app.route('/filter')
+def filter():
+	return render_template('filter.html')
+##@app.route('/student_edit_profile/<int:student_id>')
+##def student_edit_profile(student_id):
+##	student = Student.query.filter_by(id=student_id).first()
+##	all_cities = City.query.all()
+##	return render_template('filter_modal.html', student=student, all_cities=all_cities)##
+>>>>>>> Stashed changes

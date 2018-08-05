@@ -175,3 +175,89 @@ def delete(teacher_id):
     db.session.delete(teach)
     db.session.commit()
     return redirect('/')
+
+
+
+
+
+
+
+
+
+
+
+###student
+
+
+@users_bp.route('/teacher/<int:teacher_id>')
+def profile(teacher_id):
+    teacher = db.session.query().filter_by(id=teacher_id).first()
+    return render_template('profile_template.html', teacher=teacher)
+
+
+
+@users_bp.route('/student_signup',methods=['GET', 'POST'])
+def student_signup():
+    form = RegisterForm(request.form)
+
+    if request.method == 'POST':
+        email=request.form.get('email')
+        password=request.form.get('password')
+        password2=request.form.get('password2')
+        fname=request.form.get('fname')
+        lname=request.form.get('lname')
+        phone_num=request.form.get('phone_num')
+        if password== password2:
+                user = User.query.filter_by(email=email).first()
+                if user is None:
+                    user=User(email,password,"student")
+                    db.session.add(user)
+                    db.session.commit()
+                    
+                    student=Student(fname,lname,phone_num,gearbox,city,min_price,max_price,"")
+                    db.session.add(student)
+                    db.session.commit()
+                    login_user(user, remember=True)
+                    return redirect(url_for('filter'))
+        else:
+            return Response("<p>invalid form</p>")
+
+    return render_template('index.html', form=form)
+
+
+@users_bp.route('/filter', methods=['GET', 'POST'])
+@login_required
+def filter():
+    student=Student.query.filter_by(user_id=current_user.id).first()
+    if student is not None:
+        arabic=request.form.get('arabic')
+        hebrew=request.form.get('hebrew')
+        english=request.form.get('english')
+        automatic=request.form.get('automatic')
+        manual=request.form.get('manual')
+        city=request.form.get('city')
+        min_price=request.form.get('min_price')
+        max_price=request.form.get('max_price')
+        if city!="":
+            student.city=city
+        if min_price=="":
+            pass
+        else:
+            teacher.min_price=min_price
+        if max_price=="":
+            pass
+        else:
+            teacher.max_price=max_price
+        if arabic is not None:
+            student.languages+="Arabic "
+        if hebrew is not None:
+            student.languages+="Hebrew "
+        if english is not None:
+            student.languages+="English "
+        if automatic is not None:
+            student.gearbox+="Automatic "
+        if manual is not None:
+            student.gearbox+="Manual "
+        db.session.commit()
+        return redirect('feed')
+    return redirect('feed')
