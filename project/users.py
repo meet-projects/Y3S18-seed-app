@@ -203,7 +203,7 @@ def student_signup():
                     db.session.add(user)
                     db.session.commit()
                     
-                    student=Student(fname,lname,phone_num,gearbox,city,min_price,max_price,"")
+                    student=Student(fname,lname,phone_num,"","",0,0,"","")
                     db.session.add(student)
                     db.session.commit()
                     login_user(user, remember=True)
