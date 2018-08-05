@@ -101,3 +101,8 @@ def logout():
 	logout_user()
 	return redirect('/')
 
+
+# @users_bp.route('/follow/<string: username>')
+# @login_required
+# def follow(username):
+# 	pass

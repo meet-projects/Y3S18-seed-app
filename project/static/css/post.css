@@ -37,10 +37,10 @@
  }
 
 
-#title{
+.sub{
 	font-family: "Montserrat", sans-serif;
-	font-size: 25px
-	text-align: left;
+	font-size: 35px;
+  color:white;
 }
 .post_textbox { 
  position: center;
@@ -88,10 +88,11 @@
 }
 
 .container{
-	margin-top: 30px;
-	margin-left: 30px;
+	margin-top: 10px;
+	margin-left: 10px;
 }
 
 .btn {
 	margin-bottom: 15px;
+
 }
