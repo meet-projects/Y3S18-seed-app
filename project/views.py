@@ -6,7 +6,7 @@ from flask import (
 from flask_login import login_required, current_user
 from project.models import User, Post, Like
 from . import app
-from project.forms import AddArtForm, ProfilePicForm    
+from project.forms import AddArtForm, ProfilePicForm, ProfileBioForm    
 
 
 @app.route('/feed', methods=['POST','GET'])
@@ -26,11 +26,12 @@ def my_profile():
 @app.route('/profiles/<username>')
 @login_required
 def profile(username):
-    form = ProfilePicForm(request.form)
+    pic_form = ProfilePicForm(request.form)
+    bio_form = ProfileBioForm(request.form)
     visited_user = User.query.filter_by(username=username).first()
     art = Post.query.filter_by(ArtistID = visited_user.id)
     if visited_user:
-        return render_template('profile.html', visited_user=visited_user, art_pieces = art, form = form)
+        return render_template('profile.html', visited_user=visited_user, art_pieces = art, bio_form = bio_form, pic_form = pic_form)
     else:
         return abort(404)
 

@@ -22,6 +22,9 @@ class AddArtForm(Form):
     art_url = StringField('ArtUrl', validators = [DataRequired()])
 
 class ProfilePicForm(Form):
-	profile_pic_url = StringField('URL', validators = [DataRequired()])    
+	profile_pic_url = StringField('URL', validators = [DataRequired()])
+
+class ProfileBioForm(Form):
+	profile_bio = StringField('Change Bio', validators = [DataRequired()])	    
      
 

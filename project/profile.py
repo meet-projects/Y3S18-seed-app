@@ -7,7 +7,7 @@ from flask_login import login_required, current_user
 from project import db
 from project.models import User, Post, Like
 from . import app
-from project.forms import ProfilePicForm
+from project.forms import ProfilePicForm, ProfileBioForm
 
 profile_bp =  Blueprint('profile', __name__)
 
@@ -23,3 +23,16 @@ def change_pic():
             return redirect(url_for('profile', username = current_user.username))   
         else:
             return Response("<p>invalid form</p>")
+
+@profile_bp.route('/change_bio', methods= ['POST'])
+@login_required
+def change_bio():
+    form = ProfileBioForm(request.form)
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = User.query.filter_by(id = current_user.id).first()
+            user.bio = form.profile_bio.data
+            db.session.commit()
+            return redirect(url_for('profile', username = current_user.username))   
+        else:
+            return Response("<p>invalid form</p>")            

@@ -11,33 +11,59 @@
 	<div class= 'col-md-3>'>
 <img id = 'profile_img' src="{{visited_user.profile_pic_url}}" class="profile_page_pic" 
     onerror="this.src='../static/pictures/avatar.png'"></div></div>
-<div class = 'col-md-9'>
-	<button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#changeProfile'>Change your Pic</button> 
+<div class = 'col-md-9'> 
 	<p>{{visited_user.username}}</p>
 	</div>
 	</div>
+
+<button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#changeProfile'>Change your Pic</button>	
 
 <div class="modal" id="changeProfile">
   <div class="modal-dialog">
     <div class="modal-content">
        <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Share your art...</h4>
+        <h4 class="modal-title">Change your Bio</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
        <!-- Modal body -->
       <div class="modal-body">
-         <form action="{{ url_for('profile.change_pic')}}" method="post">
-        {{ form.csrf_token }}
-        <p class="text">URL:</p>   {{ form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
+         <form action="{{ url_for('profile.change_bio')}}" method="post">
+        {{ pic_form.csrf_token }}
+        <p class="text">Bio:</p>   {{ pic_form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
         <button class="btn btn-sm btn-success" type="submit">Share</button>
         </form>
         
       </div>	
-
+</div>
+</div>
+</div>
 <!-- About Artist -->
 <h1> About the Artist</h1>
 <p>{{visited_user.bio}}</p>
+
+<button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#changeBio'>Change your Bio</button>
+
+<div class="modal" id="changeBio">
+  <div class="modal-dialog">
+    <div class="modal-content">
+       <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Bio</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+       <!-- Modal body -->
+      <div class="modal-body">
+        <form action="{{ url_for('profile.change_bio')}}" method="post">
+        {{ bio_form.csrf_token }}
+        <p class="text">URL:</p>   {{ bio_form.profile_bio(placeholder= "Change Bio") }}<br><br>
+        <button class="btn btn-sm btn-success" type="submit">Change Bio</button>
+        </form>
+        
+      </div>
+  </div>
+</div>
+</div>
 <!--Art Gallery-->
 {% for art in art_pieces %}
 	<div class = 'row'>
