@@ -66,7 +66,6 @@ def register_test(form):
 	return "success"
 
 @users_bp.route('/login', methods=['GET', 'POST'])
-@users_bp.route('/', methods=['GET', 'POST'])
 def login():
 	form = LoginForm(request.form)
 	if request.method == 'POST':

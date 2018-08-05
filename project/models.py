@@ -1,4 +1,3 @@
-
 from project import db
 from datetime import datetime
 
@@ -11,6 +10,8 @@ class User(UserMixin, db.Model):
     id                  = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username            = db.Column(db.String, unique=True, nullable=False)
     displayname         = db.Column(db.String)
+    #email               = db.Column(db.String, unique=True, nullable=False)
+    bio                 = db.Column(db.String, default = "Hi, i'm using Artflict!")
     profile_pic_url     = db.Column(db.String, nullable=True)
     password_hash       = db.Column(db.String, nullable=False)
 
@@ -18,6 +19,7 @@ class User(UserMixin, db.Model):
         self.username = username
         self.displayname = displayname
         self.set_password(password)
+
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -126,4 +128,3 @@ class Follower(db.Model):
     def __init__(self, followerID, followedID):
          self.followerID = followerID
          self.followedID = followedID
-         
