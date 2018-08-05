@@ -2,146 +2,89 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/js/script.js"> </script>	
+		<script type="text/javascript" src="../static/js/bootstrap.bundle.min.js"></script>	
 		<title>
 			EasyLicense	
 		</title>
 		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 
 	<body style="background-color: rgb(246,246,246);">
+
 		
-		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
-		<!--<div class="header" style="width:100%; height: 150px; margin: auto; background-color: rgb(6,174,213);">
-		<ul class="header">
-			{%if n!=0%}
-			<li><h1 class="little_red_circle">{{n}}</h1></li>
-			{%endif%}-->
-
-			<!--<li class="header" id="name_and_profile"></li>
-			<li class="header" id="name_and_profile"><h2>Jacob Jacobson</h2></li></a>
-			<li>
-		<div style="background-color: rgb(6,174,213);" id="hidden" style=" margin-top: auto;">	
-		<ul style="list-style: none; margin: auto;">
-			<li class="header"><h4><a href="">My Profile</a></h4></li> 
-			<li class="header"><h4><a href="">Feed</a></h4></li>
-			<li class="header"><h4><a href=""><img src="{{url_for('static',filename='img/logo.png')}}" id="profile" style="margin-bottom: 0px;"></a></h4></li>
-			<li class="header"><h4><a href="">Requests</a></h4></li>
-			<li class="header"><h4><a href="">Lessons</a></h4></li>
-		</ul>
-		</div>
-		</li>
-		</ul>	
-	</div>-->
-		<!--<center>
-			<div class="div">
-				<br>
-				<img src="../static/img/logo.png" class="biglogo">
-				<h3>The right guidance with EasyLicense</h3>
-				<br>
-				<a href="#instructordiv"><button type="button" class="landingbutton">
-					I'M A STUDENT
-				</button></a>
-				<a href="login_signup"><button class="landingbutton">I'M AN INSTRUCTOR</button></a>
-
-			<br>
-			<br>
-			<br>
-			<br>
-				
-			</div>-->
-		<span>
+		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px; margin-left: 30px;"></a></h4>
+		
 			<center>
 				<br><br>
-				<button onclick="document.getElementById('filter_div').style.display='block'" class="button">Filter</button>
+				<button onclick="document.getElementById('filter_div').style.display='block'" class="button" style="color: black;">Filter</button>
 			</center>
-			<center><div id="filter_div" class="popup">
-				<!--<ul class="filter" id="instructordiv">
-				  <li class="filter"> <h3 class="filter_title">Location</h3>
-				  	<select onchange="window.location.href=this.value;" class="filters">
-				  		<option disabled="disabled" selected="selected">Select an area</option>
-						<option href="#instructordiv" value="galil_elion">Galil Elion </option>
-						<option href="#instructordiv" value="hof_hagalil">Hof Hagalil </option>
-						<option href="#instructordiv" value="golan">Golan </option>
-						<option href="#instructordiv" value="carmel"> Carmel </option>
-						<option href="#instructordiv" value="sharon"> Sharon </option>
-						<option href="#instructordiv" value="emek_israel"> Emek Israel </option>
-						<option href="#instructordiv" value="beit_shean"> Beit Shean </option>
-						<option href="#instructordiv" value="west_bank"> West Bank </option>
-						<option href="#instructordiv" value="mishor_hakhof"> Mishor Hakhof </option>
-						<option href="#instructordiv" value="jerusalem_district"> Jerusalem District </option>
-						<option href="#instructordiv" value="negev"> Negev </option>
-						<option href="#instructordiv" value="shfelat_yehuda"> Shfelat Yehuda </option>
-						<option href="#instructordiv" value="judea_district"> Judea District </option>
-						<option href="#instructordiv" value="arava"> Arava</option>
-							</select></li>
-				  <li class="filter"><h3 class="filter_title">Price</h3>
-				  	<select onchange="window.location.href=this.value;" class="filters">
-				  				<option disabled="disabled" selected="selected">Select a price filter</option>
-								<option value="hightolow"> High to Low </option>
-								<option value="lowtohigh"> Low to High </option>
-							</select>
-				  </li>
-				  <li class="filter"><h3 class="filter_title">Language</h3>
-				  <select class="filters">
-				  				<option disabled="disabled" selected="selected">Select a language</option>
-								<option value="language_filter"><a href="{{url_for('language_filter',language='hebrew')}}"> Hebrew </a></option>
-								<option value="arabic">Arabic </option>
-								<option value="english"> English </option>
-							</select>
-						</li>
-					<li class="filter"><h3 class="filter_title"> No Filter</h3>
-					
-					</li>
-				</ul>-->
-				<p ><a href="{{url_for('feed')}}" class="link">No Filter</a></p>
-				<p id="sort_bar">Sort(Price):
-					<a href="{{url_for('price_sort',sorting='low')}}" class="link">Low-->High</a>
-					<a href="{{url_for('price_sort',sorting='high')}}" class="link">High-->Low</a>
-				</p>
-				<p id="sort_bar">Language:
-					<a href="{{url_for('language_filter',language='arabic')}}" class="link">Arabic</a>
-					<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
-					<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
-				</p>
-			</div></center> 
+			<center>
+				<div id="filter_div" class="popup">
+				
+					<p><a href="{{url_for('feed')}}" class="link">No Filter</a></p>
+					<p id="sort_bar">Sort(Price):
+						<a href="{{url_for('price_sort',sorting='low')}}" class="link">Low-->High</a>
+						<a href="{{url_for('price_sort',sorting='high')}}" class="link">High-->Low</a>
+					</p>
+					<p id="sort_bar">Language:
+						<a href="{{url_for('language_filter',language='arabic')}}" class="link">Arabic</a>
+						<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
+						<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
+					</p>
+					<div class="dropdown" style="background-color: rgb(246,246,246);">
+						<button class="btn btn-secondary dropdown-toggle" id="dropmenu dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;"> Choose a City <span class="caret"></span></button>
+						<div class="dropdown-menu" style="position: absolute;" aria-labelledby="dropdownMenuButton">
+							<!-- <ul> -->
+							{% for c in all_cities %}
+							<a href="{{url_for('city',city=c.id)}}" class="dropdown-item" style="font-size: 16px;">{{c.city}}   ||   </a>
+						{% endfor %}
+
+						<!-- </ul> -->
+						</div>
+					</div>
+				</div>
 				<br>
-			<div class="row">
+
+				<h2 style="color: black; font-size: 36px;">{{page}}</h2>
+				<br>
+				<h3 style="color: black; font-size: 24px;">{{thing}}</h3>
+
+			</center> 
+			<br>
+			<div class="container" style="background-color: rgb(246,246,246);">
+			<div class="row" style="background-color: rgb(246,246,246);">
 	  			{% for teacher in teachers %}
-	  			<!--<div class="column">
-	    			<div class="card">
-	      				<img src="{{teacher.profile_picture}}" style="width:100%" class="profilepic">
-						    <div class="container">
-						    	
-						        <h2 id="name">{{teacher.name}}</h2>
-						        <p id="area" class="feed_insturctor">Area: {{teacher.area}}</p>
-						        <p id="city" class="feed_insturctor">City: {{teacher.city}}</p>
-						        <p id="description" class="feed_insturctor">Description {{teacher.description}}</p>
-						        <p id="cost" class="feed_insturctor">Cost: {{teacher.cost}} Shekels</p>
-						        <p id="languages" class="feed_insturctor">Langauges the teacher teaches in: {{teacher.languages}}</p>
-						        <p><a href="profile/{{teacher.id}}"><button class="button">Contact</button></a></p>
-		      				</div>
-	    			</div>
-	  			</div> -->
-	  			<center>
-	  			<div class="instructor">
-	  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
-	  				<span class="ins_info"  style="color: black; margin: 10px;">
-	  					<br>
-	  					<h1>{{teacher.fname}}</h1>
-	  					<p>{{teacher.description}}</p>
+	  			<div class="col-md-4" style="background-color: rgb(246,246,246);">
+	  			
+		  			<div class="instructor">
+		  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
+		  				<span class="ins_info" style="color: black;">
+		  					<br>
+		  					<h1>{{teacher.fname}}</h1>
+		  					<p>{{teacher.description}}</p>
 
-	  					<h3 style="color: black;">Languages: {{teacher.languages}}</h3>
-	  					<h2>{{teacher.city}}</h2>
-	  					<h2>{{teacher.cost}} &#8362</h2>
-	  					<a href="profile/{{teacher.id}}"><button style="width: 15%;border: none; outline: 0;display: inline-block;padding: 8px; text-align: center; cursor: pointer;">Contact</button></a>
-	  				</span>
+		  					<h4 style="color: black;">Languages: {{teacher.languages}}</h4>
+		  					<h4>{{teacher.city}}</h4>
+		  					<h4>{{teacher.cost}} &#8362</h4>
+		  					<button id="contact_btn" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
+		  				</span> 
+		  			</div> 
 	  			</div>
-	  			</center>
 	  			{% endfor %}
-
 	  		</div>
-	  	</span>
+	  	</div>
+	  		<center>
+	  		<h2 style="color: black;">{{results}}</h2>
+	  		</center>
 
 	</body>
 </html>

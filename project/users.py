@@ -41,7 +41,7 @@ def register():
                 #if profilepic == "":
                 #    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
                 #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,gearbox)
-                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","undefined yet","")
+                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","https://static.thenounproject.com/png/214280-200.png","")
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -76,7 +76,7 @@ def login():
         else:
             return Response("<p>invalid form</p>")
     else:
-        return render_template('login.html', loginform=loginform)
+        return render_template('index.html', loginform=loginform)
 
 @users_bp.route('/login_signup')
 def login_signup():
@@ -87,27 +87,27 @@ def login_signup():
 @login_required
 def logout():
     logout_user()
-    return Response("<p>Logged out</p>")
+    return redirect(url_for('users.index'))
 
 @users_bp.route('/teacher/<int:teacher_id>')
 def profile(teacher_id):
     teacher = db.session.query().filter_by(id=teacher_id).first()
     return render_template('profile_template.html', teacher=teacher)
 
-@users_bp.route('/<int:teacher_id>/booking')
-def booking(teacher_id):
+@users_bp.route('/make_request/<int:teacher_id>', methods=['POST'])
+def make_request(teacher_id):
     studentname=request.form.get('studentname')
     studentnum=request.form.get('studentnum')
     thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-    book=Booking(studentname,studentnum,thisteacher.id,False)
+    sid=thisteacher.user_id
+    student=Students(sid,studentname,studentnum)
+    book=Request(student.id,thisteacher.id,False)
+    db.session.add(student)
+    db.session.commit()
     db.session.add(book)
     db.session.commit()
     return redirect('feed')
 
-# @users_bp.route('/booking/<int:teacher_id>')
-# def booking(teacher_id):
-#     teacher = db.session.query(Teacher).filter_by(id=teacher_id).first()
-#     return render_template('booking.html', teacher=teacher)
 
 @users_bp.route('/editing/<int:teacher_id>', methods=['POST'])
 @login_required
@@ -123,7 +123,7 @@ def editing(teacher_id):
     arabic=request.form.get('arabic')
     hebrew=request.form.get('hebrew')
     english=request.form.get('english')
-    profilepic=request.form.get('pic')
+    profile_picture=request.form.get('profile_picture')
     automatic=request.form.get('automatic')
     manual=request.form.get('manual')
     if fname!="":
@@ -150,8 +150,10 @@ def editing(teacher_id):
         teacher.languages+="Hebrew "
     if english is not None:
         teacher.languages+="English "
-    if profilepic!="":
-        teacher.profilepic=profilepic
+    if profile_picture!="":
+        teacher.profile_picture=profile_picture
+    else:
+        pass
     if automatic is not None or manual is not None:
         teacher.gearbox=""
     if automatic is not None:
@@ -165,3 +167,10 @@ def editing(teacher_id):
     #    all_cities = City.query.all()
     #    return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
+
+@users_bp.route('/delete/<int:teacher_id>')
+def delete(teacher_id):
+    teach=Teacher.query.filter_by(id=teacher_id).first()
+    db.session.delete(teach)
+    db.session.commit()
+    return redirect('/')

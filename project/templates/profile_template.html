@@ -9,7 +9,11 @@
 	</head>
 	
 	<body class="profile_page">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+		
+>>>>>>> 3e0b8de3b8c4cee511e7cab6ed3580242854ffba
 		<h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
 =======
 		
@@ -53,37 +57,39 @@
 			<br>
 
 			<center>
-			<p align="center"><i> Your Inofrmation:</i> </p>
-			<p align="center"><i> {{teacher.name}}</i> </p>
+			<p align="center"><i> Your Inofrmation</i> </p>
+			<p align="center"><i> {{teacher.fname}} {{teacher.lname}}</i> </p>
 			<br>
 			<table class="side_profile_table">
 				<tr>
-					<th>Phone Number:</th> 
+
+					<th>Phone Number</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.phone_num | truncate(13)}} </td>
 				</tr>
 				
 				<tr>
-					<th>Email:</th> 
+					<th>Email</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{current_user.email | truncate(13)}} </td>
 				</tr>
 				<tr>
-					<th>City:</th> 
+					<th>City</th> 
 					<td data-toggle="tooltip" data-placement="top"> {{teacher.city}} </td>
 				</tr>
 				<tr>
-					<th>Fee:</th> 
+					<th>Charge</th> 
 					<td> {{teacher.cost}} </td>
 				</tr>
 				<tr> 
-					<th>Languages:</th> 
+					<th>Languages</th> 
 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(13)}} </td>
+
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(30)}} </td>
 
 				</tr>
 
 				<tr>
 					<th>Gearbox:</th> 
-					<td data-toggle="tooltip" data-placement="top"> {{teacher.gearbox | truncate(13)}} </td>
+					<td data-toggle="tooltip" data-placement="top" title="{{teacher.gearbox}}"> {{teacher.gearbox | truncate(13)}} </td>
 
 				</tr>
 			</table>
@@ -109,29 +115,15 @@
 				</p>
 			</div>
 			<var></var>
-			{% for booking in bookings %}
+			{% for request in requests %}
 				<table id="booking_table">
-					
 					<tr>
 						<th class="booking_table_title">
-						Booking number {{loop.index}}
+						I am request number {{loop.index}} awaiting your payment
 						</th>
-						<th></th>
+						<a href="paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a>
 					</tr>
-					<tr>
-						<th class="booking_table_header">
-							Name
-						</th>
-						<th class="booking_table_header">
-							Phone Number
-						</th>
-					</tr>
-						<td>
-							{{booking.name}}
-						</td>
-						<td>
-							{{booking.phone_num}}
-						</td>
+
 				</table>
 				<br><br>
 			{% endfor %}

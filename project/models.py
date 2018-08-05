@@ -82,7 +82,7 @@ class Teacher(db.Model):
         self.gearbox=gearbox
 
     def __repr__(self):
-        return 'Teacher %d %s' % (self.id, self.name)
+        return 'Teacher %d %s %s' % (self.id, self.fname, self.lname)
 
 class Request(db.Model):
 
@@ -93,24 +93,20 @@ class Request(db.Model):
     teacher_id = db.Column(db.Integer, ForeignKey('teachers.id'))
     done = db.Column(db.Boolean)
 
-    def __init__(self,name,phone_num,teacher_id,done):
-        self.name = name
-        self.phone_num = phone_num
+    def __init__(self,student_id,teacher_id,done):
+        self.student_id
         self.teacher_id = teacher_id
         self.done = done
 
 
-
-class Student(db.Model):
+class Students(db.Model):
 
     __tablename__="students"
-
-
+    
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id=db.Column(db.Integer, ForeignKey('users.id'))
     name = db.Column(db.String)
     phone_num = db.Column(db.String)
-
 
     def __init__(self, user_id,name,phone_num):
         self.name=name
