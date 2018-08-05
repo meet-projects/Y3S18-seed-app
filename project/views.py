@@ -31,9 +31,11 @@ def profile(username):
 		print("wtf")
 	print(username + "<<<<<<<<<<<<<<<<<<<")
 	visited_user = User.query.filter_by(username=username).first()
+	pic_form = ProfilePicForm(request.form)    
+	bio_form = ProfileBioForm(request.form)    
 	if visited_user:
 		print("visited user")
-		return render_template('profile.html', visited_user=visited_user)
+		return render_template('profile.html', visited_user=visited_user, pic_form = pic_form, bio_form = bio_form)
 	else:
 		return abort(404)
 

@@ -32,7 +32,7 @@
               <div class="modal-body">
                  <form action="{{ url_for('profile.change_bio')}}" method="post">
                 {{ pic_form.csrf_token }}
-                <p class="text">Bio:</p>   {{ pic_form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
+                <p class="text">Pic URL:</p>   {{ pic_form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
                 <button class="btn btn-sm btn-success" type="submit">Share</button>
                 </form>
                 
