@@ -44,14 +44,41 @@ li a:hover {
 }
 </style>
 
+
+<style type="text/css">
+    body{
+
+      background: url("{{ url_for('static', filename='pictures/backgroundfeed.jpg') }}");
+    }
+    </style>
+<style>
+
+
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 23.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+</style>
 </head>
 <body>
 <!--	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag">-->
 
-<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag"><br>
+<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag" height="60" width="200">
 	
 	<ul>
-  <li><a class="active" href="#home">Home</a></li>
+  <li><a class="active" href="feed">Home</a></li>
   <li><a href="feed">Stories</a></li>
   <li><a href="#contact">Saved artist</a></li>
   <li><a href="#about">About</a></li>
@@ -59,17 +86,39 @@ li a:hover {
 </ul>
 <h1>About ArtFlict</h1><br>
 <br>
-<p>Artflict is a social platfrom...</p>
-<br>
-<br>
-<br>
+<p>   Artflict is a raising startup company created by Y3 in MEET (Middle East Entrepreneurs Of Tomorrow). Our main </p>
+<p>   aim is to create a more compassionate and tolerate society where are is used more frequently for expression </p>
+<p>   and therapy. We are trying to help people suffering from the Palestinian- Israeli conflict in their daily lives </p>
+<p>   to express themselves in a friendly artistic way. We are an app in which people express their emotion and artist</p>
+<p>   empathize with their stories by creating related art</p>
+ <img src="{{ url_for('static', filename='pictures/line3.png') }}" class="borders" >
+
 <h2>Team</h2>
 <header>Project meneger:</header>
-<header>Designer:</header>
+  <div class="column">
+    <img src="{{ url_for('static', filename='pictures/siham.jpg') }}" alt="Snow" style="width:100%">
+    <p>Siham Abu Ali</p>
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='pictures/ben.jpg') }}" alt="Forest" style="width:100%">
+    <p>Ben Levi</p>
+  </div>
+  
+
 <header>Developers:</header>
+<div class="column">
+    <img src="{{ url_for('static', filename='pictures/siham.jpg') }}" alt="Snow" style="width:100%">
+    <p>NaomyLevy- Ashkenazy </p>
+  </div><br><br>
+  <div class="column">
+    <img src="{{ url_for('static', filename='pictures/may.jpeg') }}" alt="Forest" style="width:100%">
+    <p>May Raviel</p>
+  </div>
+  </div>
+  	
+</div>
+<header>Designer:</header>
+
 <header>Business developers:</header>
-<br>
-<h2>About us</h2>
-<p>We are a students from meet</p>
-</body>
+
 </html>
