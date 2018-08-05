@@ -1,17 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 
-{{visited_user.username}}
 <h1 class="profile_page_title"> ARTIST PROFILE </h1>
 <img src="{{visited_user.profile_pic_url}}" class="profile_page_pic" 
     onerror="this.src='../static/pictures/avatar.png'">
+
 <!--Art Gallery-->
 <div class = 'row'>
 
 {% for art in art_pieces %}
 	<div class="jumbotron jumbotron-img">
-         <div class = 'col-md-3'>
-           <img id = "feed_img" src={{art.ArtURL}}> </div></div></div>
+        <div class = 'col-md-3'>
+           <img id = "feed_img" src={{art.ArtURL}}>
+        </div>
+    </div>
 </div>
 {% endfor %}
 {% endblock %}

@@ -23,16 +23,16 @@ def my_profile():
     return redirect("/profiles/" + username)
 
 
-@app.route('/profiles/<username>')
+@app.route('/profiles/<username>', methods=['GET', 'POST'])
 @login_required
 def profile(username):
     print(username + "<<<<<<<<<<<<<<<<<<<")
     visited_user = User.query.filter_by(username=username).first()
-    art = Post.query.filter_by(ArtistID = visited_user.id)
     if visited_user:
-        return render_template('profile.html', visited_user=visited_user, art_pieces = art)
+        return render_template('profile.html', visited_user=visited_user)
     else:
         return abort(404)
+
 
 @app.route('/inspiration')
 @login_required
