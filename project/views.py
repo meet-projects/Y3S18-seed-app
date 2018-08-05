@@ -46,10 +46,8 @@ def stories():
 
 @app.route('/')
 def landingpage():
-		if not current_user:
-			return render_template('landingpage.html')    
-		else:
-			return redirect(url_for("feed"))
+	return render_template('landingpage.html')    
+		
 
 @app.route('/aboutus')
 def aboutus():

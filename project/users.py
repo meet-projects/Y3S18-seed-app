@@ -82,8 +82,6 @@ def login():
 			return render_template('login.html', data = data, form = form)
 
 	else:
-		if current_user:
-			return redirect(url_for('feed'))
 		data = {'show':'signup', 'err_msg':None}
 		return render_template('login.html', data = {}, form = form)
 
