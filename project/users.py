@@ -16,6 +16,34 @@ def index():
     loginform = LoginForm(request.form)
     return render_template('index.html',loginform=loginform)
 
+
+@users_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    loginform = LoginForm(request.form)
+    if request.method == 'POST':
+        if loginform.validate_on_submit():
+            email = request.form.get('username')
+            password = request.form.get('password')
+            user = User.query.filter_by(email=email).first()
+            if user is None or not user.check_password(password):
+                return Response("<p>Incorrect username or password</p>")
+            login_user(user, remember=True)
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('profile_template')
+            return redirect(next_page)
+        else:
+            return Response("<p>invalid form</p>")
+    else:
+        return render_template('index.html', loginform=loginform)
+
+
+
+##teacher
+
+
+
+
 @users_bp.route('/sign_up', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
@@ -47,88 +75,25 @@ def register():
 
 
 
-
-@users_bp.route('/student_signup',methods=['GET', 'POST'])
-def student_signup():
-    form = RegisterForm(request.form)
-
-    if request.method == 'POST':
-        email=request.form.get('email')
-        password=request.form.get('password')
-        password2=request.form.get('password2')
-        fname=request.form.get('fname')
-        lname=request.form.get('lname')
-        phone_num=request.form.get('phone_num')
-        gearbox=request.form.get('gearbox')
-        city=request.form.get('city')
-        min_price=request.form.get('min_price')
-        max_price=request.form.get('max_price')
-        if password== password2:
-                user = User.query.filter_by(email=email).first()
-                if user is None:
-                    user=User(email,password,"student")
-                    db.session.add(user)
-                    db.session.commit()
-                    student=Student(fname,lname,phone_num,gearbox,city,min_price,max_price)
-                    db.session.add(student)
-                    db.session.commit()
-                    login_user(user, remember=True)
-                    return redirect(url_for('feed'))
-        else:
-            return Response("<p>invalid form</p>")
-
-    return render_template('index.html', form=form)
-
-
-
-
-@users_bp.route('/login', methods=['GET', 'POST'])
-def login():
-    loginform = LoginForm(request.form)
-    if request.method == 'POST':
-        if loginform.validate_on_submit():
-            email = request.form.get('username')
-            password = request.form.get('password')
-            user = User.query.filter_by(email=email).first()
-            if user is None or not user.check_password(password):
-                return Response("<p>Incorrect username or password</p>")
-            login_user(user, remember=True)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('profile_template')
-            return redirect(next_page)
-        else:
-            return Response("<p>invalid form</p>")
-    else:
-        return render_template('index.html', loginform=loginform)
-
-@users_bp.route('/login_signup')
-def login_signup():
-    loginform = LoginForm(request.form)
-    return render_template('login_signup.html',loginform=loginform)
-
 @users_bp.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('users.index'))
 
-@users_bp.route('/teacher/<int:teacher_id>')
-def profile(teacher_id):
-    teacher = db.session.query().filter_by(id=teacher_id).first()
-    return render_template('profile_template.html', teacher=teacher)
 
 @users_bp.route('/make_request/<int:teacher_id>/', methods=['POST'])
 @login_required
 def make_request(teacher_id):
-    thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-    sid=current_user.id
-    student=Student(sid,studentfname,studentlname,studentnum)
-    book=Request(student.id,studentfname,thisteacher.id,False)
-    db.session.add(student)
-    db.session.commit()
-    db.session.add(book)
-    db.session.commit()
+    if current_user.account_type=="student":
+        thisteacher=Teacher.query.filter_by(id=teacher_id).first()
+        sid=current_user.id
+        student=Student(sid,studentfname,studentlname,studentnum)
+        book=Request(student.id,studentfname,thisteacher.id,False)
+        db.session.add(student)
+        db.session.commit()
+        db.session.add(book)
+        db.session.commit()
     return redirect('feed')
 
 
@@ -194,6 +159,94 @@ def editing(teacher_id):
 @users_bp.route('/delete/<int:teacher_id>')
 def delete(teacher_id):
     teach=Teacher.query.filter_by(id=teacher_id).first()
+    user=User.query.filter_by(id=teach.user_id).first()
     db.session.delete(teach)
+    db.session.delete(user)
     db.session.commit()
     return redirect('/')
+
+
+
+
+
+
+
+
+
+
+
+###student
+
+
+@users_bp.route('/teacher/<int:teacher_id>')
+def profile(teacher_id):
+    teacher = db.session.query().filter_by(id=teacher_id).first()
+    return render_template('profile_template.html', teacher=teacher)
+
+
+
+@users_bp.route('/student_signup',methods=['GET', 'POST'])
+def student_signup():
+    form = RegisterForm(request.form)
+
+    if request.method == 'POST':
+        email=request.form.get('email')
+        password=request.form.get('password')
+        password2=request.form.get('password2')
+        fname=request.form.get('fname')
+        lname=request.form.get('lname')
+        phone_num=request.form.get('phone_num')
+        if password== password2:
+                user = User.query.filter_by(email=email).first()
+                if user is None:
+                    user=User(email,password,"student")
+                    db.session.add(user)
+                    db.session.commit()
+                    
+                    student=Student(fname,lname,phone_num,gearbox,city,min_price,max_price,"")
+                    db.session.add(student)
+                    db.session.commit()
+                    login_user(user, remember=True)
+                    return redirect(url_for('feed'))
+        else:
+            return Response("<p>invalid form</p>")
+
+    return render_template('index.html', form=form)
+
+
+@users_bp.route('/student_edit', methods=['GET', 'POST'])
+@login_required
+def student_edit():
+    student=Student.query.filter_by(user_id=current_user.id).first()
+    if student is not None:
+        arabic=request.form.get('arabic')
+        hebrew=request.form.get('hebrew')
+        english=request.form.get('english')
+        automatic=request.form.get('automatic')
+        manual=request.form.get('manual')
+        city=request.form.get('city')
+        min_price=request.form.get('min_price')
+        max_price=request.form.get('max_price')
+        if city!="":
+            student.city=city
+        if min_price=="":
+            pass
+        else:
+            teacher.min_price=min_price
+        if max_price=="":
+            pass
+        else:
+            teacher.max_price=max_price
+        if arabic is not None:
+            student.languages+="Arabic "
+        if hebrew is not None:
+            student.languages+="Hebrew "
+        if english is not None:
+            student.languages+="English "
+        if automatic is not None:
+            student.gearbox+="Automatic "
+        if manual is not None:
+            student.gearbox+="Manual "
+        db.session.commit()
+        return redirect('feed')
+    return redirect('feed')
