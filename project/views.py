@@ -15,7 +15,7 @@ def browse():
 	print(all_journeys)
 	if not current_user:
 		form = RegisterForm(request.form)
-
+	print(form)
 	return render_template('browse.html', all_journeys=all_journeys, form=form)
 
 

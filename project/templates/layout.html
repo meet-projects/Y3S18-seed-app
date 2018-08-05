@@ -4,21 +4,15 @@
       <title>ROOTS</title>
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
-      
+
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-        <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head>
   
@@ -38,91 +32,43 @@
         {%else%}
 
         {% endif %}
+
     <li><a href="{{url_for('profile', user_id=current_user.id)}}"><span class="glyphicon glyphicon-user"></span>     {{current_user.name}}</a></li>
     <li><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">Wishlist</a></li>
     <li><a href="{{url_for('users.logout')}}">Logout</a></li>
     {%else%}
-
+    <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button></li>
     <li><a href="{{url_for('users.login')}}">Login</a></li>
     {% endif %}
     
   </ul>
-
 </nav>
-
 
 <div class="container">
   {% block content %}
       {% endblock %}
 </div>
 
-  {% if form %}
 
-  <!-- Modal -->
-    <div id="login" class="modal fade" role="dialog">
-      <div class="modal-dialog">
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="modal-body">
-
-            <form class="textbox" action="{{ url_for('users.login') }}" method="post">
-
-              {{ form.csrf_token }}<br>
-              {{ form.email(placeholder="email", class="form-control") }} <br>
-              {{ form.password(placeholder="Password", class="form-control") }}<br>
-
-              <button class="button" type="submit">Log in</button>
-            </form>
-            <br>
-            <h9>don't have an account?</h9><a data-toggle="modal" data-target="#register">register</a>
-
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-default" type="submit">Login</button>
-          </div>
-        </div>
-
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
-
-    <!-- Modal -->
-      <div id="register" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Register</h4>
-            </div>
-            <div class="modal-body">
-
-              <form action="{{ url_for('users.register') }}" method="post">
-               
-                {{ form.csrf_token }}
-                {{ form.email(placeholder="Email Adress", class="form-control") }} <br>
-                {{ form.name(placeholder="Full Name", class="form-control") }} <br>
-                {{ form.password(placeholder="Password", class="form-control") }} <br>
-                {{ form.confirm(placeholder="Confirm Password", class="form-control") }} <br>
-
-              </form>
-              <br>
-              <h9>do you have an account?</h9><a data-toggle="modal" data-target="#login">Sign in</a>
-
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-default" type="submit">Register User</button>
-            </div>
-          </div>
-        </div>
-      </div>
-  {% endif %}
-
+  </div>
+</div>
 
 </html>
