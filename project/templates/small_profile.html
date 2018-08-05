@@ -12,7 +12,36 @@
 		</title>
 	</head>
 	<body class="profile_page">
-		<h4><a href="{{url_for('feed')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
+	<div class="col-xs-12" style="background-color: rgb(150,150,150); height: 8em;">
+      <div class="col-xs-4" style="background-color: rgb(150,150,150);">
+        <h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
+      </div>
+      <div class="col-xs-8" style="background-color: rgb(150,150,150);">
+        <ul style=" height: 4em; color: white;">
+        {% if current_user.is_authenticated %}
+          <li style="display: inline-block; margin: 2em;">
+              <a href="{{url_for('profile_template')}}" style="color: white;">My Profile</a>
+          </li>
+        {% endif %}
+          <li style="display: inline-block; margin: 2em;">
+            <a href="{{url_for('feed')}}" style="color: white;">Instructors' Feed</a>
+          </li>
+        {% if current_user.is_authenticated %}
+          <li style="display: inline-block; margin: 2em;">
+              <a href="{{url_for('users.logout')}}">Logout</a>
+          </li>
+        {% endif %}
+        {% if not current_user.is_authenticated %}
+          <li style="display: inline-block; margin: 2em;">
+              <a href="{{url_for('users.index')}}" style="color: white;">Login</a>
+          </li>
+          <li style="display: inline-block; margin: 2em;">
+              <a href="{{url_for('signup')}}" style="color: white;">Sign up</a>
+          </li>
+        {% endif %}
+        </ul>
+      </div>
+  </div>
 	<div class="row" style="background-color: rgb(246,246,246);">
 			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
@@ -64,10 +93,13 @@
 					<div class="modal-body">
 						<br>
 						<form name="booking_form" id="book" action="{{ url_for( 'users.make_request' , teacher_id=teacher.id ) }}" method="POST">
-							Full Name<br>
-							<input type="text" name="studentname" placeholder="Full Name">
+							First Name<br>
+							<input type="text" name="studentfname" placeholder="Full Name">
 							<br>
 							<br>
+							Last Name<br>
+							<input type="text" name="studentlname" placeholder="Full Name">
+							<br><br>
 							Phone Number<br>
 							<input type="text" name="studentnum" placeholder="Phone Number">
 							<br>

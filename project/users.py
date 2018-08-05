@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 from project import db
 from project.forms import RegisterForm, LoginForm
-from project.models import User,Teacher,Request, City
+from project.models import *
 
 users_bp = Blueprint('users', __name__)
 
@@ -96,11 +96,12 @@ def profile(teacher_id):
 
 @users_bp.route('/make_request/<int:teacher_id>', methods=['POST'])
 def make_request(teacher_id):
-    studentname=request.form.get('studentname')
+    studentfname=request.form.get('studentfname')
+    studentlname=request.form.get('studentlname')
     studentnum=request.form.get('studentnum')
     thisteacher=Teacher.query.filter_by(id=teacher_id).first()
     sid=thisteacher.user_id
-    student=Students(sid,studentname,studentnum)
+    student=Student(sid,studentfname,studentlname,studentnum)
     book=Request(student.id,thisteacher.id,False)
     db.session.add(student)
     db.session.commit()
