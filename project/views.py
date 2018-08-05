@@ -6,7 +6,7 @@ from flask import (
 from flask_login import login_required, current_user
 from project.models import User, Post, Like
 from . import app
-from project.forms import AddArtForm, ProfilePicForm, ProfileBioForm    
+from project.forms import *   
 
 
 @app.route('/feed', methods=['POST','GET'])
@@ -46,7 +46,10 @@ def stories():
 
 @app.route('/')
 def landingpage():
-		return render_template('landingpage.html')    
+		if not current_user:
+			return render_template('landingpage.html')    
+		else:
+			return redirect(url_for("feed"))
 
 #read more function and add art
 @app.route('/stories/<int:post_id>', methods = ['GET','POST'])

@@ -162,11 +162,11 @@ form.example::after {
     </div>
 
         <div class="nav navbar-nav topnav navbar" style="">
-        <a  href="feed" class="navblock color-me">Home</a>
+        <a  href="{{url_for('feed')}}" class="navblock color-me">Home</a>
         <a href="inspiration" class="navblock">Stories</a>
         <a href="#saved_artist" class="navblock" id="saved_artist">Saved Artist</a>
         <a href="#about" class="navblock">About</a>
-        <a href="posts" class="navblock">Post</a>
+        <a href="{{ url_for('add_post.add_post') }}" class="navblock">Post</a>
       </div>
 </div>
   
