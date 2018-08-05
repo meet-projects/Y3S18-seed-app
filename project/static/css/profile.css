@@ -8,7 +8,9 @@
 }
 
 #profile_img{
-	max-width: 100%
+	width: 200px;
+	height: 200px;
+	border-radius: 50px;
 }
 
 #profile_gallery {
