@@ -1,13 +1,12 @@
 
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% extends "layout.html" %}
-{% block content %}
-<div class="main_feed_body"></div>
 
-  <div id="feed_space">
-<div id="feed_space">
- 
+{% block content %}
+
+
  {% for post in posts %}
  
    <div class="post_block">
@@ -18,7 +17,7 @@
             <div class = 'col-md-3'></div>
          <div class="description_block" class = 'col-md-9'></div>
             <h2> <span id="more" > {{ post.get_description1() }} </span></div></h2>
-              <br><br><br><br><br><br><br><br>
+              <br><br><br>
        <div class="valid_text_space" >
            <h1><div class="stori_title"> {{post.get_title()}} </div></h1>            
            <!--<div class="description_block">
