@@ -47,22 +47,12 @@ def register():
     else:
         logout_user()
         return render_template('register.html', form=form)
-   
 
-                
-
-@users_bp.route('/', methods=['GET', 'POST'])
-def browse():
-    all_journeys = Journey.query.all()
-    return render_template('browse.html', all_journeys=all_journeys)
 
 @users_bp.route('/login', methods=['GET','POST'])
 def login():
-    print(request.form)
     form = LoginForm(request.form)
     if request.method == 'POST':
-        print(form.email.data)
-        print(form.password.data)
         if form.validate_on_submit():
             email = form.email.data
             password = form.password.data
@@ -70,16 +60,6 @@ def login():
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect email or password</p>")
             login_user(user, remember=True)
-
-           
-#             next_page = request.args.get('next')
-#             if not next_page or url_parse(next_page).netloc != '':
-#                 #return render_template('browse.html', current_user=user)
-#                 next_page = url_for('browse')
-            # next_page = request.args.get('next')
-            # if not next_page or url_parse(next_page).netloc != '':
-            #     next_page = url_for('private_route')
-
             return redirect(url_for('users.browse'))
         else:
             return Response("<p>invalid form</p>")
@@ -93,17 +73,3 @@ def logout():
 
     form = LoginForm(request.form)
     return render_template('login.html', form=form)
-
-# def login():
- #   print(request.form)
-  #  form = LoginForm(request.form)
-   # if request.method == 'POST':
-    #    print(form.email.data)
-     #   print(form.password.data)
-      #  if form.validate_on_submit():
-       #     email = form.email.data
-        #    password = form.password.data
-         #   user = User.query.filter_by(email=email).first()
-          #  if user is None or not user.check_password(password):
-           #     return Response("<p>Incorrect email or password</p>")
-            #login_user(user, remember=True)
