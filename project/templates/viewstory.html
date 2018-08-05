@@ -8,7 +8,7 @@
            <div id="story_title"> {{post.get_title()}} </div><br><br> 
 <!--Checking if post has picture, which will cancel button-->
            {% if post.ArtURL != "" %}
-           <h1>The work of '{{user.displayname}}'</h1>
+           <a href = "{{url_for('profile', username = user.username)}}">The work of '{{user.displayname}}'</a>
            <div class = 'row' id = 'info'>
            <div class="col-md-9" id="description_block"> {{post.Text}}</div>
            <div class = "col-md-3">
