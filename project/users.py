@@ -207,26 +207,18 @@ def student_signup():
                     db.session.add(student)
                     db.session.commit()
                     login_user(user, remember=True)
-<<<<<<< HEAD
                     return redirect(url_for('filter'))
-=======
-                    return redirect(url_for('feed'))
->>>>>>> 4f114b6cc0f93cf59cdff39561f141a3dba3917e
+
         else:
             return Response("<p>invalid form</p>")
 
     return render_template('index.html', form=form)
 
 
-<<<<<<< HEAD
 @users_bp.route('/filter', methods=['GET', 'POST'])
 @login_required
 def filter():
-=======
-@users_bp.route('/student_edit', methods=['GET', 'POST'])
-@login_required
-def student_edit():
->>>>>>> 4f114b6cc0f93cf59cdff39561f141a3dba3917e
+
     student=Student.query.filter_by(user_id=current_user.id).first()
     if student is not None:
         arabic=request.form.get('arabic')
