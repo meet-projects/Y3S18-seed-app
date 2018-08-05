@@ -6,9 +6,12 @@
 <img src="{{visited_user.profile_pic_url}}" class="profile_page_pic" 
     onerror="this.src='../static/pictures/avatar.png'">
 <!--Art Gallery-->
-<div class = 'row'>
+<!-- About Artist -->
+<h1> About the Artist</h1>
+<p>{{visited_user.bio}}</p>
 
 {% for art in art_pieces %}
+	<div class = 'row'>
 	<div class="jumbotron jumbotron-img">
          <div class = 'col-md-3'>
            <img id = "feed_img" src={{art.ArtURL}}> </div></div></div>
