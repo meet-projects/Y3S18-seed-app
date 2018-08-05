@@ -102,7 +102,7 @@ def make_request(teacher_id):
     thisteacher=Teacher.query.filter_by(id=teacher_id).first()
     sid=thisteacher.user_id
     student=Student(sid,studentfname,studentlname,studentnum)
-    book=Request(student.id,thisteacher.id,False)
+    book=Request(student.id,studentfname,thisteacher.id,False)
     db.session.add(student)
     db.session.commit()
     db.session.add(book)
