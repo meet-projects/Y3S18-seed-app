@@ -30,8 +30,8 @@
          <ul class="nav navbar-nav">
     
 
-    <li><a href="{{url_for('browse')}}">LOGO</a></li>
-    {% if current_user %}
+    <li><a href="{{url_for('users.browse')}}">LOGO</a></li>
+    {% if current_user.is_authenticated %}
   
         {% if current_user.is_storyteller %}
         <li><a href="{{url_for('display_notifications', st_id=current_user.id)}}"><span class="glyphicon glyphicon-bell"></span> </a> </li>
@@ -42,12 +42,14 @@
     <li><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">Wishlist</a></li>
     <li><a href="{{url_for('users.logout')}}">Logout</a></li>
     {%else%}
+
     <li><a href="{{url_for('users.login')}}">Login</a></li>
     {% endif %}
     
   </ul>
 
 </nav>
+
 
       current user: {{ current_user.name }}
       user_id: {{current_user.id}}

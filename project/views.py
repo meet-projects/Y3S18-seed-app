@@ -7,11 +7,11 @@ import time
 from project.models import Journey, User, Ratings, Notification, Wishlist, Question
 
 
-@app.route('/browse')
+'''@app.route('/browse')
 @login_required
 def browse():
 	all_journeys = Journey.query.all()
-	return render_template('browse.html', all_journeys=all_journeys)
+	return render_template('browse.html', all_journeys=all_journeys)'''
 
 
 @app.route('/apply', methods=['GET', 'POST'])
