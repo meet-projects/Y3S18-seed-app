@@ -9,17 +9,24 @@
 	</head>
 	
 	<body class="profile_page">
-	<div class="col-xs-12" style="background-color: rgb(150,150,150); height: 8em;">
+		<div class="col-xs-12" style="background-color: rgb(150,150,150); height: 8em;">
       <div class="col-xs-4" style="background-color: rgb(150,150,150);">
         <h4><a href="{{url_for('users.index')}}"><img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img" style="height: 50px;width: 250px;"></a></h4>
       </div>
       <div class="col-xs-8" style="background-color: rgb(150,150,150);">
         <ul style=" height: 4em; color: white;">
         {% if current_user.is_authenticated %}
-          <li style="display: inline-block; margin: 2em;">
-              <a href="{{url_for('profile_template')}}" style="color: white;">My Profile</a>
-          </li>
+        	{% if current_user.account_type == "teacher" %}
+         		<li style="display: inline-block; margin: 2em;">
+              		<a href="{{url_for('profile_template')}}" style="color: white;">My Profile</a>
+         		</li>
+         	{% else %}
+         		<li style="display: inline-block; margin: 2em;">
+              		<a href="{{url_for('feed')}}" style="color: white;">My Profile</a>
+         		</li>
+        	{% endif %}
         {% endif %}
+
           <li style="display: inline-block; margin: 2em;">
             <a href="{{url_for('feed')}}" style="color: white;">Instructors' Feed</a>
           </li>
