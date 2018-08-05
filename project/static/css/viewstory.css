@@ -1,13 +1,13 @@
 #story_title{
 	font-size: 50px;
-	color:white;
+	color:black;
 	font-family:  "Avenir", sans-serif;
 
 
 }
 #description_block	{
 	font-family:  "Avenir", sans-serif;
-	color:white;
+	color:black;
 	font-size: 20px;
 }
 
@@ -16,10 +16,7 @@
 }
 
 .jumbotron-img{
-	max-width: 100%;
-	background-color: transparent;
+	max-width: 50%;
+	background-color: blue;
 }
 
-#info{
-	height: 100%;
-}
