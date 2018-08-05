@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<style>
+  	body{
+  		background-image: url("../static/pictures/bacpicRed.jpg");
+  	}
+  	</style>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -86,7 +91,7 @@
 					</form>
 
 					<span id="open_login_form_span" class="form_switch_span">
-						already have an account?
+						Already Have an Account?
 					</span>
 					<form class="page_switch_form" action="{{url_for('users.login')}}" method="get">
 						<button class="form_switch_link" type="submit">
