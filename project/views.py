@@ -7,8 +7,7 @@ import time
 from project.models import Journey, User, Ratings, Notification, Wishlist, Question
 
 
-@app.route('/browse')
-@login_required
+@app.route('/')
 def browse():
 	all_journeys = Journey.query.all()
 	return render_template('browse.html', all_journeys=all_journeys)
@@ -62,7 +61,6 @@ def add_journey():
 		new_journey.picture       = request.form.get('picture')
 		db.session.add(new_journey)
 		db.session.commit()
-		print('new joiurney id', new_journey.id)
 		return redirect(url_for('display_journey', journey_id=new_journey.id))
 	else:
 		return render_template('add_journey.html')
@@ -105,7 +103,6 @@ def add_rating(journey_id):
 	new_rating.time       = str(localtime[1])+"/"+str(localtime[2])+"/"+str(localtime[0])+" at "+str(localtime[3])+":"+str(localtime[4])
 	db.session.add(new_rating)
 	db.session.commit() # I had a bug with this line. The problem was that I did "new_rating.user = current_user" and current_user in an object, but in the DB it is defined as a String.
-	print('lllllllllllllll')
 	return redirect(url_for('display_journey', journey_id=journey_id))
 
 
@@ -129,7 +126,6 @@ def question(journey_id):
 def display_journey(journey_id):
 	journey = Journey.query.filter_by(id=journey_id).first()
 	creator = User.query.filter_by(id=journey.creator_id).first()
-	print('rrrrrrrrrrrrrrr', creator.name)
 	all_ratings = Ratings.query.filter_by(journey_id=journey_id).all()
 	all_questions = Question.query.filter_by(journey_id=journey_id).all()
 	return render_template('journey.html', journey=journey, all_questions=all_questions, creator=creator, all_ratings=all_ratings)

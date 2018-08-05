@@ -50,6 +50,8 @@ ________________________________________________________________________________
 {{question.question}}<br>
 ---------------------<br>
 {%endfor%}
+ 
+     {% if current_user.is_authenticated %}
 
 <form action="{{url_for('question', journey_id=journey.id)}}" method="POST">
 	Title
@@ -59,14 +61,26 @@ ________________________________________________________________________________
 	<button type="submit"> Ask! </button>
 </form>
 
+	    {%else%}
+ 	<form action="{{url_for('users.login')}}">
+ 	<button type="submit"> Ask! </button>	
+    </form>
+    {% endif %}
 
 
 
 
+
+    {% if current_user.is_authenticated %}
 
 <form action="{{url_for('im_interested', interested_user_id=current_user.id, st_id=current_user.id, journey_id=journey.id)}}" method="POST">
 	<button type="submit"> I'm Interested! </button>
 </form>
+ {%else%}
+ 	<form action="{{url_for('users.login')}}">
+ 	<button type="submit"> I'm Interested! </button>	
+    </form>
+    {% endif %}
 
 
 {% endblock %}
