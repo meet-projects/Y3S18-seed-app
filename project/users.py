@@ -60,7 +60,7 @@ def login():
             if user is None or not user.check_password(password):
                 return Response("<p>Incorrect email or password</p>")
             login_user(user, remember=True)
-            return redirect(url_for('users.browse'))
+            return redirect(url_for('browse'))
         else:
             return Response("<p>invalid form</p>")
     else:
