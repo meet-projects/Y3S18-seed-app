@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
     number = db.Column(db.String, nullable=False)
+    booster_seat_id = db.Column(db.String, unique=True, nullable=False)
     name1 = db.Column(db.String, nullable=True)
     name2 = db.Column(db.String, nullable=True)
     name3 = db.Column(db.String, nullable=True)
@@ -21,7 +22,6 @@ class User(UserMixin, db.Model):
     relation1 = db.Column(db.String, nullable=True)
     relation2 = db.Column(db.String, nullable=True)
     relation3 = db.Column(db.String, nullable=True)
-    booster_seat_id = db.Column(db.String, unique=True, nullable=False)
     flag = db.Column(db.Integer, nullable=False)
 
     def __init__(self, username, password, number, booster_seat_id):
