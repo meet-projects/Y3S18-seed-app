@@ -57,7 +57,8 @@
 		      </li> -->
 		    </ul>
 		  </div>
-		</nav>	<div class="row" style="background-color: rgb(246,246,246);">
+		</nav>	
+		<div class="row" style="background-color: rgb(246,246,246);">
 			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
 				<img src="{{teacher.profile_picture}}" id="profile_picture">
@@ -109,11 +110,11 @@
 						<br>
 						<form name="booking_form" id="book" action="{{ url_for( 'users.make_request' , teacher_id=teacher.id ) }}" method="POST">
 							First Name<br>
-							<input type="text" name="studentfname" placeholder="Full Name">
+							<input type="text" name="studentfname" placeholder="First Name">
 							<br>
 							<br>
 							Last Name<br>
-							<input type="text" name="studentlname" placeholder="Full Name">
+							<input type="text" name="studentlname" placeholder="Last Name">
 							<br><br>
 							Phone Number<br>
 							<input type="text" name="studentnum" placeholder="Phone Number">
