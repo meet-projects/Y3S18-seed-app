@@ -110,7 +110,7 @@ class Students(db.Model):
     phone_num = db.Column(db.String)
 
     def __init__(self, user_id,fname,lname,phone_num):
-        self.fname=name
+        self.fname=fname
         self.lname=lname
         self.user_id=user_id
         self.phone_num=phone_num
