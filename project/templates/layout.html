@@ -24,10 +24,10 @@
   
   <body>
 
-      <!-- child template -->
+  <!-- child template -->
       
-         <nav class="navbar navbar-inverse">
-         <ul class="nav navbar-nav">
+  <nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
     
 
     <li><a href="{{url_for('browse')}}">LOGO</a></li>
@@ -51,17 +51,78 @@
 </nav>
 
 
-      current user: {{ current_user.name }}
-      user_id: {{current_user.id}}
-
 <div class="container">
   {% block content %}
       {% endblock %}
-
-
-
-
 </div>
+
+  {% if form %}
+
+  <!-- Modal -->
+    <div id="login" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+
+            <form class="textbox" action="{{ url_for('users.login') }}" method="post">
+
+              {{ form.csrf_token }}<br>
+              {{ form.email(placeholder="email", class="form-control") }} <br>
+              {{ form.password(placeholder="Password", class="form-control") }}<br>
+
+              <button class="button" type="submit">Log in</button>
+            </form>
+            <br>
+            <h9>don't have an account?</h9><a data-toggle="modal" data-target="#register">register</a>
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" type="submit">Login</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+      <div id="register" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Register</h4>
+            </div>
+            <div class="modal-body">
+
+              <form action="{{ url_for('users.register') }}" method="post">
+               
+                {{ form.csrf_token }}
+                {{ form.email(placeholder="Email Adress", class="form-control") }} <br>
+                {{ form.name(placeholder="Full Name", class="form-control") }} <br>
+                {{ form.password(placeholder="Password", class="form-control") }} <br>
+                {{ form.confirm(placeholder="Confirm Password", class="form-control") }} <br>
+
+              </form>
+              <br>
+              <h9>do you have an account?</h9><a data-toggle="modal" data-target="#login">Sign in</a>
+
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-default" type="submit">Register User</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  {% endif %}
 
 
 </html>
