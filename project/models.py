@@ -11,7 +11,7 @@ class User(UserMixin, db.Model):
     username            = db.Column(db.String, unique=True, nullable=False)
     displayname         = db.Column(db.String)
     #email               = db.Column(db.String, unique=True, nullable=False)
-    bio                 = db.Column(db.String, nullable = True)
+    bio                 = db.Column(db.String, default = "Hi, i'm using Artflict!")
     profile_pic_url     = db.Column(db.String, nullable=True)
     password_hash       = db.Column(db.String, nullable=False)
 
@@ -128,4 +128,3 @@ class Follower(db.Model):
     def __init__(self, followerID, followedID):
          self.followerID = followerID
          self.followedID = followedID
-         

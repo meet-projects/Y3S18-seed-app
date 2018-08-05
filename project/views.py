@@ -41,7 +41,7 @@ def stories():
     posts = Post.query.filter_by(ArtURL = '').all()
     return render_template('stories.html', posts=posts)
 
-@app.route('/landingpage')
+@app.route('/')
 def landingpage():
         return render_template('landingpage.html')    
 
