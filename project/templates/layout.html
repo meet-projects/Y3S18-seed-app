@@ -12,11 +12,7 @@
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/viewstory.css') }}">
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/feeds.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutnavstyle.css') }}">
-
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile.css') }}">
 
 
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
@@ -24,23 +20,154 @@
       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
       
 
+<style type="text/css">
+body, html {
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url("{{ url_for('static', filename='pictures/Backgroundsite.jpg') }}");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+   .content{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 90%;
+    height: 100vh;
+    background-color: white
+;
+  }
+
+  .topnav{
+    width: 100%;
+    padding-left: 0px;
+    display: inline-block;
+    background-color:  #ffe5cc;
+  }
+
+  .navblock{
+    width: 20%;
+  }
+  #saved_artist{
+    padding-left: 30px;
+  }
+  .nav.navbar-nav.topnav li a {
+    color: blue;
+}
+.color-me{
+    color:blue;
+}
+
+#navbarlogo{
+width: 30%;
+height: 100px;
+float: left;
+padding:10px;
+}
+#avatarpic{
+  width: 100px;
+  height: 100px;
+  float:right;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 40px;
+
+}
+
+.searchblock{
+  width: 40%;
+padding:10px;
+}
+
+* {
+  box-sizing: border-box;
+
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  width: 200px;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.logoblock{
+    text-align:center;
+    
+}
+
+.pos{
+    display:inline-block;
+    
+}
+
+
+</style>
+
+
+
   </head>
   <body>
-    <style type="text/css">
-    body{
+  <div class="bg">
+    <div class="content">
+    <div class="logoblock">
+      <img src="{{ url_for('static', filename='pictures/logos/verticallog.png') }}" alt="verticallogo" id="navbarlogo" class="pos">
+      <div class="searchblock pos">
+      <!-- Load icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-      background: url("{{ url_for('static', filename='pictures/backgroundfeed.jpg') }}");
-    }
-    </style>
-<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag"><br>
+        <!-- The form -->
+        <form class="example pos" action="action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search pos"></i></button>
+        </form>
+      </div>
+      <img src="{{ url_for('static', filename='pictures/avatar.png') }}" alt="anatarpic" id="avatarpic" class="pos">
+   
+    </div>
 
-  <div class="topnav">
-  <a  href="{{url_for('feed')}}">Home</a>
-  <a href="{{url_for('stories')}}">Stories</a>
-  <a href="#saved_artist">Saved Artist</a>
-  <a href="#about">About</a>
-  <a href="{{url_for('my_profile')}}">My Profile</a>
-  <a href="{{url_for('add_post.add_post')}}">Post</a>
+        <div class="nav navbar-nav topnav navbar" style="">
+        <a  href="feed" class="navblock color-me">Home</a>
+        <a href="inspiration" class="navblock">Stories</a>
+        <a href="#saved_artist" class="navblock" id="saved_artist">Saved Artist</a>
+        <a href="#about" class="navblock">About</a>
+        <a href="posts" class="navblock">Post</a>
+      </div>
 </div>
   
 
@@ -48,6 +175,5 @@
     {% block content %}        
     {% endblock %}
   </div>
-  
   </body>
 </html>
