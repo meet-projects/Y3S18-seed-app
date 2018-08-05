@@ -16,10 +16,12 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
+    account_type = db.Column(db.String,  nullable=False)
 
-    def __init__(self, email, password):
+    def __init__(self, email, password,account_type):
         self.email = email
         self.set_password(password)
+        self.account_type=account_type
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -90,13 +92,13 @@ class Request(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     student_id= db.Column(db.Integer,ForeignKey('students.id'))
-    student = db.Column(db.String)
+    student_fname = db.Column(db.String)
     teacher_id = db.Column(db.Integer, ForeignKey('teachers.id'))
     done = db.Column(db.Boolean)
 
-    def __init__(self,student_id,teacher_id,done):
+    def __init__(self,student_id,student_fname,teacher_id,done):
         self.student_id
-        self.student=Student.query.filter_by(id=student_id).first().fname
+        self.student_fname=student
         self.teacher_id = teacher_id
         self.done = done
 
@@ -110,12 +112,24 @@ class Student(db.Model):
     fname = db.Column(db.String)
     lname = db.Column(db.String)
     phone_num = db.Column(db.String)
+    gearbox=db.Column(db.String)
+    city=db.Column(db.String)
+    min_price =db.Column(db.Integer)
+    max_price=db.Column(db.Integer)
+    languages=db.Column(db.String)
 
-    def __init__(self, user_id,fname,lname,phone_num):
+
+    def __init__(self, user_id,fname,lname,phone_num,gearbox,city,min_price,max_price,languages):
         self.fname=fname
         self.lname=lname
         self.user_id=user_id
         self.phone_num=phone_num
+        self.gearbox=gearbox
+        self.city=city
+        self.min_price=min_price
+        self.max_price=max_price
+        self.languages=languages
+        self.profile_picture="https://static.thenounproject.com/png/214280-200.png"
         
 
 class City(db.Model):

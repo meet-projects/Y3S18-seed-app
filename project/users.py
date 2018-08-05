@@ -16,47 +16,6 @@ def index():
     loginform = LoginForm(request.form)
     return render_template('index.html',loginform=loginform)
 
-@users_bp.route('/sign_up', methods=['GET', 'POST'])
-def register():
-    form = RegisterForm(request.form)
-
-    if request.method == 'POST':
-        email = request.form.get('email')
-        password = request.form.get('psw')
-        password2= request.form.get('psw-repeat')
-        fname= request.form.get('fname')
-        lname= request.form.get('lname')
-        if password== password2:
-            user = User.query.filter_by(email=email).first()
-            if user is None:
-                user=User(email,password)
-                db.session.add(user)
-                db.session.commit()
-                #if languages_hb is not None:
-                #    lan=lan+"Hebrew "
-                #if languages_en is not None:
-                #    lan=lan+"English "
-                #if languages_ar is not None:
-                #    lan=lan+"Arabic "
-                #if profilepic == "":
-                #    profilepic="https://cdn2.iconfinder.com/data/icons/coach-instructor-trainer-teacher-jobs-occupations-/267/occupation-14-001-512.png"
-                #teacher=Teacher(user.id,name,city,description,fee,phonenum,lan,profilepic,gearbox)
-                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","https://static.thenounproject.com/png/214280-200.png","")
-                db.session.add(teacher)
-                db.session.commit()
-                login_user(user, remember=True)
-
-                return redirect(url_for('edit_profile',teacher_id=teacher.id))
-
-            ##next_page = request.args.get('next')
-            ##if not next_page or url_parse(next_page).netloc != '':
-               ## next_page = url_for('private_route')
-            ##return redirect(next_page)
-        else:
-            return Response("<p>invalid form</p>")
-
-    return render_template('feed.html', form=form)
-                
 
 @users_bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -78,10 +37,43 @@ def login():
     else:
         return render_template('index.html', loginform=loginform)
 
-@users_bp.route('/login_signup')
-def login_signup():
-    loginform = LoginForm(request.form)
-    return render_template('login_signup.html',loginform=loginform)
+
+
+##teacher
+
+
+
+
+@users_bp.route('/sign_up', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm(request.form)
+
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('psw')
+        password2= request.form.get('psw-repeat')
+        fname= request.form.get('fname')
+        lname= request.form.get('lname')
+        if password== password2:
+            user = User.query.filter_by(email=email).first()
+            if user is None:
+                user=User(email,password,"teacher")
+                db.session.add(user)
+                db.session.commit()
+                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","https://static.thenounproject.com/png/214280-200.png","")
+                db.session.add(teacher)
+                db.session.commit()
+                login_user(user, remember=True)
+
+                return redirect(url_for('edit_profile',teacher_id=teacher.id))
+
+        else:
+            return Response("<p>invalid form</p>")
+
+    return render_template('feed.html', form=form)
+
+
+
 
 @users_bp.route('/logout')
 @login_required
@@ -89,24 +81,19 @@ def logout():
     logout_user()
     return redirect(url_for('users.index'))
 
-@users_bp.route('/teacher/<int:teacher_id>')
-def profile(teacher_id):
-    teacher = db.session.query().filter_by(id=teacher_id).first()
-    return render_template('profile_template.html', teacher=teacher)
 
-@users_bp.route('/make_request/<int:teacher_id>', methods=['POST'])
+@users_bp.route('/make_request/<int:teacher_id>/', methods=['POST'])
+@login_required
 def make_request(teacher_id):
-    studentfname=request.form.get('studentfname')
-    studentlname=request.form.get('studentlname')
-    studentnum=request.form.get('studentnum')
-    thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-    sid=thisteacher.user_id
-    student=Student(sid,studentfname,studentlname,studentnum)
-    book=Request(student.id,thisteacher.id,False)
-    db.session.add(student)
-    db.session.commit()
-    db.session.add(book)
-    db.session.commit()
+    if current_user.account_type=="student":
+        thisteacher=Teacher.query.filter_by(id=teacher_id).first()
+        sid=current_user.id
+        student=Student(sid,studentfname,studentlname,studentnum)
+        book=Request(student.id,studentfname,thisteacher.id,False)
+        db.session.add(student)
+        db.session.commit()
+        db.session.add(book)
+        db.session.commit()
     return redirect('feed')
 
 
@@ -172,7 +159,9 @@ def editing(teacher_id):
 @users_bp.route('/delete/<int:teacher_id>')
 def delete(teacher_id):
     teach=Teacher.query.filter_by(id=teacher_id).first()
+    user=User.query.filter_by(id=teach.user_id).first()
     db.session.delete(teach)
+    db.session.delete(user)
     db.session.commit()
     return redirect('/')
 
@@ -218,16 +207,26 @@ def student_signup():
                     db.session.add(student)
                     db.session.commit()
                     login_user(user, remember=True)
+<<<<<<< HEAD
                     return redirect(url_for('filter'))
+=======
+                    return redirect(url_for('feed'))
+>>>>>>> 4f114b6cc0f93cf59cdff39561f141a3dba3917e
         else:
             return Response("<p>invalid form</p>")
 
     return render_template('index.html', form=form)
 
 
+<<<<<<< HEAD
 @users_bp.route('/filter', methods=['GET', 'POST'])
 @login_required
 def filter():
+=======
+@users_bp.route('/student_edit', methods=['GET', 'POST'])
+@login_required
+def student_edit():
+>>>>>>> 4f114b6cc0f93cf59cdff39561f141a3dba3917e
     student=Student.query.filter_by(user_id=current_user.id).first()
     if student is not None:
         arabic=request.form.get('arabic')

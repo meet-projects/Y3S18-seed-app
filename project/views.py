@@ -8,11 +8,8 @@ from sqlalchemy import desc,asc
 
 import sys, math
 
-##@app.route('/')
-##def index():
-##	loginform = LoginForm(request.form)
-##	return render_template('index.html',loginform=loginform)
 
+##catagories
 @app.route('/feed')
 def feed():
 	all_teachers = db.session.query(Teacher).order_by("id desc").all()
@@ -87,6 +84,12 @@ def city(city):
 	cityname=City.query.filter_by(id=city).first().city
 	return render_template('feed.html', teachers=teachers,page="Filtering by City", all_cities=all_cities,results=results,thing=cityname)
 
+
+
+
+#teachers
+
+
 @app.route('/signup')
 def signup():
 	return render_template('register.html')
@@ -101,6 +104,7 @@ def profile_template():
 	return render_template('profile_template.html',teacher=t,user=current_user, all_cities=all_cities,requests=all_requests)
 
 
+
 @app.route('/profile/<int:teacher_id>')
 def profile(teacher_id):
 	this_teach=Teacher.query.filter_by(id=teacher_id).first()
@@ -111,8 +115,11 @@ def edit_profile(teacher_id):
 	teach = Teacher.query.filter_by(id=teacher_id).first()
 	all_cities = City.query.all()
 	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> 4f114b6cc0f93cf59cdff39561f141a3dba3917e
 
 
 
@@ -133,12 +140,21 @@ def edit_profile(teacher_id):
 def studentsignup():
 	return render_template('stu_signup.html')
 
+<<<<<<< HEAD
 @app.route('/filter')
 def filter():
 	return render_template('filter.html')
+=======
+
+
+>>>>>>> 4f114b6cc0f93cf59cdff39561f141a3dba3917e
 ##@app.route('/student_edit_profile/<int:student_id>')
 ##def student_edit_profile(student_id):
 ##	student = Student.query.filter_by(id=student_id).first()
 ##	all_cities = City.query.all()
+<<<<<<< HEAD
 ##	return render_template('filter_modal.html', student=student, all_cities=all_cities)##
 >>>>>>> Stashed changes
+=======
+##	return render_template('filter_modal.html', student=student, all_cities=all_cities)##
+>>>>>>> 4f114b6cc0f93cf59cdff39561f141a3dba3917e

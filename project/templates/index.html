@@ -3,51 +3,40 @@
 <head>
 	<title>EasyLicense</title>
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 		<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" type="text/css" href="../static/css/index.css">
 </head>
 
 <body>
-
-
-
 <center>
 	<img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img">
 
 	<h1 id="motto">Getting you on the road quicker</h1>
 
-
-	<br>
 	<br>
 	<br>
 
-<!-- 	<div class="row">
-	<div class="col-lg-1">
-			<img class="img-icon" src="../static/img/glass.svg" alt="Search" style="width: 100%; vertical-align: baseline;">
-	</div> -->
 	<div class="container">
 		<div class="row">
 		<div class="col-md-8">
-<!-- 	<div class="row">
-	<div class="col-lg-1">
-			<img class="img-icon" src="../static/img/glass.svg" alt="Search" style="width: 100%; vertical-align: baseline;">
-	</div> -->
-	<div class="container">
-		<div class="row">
-		<div class="col-md-8">
-	<span class="info"><b style="font-size: larger; color: #0073a8;">	<i class="fas fa-search icon-resize-full" style="color: black; margin-right: 5px;"></i>Search</b> for the perfect driving instructor.</span>
 
-	<!--<img src="../static/img/book.png" alt="Search" class="img-icon">-->
+	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="fas fa-search icon-resize-full" style="color: black; margin-right: 5px;"></i>Search</b> for the perfect driving instructor.</span>
+
 	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="far fa-check-square" style="color: black; margin-right: 8px;"></i>Book</b> a lesson with the perfect instructor for you.</span>
 
-	<!--<img src="../static/img/wheel.png" alt="Search" class="img-icon">-->
 	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="fas fa-car" style="color: black; margin-right: 5px;"></i>Start</b> learning how to drive.</span>
 
 </div>
 <div class="col-md-4">
+
 	<br>
 	<br>
 	<br>
@@ -59,15 +48,16 @@
 	{%endif%}
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
+  <form class ="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
     
     <div class="container" id="login_box">
       <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
     <div style="color: grey; font-family: helveticaneuelight;">
-      <form action="{{ url_for('users.login') }}" method="post">
-       <h2 id="login_title">Log In</h2>
+
+       <h2 id="login_title">Welcome to EasyLicense</h2>
+
     {{ loginform.csrf_token }}
     {{ loginform.username(placeholder="Email") }} 
     <br>
@@ -78,36 +68,74 @@
 	</div>
 
     <button  class="login" type="submit">Log In</button>
-  </form>
+  <!-- </form> -->
+  </div>
     <div>
       <table style="width: 80%;">
       <tr>
         <td align="left">
-          <a href="#forgot" style="color: white; font-family: helveticaneuelight;">Forgot your password?</a>
+          <a href="#forgot" style="color: grey; font-family: helveticaneuelight;">Forgot your password?</a>
         </td>
         <td align="right">
-          <p style="font-family: helveticaneuelight;">No account? <a href="{{url_for('signup')}}" style="color: white; font-family: helveticaneuelight;">Create one here!</a></p>
+          <p style="font-family: helveticaneuelight; color: grey;">No account? <a href="{{url_for('signup')}}" style="color: grey; font-family: helveticaneuelight;">Create one here!</a></p>
         </td>
       </tr> 
       </table>
-    </div>
-  </div>
+    </div>  
   </form>
 </div>
- <br>
- <br>
- <br>
-	<button  style="margin-top: 20px;" onclick="location.href='feed'"  type="button" class="btn">
-     <h2>I'm a Student</h2></button>
+
+    <button onclick="document.getElementById('id03').style.display='block'" class="btn" style="margin-top: 20px;"><h2>I'm a Student</h2></button>
+
+<div id="id03" class="modal">
+  
+  <form class ="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
+    
+    <div class="container" id="login_box">
+      <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div style="color: grey; font-family: helveticaneuelight;">
+
+    <h2 id="login_title">Welcome to EasyLicense</h2>    	
+
+    {{ loginform.csrf_token }}
+    {{ loginform.username(placeholder="Email") }} 
+    <br>
+    <br>
+    {{ loginform.password(placeholder="Password") }}
+    <br>
+    <br>
+	</div>
+
+    <button  class="login" type="submit">Log In</button>
+  </div>
+    <div>
+      <table style="width: 80%;">
+      <tr>
+        <td align="left">
+          <a href="#forgot" style="color: grey; font-family: helveticaneuelight;">Forgot your password?</a>
+        </td>
+        <td align="right">
+          <p style="font-family: helveticaneuelight; color: grey;">No account? <a href="{{url_for('studentsignup')}}" style="color: grey; font-family: helveticaneuelight;">Create one here!</a></p>
+        </td>
+      </tr> 
+      </table>
+    </div>  
+  </form>
 </div>
+
 </div>
 </div>
 
+<center>
 <a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
 
 <a href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
 
+<a href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
+
 <a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
 </center>
-</body>
 
+</body>
