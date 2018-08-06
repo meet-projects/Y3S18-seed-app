@@ -42,7 +42,7 @@ def register():
                 user = User(email=email, name= name, password= password, is_storyteller= is_storyteller)
                 db.session.add(user)
                 db.session.commit()
-                return redirect(url_for('users.login'))
+                return redirect(url_for('browse'))
 
     else:
         logout_user()
