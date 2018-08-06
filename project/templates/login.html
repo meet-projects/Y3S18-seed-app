@@ -1,13 +1,21 @@
-{% extends "layout.html" %}
-
-{% block title %}LOGIN{% endblock %}
-
-{% block css %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/login.css') }}">
-{% endblock %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
-{% block content %}
- 	  
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+</head>
+<body>
+	  
 <div id="login_page_body">
 		<script type="text/javascript">
 			 var getdata = '{{data | tojson}}';
@@ -17,7 +25,7 @@
 
 		<div class="login_page_container">
 			<div class="imgcontainer">
-				<img src="static/pictures/whitelogo.png" alt="logo" id="logo">
+				<img src="static/pictures/logos/whitelogo.png" alt="logo" id="logo">
 			</div>
 
 			<div id="login_container">
@@ -91,4 +99,6 @@
 			</div>
 		</div>
 	</div>
-	{% endblock %}
+
+</body>
+</html>

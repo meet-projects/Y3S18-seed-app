@@ -52,7 +52,7 @@ def profile(username):
 @login_required
 def stories():
 	posts = Post.query.filter_by(ArtURL = None).all()
-	return render_template('stories.html', posts=posts)
+	return render_template('feed.html', posts=posts, show = 'artless')
 
 @app.route('/')
 def landingpage():
