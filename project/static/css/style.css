@@ -14,6 +14,12 @@ body{
     background-size: cover;
 }
 
+.navbar-inner {
+    background-color:transparent;
+    color:white;
+    font: normal 18px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold; ;
+}
+
 .roots-btn {
 
     -webkit-appearance: textfield;
