@@ -94,13 +94,15 @@
 			<!-- Trigger/Open The Modal -->
 
 			
-
-			<button id="myBtn" class="book_btn">Connect</button>
-
+		{%if current_user.account_type=="student" %}
+			<form action="{{url_for('users.make_request' ,teacher_id=teacher.id)}}">
+				<button id="myBtn" class="book_btn" type="submit" >Connect</button>
+			</form>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
 
 				<!-- Modal content -->
+				<!--
 				<div class="modal-content">
 					<div class="modal-header">
 	  					<span class="close">&times;</span>
@@ -129,10 +131,12 @@
 				</div>
 
 			</div>
-			</center>
+			</center> 
+		-->
+		{%endif%}
 		</div>
 	</div>
-			
+		
 		
 		<div class="col-md-8" style="background-color: rgb(246,246,246);">
 			<div id="main_profile">

@@ -32,14 +32,6 @@
 		        <a class="nav-link" href="{{url_for('users.logout')}}">Logout</a>
 		      </li>
 		      {% endif %}
-		      {% if not current_user.is_authenticated %}
-		      <li class="nav-item">
-		        <a class="nav-link" href="{{url_for('users.index')}}">Login</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="{{url_for('signup')}}">Sign Up</a>
-		      </li>
-		      {% endif %}
 		      <!-- <li class="nav-item" style="float: right">
 		    	<a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
 		      </li>
@@ -55,10 +47,12 @@
 		    </ul>
 		  </div>
 		</nav>
-	<div class="row" style="background-color: rgb(246,246,246);">
+
+
 
 		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}" method="POST">
-			<div align="left" class="col-md-4" style="background-color: rgb(246,246,246);">
+				<div class="row" style="background-color: rgb(246,246,246);">
+			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
 
 			<p>Picture:<input type="text" name="profile_picture" placeholder ="Profile picture link" style="float: right;"></p>
@@ -83,6 +77,7 @@
 							{% endfor %}
 						</select> 
 					 </td>
+					</tr>
 				<tr> 
 
 					<th>Charge</th> 
@@ -110,6 +105,7 @@
 			</div>
 			<div class="col-md-8" style="background-color: rgb(246,246,246);">
 			<div id="main_profile">
+				<a href="{{url_for('users.delete',teacher_id=teacher.id) }}" class="btn btn-outline-danger btn-lg" role="button" style="float: right">Delete user</a>
 			<h3 id="profile_name">
 				Edit Profile</h3>
 			<br>
@@ -123,11 +119,11 @@
 
 			<input type="submit" name="submit" class="btn btn-primary btn-lg" role="button" value="Done">
 			<a onclick="window.history.go(-1); return false;" class="btn btn-danger btn-lg" role="button">Cancel</a>
-			<a href="{{url_for('users.delete',teacher_id=teacher.id) }}" class="btn btn-danger btn-lg" role="button" style="float: right">Delete user</a>
+
 
 		</div>
 	</div>
-	</form>
 </div>
+	</form>
 	</body>
 </html>

@@ -82,22 +82,20 @@ def logout():
     return redirect(url_for('users.index'))
 
 
-@users_bp.route('/make_request/<int:teacher_id>/', methods=['POST'])
+@users_bp.route('/make_request/<int:teacher_id>', methods=['POST','GET'])
 @login_required
 def make_request(teacher_id):
     if current_user.account_type=="student":
         thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-        sid=current_user.id
-        student=Student(sid,studentfname,studentlname,studentnum)
-        book=Request(student.id,studentfname,thisteacher.id,False)
-        db.session.add(student)
-        db.session.commit()
+        student_id=current_user.id
+        studentfname=Student.query.filter_by(user_id=student_id).first().fname
+        book=Request(student_id,studentfname,teacher_id,False)
         db.session.add(book)
         db.session.commit()
     return redirect('feed')
 
 
-@users_bp.route('/editing/<int:teacher_id>', methods=['POST'])
+@users_bp.route('/editing/<int:teacher_id>', methods=['POST','GET'])
 @login_required
 def editing(teacher_id):
     teacher=Teacher.query.filter_by(id=teacher_id).first()
@@ -203,7 +201,7 @@ def student_signup():
                     db.session.add(user)
                     db.session.commit()
                     
-                    student=Student(fname,lname,phone_num,"","",0,0,"","")
+                    student=Student(user.id,fname,lname,phone_num,"","",0,0,"")
                     db.session.add(student)
                     db.session.commit()
                     login_user(user, remember=True)
@@ -234,11 +232,11 @@ def filter():
         if min_price=="":
             pass
         else:
-            teacher.min_price=min_price
+            student.min_price=min_price
         if max_price=="":
             pass
         else:
-            teacher.max_price=max_price
+            student.max_price=max_price
         if arabic is not None:
             student.languages+="Arabic "
         if hebrew is not None:
