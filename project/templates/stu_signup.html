@@ -5,12 +5,17 @@
  <html>
  <head>
   <title>Sign up</title>
-  <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+  
   <link rel="stylesheet" type="text/css" href="../static/css/register.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  </head>
- <body>
+ <body style="background-color: rgb(246,246,246);">
   <nav class="navbar navbar-expand-lg navbar-dark bg-light">
       <a class="nav-link" href="{{url_for('users.index')}}">
         <img src="../static/img/easylicense_logo.png" alt="EasyLicense" class="navbar_logo">
@@ -42,18 +47,20 @@
             <a class="nav-link" href="{{url_for('signup')}}">Sign Up</a>
           </li>
           {% endif %}
-          <!-- <li class="nav-item" style="float: right">
-          <a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
+        </ul>
+        <ul class="navbar-nav mr-auto mr-auto my-2 my-lg-0" style="float: right">
+          <li class="nav-item">
+          <a class="navbar-brand" href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
           </li>
-          <li class="nav-item" style="float: right">
-        <a href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
+          <li class="nav-item">
+        <a class="navbar-brand" href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
         </li>
-        <li class="nav-item" style="float: right">
-        <a href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
+        <li class="nav-item">
+        <a class="navbar-brand" href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
           </li>
-          <li class="nav-item" style="float: right">
-          <a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
-          </li> -->
+          <li class="nav-item">
+          <a class="navbar-brand" href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -92,12 +99,12 @@
       <input type="password" placeholder="Repeat Password" name="password2" class="bars input" required>
     </span>
 
-    <span>
-        <input type="submit" class="signup-btn" style="text-align: center;">Sign Up</input>  
-    </span>
+      <center>
+        <input type="submit" class="signup-btn btn btn-success" style="text-align: center; margin-left: 37%;" value="Sign Up">
+      </center>
 
 </form>
-
+</div>
 <!--     <span>
     <button onclick="document.getElementById('id04').style.display='block'" class="btn signup-btn" style="text-align: center;"><h2>Sign Up</h2></button>
     <span>
