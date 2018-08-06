@@ -132,25 +132,27 @@
 					{{teacher.description}} 
 				</p>
 			</div>
-			<var></var>
+
+			<br>
 			{% for request in requests %}
 				<table id="booking_table">
 					<tr>
-						<th class="booking_table_title">
+						<th class="booking_table_title" style="text-align: left;">
 						Request number {{loop.index}} awaiting your payment
 						</th>
 					</tr>
 					<tr>
-						<th class="booking_table_title">
+						<th class="booking_table_title" style="text-align: left;">
 						Student's first name: {{request.student_fname}}
 						</th>
 					</tr>
 					<tr>
-						<th><a href="https://www.paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a></th>
+						<th align="left"><a href="https://www.paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a></th>
 					</tr>
 
 				</table>
 				<br><br>
+				
 			{% endfor %}
 		</div>
 		</div>
