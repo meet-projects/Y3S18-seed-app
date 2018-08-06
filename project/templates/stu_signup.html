@@ -1,38 +1,14 @@
 {% extends "layout.html" %}
 
-{% block content %} 
- <!DOCTYPE html>
- <html>
- <head>
-  <title>Sign up</title>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% block title %}
+Sign up 
+{% endblock %}
 
-  <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
-  
-  <link rel="stylesheet" type="text/css" href="../static/css/register.css">
+{% block css %}
+{% endblock %}
 
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta charset="utf-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  
- </head>
- <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{% block content %}   
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 0%;">
   <a class="navbar-brand" href="{{url_for('feed')}}" style="background-color: #f6f6f6">
         <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
       </a>
@@ -40,28 +16,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
-    <ul class="navbar-nav mr-auto">   
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square" style="color: white;"></i></a>
-      </li>
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram" style="color: white;"></i></a>
-      </li>
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin" style="color: white;"></i></a>
-      </li>
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="mailto:easylicense18@gmail.com?Subject=Hello"><i class="far fa-envelope" style="color: white;"></i></a>
-      </li>
-    </ul>
-    <span class="navbar-text" style="font-size: 18px;">
-    {% if current_user.is_authenticated %}
-          <b style="color: white;">{{current_user.account_type}}</b>
-    </span>
-    <span>
-          <a class="nav-link navbar-item" href="{{url_for('users.logout')}}" style="color: white; font-size: 18px; margin-left: 5%;">Logout</a>
-       {%endif%}
-    </span>
+    {% include 'social-media-links.html' %}
   </div>
 </nav>
 
@@ -105,65 +60,6 @@
 
 </form>
 </div>
-<!--     <span>
-    <button onclick="document.getElementById('id04').style.display='block'" class="btn signup-btn" style="text-align: center;"><h2>Sign Up</h2></button>
-    <span>
-
-<div id="id04" class="modal">
-  
-  <form class ="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
-    
-    <div class="container" id="login_box">
-      <div class="imgcontainer">
-      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
-    </div>
-
-    <div style="color: grey; font-family: helveticaneuelight;">
-
-    <h2 id="login_title">Title</h2>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="city" class="label"><b>City</b></label>
-      <input type="text" placeholder="Enter Your City" name="city" class="bars2" required>
-    </span>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="Fee" class="label"><b>Minimum Price</b></label>
-      <input type="text" placeholder="Minimum Price" name="max_price" class="bars2" required>
-    </span>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="Fee" class="label"><b>Maximum Price</b></label>
-      <input type="text" placeholder="Maximum Price" name="max_price" class="bars2" required>
-    </span>
-
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="Languages" class="label"><b>Languages You Want to Learn In</b></label>
-      <br>
-      <form action="/action_page.php" class="bars2">
-        <input type="checkbox" name="languages_ar" value="Arabic"> Arabic <br>
-        <input type="checkbox" name="languages_en" value="English"> English <br>
-        <input type="checkbox" name="languages_hb" value="Hebrew"> Hebrew <br>
-      </form>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="car_type" class="label"><b>Gearbox</b></label>
-      <input type="text" placeholder="Gearbox Type" name="gearbox" class="bars2" required>
-    </span>
-
-  </div>
-
-    <button  class="login" type="submit">Continue</button>
-    <button class="login" type="submit">Skip</button>
-
-  </div>
-  </form>
-  </div>
-
-  </form> 
- </div>
-  -->
 
 </body>
 </html>
