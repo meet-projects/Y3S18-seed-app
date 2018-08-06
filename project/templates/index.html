@@ -15,11 +15,10 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/index.css">
 
 <script>
-function alert() {
+function wrong() {
    	alert("Error-You are logged into a diffrent account then the one you pressed.");
 }
 </script>
-
 </head>
 
 <body>
@@ -52,9 +51,7 @@ function alert() {
 		{% if current_user.account_type == "teacher" %}
 			<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
 		{%else%}
-
-			<button onclick="alert()" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
-
+			<button onclick="wrong()" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
 	 	{%endif%}
 	{% else %}
     	<button onclick="document.getElementById('id02').style.display='block'" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
@@ -102,8 +99,7 @@ function alert() {
 		{% if current_user.account_type == "student" %}
 			<a href="{{url_for('feed')}}"><button class="btn"><h2>I'm a Student</h2></button></a>
 		{%else%}
-			<button onclick="alert()" class="btn" style="margin-bottom: 25px;"><h2>I'm a Student</h2></button>
-
+			<button onclick="wrong()" class="btn" style="margin-bottom: 25px;"><h2>I'm a Student</h2></button>
 		{%endif%}
 	{% else %}
     	<button onclick="document.getElementById('id03').style.display='block'" class="btn" style="margin-top: 20px;"><h2>I'm a Student</h2></button>
