@@ -1,0 +1,26 @@
+#navbar-logo{
+    background-color: #d7dee5;
+}
+
+.navbar-item{
+    color: white;
+    font-family: helveticaneuelight;
+    font-size: 18px;
+    float: left;
+}
+
+.navbar-item:hover{
+    color: white;
+    background-color: #188fc4;
+}
+
+.icons{
+    min-width: 50px;
+    min-height: 50px;
+    margin: 25px;
+    color: black;
+}
+
+.icons:hover{
+    color: #0073a8;
+}

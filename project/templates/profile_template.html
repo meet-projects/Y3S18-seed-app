@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block title %}
+Your Profile {{teacher.name}}
+{% endblock%}
+
+{% block css %}
+		
+{% endblock%}
+
+{% block content %} 
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('feed')}}" style="background-color: #f6f6f6">
+        <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
+    {% include 'social-media-links.html' %}
+    <span class="navbar-text" style="font-size: 18px;">
+		{% if current_user.is_authenticated and current_user.account_type=="teacher" %}
+       	  <b style="color: white;">{{current_user.account_type}}</b>
+    </span>
+    <span>
+          <a class="nav-link navbar-item" href="{{url_for('users.logout')}}" style="color: white; font-size: 18px; margin-left: 5%; width: 95%">Logout</a>
+       {%endif%}
+    </span>
+  </div>
+</nav>
+
+
+		<div class="row" style="background-color: rgb(246,246,246);">
+			<div class="col-md-4" style="background-color: rgb(246,246,246);">
+				<div id="side_profile">
+				<img src="{{teacher.profile_picture}}" id="profile_picture">
+			<br>
+
+			<center>
+			<p align="center"><i> Your Inofrmation</i> </p>
+			<p align="center"><i> {{teacher.fname}} {{teacher.lname}}</i> </p>
+			<br>
+			<table class="side_profile_table">
+				<tr>
+
+					<th>Phone Number</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.phone_num | truncate(13)}} </td>
+				</tr>
+				
+				<tr>
+					<th>Email</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{current_user.email | truncate(25)}} </td>
+				</tr>
+				<tr>
+					<th>City</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.city}} </td>
+				</tr>
+				<tr>
+					<th>Charge</th> 
+					<td> {{teacher.cost}} </td>
+				</tr>
+				<tr> 
+					<th>Languages</th> 
+
+
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.languages | truncate(30)}} </td>
+
+				</tr>
+
+				<tr>
+					<th>Gearbox:</th> 
+					<td data-toggle="tooltip" data-placement="top" title="{{teacher.gearbox}}"> {{teacher.gearbox | truncate(13)}} </td>
+
+				</tr>
+			</table>
+			<br>
+			</center> 
+		</div>
+	</div>
+		<div class="col-md-8" style="background-color: rgb(246,246,246);">
+			<div id="main_profile">
+
+
+			<h3 id="profile_name">
+				Your Profile: {{teacher.name}}</h3>
+				<br>
+			
+			<h4 class="profile_title">
+			About
+			</h4>
+			<div id="profile_about">
+				<p id="about_p">
+					{{teacher.description}} 
+				</p>
+			</div>
+			<br>
+			<a href="{{ url_for('edit_profile',teacher_id=teacher.id) }}" method="POST" class="edit_link"><button class="edit_button"><b> Edit Profile</b></button></a>
+			<br><br>
+
+			<br>
+			{% for request in requests %}
+				<table id="booking_table">
+					<tr>
+						<th class="booking_table_title" style="text-align: left;">
+						Request number {{loop.index}} awaiting your payment
+						</th>
+					</tr>
+					<tr>
+						<th class="booking_table_title" style="text-align: left;">
+						Student's first name: {{request.student_fname}}
+						</th>
+					</tr>
+					<tr>
+						<th align="left"><a href="https://www.paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a></th>
+					</tr>
+
+				</table>
+				<br><br>
+				
+			{% endfor %}
+		</div>
+		</div>
+	</div>
+	</div>
+{% endblock%}
