@@ -40,9 +40,22 @@
 	<br>
 	<br>
 	<br>
-
 	{% if current_user.is_authenticated %}
-		<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
+		{% if current_user.account_type == "teacher" %}
+			<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
+		{%else%}
+
+<!-- 	<div class="alert">
+  		<span class="closebtn">&times;</span>  
+  		<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+	</div> -->
+
+	<div class="alert warning">
+  		<span class="closebtn">&times;</span>  
+  		<strong>Warning!</strong> Indicates a warning that might need attention.
+	</div>
+
+	 	{%endif%}
 	{% else %}
     	<button onclick="document.getElementById('id02').style.display='block'" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
 	{%endif%}
@@ -85,7 +98,20 @@
   </form>
 </div>
 
-    <button onclick="document.getElementById('id03').style.display='block'" class="btn"><h2>I'm a Student</h2></button>
+	{% if current_user.is_authenticated %}
+		{% if current_user.account_type == "student" %}
+			<a href="{{url_for('feed')}}"><button class="btn"><h2>I'm a Student</h2></button></a>
+		{%else%}
+
+	<div class="alert warning">
+  		<span class="closebtn">&times;</span>  
+  		<strong>Warning!</strong> Indicates a warning that might need attention.
+	</div>
+	
+		{%endif%}
+	{% else %}
+    	<button onclick="document.getElementById('id03').style.display='block'" class="btn" style="margin-top: 20px;"><h2>I'm a Student</h2></button>
+    {% endif %}
 
 <div id="id03" class="modal">
   
