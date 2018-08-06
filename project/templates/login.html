@@ -53,7 +53,7 @@
 					<form id="signup_form" class="form_instance" action="{{ url_for('users.register') }}" method="post">
 						{{ form.csrf_token }}
 						<input type="text" name="displayname" id="signup_textbox_displayname" 
-								class=" login_page_textbox" placeholder="Display Name">
+								class=" login_page_textbox" placeholder="Full Name">
 						<span id="displayname_error_message" class="error_message">
 								displayname cannot be empty
 						</span>

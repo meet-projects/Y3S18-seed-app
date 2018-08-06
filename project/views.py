@@ -13,7 +13,7 @@ from project.forms import *
 @login_required
 def feed():
 	posts = Post.query.filter(Post.ArtURL != '').all()
-	return render_template('mainfeed.html', posts=posts)
+	return render_template('feed.html', posts=posts)
 
 
 @app.route('/profile')
@@ -33,10 +33,17 @@ def profile(username):
 	visited_user = User.query.filter_by(username=username).first()
 	pic_form = ProfilePicForm(request.form)    
 	bio_form = ProfileBioForm(request.form)  
-	art_pieces = Post.query.filter_by(ArtistID = visited_user.id).all()  
+	art_pieces = Post.query.filter_by(ArtistID = visited_user.id).all()
+	art_len =  len(art_pieces)
+	print(art_len)
+	if (int(art_len)%3==0):
+		amount_of_rows = int(art_len/3)
+	else:
+		amount_of_rows = int(art_len/3) +1
+	print(amount_of_rows)
 	if visited_user:
 		print("visited user")
-		return render_template('profile.html', visited_user=visited_user, pic_form = pic_form, bio_form = bio_form, art_pieces = art_pieces)
+		return render_template('profile.html', visited_user=visited_user, pic_form = pic_form, bio_form = bio_form, art_pieces = art_pieces, amount_of_rows = amount_of_rows)
 	else:
 		return abort(404)
 
