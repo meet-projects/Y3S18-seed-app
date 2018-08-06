@@ -32,10 +32,11 @@ def profile(username):
 	print(username + "<<<<<<<<<<<<<<<<<<<")
 	visited_user = User.query.filter_by(username=username).first()
 	pic_form = ProfilePicForm(request.form)    
-	bio_form = ProfileBioForm(request.form)    
+	bio_form = ProfileBioForm(request.form)  
+	art_pieces = Post.query.filter_by(ArtistID = visited_user.id).all()  
 	if visited_user:
 		print("visited user")
-		return render_template('profile.html', visited_user=visited_user, pic_form = pic_form, bio_form = bio_form)
+		return render_template('profile.html', visited_user=visited_user, pic_form = pic_form, bio_form = bio_form, art_pieces = art_pieces)
 	else:
 		return abort(404)
 
@@ -43,7 +44,7 @@ def profile(username):
 @app.route('/inspiration')
 @login_required
 def stories():
-	posts = Post.query.filter_by(ArtURL = '').all()
+	posts = Post.query.filter_by(ArtURL = None).all()
 	return render_template('stories.html', posts=posts)
 
 @app.route('/')
@@ -62,7 +63,7 @@ def aboutus():
 def list_detail_stories(post_id):
 	form = AddArtForm(request.form)    
 	post = Post.query.filter_by(id = post_id).first()
-	if (post.ArtURL != ''):
+	if (post.ArtURL != None):
 		artist = User.query.filter_by(id = post.ArtistID).first()
 		return render_template('viewstory.html', post=post, form=form, user = artist)
 	else:

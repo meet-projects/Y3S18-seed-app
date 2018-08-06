@@ -41,24 +41,20 @@ class Post(db.Model):
 	__tablename__='posts'
 	id             = db.Column(db.Integer, primary_key=True, autoincrement=True)
 	AuthorID       = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-	ArtURL         = db.Column(db.String, nullable=False)
+	ArtURL         = db.Column(db.String)
 	ArtistID       = db.Column(db.Integer, db.ForeignKey('users.id'))
+	ArtistNotes    = db.Column(db.String)
 	Title          = db.Column(db.String(20), nullable=False)
 	Text           = db.Column(db.String, nullable=False)
 	Rating         = db.Column(db.Integer)
 	Date           = db.Column(db.String, nullable=False)
 
-	def __init__(self, AuthorID, Title, Text, ArtURL = ""):
+	def __init__(self, AuthorID, Title, Text):
 		self.AuthorID = AuthorID
-		if not ArtURL:
-			self.ArtURL = ""
-		else:
-			self.ArtURL = ArtURL
 		self.Title = Title
 		self.Text = Text
 		self.Date = self.format_date()
 		self.Rating = 0
-		self.ArtistID = None
 
 	def relate(self):
 		userid = current_user.id
