@@ -13,9 +13,17 @@
 		<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
 
 		<link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
+<script>
+function alert() {
+   	alert("I am an alert box!");
+}
+</script>
+
 </head>
 
 <body>
+
 <center>
 	<img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img">
 
@@ -45,15 +53,7 @@
 			<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
 		{%else%}
 
-<!-- 	<div class="alert">
-  		<span class="closebtn">&times;</span>  
-  		<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
-	</div> -->
-
-	<div class="alert warning">
-  		<span class="closebtn">&times;</span>  
-  		<strong>Warning!</strong> Indicates a warning that might need attention.
-	</div>
+			<button onclick="alert()" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
 
 	 	{%endif%}
 	{% else %}
@@ -102,12 +102,8 @@
 		{% if current_user.account_type == "student" %}
 			<a href="{{url_for('feed')}}"><button class="btn"><h2>I'm a Student</h2></button></a>
 		{%else%}
+			<button onclick="alert()" class="btn" style="margin-bottom: 25px;"><h2>I'm a Student</h2></button>
 
-	<div class="alert warning">
-  		<span class="closebtn">&times;</span>  
-  		<strong>Warning!</strong> Indicates a warning that might need attention.
-	</div>
-	
 		{%endif%}
 	{% else %}
     	<button onclick="document.getElementById('id03').style.display='block'" class="btn" style="margin-top: 20px;"><h2>I'm a Student</h2></button>
