@@ -36,15 +36,20 @@
         <img src="../static/img/logo.png" alt="logo" style="width: 200px;">
       </a>
     </li>
-    <li class="nav-item navbar-item">
-      <a class="nav-link navbar-item" href="{{url_for('profile_template')}}">My Profile</a>
-    </li>
-    <li class="nav-item navbar-item">
-      <a class="nav-link navbar-item" href="{{url_for('feed')}}">Feed</a>
-    </li>
-    <li class="nav-item navbar-item">
-      <a class="nav-link navbar-item" href="{{url_for('users.logout')}}">Logout</a>
-    </li>
+    {% if current_user.is_authenticated %}
+      {%if current_user.account_type=="teacher"}
+      <li class="nav-item navbar-item">
+        <a class="nav-link navbar-item" href="{{url_for('profile_template')}}">My Profile</a>
+      </li>
+      {%endif%}
+      <li class="nav-item navbar-item">
+        <a class="nav-link navbar-item" href="{{url_for('feed')}}">Feed</a>
+      </li>
+      {% if current_user.is_authenticated %}
+      <li class="nav-item navbar-item">
+        <a class="nav-link navbar-item" href="{{url_for('users.logout')}}">Logout</a>
+      </li>
+      {%endif%}
 </nav>
 
 

@@ -32,14 +32,6 @@
 		        <a class="nav-link" href="{{url_for('users.logout')}}">Logout</a>
 		      </li>
 		      {% endif %}
-		      {% if not current_user.is_authenticated %}
-		      <li class="nav-item">
-		        <a class="nav-link" href="{{url_for('users.index')}}">Login</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="{{url_for('signup')}}">Sign Up</a>
-		      </li>
-		      {% endif %}
 		      <!-- <li class="nav-item" style="float: right">
 		    	<a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
 		      </li>
