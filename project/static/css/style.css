@@ -20,6 +20,20 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.profile-parallax {
+    /* The image used */
+    background-image: url("profile.png");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 .journey-cont {
 
@@ -142,6 +156,51 @@
   color: white;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
+}
+.head2 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 60px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.head3 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 30px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.head4 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  float: left;
+}
+
+.head5 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 15px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  /*float: left*/;
 }
 
 .div1 {
