@@ -52,3 +52,49 @@ h2{
 	color: #4CAF50;
 	font-family: helveticaneuelight;
 }
+
+/*ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0073a8;
+    font-family: helveticaneuelight;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}*/
+
+#navbar-logo{
+	background-color: #d7dee5;
+}
+
+.navbar-item{
+	color: white;
+	font-family: helveticaneuelight;
+	font-size: 18px;
+	float: left;
+}
+
+.navbar-item:hover{
+	color: white;
+	background-color: #188fc4;
+}

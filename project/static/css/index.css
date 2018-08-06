@@ -29,26 +29,25 @@ h1{
 	background-color: #188fc4;
 	color: #f6f6f6;
     border: none;
-    padding: 15px 32px;
-    text-align: center;
+    padding: 24px 32px;
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
-    padding: 1px;
-    margin: 4px 2px;
-    font-size: 24px;
-    min-width: 20%;
-    max-height: 50%;
-    min-height: 50%;
-    float: left;
-
+    text-align: center;
+    float: right;
 }
 
 .btn:hover{
 	background-color: #0073a8;
 	color: white;
+}
+
+#btn-pos{
+    position: relative;
+    right: 5%;
+    margin-top: -5%;
 }
 
 .text{
@@ -341,4 +340,22 @@ border-radius: 20px;
 .input{
     font-family: helveticaneuelight;
     color: grey;
+}
+
+
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
 }
