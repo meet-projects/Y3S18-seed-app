@@ -6,6 +6,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
@@ -16,23 +17,23 @@
 
       <title>{% block title %}ARTflict{% endblock %}</title>
 
-      {% block css %}
+
+     
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
+      
+      {% block head %}
       {% endblock %}
 
-      <style type="text/css">
-        /* Need to have html rendering for the url below*/
-        .bg {
-          /* The image used */
-          background-image: url("{{ url_for('static', filename='pictures/Backgroundsite.jpg') }}");
-        }
-      </style>
 
-
+      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
   </head>
-  <body>
+  <body style='background-image: url("{{ url_for('static', filename='pictures/Backgroundsite.jpg') }}");'>
 
-
+<<<<<<< HEAD
   <div class="bg">
     <div class="content">
        <div class="row">
@@ -69,6 +70,37 @@
     </div>
 
      <div class="content_main">
+
+<!--=======
+
+<div class="content">
+    <div class="logoblock">
+      <img src="{{ url_for('static', filename='pictures/logos/verticallog.png') }}" alt="verticallogo" id="navbarlogo" class="pos">
+      <div class="searchblock pos">-->
+      <!-- Load icon library -->
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+        <!-- The form -->
+       <!-- <form class="example pos" action="action_page.php">
+          <input type="text" placeholder="Search" name="search">
+          <button type="submit"><i class="fa fa-search pos"></i></button>
+        </form>
+      </div>
+      <a href = "{{url_for('my_profile')}}""><img src="{{ url_for('static', filename='pictures/avatar.png') }}" alt="anatarpic" id="avatarpic" class="pos"></a>
+   
+    </div>
+
+        <div class="nav navbar-nav topnav navbar">
+        <a  href="{{url_for('feed')}}" class="navblock color-me">Home</a>
+        <a href="{{url_for('stories')}}" class="navblock">Stories</a>
+        <a href="#saved_artist" class="navblock" id="saved_artist">Saved Artist</a>
+        <a href="{{url_for('aboutus')}}" class="navblock">About</a>
+        <a href="{{ url_for('add_post.add_post') }}" class="navblock">Post</a>
+        <a href="{{ url_for('users.logout') }}" class="navblock">Log Out</a>
+      </div>
+      <div class="content_main">
+>>>>>>> 305d49f2254e280faf55ceeb51fb6eec2b2e1de5
+-->
         {% block content %}
         {% endblock %}
 
@@ -80,6 +112,7 @@
 
   
     
+
   </div>
 
   </body>

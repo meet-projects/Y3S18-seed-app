@@ -1,66 +1,44 @@
 
 {% extends "layout.html" %}
-
-{% block title %}FEED{% endblock %}
-
-{% block css %}
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/feed.css') }}">
-{% endblock %}
-
 {% block content %}
 
- {% for post in posts %}
- 
-   <div class="post_block">
-    <div class = 'row'>
-    <div class="jumbot
-    ron jumbotron-img">
-         <div class = 'col-md-3'>
-           <img id = "feed_img" src={{post.ArtURL}}> </div><br><br><br>
-            <div class = 'col-md-3'></div>
-         <div class="description_block" class = 'col-md-9'></div>
-            <h2> <span id="more" > {{ post.get_description1() }} </span></div></h2>
-              <br><br><br>
-       <div class="valid_text_space" >
-           <h1><div class="stori_title"> {{post.get_title()}} </div></h1>            
-           <!--<div class="description_block">
-               {{ post.get_description1() }}
-           </div>-->
-           <div class="description_block">
-             <!--<span id="more"> {{ post.get_description2() }} </span> -->
-             <a href="{{url_for('list_detail_stories', post_id = post.id)}}" class="btn btn-default">Read More</a>
-           </div>
+<div class="mainfeed post_space">
 
-           <div class="publish_date_block">
-              <span class="publish_date_text"> Published on:    
-                  {{ post.format_date() }}
-              </span>
-           </div>
-              <div class="vote_block"><!-- 
-                  <asp:ImageButton ClientIDMode="Static" CssClass="vote_button up" ID="upvote" 
-                      ClientID='<%# string.Format("upvote_{0}", Eval("StoriID")) %>' 
-                       runat="server" ImageURL="Images/upvote-grey.png" CommandName="vote_up"
-                       CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();"/> -->
- 
-                   <span class="rating"> {{ post.format_rating() }} </span>
- <!--     
-                   <asp:ImageButton ClientIDMode="Static" CssClass="vote_button down" ID="downvote" 
-                       ClientID='<%# string.Format("downvote_{0}", Eval("StoriID")) %>' 
-                      runat="server" ImageURL="Images/downvote-grey.png" CommandName="vote_down"
-                     
-                      CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();" /> -->
+{% if show and show == 'artless' %}
 
+{% for post in posts %}
 
+  <div class="mainfeed post_template">
+    <div class="mainfeed post_title">
+      {{ post.title }}
+    </div>
 
-              </div>
-                <img src="{{ url_for('static', filename='pictures/line3.png') }}" class="borders" >
+    <div class="mainfeed post_art">
+      <img src="{{ post.ArtURL }}">
+    </div>
 
-          </div>
-         
-        
+    <div class="mainfeed post_preview">
+      {{ post.get_description() }}
+    </div>
 
- {% endfor %}
+    <div class="mainfeed post_footer">
+      <div class="mainfeed post_date">
+        {{ post.format_date() }}
+      </div>
+      <div class="mainfeed post_relate">
+        <input type="img" name="relate_button" src="{{ post.ArtURL }}">
+      </div>
+    </div>
   </div>
- 
+
+{% endfor %}
+
+<p>hi</p>
+
+{% else %}
+
+{% endif %}
+
 </div>
-  {% endblock %} 
+
+{% endblock %} 
