@@ -2,7 +2,8 @@
 {% block content %}
 
 <div class= "container-fluid">
-
+<img class="img1" src="{{ journey.picture }}">
+ <h1> {{journey.title}} </h1>
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
@@ -15,8 +16,7 @@
   </div>
 
 
-<img class="img1" src="{{ journey.picture }}">
- <h1> {{journey.title}} </h1>
+
 	<div class = "col-md-8">
 	<p> location : {{journey.location}} </p>
 	<p> description : {{journey.description}} </p>

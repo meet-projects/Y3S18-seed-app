@@ -9,26 +9,28 @@
 	<!-- <p>this is not your profile</p> -->
 {% endif %}
 
-
+<div class = "container-fluid" >
+<div class = "row" >
 {% if profile.profile_img ==  none %}
+<div class = "col-md-3 col-sm-4" >
 <img src="{{url_for('static', filename='pictures/profile.png')}}" />
 {% else %}
 <img src="{{current_user.profile_img}}" />
 {% endif %}
-<div>
+
 <h2> {{profile.name}} </h2>
+</div>
+<div class = "col-md-9 col-sm-8">
 <h3> {{profile.city}} </h3>
 <h3> {{profile.country}} </h3>
-<h3> {{profile.proffession}} </h3>
+<h3> {{profile.profession}} </h3>
+</div>
 </div>
 
-<div>
 <h3> {{profile.bio}} </h3>
-</div>
 
-<br><br>
 {{ profile.name }}'s journeys:
-<br></b>
+
 
 
 
@@ -47,5 +49,5 @@
 	</form>
 {% endif %}
 
-
+</div>
 {% endblock %}
