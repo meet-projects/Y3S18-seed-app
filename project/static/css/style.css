@@ -27,7 +27,7 @@
   color: white;
 }
 .login{
-  background-color: rgb(220,220,220);
+  background-color: rgb(246,246,246);
 }
 #select_city_sign{
   margin:none;
@@ -36,7 +36,7 @@
 }
 .signup_container{
   width: 50%;
-  min-height: 55em;
+  min-height: 27em;
   background-color: rgba(0,115,168,100);
   padding: 20px;
   text-align: center;
