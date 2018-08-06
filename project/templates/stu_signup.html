@@ -1,64 +1,26 @@
 {% extends "layout.html" %}
 
-{% block content %} 
- <!DOCTYPE html>
- <html>
- <head>
-  <title>Sign up</title>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% block title %}
+Sign up 
+{% endblock %}
 
-  <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
-  
-  <link rel="stylesheet" type="text/css" href="../static/css/register.css">
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+{% block css %}
+{% endblock %}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
- </head>
- <body>
-  <nav class="navbar navbar-expand-sm" style="background-color: #0073a8; padding: 0px;">
-  <!-- Brand/logo -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link navbar-item" href="{{url_for('users.index')}}" style="background-color: #f6f6f6">
-        <img src="../static/img/logo.png" alt="logo" style="width: 200px;">
+{% block content %}   
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 0%;">
+  <a class="navbar-brand" href="{{url_for('feed')}}" style="background-color: #f6f6f6">
+        <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
       </a>
-    </li>
-    {% if current_user.is_authenticated %}
-      {%if current_user.account_type=="teacher"%}
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="{{url_for('profile_template')}}">My Profile</a>
-      </li>
-      {%endif%}
-    {%endif%}
-    {%if current_user.account_type=="teacher"%}
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="{{url_for('feed')}}">Feed</a>
-      </li>
-    {%endif%}
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="{{url_for('users.index')}}">Landing page</a>
-      </li>
-    {% if current_user.is_authenticated %}
-      <li class="nav-item navbar-item">
-        <a class="nav-link navbar-item" href="{{url_for('users.logout')}}">Logout</a>
-      </li>
-    {%endif%}
-       <li class="nav-item" style="float: right">
-       <a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
-    </li>
-    <li class="nav-item" style="float: right">
-      <a href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
-    </li>
-    <li class="nav-item" style="float: right">
-      <a href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
-    </li>
-    <li class="nav-item" style="float: right">
-       <a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
-    </li> 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
+    {% include 'social-media-links.html' %}
+  </div>
 </nav>
+
+
 <br>
 <div class="signup_container">
 
@@ -94,72 +56,10 @@
       <input type="password" placeholder="Repeat Password" name="password2" class="bars input" required>
     </span>
 
-      <center>
-        <input type="submit" class="signup-btn btn btn-success" style="text-align: center; margin-left: 37%;" value="Sign Up">
-      </center>
-
+      <button type="submit" class="signup-btn btn btn-success" style="text-align: center; margin-left: 37%;">Sign Up</button>
 
 </form>
 </div>
-<!--     <span>
-    <button onclick="document.getElementById('id04').style.display='block'" class="btn signup-btn" style="text-align: center;"><h2>Sign Up</h2></button>
-    <span>
-
-<div id="id04" class="modal">
-  
-  <form class ="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
-    
-    <div class="container" id="login_box">
-      <div class="imgcontainer">
-      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
-    </div>
-
-    <div style="color: grey; font-family: helveticaneuelight;">
-
-    <h2 id="login_title">Title</h2>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="city" class="label"><b>City</b></label>
-      <input type="text" placeholder="Enter Your City" name="city" class="bars2" required>
-    </span>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="Fee" class="label"><b>Minimum Price</b></label>
-      <input type="text" placeholder="Minimum Price" name="max_price" class="bars2" required>
-    </span>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="Fee" class="label"><b>Maximum Price</b></label>
-      <input type="text" placeholder="Maximum Price" name="max_price" class="bars2" required>
-    </span>
-
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="Languages" class="label"><b>Languages You Want to Learn In</b></label>
-      <br>
-      <form action="/action_page.php" class="bars2">
-        <input type="checkbox" name="languages_ar" value="Arabic"> Arabic <br>
-        <input type="checkbox" name="languages_en" value="English"> English <br>
-        <input type="checkbox" name="languages_hb" value="Hebrew"> Hebrew <br>
-      </form>
-
-    <span class="field" style="float: left; width: 100%;">
-      <label for="car_type" class="label"><b>Gearbox</b></label>
-      <input type="text" placeholder="Gearbox Type" name="gearbox" class="bars2" required>
-    </span>
-
-  </div>
-
-    <button  class="login" type="submit">Continue</button>
-    <button class="login" type="submit">Skip</button>
-
-  </div>
-  </form>
-  </div>
-
-  </form> 
- </div>
-  -->
 
 </body>
 </html>
