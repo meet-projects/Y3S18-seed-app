@@ -33,11 +33,33 @@
 
         {% endif %}
 
+<<<<<<< HEAD
         <li><a href="{{url_for('profile', user_id=current_user.id)}}">     {{current_user.name}}</a></li>
         <li><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">My Wishlist</a></li>
         <li><a href="{{url_for('users.logout')}}">Logout</a></li>
         {%else%}
         <li><a data-toggle="modal" data-target="#login">Login</a></li>
+=======
+    <li><a href="{{url_for('users.login')}}">Login</a></li>
+    {% endif %}
+    
+  </ul>
+
+</nav>
+
+
+<!--       current user: {{ current_user.name }}
+      user_id: {{current_user.id}}
+ -->
+<div class="container">
+  {% block content %}
+      {% endblock %}
+
+
+
+
+</div>
+>>>>>>> fb817f80363c4d54cc93a433cfdf69f6f11a3bf8
 
       {% endif %}
     

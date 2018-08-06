@@ -20,26 +20,8 @@ body{
     font: normal 18px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold; ;
 }
 
-.roots-btn {
-
-    -webkit-appearance: textfield;
-
-    background-color: #D9DBDC;
-
-    cursor: text;
-
-    padding: 10px 10px;
-
-    border-width: 0px;
-
-    border-style: inset;
-
-    border-color: #D9DBDC;
-
-    border-image: initial;
-
-    border-radius: 7px;
-
+.guy{
+    right: 0px;
 }
 
 .button2 {
