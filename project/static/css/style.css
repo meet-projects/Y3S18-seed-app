@@ -1,6 +1,6 @@
 
 body{
-     background-image: url("boat-daylight-forest-675763.jpg");
+     background-image: url("image1.png");
      height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
@@ -103,17 +103,16 @@ form, input, textarea, select, button, meter, progress {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   padding: 10px 20px;
-  border: 1px solid #b7b7b7;
+  border: 2px solid white;
   -webkit-border-radius: 10px;
-  border-radius: 10px;
-  font: normal 16px/normal "Georgia", Times, serif;
-  color: black;
+  border-radius: 30px;
+  font: normal 16px/normal Arial;
+  color: white;
   -o-text-overflow: clip;
   text-overflow: clip;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.1);
   -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-  text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -125,7 +124,7 @@ form, input, textarea, select, button, meter, progress {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   border: none;
-  font: normal 40px/1 Georgia, serif;
+  font: normal 60px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
   color: white;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -140,36 +139,41 @@ form, input, textarea, select, button, meter, progress {
   overflow: hidden;
   -webkit-border-radius: 6px;
   border-radius: 6px;
-  font:normal 20px/1 Georgia, serif ;
-  color: black;
+  font:normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  color: white;
   text-align: center;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  background: rgba(255, 255, 255, 0.4);
+  background: transparent;
  
   
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
 
 }
 
-/*.button1 {
-  -webkit-box-sizing: content-box;
+.button2s {
+ -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  border: none;
-  font: normal normal bold 63px/1 Georgia, serif;
-  color: black;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-}*/
+  padding: 10px 20px;
+  border: 3px solid white;
+  -webkit-border-radius: 10px;
+  border-radius: 30px;
+  font: normal 16px/normal Arial,bold;
+  color: white;
+  background: transparent;
+  background:rgba(400,400,400,0.3);
+  
+
+}
 
 .words {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   border: none;
-  font: normal 24px/1 Georgia, serif;
-  color: black;
+  font: normal 24px/normal Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: white;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   display: inline-block;
@@ -178,5 +182,6 @@ form, input, textarea, select, button, meter, progress {
 }
 
 .div2{
-     background:rgba(400,400,400,0.6);
+     background:rgba(400,400,400,0.0);
+
 }
