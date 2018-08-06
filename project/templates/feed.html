@@ -6,6 +6,8 @@
 
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
+		<link rel="stylesheet" type="text/css" href="../static/css/feed.css">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -31,7 +33,11 @@
 	</head>
 
 	<body style="background-color: rgb(246,246,246);">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+
+	<a class="nav-link" href="{{url_for('users.index')}}">
+        <img src="../static/img/easylicense_logo.png" alt="EasyLicense" class="navbar_logo">
+    </a>
+		<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-light">
 		  <a class="nav-link" href="{{url_for('users.index')}}">
 		  	<img src="../static/img/easylicense_logo.png" alt="EasyLicense" class="navbar_logo">
 		  </a>
@@ -61,7 +67,7 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="{{url_for('signup')}}">Sign Up</a>
 		      </li>
-		      {% endif %}
+		      {% endif %} -->
 		      <!-- <li class="nav-item" style="float: right">
 		    	<a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
 		      </li>
@@ -74,6 +80,29 @@
 		      <li class="nav-item" style="float: right">
 		    	<a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
 		      </li> -->
+
+        <ul>
+          {% if current_user.is_authenticated %}
+          <li>
+            <a href="{{url_for('profile_template')}}">My Profile</a>
+          </li>
+            {% endif %}
+          <li>
+            <a href="{{url_for('feed')}}">Instructors' Feed</a>
+          </li>
+          {% if current_user.is_authenticated %}
+          <li>
+            <a href="{{url_for('users.logout')}}">Logout</a>
+          </li>
+          {% endif %}
+          {% if not current_user.is_authenticated %}
+          <li>
+            <a href="{{url_for('users.index')}}">Login</a>
+          </li>
+          <li>
+            <a href="{{url_for('signup')}}">Sign Up</a>
+          </li>
+          {% endif %}
 		    </ul>
 		  </div>
 		</nav>
