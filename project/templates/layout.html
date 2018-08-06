@@ -6,163 +6,31 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     
-
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/post.css') }}">
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/viewstory.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutstyle.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutnavstyle.css') }}">
-
 
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-      
 
-<style type="text/css">
-body {
-    height: 100%;
-}
-.bg {
-    /* The image used */
-    background-image: url("{{ url_for('static', filename='pictures/Backgroundsite.jpg') }}");
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
 
-    /* Full height */
-    height: 100vh;
+      <title>{% block title %}ARTflict{% endblock %}</title>
 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%, 100vh;
-    /*position: fixed;*/
-    
-}
-   .content{
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-    width: 90%;
-    height: 100vh;
-    background-color: white;
-    overflow: auto;
-  }
+      {% block css %}
+      {% endblock %}
 
-  .topnav{
-    width: 100%;
-    padding-left: 0px;
-    display: inline-block;
-    background-color:  #ffe5cc;
-  }
-
-  .navblock{
-    width: 20%;
-  }
-  #saved_artist{
-    padding-left: 30px;
-  }
-  .nav.navbar-nav.topnav li a {
-    color: blue;
-}
-.color-me{
-    color:blue;
-}
-
-#navbarlogo{
-width: 30%;
-height: 100px;
-float: left;
-padding:10px;
-}
-#avatarpic{
-  width: 100px;
-  height: 100px;
-  float:right;
-  border-radius: 50%;
-  padding: 10px;
-  margin-left: 40px;
-
-}
-
-.searchblock{
-  width: 40%;
-padding:10px;
-}
-
-* {
-  box-sizing: border-box;
-
-}
-
-/* Style the search field */
-form.example input[type=text] {
-  width: 200px;
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-
-/* Style the submit button */
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.logoblock{
-    text-align:center;
-    
-}
-
-.pos{
-    display:inline-block;
-    
-}
-
-
-</style>
+      <style type="text/css">
+        /* Need to have html rendering for the url below*/
+        .bg {
+          /* The image used */
+          background-image: url("{{ url_for('static', filename='pictures/Backgroundsite.jpg') }}");
+        }
+      </style>
 
 
 
   </head>
   <body>
 
-
-<!--<<<<<<< HEAD
-    <style type="text/css">
-    body{
-
-      background: url("{{ url_for('static', filename='pictures/backgroundfeed.jpg') }}");
-    }
-    </style>
-<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag" height="60" width="200"><br>
-
-  <div class="topnav">
-  <a  href="{{url_for('feed')}}">Home</a>
-  <a href="{{url_for('stories')}}">Stories</a>
-  <a href="#saved_artist">Saved Artist</a>
-  <a href="{{url_for('aboutus')}}">About</a>
-  <a href="{{url_for('add_post.add_post')}}">Post</a>
-=======-->
 
   <div class="bg">
     <div class="content">
@@ -182,7 +50,7 @@ form.example::after {
    
     </div>
 
-        <div class="nav navbar-nav topnav navbar" style="">
+        <div class="nav navbar-nav topnav navbar">
         <a  href="{{url_for('feed')}}" class="navblock color-me">Home</a>
         <a href="{{url_for('stories')}}" class="navblock">Stories</a>
         <a href="#saved_artist" class="navblock" id="saved_artist">Saved Artist</a>

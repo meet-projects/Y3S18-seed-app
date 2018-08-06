@@ -1,77 +1,98 @@
 {% extends "layout.html" %}
+
+{% block title %}
+ Something else
+{% endblock %}
+
+{% block css %}
+
+<link></link>
+{% endblock %}
 {% block content %}
-<!-- This is my profile -->
-{% if current_user.id == visited_user.id %}
-<div class="content">
 
-      <h1 class="profile_page_title"> ARTIST PROFILE </h1>
-
-      <!-- INFO-->
-      <div class = "jumbotron jumbotron-img">
-      	<div class= 'col-md-3>'>
-          <img id = 'profile_img' src="{{visited_user.profile_pic_url}}" class="profile_page_pic"> 
-        </div>
-
-        <button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#changeProfile'>Change your Pic</button>  
-
-
-      <div class = 'col-md-9'> 
-      	<p>{{visited_user.username}}</p>
+  <!-- This is my profile -->
+  {% if current_user.id == visited_user.id %}
+    <div class="container">
+      <div class="row">
+        <h1 class=" col-md-12 ">ARTIST PROFILE</h1>
       </div>
-      	</div>
 
+      <div class="row ">
+        <div class="col-md-6">
+           <img class="" src="{{ url_for('static', filename='pictures/avatar.png') }}" alt="avatarpic" >
+           <strong>{{visited_user.username}}</strong>
+        </div>
+        <div class="col-md-6">
+          <button>SAVE ARTIST</button>
+        </div>
+      </div> 
 
-      <div class="modal modl-dialog modal-content" id="changeProfile">
-               <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Change your Bio</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-               <!-- Modal body -->
-              <div class="modal-body">
-                 <form action="{{ url_for('profile.change_pic')}}" method="post">
-                {{ pic_form.csrf_token }}
-                <p class="text">Pic URL:</p>   {{ pic_form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
-                <button class="btn btn-sm btn-success" type="submit">Share</button>
-                </form>
-                
-              </div>	
-    </div>
-      <!-- About Artist -->
-      <h1> About the Artist</h1>
-      <p>{{visited_user.bio}}</p>
-      <button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#changeBio'>Change your Bio</button>
-
-      <div class="modal modal-dialog modal-content" id="changeBio">
-             <!-- Modal Header -->
-              <h4 class="modal-title">Edit Bio</h4>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="modal modl-dialog modal-content" id="changeProfile">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title ">Change your Bio</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
              <!-- Modal body -->
             <div class="modal-body">
               <form action="{{ url_for('profile.change_bio')}}" method="post">
-              {{ bio_form.csrf_token }}
-              <p class="text">URL:</p>   {{ bio_form.profile_bio(placeholder= "Change Bio") }}<br><br>
-              <button class="btn btn-sm btn-success" type="submit">Change Bio</button>
-              </form>
-              
+                {{ pic_form.csrf_token }}
+                <p class="text">Pic URL:</p>   {{ pic_form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
+                <button class="btn btn-sm btn-success" type="submit">Share</button>
+              </form>    
             </div>
-      </div>
-      <!--Art Gallery-->
-      {% for art in art_pieces %}
-      <div class = 'row'>
-      	<div class="jumbotron jumbotron-img">
-               <div class = 'col-md-3'>
-                 <img id = "feed_img" src={{art.ArtURL}}>
-               </div>
+          </div>       	
         </div>
-        {% endfor %}
       </div>
+      
+      <div class="BIO">
+        <!-- About Artist -->
+        <h1> bio</h1>
+        <p>{{visited_user.bio}}</p>
+        <button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#changeBio'>Change your Bio</button>
+
+        <div class="modal modal-dialog modal-content" id="changeBio">
+               <!-- Modal Header -->
+                <h4 class="modal-title">Edit Bio</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <!-- Modal body -->
+              <div class="modal-body">
+                <form action="{{ url_for('profile.change_bio')}}" method="post">
+                {{ bio_form.csrf_token }}
+                <p class="text">URL:</p>   {{ bio_form.profile_bio(placeholder= "Change Bio") }}<br><br>
+                <button class="btn btn-sm btn-success" type="submit">Change Bio</button>
+                </form>
+                
+              </div>
+        </div>
+      </div>
+
+      <div class="galery">
+        <!--Art Gallery-->
+        <div class="row">
+          <div class="col-md-3">
+            <img src="" alt="pic1">
+          </div>
+          <div class="col-md-3">
+            <img src="" alt="pic2">
+          </div>
+          <div class="col-md-3">
+            <img src="" alt="pic3">
+          </div>
+          <div class="col-md-3">
+            <img src="" alt="pic4">
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 
       <!--Visiting User-->
       {% else %}
-      <h1>Not You!!!!!</h1>
 
       {{visited_user.displayname}}
       <h1 class="profile_page_title"> ARTIST PROFILE </h1>
@@ -88,8 +109,8 @@
       </div>
 
       <!-- About Artist -->
-      <h1> About the Artist</h1>
-      <p>{{visited_user.bio}}</p>
+      <h1 style="font-size:20px;"> About the Artist</h1>
+      <p class="bio">{{visited_user.bio}}</p>
       <!--Art Gallery-->
       {% for art in art_pieces %}
       	<div class = 'row'>
@@ -101,5 +122,4 @@
         </div>
       {% endfor %}
       {% endif %}
-</div>
 {% endblock %}

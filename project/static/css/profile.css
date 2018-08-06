@@ -1,18 +1,12 @@
-.container{
-	margin-left: 20px;  
+.profilebody{
+	padding:20px;
 }
 
-.jumbotron-img{
-	max-width: 40%;
-	background-color: transparent;
+.BIO{
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
 }
-
-#profile_img{
-	width: 200px;
-	height: 200px;
-	border-radius: 50px;
-}
-
-#profile_gallery {
-	max-width: 100%;
+.jumbotron{
+	background-color: white;
 }
