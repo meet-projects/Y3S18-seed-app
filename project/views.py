@@ -135,8 +135,8 @@ def edit_profile(teacher_id):
 def studentsignup():
 	return render_template('stu_signup.html')
 
-@app.route('/filter')
-def filter():
+@app.route('/filters')
+def filters():
 	return render_template('filter.html')
 
 ##@app.route('/student_edit_profile/<int:student_id>')

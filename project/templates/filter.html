@@ -1,5 +1,59 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Filtering</title>
+</head>
 
+<body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+      <a class="nav-link" href="{{url_for('users.index')}}">
+        <img src="../static/img/easylicense_logo.png" alt="EasyLicense" class="navbar_logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav" style="background-color: rgb(0,115,168);">
+        <ul class="navbar-nav mr-auto mr-auto mt-2 mt-lg-0">
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('profile_template')}}">My Profile</a>
+          </li>
+            {% endif %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('feed')}}">Instructors' Feed</a>
+          </li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('users.logout')}}">Logout</a>
+          </li>
+          {% endif %}
+          {% if not current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('users.index')}}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('signup')}}">Sign Up</a>
+          </li>
+          {% endif %}
+          <!-- <li class="nav-item" style="float: right">
+          <a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
+          </li>
+          <li class="nav-item" style="float: right">
+        <a href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
+        </li>
+        <li class="nav-item" style="float: right">
+        <a href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
+          </li>
+          <li class="nav-item" style="float: right">
+          <a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
       <div class="signup_container">
       <form action="{{ url_for('users.filter') }}" method="POST">
 
@@ -41,3 +95,7 @@
     <button class="login" type="submit">Skip</button>
   </form>
   </div>
+
+  </body>
+
+  </html>

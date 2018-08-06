@@ -207,12 +207,12 @@ def student_signup():
                     db.session.add(student)
                     db.session.commit()
                     login_user(user, remember=True)
-                    return redirect(url_for('filter'))
+                    return redirect(url_for('filters'))
 
         else:
             return Response("<p>invalid form</p>")
-
-    return render_template('index.html', form=form)
+    else:
+        return redirect('index')
 
 
 @users_bp.route('/filter', methods=['GET', 'POST'])
