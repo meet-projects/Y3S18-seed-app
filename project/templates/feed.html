@@ -1,0 +1,44 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="mainfeed post_space">
+
+{% if show and show == 'artless' %}
+
+{% for post in posts %}
+
+  <div class="mainfeed post_template">
+    <div class="mainfeed post_title">
+      {{ post.title }}
+    </div>
+
+    <div class="mainfeed post_art">
+      <img src="{{ post.ArtURL }}">
+    </div>
+
+    <div class="mainfeed post_preview">
+      {{ post.get_description() }}
+    </div>
+
+    <div class="mainfeed post_footer">
+      <div class="mainfeed post_date">
+        {{ post.format_date() }}
+      </div>
+      <div class="mainfeed post_relate">
+        <input type="img" name="relate_button" src="{{ post.ArtURL }}">
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+<p>hi</p>
+
+{% else %}
+
+{% endif %}
+
+</div>
+
+{% endblock %} 

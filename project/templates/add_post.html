@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}ADD POST{% endblock %}
+
+{% block css %}
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/post.css') }}">
+{% endblock %}
+
+{% block content %}
+
+	
+<div class = "container">
+
+	<h1 class="add_post_header add_post_item">ADD A POST</h1>
+	<p class ="explain ">Share your story with the Artflict community </p>
+	<p class = "explain"> Have an artist illustrate your story, and bring it to life</p>
+
+	<form action="{{ url_for('add_post.add_post') }}" method="post">
+	{{ form.csrf_token }}
+		<div class="row" >
+		<div class="col-md-1" class = "sub">  TITLE:</div>
+		<div class="col-md-4"  class = "post_textbox">   {{ form.title(placeholder= "Title") }}</div>
+		</div>
+		<div class = "row">
+		<div class = col-md-1 class = "sub">  STORY:</div>
+		<div class="col-md-3">   {{ form.text(placeholder= "Story")}}</div>
+		</div>
+		<div class="row">
+		<div class = "col-md-5"></div>
+		<div class col-md-2><button class="btn btn-default" type="submit">Post</button></div>
+		</div>
+	</form>
+
+</div>
+{% endblock %}

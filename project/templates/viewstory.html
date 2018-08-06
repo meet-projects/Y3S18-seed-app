@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block title %}VIEW STORY{% endblock %}
+
+{% block css %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/viewstory.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="post_block">
+       <div class="valid_text_space" >
+           <div id="story_title"> {{post.Title}} </div><br><br> 
+<!--Checking if post has picture, which will cancel button-->
+           {% if post.ArtURL != None %}
+           <div class = 'row' id = 'info'>
+        <div class="col-md-9" id="description_block"> {{post.Text}}</div>
+       <div class = "col-md-3">
+              <div class="jumbotron jumbotron-img">
+            <img id = "post_img" src={{post.ArtURL}}></
+         </div>
+         </div>
+       <div class = 'row'>
+        <div class='col-md-4'></div>
+      <div class = col-md-8><a href = "{{url_for('profile', username = user.username)}}">The work of '{{user.displayname}}'</a>
+</div>
+      <h1>Artist Notes:</h1>
+      <p id = 'notes'>{{post.ArtistNotes}}</p>
+       </div>
+    
+     </div>
+          
+           
+           <!--<div class="publish_date_block">
+              <span class="publish_date_text"> Published on:    
+                  {{ post.format_date() }}
+              </span>
+           </div>
+              <div class="vote_block"> 
+                  <asp:ImageButton ClientIDMode="Static" CssClass="vote_button up" ID="upvote" 
+                      ClientID='<%# string.Format("upvote_{0}", Eval("StoriID")) %>' 
+                       runat="server" ImageURL="Images/upvote-grey.png" CommandName="vote_up"
+                       CommandArgument='<%# Eval("StoriID") %>' OnClientClick="GetScrollerPosition();"/> 
+ 
+                  
+                  
+              </div>
+          </div>
+          
+        -->
+{% else %}
+        <div class = 'row'>
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id = "description_block"> {{post.Text}}</div>
+        <div class="col-md-2"></div>
+
+        <div class = 'row'>
+        <div class="col-md-9"></div>
+        <div class="col-md-3"> <button type = 'button' class = 'btn btn-info btn-lg' data-toggle= 'modal' data-target = '#addArt'>ILLUSTRATE THIS STORY</button> 
+            <!-- The Modal -->
+<div class="modal" id="addArt">
+  <div class="modal-dialog">
+    <div class="modal-content">
+       <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Share your art...</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+       <!-- Modal body -->
+      <div class="modal-body">
+         <form action="{{ url_for('add_post.add_art', post_id = post.id) }}" method="post">
+        {{ form.csrf_token }}
+        <p class="text">URL:</p>   {{ form.art_url(placeholder= "Add URL") }}<br><br>
+        <p>Notes:</p>   {{ form.artist_notes(placeholder= "Notes") }}<br><br>
+        <button class="btn btn-sm btn-success" type="submit">Share</button>
+        </form>
+        
+      </div>
+       <div class="cover_image_space">
+          <asp:ImageButton ClientIDMode="Static" ID="cover_image" CommandName="image_click"
+              CommandArgument='<%# Eval("StoriID") %>' ClientID='<%# string.Format("cover_image{0}", Eval("StoriID")) %>'
+              ImageURL="Images/Book-icon-black.png" runat="server" CssClass="cover_photo" OnClientClick="GetScrollerPosition();"/>
+      <!-- Modal footer --> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+     </div>
+  </div>
+  <br><br>
+</div>
+        </div>
+     </div>
+
+
+
+{% endif %}
+{% endblock %} 

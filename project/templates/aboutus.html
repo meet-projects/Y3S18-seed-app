@@ -1,0 +1,150 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/about.css') }}">
+
+{% extends "layout.html" %}
+{% block title %}about us {% endblock %}
+{% block css %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock%}
+
+
+
+{% block content %}
+<!--	<img src="../static/pictures/nlogo.png" alt="Stickman" class="imag">-->
+
+<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="Stickman" class="imag" height="60" width="300">
+	
+	
+<h1>About ArtFlict</h1><br>
+<br>
+<p>   Artflict is a raising startup company created by Y3 in MEET (Middle East Entrepreneurs Of Tomorrow). Our main </p>
+<p>   aim is to create a more compassionate and tolerate society where are is used more frequently for expression </p>
+<p>   and therapy. We are trying to help people suffering from the Palestinian- Israeli conflict in their daily lives </p>
+<p>   to express themselves in a friendly artistic way. We are an app in which people express their emotion and artist</p>
+<p>   empathize with their stories by creating related art</p>
+ <img src="{{ url_for('static', filename='pictures/line3.png') }}" width="250" >
+
+<h1>Team</h1>
+<!--
+<header>Project meneger:</header>	
+  <div class="column">
+    <img src="{{ url_for('static', filename='pictures/siham.jpg') }}" alt="Snow" style="width:100%">
+    <p>Siham Abu Ali</p>
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='pictures/ben.jpg') }}" alt="Forest" style="width:100%">
+    <p>Ben Levi</p>
+  
+  </div>
+
+<header>Developers:</header>
+<div class="column">
+    <img src="{{ url_for('static', filename='pictures/naomy.jpg') }}" alt="Snow" style="width:100%">
+    <p>NaomyLevy- Ashkenazy </p>
+  </div><br><br>
+  <div class="column">
+    <img src="{{ url_for('static', filename='pictures/may.jpeg') }}" alt="Forest" style="width:100%">
+    <p>May Raviel</p>
+  </div>
+  </div>
+  	
+</div>
+-->
+
+<!-- Portfolio Gallery Grid -->
+
+ <h1>Project maneger</h1>
+<div class="row">
+  <div class="column">
+    <div class="content">
+      <img src="{{ url_for('static', filename='pictures/siham.jpg') }}" alt="siham" style="width:100%">
+      <p>Siham Abu Ali</p>
+    </div>
+	</div>
+  <div class="column">
+    <div class="content">
+    <img src="{{ url_for('static', filename='pictures/ben.jpg') }}" alt="ben" style="width:100%">
+      <p>Ben Levi</p>
+    </div>
+    </div>
+</div>  
+  <!--</div>-->
+  <h1>developers:</h1>
+  <!--<div class="column1">-->
+  	<div class="row1">
+  	<div class="column">
+    <div class="content1">
+    <img src="{{ url_for('static', filename='pictures/naomy.jpg') }}" alt="naomy" style="width:100%">
+      <p>Naomy Levy-Ashkenazy</p>
+    </div>
+    </div>
+  <!--</div>-->
+  <div class="column1">
+    <div class="content1">
+    <img src="{{ url_for('static', filename='pictures/may.jpeg') }}" alt="may" style="width:100%">
+      <p>May Raviel</p>
+    </div>
+	</div>
+	<div class="column1">
+     <div class="content1">
+    <img src="{{ url_for('static', filename='pictures/amir.jpg') }}" alt="amir" style="width:100%">
+      <p>Amir Saadi</p>
+    </div>
+    </div>
+    </div>
+<!-- END GRID -->
+
+<h1>Designer:</h1>
+<div class="row1">
+<div class="column1">
+<div class="content1">
+    <img src="{{ url_for('static', filename='pictures/alicia.jpg') }}" alt="alicia" style="width:100%">
+      <p>Alicia Kamien- Kazhdan</p>
+ </div>
+ </div>
+ 	<div class="column1">
+     <div class="content1">
+    <img src="{{ url_for('static', filename='pictures/mariel.jpg') }}" alt="mariel" style="width:100%">
+      <p>Mariel Basil</p>
+    </div>
+    </div>
+</div>
+<h1>Business developers:</h1>
+<div class="row1">
+<div class="column1">
+<div class="content1">
+    <img src="{{ url_for('static', filename='pictures/ramzi.jpg') }}" alt="ramzi" style="width:100%">
+      <p>Ramzi Beidas</p>
+ </div>
+ </div>
+ <div class="column1">
+     <div class="content1">
+    <img src="{{ url_for('static', filename='pictures/hala.jpg') }}" alt="hala" style="width:100%">
+      <p>Hala Abu Sneineh</p>
+    </div>
+    </div>
+    <div class="column1">
+<div class="content1">
+    <img src="{{ url_for('static', filename='pictures/carlos.jpg') }}" alt="carlos" style="width:100%">
+      <p>Carlos Hawari</p>
+    </div>
+    </div>
+    <div class="column1">
+<div class="content1">
+    <img src="{{ url_for('static', filename='pictures/hadar.jpg') }}" alt="hadar" style="width:100%">
+      <p>Hadar Katz-Yekutielly</p>
+    </div>
+    </div>
+    <div class="column1">
+<div class="content1">
+    <img src="{{ url_for('static', filename='pictures/sham.jpg') }}" alt="sham" style="width:100%">
+      <p>Sham Shalabi</p>
+    </div>
+    </div>
+</div>
+<!--</div>-->
+
+{% endblock %} 
+

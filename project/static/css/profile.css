@@ -1,0 +1,42 @@
+.container{
+	padding:20px;
+}
+
+
+.displayname{
+	padding-top: 20px;
+}
+
+.jumbotron{
+	background-color: transparent;
+}
+.profile-img{
+	width: 175px;
+	height: 175px;
+	border-radius: 50%;
+	margin-top: 10px;
+	margin-right:40px;
+	margin-bottom: 20px;
+}
+
+
+.gallery_img{
+    border: 1px solid #000;
+    margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.user_img{
+	height: 400px;
+	width: 400px;
+	margin-left: 10px;
+	margin-right: 10px; 
+}
+
+#artist_info{
+	padding-left: 20px;
+}
+
+#bio{
+	font-size: 20px;
+}

@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block title %}PROFILE{% endblock %}
+
+{% block css %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/profile.css')">
+
+
+{% endblock %}
+{% block content %}
+
+  <!-- This is my profile -->
+  {% if current_user.id == visited_user.id %}
+    <div class="container">
+    <p>ARTIST PROFILE</p>
+      <div class="row">
+      <div class="col-xs-6 col-md-3">
+            <a data-target = '#changeProfile' data-toggle = 'modal'><img class="profile-img" src="{{visited_user.profile_pic_url}}" alt="avatarpic" ></a>
+        </div>
+        <h1 class=" col-md-1 displayname "><strong>{{visited_user.displayname}}</strong></h1>
+      </div>
+
+          <div class="row">
+            <!--<div class="col-xs-6"><button>SAVE ARTIST</button></div> --> 
+
+
+                    <div class = 'modal' id = 'changeProfile'>
+                    <!-- Modal Header -->
+                   <div class="modal-header">
+                     <h4 class="modal-title">Change your picture</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                   <!-- Modal body -->
+                  <div class="modal-body">
+                     <form action="{{ url_for('profile.change_pic')}}" method="post">
+                    {{ pic_form.csrf_token }}
+                    <p class="text">Pic URL:</p>   {{ pic_form.profile_pic_url(placeholder= "Add Picture") }}<br><br>
+                    <button class="btn btn-sm btn-success" type="submit">Share</button>
+                     </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6"><button type = 'button' class = 'btn btn-sm' data-toggle= 'modal' data-target = '#changeBio'>Change your Bio</button>
+                </div>
+
+
+                <div class = 'modal' id = 'changeBio'>
+                    <!-- Modal Header -->
+                   <div class="modal-header">
+                     <h4 class="modal-title">Change your Bio</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                   <!-- Modal body -->
+                  <div class="modal-body">
+                     <form action="{{ url_for('profile.change_bio')}}" method="post">
+                    {{ bio_form.csrf_token }}
+                    <p class="text">Pic URL:</p>   {{ bio_form.profile_bio(placeholder= "Edit Bio") }}<br><br>
+                    <button class="btn btn-sm btn-success" type="submit">Share</button>
+                     </form>
+                  </div>
+              </div>
+
+
+             <div id = 'artist_info'>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- About Artist -->
+        <p> About this Artist</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+
+              <p id = 'bio'>{{visited_user.bio}}</p>
+              </div>
+        </div>
+              <div class="gallery">
+              <p>       _______________________________________</p>
+              <p>See {{visited_user.displayname}}'s artwork</p>
+              </div>
+              </div>
+
+        <div class = 'row float-left'>
+        {% for art in art_pieces %}
+        <!--Art Gallery-->
+            <div class="col-md-4">
+              <img class = 'img.thumbnail gallery_img' width = '80%', height = '200' src='{{art.ArtURL}}'>
+            </div>
+            {% endfor %}
+
+          </div>
+      </div>
+      
+    </div>
+
+
+
+
+      <!--Visiting User-->
+      {% else %}
+
+      {{visited_user.displayname}}
+      <h1 class="profile_page_title"> ARTIST PROFILE </h1>
+      <!-- INFO-->
+      <div class = 'row'>
+        <div class = "jumbotron jumbotron-img">
+        	<div class= 'col-md-3>'>
+            <img id = 'profile_img' src="{{visited_user.profile_pic_url}}" class="profile_page_pic">
+          </div>
+          <div class = 'col-md-9'>
+        	   <p>{{visited_user.username}}</p>
+        	</div>
+        </div>
+      </div>
+
+      <!-- About Artist -->
+      <h1 style="font-size:20px;"> About the Artist</h1>
+      <p class="bio">{{visited_user.bio}}</p>
+      <!--Art Gallery-->
+      {% for art in art_pieces %}
+      	<div class = 'row'>
+      	<div class="jumbotron jumbotron-img">
+               <div class = 'col-md-3'>
+                 <img id = "feed_img" src={{art.ArtURL}}>
+                </div>
+        </div>
+        </div>
+      {% endfor %}
+      {% endif %}
+{% endblock %}

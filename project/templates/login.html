@@ -1,21 +1,114 @@
-{% extends "layout.html" %}
-{% block content %}
- 
-<div class="add-user">
- 
-<div class="page-header">
- 
-<h2>Log in</h2>
- 
-  </div>
- 
-<form action="{{ url_for('users.login') }}" method="post">
-    {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }}
-    <button class="btn btn-sm btn-success" type="submit">Log in</button>
-  </form>
- 
-</div>
- 
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/login.css') }}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+<<<<<<< HEAD
+ <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+ <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	<style type="text/css">
+			 body{
+			  		background-image: url("../static/pictures/bacpicRed.jpg");
+			  	}
+	  </style>
+=======
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+>>>>>>> 305d49f2254e280faf55ceeb51fb6eec2b2e1de5
+</head>
+<body>
+	  
+<div id="login_page_body">
+		<script type="text/javascript">
+			 var getdata = '{{data | tojson}}';
+		</script>
+		<script src="{{ url_for('static', filename='js/loginjs.js') }}">
+		</script>
+
+		<div class="login_page_container">
+			<div class="imgcontainer">
+				<img src="static/pictures/logos/whitelogo.png" alt="logo" id="logo">
+			</div>
+
+			<div id="login_container">
+				<center>
+					<form id="login_form" class=" form_instance" action="{{ url_for('users.login') }}" method="post">
+						{{ form.csrf_token }}
+
+							<input type="text" name="username" id="login_textbox_username" 
+							class=" login_page_textbox" placeholder="Username">
+							<span id="wrong_cred_msg" class="error_message">
+								wrong username or password
+							</span>
+
+							<input type="password" name="password" id="login_textbox_password" 
+							class=" login_page_textbox" placeholder="Password">
+
+						<button id="login_submit" class="login_btn" type="submit">Log in</button>
+					</form>
+
+					<span id="open_signup_form_span" class="form_switch_span">
+						don't have an account?
+					</span>
+					<form class="page_switch_form" action="{{url_for('users.register')}}" method="get">
+						<button class="form_switch_link" type="submit">
+							Sign Up here!
+						</button>
+					</form>
+				</center>
+			</div>
+
+			<div id="signup_container">
+				<center>
+					<form id="signup_form" class="form_instance" action="{{ url_for('users.register') }}" method="post">
+						{{ form.csrf_token }}
+						<input type="text" name="displayname" id="signup_textbox_displayname" 
+								class=" login_page_textbox" placeholder="Full Name">
+						<span id="displayname_error_message" class="error_message">
+								displayname cannot be empty
+						</span>
+
+						<input type="text" name="username" id="signup_textbox_username" 
+								class=" login_page_textbox" placeholder="Username">
+						<span id="username_error_message" class="error_message">
+								username is taken
+						</span>
+
+						<input type="password" name="password" id="signup_textbox_password" 
+								class=" login_page_textbox" placeholder="Password">
+						<span id="password_err_msg" class="error_message">
+								password cannot be empty
+						</span>
+
+						<input type="password" name="confirm_pass" id="signup_textbox_password_confirm" 
+								class=" login_page_textbox" placeholder="Confirm Password">
+						<span id="pass_dont_match_msg" class="error_message">
+								passwords do not match
+						</span>
+
+						<button id="register_submit" class="login_btn" type="submit">Sign Up</button>
+					</form>
+
+					<span id="open_login_form_span" class="form_switch_span">
+						Already Have an Account?
+					</span>
+					<form class="page_switch_form" action="{{url_for('users.login')}}" method="get">
+						<button class="form_switch_link" type="submit">
+							Log In here!
+						</button>
+					</form>
+				</center>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

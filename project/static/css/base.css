@@ -1,0 +1,105 @@
+
+body {
+    height: 100%;
+}
+
+.bg {
+    /* Full height */
+    height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%, 100vh;
+    /*position: fixed;*/
+    
+}
+
+.content{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 90%;
+    height: 100vh;
+    background-color: white;
+    overflow: auto;
+  }
+
+
+
+.color-me{
+    color:black;
+}
+
+#navbarlogo{
+width: 30%;
+height: 100px;
+float: left;
+padding:10px;
+}
+#avatarpic{
+  width: 100px;
+  height: 100px;
+  float:right;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 40px;
+
+}
+
+.searchblock{
+  width: 40%;
+padding:10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  width: 200px;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.logoblock{
+    text-align:center;  
+}
+
+
+.navbarblock{
+  display: block;
+  align-items: center;
+  background-color: black: 
+  font-size:20px ;
+}
+
