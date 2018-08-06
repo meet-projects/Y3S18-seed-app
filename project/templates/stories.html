@@ -1,21 +1,14 @@
+{% extends "layout.html" %}
 
-{%extends "layout.html" %}
+{% block title %}Stories{% endblock %}
 
+{% block css %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/stories.css') }}">
+{% endblock %}
 
 {% block content %}
   <div id="feed_space">
 <div id="feed_space">
-<style type="text/css">
- 
- 
- #more {display: none;}
-
- #stories_h{
-color: white;
-
- }
- 
- </style>
  
  <h1 id="stories_h">Stories</h1>
  {% for post in posts %}

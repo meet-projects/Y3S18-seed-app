@@ -1,14 +1,20 @@
 
 {% extends "layout.html" %}
 
-{% block content %}
+{% block title %}FEED{% endblock %}
 
+{% block css %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/feed.css') }}">
+{% endblock %}
+
+{% block content %}
 
  {% for post in posts %}
  
    <div class="post_block">
     <div class = 'row'>
-    <div class="jumbotron jumbotron-img">
+    <div class="jumbot
+    ron jumbotron-img">
          <div class = 'col-md-3'>
            <img id = "feed_img" src={{post.ArtURL}}> </div><br><br><br>
             <div class = 'col-md-3'></div>

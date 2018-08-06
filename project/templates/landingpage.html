@@ -1,60 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>landing page</title>
-	<style type="text/css">  
-	 body{
+{% extends "layout.html" %}
 
-     	 background: url("{{ url_for('static', filename='pictures/background2.jpg') }}");
+{% block title %}landing{% endblock %}
 
+{% block css %}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
 
-    }
-
-    .imag2{
-    	width: 25%;
-    	height: 100%;
-    	     display: block;
-    	 margin-left: auto;
-    margin-right: auto;
-    }
-
-    .p_fonts{
-    	font-style: italic;
-    	color: white;
-    	font-size: 50px;
-    	
-    	    }
-	#p1{
-		margin-left: 300px;
-	}
-	#p2{
-		margin-left: 400px; 
-	}
-	#bt1{
-		 margin: 4px 500px;
-		   background-color: gray; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 70px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-	}
-	#by1:hover {
-    box-shadow: 0 12 px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-
-</style>
-</head>
-<body>
+{% block content %}
+	
 	<br><br><br>
 	<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="logo" class="imag2"><br>
 	<p class="p_fonts" id="p1" >WRITE YOUR TRUTH,</p>
 	<p class="p_fonts" id="p2">LET THEM DRAW IT</p>
 
 	<a href="login"><button type="button" id="bt1">LOGIN/SIGN UP</button></a>
-</body>
-</html>
+{% endblock %}

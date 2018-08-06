@@ -1,4 +1,11 @@
 {% extends "layout.html" %}
+
+{% block title %}view story{% endblock %}
+
+{% block css %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/viewstory.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <div class="post_block">
