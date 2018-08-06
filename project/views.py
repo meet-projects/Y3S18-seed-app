@@ -15,7 +15,7 @@ import sys, math
 @login_required
 def feed():
 	if current_user.account_type == "student":
-		student = Student.query.filter_by(user_id = current_user.id)
+		student = Student.query.filter_by(user_id = current_user.id).first()
 		teachers = db.session.query(Teacher).all()
 		all_teachers_tuples = []
 		for i in teachers:
@@ -34,14 +34,14 @@ def feed():
 			for l in slang:
 				if tlang.count(l)>0:
 					matching+=(1/len(slang))
-			all_teachers_tuples.append((matching,i))
+			all_teachers_tuples.append((matching,i.id))
 
 		all_teachers_tuples.sort(reverse=True)
 		all_teachers = []
 		
 		for i in all_teachers_tuples:
 
-			all_teachers.append(i[1])
+			all_teachers.append(Teacher.query.filter_by(id=i[1]).first())
 
 
 		all_cities = City.query.all()
@@ -53,7 +53,11 @@ def feed():
 	#else:
 	#teachers = all_teachers
 
-		return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="All Instructors",results="",thing="")
+		return render_template('feed.html', teachers=all_teachers, all_cities=all_cities ,page="Your customized feed",results="",thing="Your best matches are first!")
+	else:
+		ts=Teacher.query.all()
+		cities=City.query.all()
+		return render_template('feed.html',teachers=ts,all_cities=cities,page="All Instructors",results="",thing="")
 
 ##@app.route('/feed/<int:pagenum>')
 ##def feed_num(pagenum):

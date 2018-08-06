@@ -98,7 +98,7 @@ class Request(db.Model):
 
     def __init__(self,student_id,student_fname,teacher_id,done):
         self.student_id
-        self.student_fname=student
+        self.student_fname=student_fname
         self.teacher_id = teacher_id
         self.done = done
 
@@ -120,9 +120,10 @@ class Student(db.Model):
 
 
     def __init__(self, user_id,fname,lname,phone_num,gearbox,city,min_price,max_price,languages):
+        self.user_id=user_id
         self.fname=fname
         self.lname=lname
-        self.user_id=user_id
+        
         self.phone_num=phone_num
         self.gearbox=gearbox
         self.city=city
