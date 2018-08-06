@@ -1,9 +1,4 @@
- body{
 
-     	 background: url("{{ url_for('static', filename='pictures/background2.jpg') }}");
-
-
-    }
 
     .imag2{
     	width: 25%;

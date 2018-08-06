@@ -1,17 +1,16 @@
-{% extends "layout.html" %}
-
-{% block title %}HOME{% endblock %}
-
-{% block css %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>landing page</title>
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/landing.css') }}">
-{% endblock %}
 
-{% block content %}
-	
-	<br><br><br>
-	<img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="logo" class="imag2"><br>
-	<p class="p_fonts" id="p1" >WRITE YOUR TRUTH,</p>
-	<p class="p_fonts" id="p2">LET THEM DRAW IT</p>
+</head>
+<body style='background: url("{{ url_for('static', filename='pictures/background2.jpg') }}");'>
+<br><br><br>
+    <img src="{{ url_for('static', filename='pictures/nlogo.png') }}" alt="logo" class="imag2"><br>
+    <p class="p_fonts" id="p1" >WRITE YOUR TRUTH,</p>
+    <p class="p_fonts" id="p2">LET THEM DRAW IT</p>
 
-	<a href="login"><button type="button" id="bt1">LOGIN/SIGN UP</button></a>
-{% endblock %}
+    <a href="login"><button type="button" id="bt1">LOGIN/SIGN UP</button></a>
+</body>
+</html>
