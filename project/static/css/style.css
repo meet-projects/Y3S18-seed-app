@@ -22,7 +22,7 @@
 }
 
 .journey-cont {
-    
+
     position: relative;
     text-align: center;
     color: black;
@@ -249,11 +249,11 @@
     -moz-border-radius:9px;
     -webkit-border-radius:9px;
     border-radius:9px;
-    border:2px solid #347fb0;
+    border:2px solid white;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
-    font-family:Trebuchet MS;
+    font-family:new roman;
  
     font-size:20px;
     font-weight:bold;
