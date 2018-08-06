@@ -13,9 +13,16 @@
 		<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
 
 		<link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
+<script>
+function wrong() {
+   	alert("Error-You are logged into a diffrent account then the one you pressed.");
+}
+</script>
 </head>
 
 <body>
+
 <center>
 	<img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img">
 
@@ -35,7 +42,7 @@
 	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="fas fa-car" style="color: black; margin-right: 5px;"></i>Start</b> learning how to drive.</span>
 
 </div>
-<div class="col-md-4">
+<div class="col-md-4" id="btn-pos">
 
 	<br>
 	<br>
@@ -44,10 +51,10 @@
 		{% if current_user.account_type == "teacher" %}
 			<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
 		{%else%}
-	 		<button onclick="document.getElementById('id02').style.display='block'" class="btn"><h2>I'm an Instructor</h2></button>
+			<button onclick="wrong()" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
 	 	{%endif%}
 	{% else %}
-    <button onclick="document.getElementById('id02').style.display='block'" class="btn"><h2>I'm an Instructor</h2></button>
+    	<button onclick="document.getElementById('id02').style.display='block'" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
 	{%endif%}
 <div id="id02" class="modal">
   
@@ -87,15 +94,17 @@
     </div>  
   </form>
 </div>
+
 	{% if current_user.is_authenticated %}
 		{% if current_user.account_type == "student" %}
 			<a href="{{url_for('feed')}}"><button class="btn"><h2>I'm a Student</h2></button></a>
 		{%else%}
-			<button onclick="document.getElementById('id03').style.display='block'" class="btn" style="margin-top: 20px;"><h2>I'm a Student</h2></button>
+			<button onclick="wrong()" class="btn" style="margin-bottom: 25px;"><h2>I'm a Student</h2></button>
 		{%endif%}
 	{% else %}
     	<button onclick="document.getElementById('id03').style.display='block'" class="btn" style="margin-top: 20px;"><h2>I'm a Student</h2></button>
     {% endif %}
+
 <div id="id03" class="modal">
   
   <form class ="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
