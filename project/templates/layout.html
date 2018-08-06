@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>ROOTS</title>
+      <title>Roots - Embrace DiversityS</title>
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -67,17 +67,21 @@
         <form action="{{ url_for('users.login') }}" method="post">
 
           {{ form.csrf_token }}<br>
-          {{ form.email(placeholder="email") }} <br>
-          {{ form.password(placeholder="Password") }}<br>
-
-        <button class="button" type="submit">Log in</button>
+          <div class="form-group">
+            <label for="email">Email:</label>
+          {{ form.email(placeholder="email", class="form-control") }} <br>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+          {{ form.password(placeholder="Password", class="form-control") }}<br>
+          </div>
         <br>
-        <h9> don't have an account?</h9><a data-toggle="modal" data-target="#register">register</a>
-      </form>
+        <h9>Don't have an account?</h9><a data-dismiss="modal" data-toggle="modal" data-target="#register"> register</a>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-default" type="submit">Login</button>
       </div>
+      </form>
     </div>
 
   </div>
@@ -100,17 +104,31 @@
       <form action="{{ url_for('users.register') }}" method="post">
 
         {{ form.csrf_token }}
-        {{ form.email(placeholder="Email Adress") }} <br>
-        {{ form.name(placeholder="Full Name") }} <br>
-        {{ form.password(placeholder="Password") }} <br>
-        {{ form.confirm(placeholder="Confirm Password") }} <br>
 
-      <button class="btn btn-sm btn-success" type="submit">Register User</button>
-    </form>
+        <div class="form-group">
+            <label for="email">Email:</label>
+        {{ form.email(placeholder="Email Adress", class="form-control") }} <br>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+        {{ form.name(placeholder="Full Name", class="form-control") }} <br>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+        {{ form.password(placeholder="Password", class="form-control" ) }} <br>
+        </div>
+
+        <div class="form-group">
+            <label for="confirm">Confirm Password:</label>
+        {{ form.confirm(placeholder="Confirm Password", class="form-control") }} <br>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-default" type="submit">Register User</button>
       </div>
+      </form>
     </div>
 
   </div>
