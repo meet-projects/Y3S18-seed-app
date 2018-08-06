@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <title>Filtering</title>
 </head>
@@ -54,41 +55,39 @@
         </ul>
       </div>
     </nav>
-      <div class="signup_container">
-      <form action="{{ url_for('users.filter') }}" method="POST">
+<div class="signup_container">
+  <form action="{{ url_for('users.filter') }}" method="POST">
 
 
       <h2 id="login_title">Help Us Personalize Your Experience</h2>
 
       <span class="field" style="float: left; width: 100%;">
         <label for="city" class="label"><b>City</b></label>
-        <input type="text" placeholder="Enter Your City" name="city" class="bars2" required>
+        <input type="text" placeholder="Enter Your City" name="city" class="bars2">
       </span>
 
       <span class="field" style="float: left; width: 100%;">
-        <label for="Fee" class="label"><b>Minimum Price</b></label>
-        <input type="text" placeholder="Minimum Price" name="max_price" class="bars2" required>
+        <label for="Fee" class="label"><b>Minimum Price (in numbers)</b></label>
+        <input type="text" placeholder="Minimum Price" name="min_price" class="bars2">
       </span>
 
       <span class="field" style="float: left; width: 100%;">
-        <label for="Fee" class="label"><b>Maximum Price</b></label>
-        <input type="text" placeholder="Maximum Price" name="max_price" class="bars2" required>
+        <label for="Fee" class="label"><b>Maximum Price (in numbers)</b></label>
+        <input type="text" placeholder="Maximum Price" name="max_price" class="bars2">
       </span>
 
 
       <span class="field" style="float: left; width: 100%;">
         <label for="Languages" class="label"><b>Languages You Want to Learn In</b></label>
         <br>
-        <form action="/action_page.php" class="bars2">
           <input type="checkbox" name="languages_ar" value="Arabic" style="font-family: helvticaneuelight; color: grey;"> Arabic <br>
           <input type="checkbox" name="languages_en" value="English" style="font-family: helvticaneuelight; color: grey;"> English <br>
           <input type="checkbox" name="languages_hb" value="Hebrew" style="font-family: helvticaneuelight; color: grey;"> Hebrew <br>
-        </form>
       </span>
 
       <span class="field" style="float: left; width: 100%;">
         <label for="car_type" class="label"><b>Gearbox</b></label>
-        <input type="text" placeholder="Gearbox Type" name="gearbox" class="bars2" required>
+        <input type="text" placeholder="Gearbox Type" name="gearbox" class="bars2">
       </span>
 
     <button  class="login" type="submit">Continue</button>
