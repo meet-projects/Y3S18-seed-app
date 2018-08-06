@@ -25,27 +25,10 @@ body {
     overflow: auto;
   }
 
-.topnav{
-  width: 100%;
-  padding-left: 0px;
-  display: inline-block;
-  background-color:  #ffe5cc;
-}
 
-.navblock{
-  width: 20%;
-}
-
-#saved_artist{
-  padding-left: 30px;
-}
-
-.nav.navbar-nav.topnav li a {
-  color: blue;
-}
 
 .color-me{
-    color:blue;
+    color:black;
 }
 
 #navbarlogo{
@@ -112,6 +95,10 @@ form.example::after {
     text-align:center;  
 }
 
-.pos{
-    display:inline-block;  
+
+.navbarblock{
+  display: block;
+  align-items: center;
+  background-color: black: 
+  font-size:20px ;
 }

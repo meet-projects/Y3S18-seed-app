@@ -12,6 +12,7 @@
       <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layoutnavstyle.css') }}">
 
       <title>{% block title %}ARTflict{% endblock %}</title>
 
@@ -34,39 +35,52 @@
 
   <div class="bg">
     <div class="content">
-    <div class="logoblock">
-      <img src="{{ url_for('static', filename='pictures/logos/verticallog.png') }}" alt="verticallogo" id="navbarlogo" class="pos">
-      <div class="searchblock pos">
-      <!-- Load icon library -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <!-- The form -->
-        <form class="example pos" action="action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search pos"></i></button>
-        </form>
-      </div>
-      <a href = "{{url_for('my_profile')}}""><img src="{{ url_for('static', filename='pictures/avatar.png') }}" alt="anatarpic" id="avatarpic" class="pos"></a>
-   
+       <div class="row">
+          <div class="col-md-6">
+            <div class="logoblock">
+              <img src="{{ url_for('static', filename='pictures/logos/verticallog.png') }}" alt="verticallogo" id="navbarlogo" class="pos" style="width: 200; height: 60;"> 
+            </div>
+          </div>
+          <div class="col-md-4">
+              <div class="searchblock pos">
+               <form class="example pos" action="action_page.php">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button type="submit"><i class="fa fa-search pos"></i></button>
+                </form>
+              </div>
+          </div>
+          <div class="col-md-2">
+              <a href = "{{url_for('my_profile')}}""><img src="{{ url_for('static', filename='pictures/avatar.png') }}" alt="anatarpic" id="avatarpic" class="pos"></a>
+          </div>
+      </div>   
+    <div class="row">
+             <div class="col-md-3">
+               <a  href="{{url_for('feed')}}" class="link">Home</a>
+             </div>
+             <div class="col-md-3">
+               <a  href="{{url_for('stories')}}" class="link">Stories</a>
+             </div>
+             <div class="col-md-3">
+               <a  href="{{url_for('aboutus')}}" class="link">about</a>
+             </div>
+             <div class="col-md-3">
+               <a  href="{{url_for('add_post.add_post')}}" class="link">post</a>
+             </div>
     </div>
 
-        <div class="nav navbar-nav topnav navbar">
-        <a  href="{{url_for('feed')}}" class="navblock color-me">Home</a>
-        <a href="{{url_for('stories')}}" class="navblock">Stories</a>
-        <a href="#saved_artist" class="navblock" id="saved_artist">Saved Artist</a>
-        <a href="{{url_for('aboutus')}}" class="navblock">About</a>
-        <a href="{{ url_for('add_post.add_post') }}" class="navblock">Post</a>
-      </div>
-      <div class="content_main">
+     <div class="content_main">
         {% block content %}
         {% endblock %}
 
       </div>
-</div>
+    </div>
+  </div>
+  </div>
   
 
   
     
   </div>
+
   </body>
 </html>
