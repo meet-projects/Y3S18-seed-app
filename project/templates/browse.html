@@ -1,18 +1,19 @@
+<div class="browse-parallax">
 {% extends "layout.html" %}
 {% block content %}
 
-<div>
-	<img src="{{ url_for('static', filename='pictures/boat.jpg') }} " style="width: 1600px; height: 450px; position: relative; top: -20px;">
+<!-- 	<img src="{{ url_for('static', filename='pictures/boat.jpg') }} " style="width: 1600px; height: 450px; position: relative; top: -20px;"> -->
 
 
 <div class="typewriter">
-  <h1>Wellcome To Journeys</h1>
+  <h1>Welcome To Your Journey</h1>
 </div>
 
-</div> 
+</div>
+<!-- </div>  -->
 
 <div class="container-fluid" style="padding: 0px;">
-	<div class="khaled" style="background-color: white; ">
+	<div style="background-color: white;">
 		<br><br><br><br>
 		<div class="row">
 
@@ -28,10 +29,11 @@
 		    	<p> This journey would intrest people who are {{ all_journeys[i].category }}</p> <br>
 		    	<a href="{{url_for('display_journey', journey_id=all_journeys[i].id)}}"> View Details </a> -->
 		    	<center>
-		    	<div class="col-md-4">
-	            <div class="card mb-4 shadow-sm" >
+		    	<div class="journey-cont">
+		    		<div class="col-md-4">
+	            	<div class="card mb-4 shadow-sm" >
 	            	<div class="card-header">
-		    			<img src="{{ all_journeys[i].picture }}"  style="width:300px ;height:200px; border-radius: 10px;">
+		    			<img class="journey-img" src="{{ all_journeys[i].picture }}">
 	                	<p>{{ all_journeys[i].title }}</p> <br>	
 					</div>
 	                <div class="card-body">
@@ -53,15 +55,10 @@
 	      
 
 		    </div>
-	 	<style type="text/css">
-	 		 .bg {
-	  				  height: 50%;
-				 }
-	 	</style>
 		
 		
 		</div> 
-		</div>
+	</div>
 </div>
 
 </body>

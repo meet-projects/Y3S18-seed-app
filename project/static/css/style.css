@@ -1,7 +1,43 @@
 
-body{
-     background-image: url("image1.png");
-     height: 100%; 
+.apply-img{
+    background-image: url("image1.png");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.browse-parallax {
+    /* The image used */
+    background-image: url("boat.jpg");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.journey-cont {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.journey-img{
+
+    width:300px ;
+    height:200px; 
+    -webkit-filter: brightness(0.30);
+    filter: brightness(0.30);
+}
+
+.browse-img{
+    background-image: url("{{ url_for('static', filename='pictures/boat.jpg') }}");
+    height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,7 +68,7 @@ body{
 .navbar-inner {
     background-color:transparent;
     color:white;
-    font: normal 18px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold; ;
+    font: normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold; ;
 
 }
 
