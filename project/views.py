@@ -14,7 +14,6 @@ def browse():
 	all_journeys = Journey.query.all()
 	if not current_user.is_authenticated:
 		form = RegisterForm(request.form)
-	print(form)
 	return render_template('browse.html', all_journeys=all_journeys, form=form)
 
 
