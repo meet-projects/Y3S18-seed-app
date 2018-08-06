@@ -21,7 +21,7 @@ def feed():
 		for i in teachers:
 			matching = 0
 			if student.city == i.city:
-				matching+=1
+				matching+=5
 			if i.cost>=student.min_price and i.cost<=student.max_price:
 				matching+=1
 			sgb = student.gearbox.split(" ")
@@ -172,7 +172,8 @@ def studentsignup():
 
 @app.route('/filters')
 def filters():
-	return render_template('filter.html')
+	all_cities = City.query.all()
+	return render_template('filter.html',all_cities=all_cities)
 
 ##@app.route('/student_edit_profile/<int:student_id>')
 ##def student_edit_profile(student_id):
