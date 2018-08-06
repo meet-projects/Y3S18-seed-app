@@ -1,29 +1,26 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #0073a8;
-    font-family: helveticaneuelight;
+#navbar-logo{
+    background-color: #d7dee5;
 }
 
-li {
-    float: left;
-    border-right:1px solid #bbb;
-}
-
-li a {
-    display: block;
+.navbar-item{
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    font-family: helveticaneuelight;
+    font-size: 18px;
+    float: left;
 }
 
-li a:hover:not(.active) {
-    background-color: #111;
+.navbar-item:hover{
+    color: white;
+    background-color: #188fc4;
 }
 
-.active {
-    background-color: #4CAF50;
+.icons{
+    min-width: 50px;
+    min-height: 50px;
+    margin: 25px;
+    color: black;
+}
+
+.icons:hover{
+    color: #0073a8;
 }
