@@ -61,13 +61,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item nevblock">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url_for('feed') }}">HOME<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nevblock" href="#">Link</a>
+            <a class="nav-link nevblock" href="{{ url_for('stories') }}">STORIES</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nevblock" href="#">Disabled</a>
+            <a class="nav-link nevblock" href="{{ url_for('add_post.add_post') }}">POST</a>
+          </li>
+          <li class="nav-item nevblock">
+            <a class="nav-link" href="{{ url_for('aboutus') }}">ABOUT<span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
