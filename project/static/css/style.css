@@ -4,7 +4,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.guy{
+    right: 0px;
+}
 form, input {
 
     -webkit-appearance: textfield;
