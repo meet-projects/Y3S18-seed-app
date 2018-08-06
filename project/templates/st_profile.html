@@ -10,22 +10,23 @@
 {% endif %}
 
 <div class = "container-fluid" >
-<div class = "row" >
-{% if profile.profile_img ==  none %}
-<div class = "col-md-3 col-sm-4" >
-<img src="{{url_for('static', filename='pictures/profile.png')}}" />
-{% else %}
-<img src="{{current_user.profile_img}}" />
-{% endif %}
+	<div class = "row" >
+	
+		<div class = "col-md-3" >
+		{% if profile.profile_img !=  none %}
+		<img src="{{url_for('static', filename='pictures/profile.png')}}" />
+		{% else %}
+		<img src="{{current_user.profile_img}}" />
+		{% endif %}
+		</div>
 
-<h2> {{profile.name}} </h2>
-</div>
-<div class = "col-md-9 col-sm-8">
-<h3> {{profile.city}} </h3>
-<h3> {{profile.country}} </h3>
-<h3> {{profile.profession}} </h3>
-</div>
-</div>
+		<div class = "col-md-9">
+		<h2> {{profile.name}} </h2>
+		<h3> {{profile.city}} </h3>
+		<h3> {{profile.country}} </h3>
+		<h3> {{profile.profession}} </h3>
+		</div>
+	</div>
 
 <h3> {{profile.bio}} </h3>
 
@@ -33,12 +34,13 @@
 
 
 
-
-{% for journey in st_journeys %}
-<a href="{{url_for('display_journey' , journey_id=journey.id)}}">{{ journey.title }}</a> 
-<br>
-{% endfor %}
-
+<div class = "row">
+	{% for journey in st_journeys %}
+		<div class = "col-md-4" >
+		<a href="{{url_for('display_journey' , journey_id=journey.id)}}">{{ journey.title }}</a> 
+		</div>
+	{% endfor %}
+</div>
 
 
 
