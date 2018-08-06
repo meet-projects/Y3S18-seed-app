@@ -72,4 +72,4 @@ def logout():
     logout_user()
 
     form = LoginForm(request.form)
-    return render_template('login.html', form=form)
+    return redirect(url_for('browse'))
