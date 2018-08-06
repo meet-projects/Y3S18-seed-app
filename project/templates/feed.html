@@ -50,7 +50,7 @@
       </li>
       {%endif%}
     {%endif%}
-    {%if current_user.account_type=="teacher"%}
+    {%if current_user.account_type=="student"%}
       <li class="nav-item navbar-item">
         <a class="nav-link navbar-item" href="{{url_for('feed')}}">Feed</a>
       </li>

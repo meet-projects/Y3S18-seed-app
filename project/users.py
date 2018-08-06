@@ -30,7 +30,10 @@ def login():
             login_user(user, remember=True)
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('profile_template')
+                if current_user.account_type=="teacher":
+                    next_page = url_for('profile_template')
+                else:
+                    next_page = url_for('feed')
             return redirect(next_page)
         else:
             return Response("<p>invalid form</p>")
