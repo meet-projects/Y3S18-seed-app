@@ -1,36 +1,73 @@
 {% extends "layout.html" %}
 {% block content %}
 
-
 <div>
-	<div class="row">
-	{% for i in range(all_journeys|length) %}
-	
-	    <div class="col-sm-4" style="background-color:lavender;">
-
-	 	<center>
-		<div>
-	    	<img src="{{ all_journeys[i].picture }}"  style="width:100% ;height:50%;" 	 >
-	    	<h2>{{ all_journeys[i].title }}</h2	><br>
-
-	    	<h3> The journey will be at {{ all_journeys[i].location }}</h3><br>
-	    	<h3>Price: {{ all_journeys[i].price }}</h3><br>
-	    	<h3> This journey would intrest people who are {{ all_journeys[i].category }}</h3><br>
-	    	<a href="{{url_for('display_journey', journey_id=all_journeys[i].id)}}"> View Details </a>
-	    	<br><br>	
-	    </div>
-	    ------------------------------------------------------------- 
+	<img src="{{ url_for('static', filename='pictures/boat.jpg') }} " style="width: 1600px; height: 450px; position: relative; top: -20px;">
 
 
-	    </div>
-
-
-
-	</center>
-	{% endfor %}
-	</div>
+<div class="typewriter">
+  <h1>Wellcome To Journeys</h1>
 </div>
+
+
+</div> 
+
+<div class="container-fluid" style="padding: 0px;">
+	<div class="khaled" style="background-color: white; ">
+		<br><br><br><br>
+		<div class="row">
+
+		{% for i in range(all_journeys|length) %}
+		
+		 <!--   <div class="col-md-4" style="background-color:white;">
+
+		 	<center>
+		<div style="width: 300px; height:450px; color: black; font-style: italic; "  class="card mb-4 shadow-sm">
+		    	<img src="{{ all_journeys[i].picture }}"  style="width:300px ;height:200px;">
+		    	<p>{{ all_journeys[i].title }}</p> <br>
+		    	<p>The journey will be at {{ all_journeys[i].location }}</p> <br>
+		    	<p> This journey would intrest people who are {{ all_journeys[i].category }}</p> <br>
+		    	<a href="{{url_for('display_journey', journey_id=all_journeys[i].id)}}"> View Details </a> -->
+		    	<center>
+		    	<div class="col-md-4">
+	            <div class="card mb-4 shadow-sm" >
+	            	<div class="card-header">
+		    			<img src="{{ all_journeys[i].picture }}"  style="width:300px ;height:200px; border-radius: 10px;">
+	                	<p>{{ all_journeys[i].title }}</p> <br>	
+					</div>
+	                <div class="card-body">
+			    		<p>The journey will be at {{ all_journeys[i].location }}</p> <br>
+			    		<p> This journey would intrest people who are {{ all_journeys[i].category }}</p> <br>
+			    		<a href="{{url_for('display_journey', journey_id=all_journeys[i].id)}}"> View Details </a>
+           	        </div>
+	                    <!--<small class="text-muted">1 Hour</small> -->
+	                  </div>
+	                </div>
+	            </center>
+
+
+	                 {% endfor %}
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      
+
+		    </div>
+	 	<style type="text/css">
+	 		 .bg {
+	  				  height: 50%;
+				 }
+	 	</style>
+		
+		
+		</div> 
+		</div>
+</div>
+
+</body>
 
 
 
 {% endblock %}
+

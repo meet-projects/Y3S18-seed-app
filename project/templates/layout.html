@@ -25,7 +25,7 @@
   <body>
 
       <!-- child template -->
-      
+      <div class="hibyee">
          <nav class="navbar navbar-inverse">
          <ul class="nav navbar-nav">
     
@@ -49,19 +49,13 @@
   </ul>
 
 </nav>
-
-
-      current user: {{ current_user.name }}
-      user_id: {{current_user.id}}
-
-<div class="container">
-  {% block content %}
-      {% endblock %}
-
-
-
-
 </div>
 
+
+   <!--   current user: {{ current_user.name }}
+      user_id: {{current_user.id}} -->
+
+  {% block content %}
+  {% endblock %}
 
 </html>

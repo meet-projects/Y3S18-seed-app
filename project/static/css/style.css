@@ -5,6 +5,20 @@
     background-size: cover;
 }
 
+.cover {
+    /* The image used */
+    /* Set a specific height */
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.row{
+    width: 100%
+
+}
+
 form, input {
 
     -webkit-appearance: textfield;
@@ -52,6 +66,11 @@ form, input {
 
     font: 400 13.3333px Arial;
 
+}.container {
+        width: 100%;
+        height: 90px;
+        margin: 0 auto;
+        background-color: rgba(255,255,255,0.5);
 }
 
 
@@ -85,4 +104,35 @@ form, input, textarea, select, button, meter, progress {
     cursor: pointer;
 
     border-radius:7px;
+}
+.typewriter{
+    position: absolute;
+    top: 200px;
+    left: 75px;
+}
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; 
+  color:white;/* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 2.5s steps(40, end),
+    blink-caret .75s step-end infinite,
+    blink-caret infinite;
+    
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
 }
