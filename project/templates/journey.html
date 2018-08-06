@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
+	
 <div class= "container-fluid">
 
 <div class="row">
@@ -14,8 +15,21 @@
     </div>
   </div>
 
+<div> <img class="img1" src="{{ journey.picture }}"> </div>
+<div> <h1> {{journey.title}} </h1>
+	<h1> storyteller : <a href="{{url_for('profile', user_id=journey.creator_id)}}"> {{creator.name}} </a> </h1>
+	<h1> location : {{journey.location}} </h1>
+	<h1> description : {{journey.description}} </h1>
+	<h1> duration : {{journey.duration}} </h1>
+	<h1> price : {{journey.price}} </h1>
+	<h1> category : {{journey.category}} </h1>
+	<h1> requirements : {{journey.requirements}} </h1>
+	<h1> people range : {{journey.people_range}} </h1>
+	<h1>Price: {{ journey.price }}</h1><br>
+	<br><br>
 
-<img class="img1" src="{{ journey.picture }}">
+
+<!-- <img class="img1" src="{{ journey.picture }}">
  <h1> {{journey.title}} </h1>
 	<div class = "col-md-8">
 	<p> location : {{journey.location}} </p>
@@ -25,6 +39,7 @@
 	<p> category : {{journey.category}} </p>
 	<p> requirements : {{journey.requirements}} </p>
 	<p> people range : {{journey.people_range}} </p>
+ -->
 
     {% if current_user.is_authenticated %}
 
