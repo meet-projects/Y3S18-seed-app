@@ -221,9 +221,9 @@ def filter():
 
     student=Student.query.filter_by(user_id=current_user.id).first()
     if student is not None:
-        arabic=request.form.get('arabic')
-        hebrew=request.form.get('hebrew')
-        english=request.form.get('english')
+        arabic=request.form.get('languages_ar')
+        hebrew=request.form.get('languages_hb')
+        english=request.form.get('languages_en')
         automatic=request.form.get('automatic')
         manual=request.form.get('manual')
         city=request.form.get('city')
