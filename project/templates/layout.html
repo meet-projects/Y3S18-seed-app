@@ -21,31 +21,38 @@
 <body>
      
   <!--Navigation bar -->
-  <nav class="navbar navbar-inner">
-    <ul class="nav navbar-nav">
-    
-      <li><a href="{{url_for('browse')}}">Roots</a></li>
-      {% if current_user.is_authenticated %}
-    
-        {% if current_user.is_storyteller %}
-          <li><a href="{{url_for('display_notifications', st_id=current_user.id)}}"><span class="glyphicon glyphicon-bell"></span> </a> </li>
+    <nav class="navbar navbar-inner">
+      
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{url_for('browse')}}">Roots</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+      
+        {% if current_user.is_authenticated %}
+      
+          {% if current_user.is_storyteller %}
+            <li class="nav-option-border" ><a href="{{url_for('display_notifications', st_id=current_user.id)}}"><span class="glyphicon glyphicon-bell"></span></a></li>
+            {%else%}
+
+          {% endif %}
+
+          <li class="nav-option-border"><a href="{{url_for('profile', user_id=current_user.id)}}">     {{current_user.name}}</a></li>
+          <li class="nav-option-border"><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">My Wishlist</a></li>
+
+          <li class="nav-option-border"><a href="{{url_for('users.logout')}}">Logout</a></li>
+
           {%else%}
+
+          <li  class="nav-option-border"><a data-toggle="modal" data-target="#login">Login</a></li>
 
         {% endif %}
 
-        <li><a href="{{url_for('profile', user_id=current_user.id)}}">     {{current_user.name}}</a></li>
-        <li><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">My Wishlist</a></li>
-        <li><a href="{{url_for('users.logout')}}">Logout</a></li>
-        {%else%}
-        <li><a data-toggle="modal" data-target="#login">Login</a></li>
-      {% endif %}
-    
-  </ul>
+      </ul>
 
-</nav>
+    </nav>
 
 <div class="container">
-  <!-- child content -->
   {% block content %}
   {% endblock %}
 </div>
