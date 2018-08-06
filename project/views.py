@@ -164,12 +164,15 @@ def edit_profile(teacher_id):
 
 @app.route('/studentsignup')
 def studentsignup():
-	return render_template('feed.html')
+	return render_template('stu_signup.html')
 
+@app.route('/filters')
+def filters():
+	return render_template('filter.html')
 
+##@app.route('/student_edit_profile/<int:student_id>')
+##def student_edit_profile(student_id):
+##	student = Student.query.filter_by(id=student_id).first()
+##	all_cities = City.query.all()
 
-@app.route('/student_edit_profile/<int:student_id>')
-def student_edit_profile(student_id):
-	student = Student.query.filter_by(id=student_id).first()
-	all_cities = City.query.all()
-	return render_template('edit_profile_template.html', student=student, all_cities=all_cities)
+##	return render_template('filter_modal.html', student=student, all_cities=all_cities)##

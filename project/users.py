@@ -203,25 +203,27 @@ def student_signup():
                     db.session.add(user)
                     db.session.commit()
                     
-                    student=Student(fname,lname,phone_num,gearbox,city,min_price,max_price,"")
+                    student=Student(fname,lname,phone_num,"","",0,0,"","")
                     db.session.add(student)
                     db.session.commit()
                     login_user(user, remember=True)
-                    return redirect(url_for('feed'))
+                    return redirect(url_for('filters'))
+
         else:
             return Response("<p>invalid form</p>")
+    else:
+        return redirect('index')
 
-    return render_template('index.html', form=form)
 
-
-@users_bp.route('/student_edit', methods=['GET', 'POST'])
+@users_bp.route('/filter', methods=['GET', 'POST'])
 @login_required
-def student_edit():
+def filter():
+
     student=Student.query.filter_by(user_id=current_user.id).first()
     if student is not None:
-        arabic=request.form.get('arabic')
-        hebrew=request.form.get('hebrew')
-        english=request.form.get('english')
+        arabic=request.form.get('languages_ar')
+        hebrew=request.form.get('languages_hb')
+        english=request.form.get('languages_en')
         automatic=request.form.get('automatic')
         manual=request.form.get('manual')
         city=request.form.get('city')
