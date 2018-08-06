@@ -3,6 +3,7 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 		<link rel="stylesheet" type="text/css" href="../static/css/profile_template.css">
 
@@ -66,7 +67,6 @@
 		   <a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
 		</li> 
 </nav>
-
 
 		<div class="row" style="background-color: rgb(246,246,246);">
 			<div class="col-md-4" style="background-color: rgb(246,246,246);">
@@ -132,25 +132,27 @@
 					{{teacher.description}} 
 				</p>
 			</div>
-			<var></var>
+
+			<br>
 			{% for request in requests %}
 				<table id="booking_table">
 					<tr>
-						<th class="booking_table_title">
+						<th class="booking_table_title" style="text-align: left;">
 						Request number {{loop.index}} awaiting your payment
 						</th>
 					</tr>
 					<tr>
-						<th class="booking_table_title">
+						<th class="booking_table_title" style="text-align: left;">
 						Student's first name: {{request.student_fname}}
 						</th>
 					</tr>
 					<tr>
-						<th><a href="https://www.paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a></th>
+						<th align="left"><a href="https://www.paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a></th>
 					</tr>
 
 				</table>
 				<br><br>
+				
 			{% endfor %}
 		</div>
 		</div>

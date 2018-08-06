@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+      <link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../static/css/profile_template.css">
 
   <meta charset="utf-8">
@@ -54,61 +58,73 @@
             <a class="nav-link" href="{{url_for('signup')}}">Sign Up</a>
           </li>
           {% endif %}
-          <!-- <li class="nav-item" style="float: right">
-          <a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
+        </ul>
+        <ul class="navbar-nav mr-auto mr-auto my-2 my-lg-0" style="float: right">
+          <li class="nav-item">
+          <a class="navbar-brand" href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
           </li>
-          <li class="nav-item" style="float: right">
-        <a href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
+          <li class="nav-item">
+        <a class="navbar-brand" href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
         </li>
-        <li class="nav-item" style="float: right">
-        <a href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
+        <li class="nav-item">
+        <a class="navbar-brand" href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
           </li>
-          <li class="nav-item" style="float: right">
-          <a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
-          </li> -->
+          <li class="nav-item">
+          <a class="navbar-brand" href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
+          </li>
         </ul>
       </div>
     </nav>
+    <br>
+    <br>
 <div class="signup_container">
   <form action="{{ url_for('users.filter') }}" method="POST">
 
 
       <h2 id="login_title">Help Us Personalize Your Experience</h2>
 
-      <span class="field" style="float: left; width: 100%;">
-        <label for="city" class="label"><b>City</b></label>
-        <input type="text" placeholder="Enter Your City" name="city" class="bars2">
+      <span class="field" style="width: 100%; color: white;">
+        <label for="city" class="label stu_sign_label"><b>City:</b></label>
+          <select name="city" class="stu_sign_input custom-select mr-sm-2" id="inlineFormCustomSelect select_city_sign">
+            {% for c in all_cities %}
+              <option value="{{c.city}}" name="city">{{c.city}}</option>
+            {% endfor %}
+          </select> 
       </span>
 
       <span class="field" style="float: left; width: 100%;">
-        <label for="Fee" class="label"><b>Minimum Price (in numbers)</b></label>
-        <input type="text" placeholder="Minimum Price" name="min_price" class="bars2">
+        <label for="Fee" class="label stu_sign_label"><b>Minimum Price (in numbers):</b></label>
+        <input type="text" placeholder="Minimum Price" name="min_price" class="bars2 stu_sign_input">
       </span>
 
       <span class="field" style="float: left; width: 100%;">
-        <label for="Fee" class="label"><b>Maximum Price (in numbers)</b></label>
-        <input type="text" placeholder="Maximum Price" name="max_price" class="bars2">
+        <label for="Fee" class="label stu_sign_label"><b>Maximum Price (in numbers):</b></label>
+        <input type="text" placeholder="Maximum Price" name="max_price" class="bars2 stu_sign_input">
       </span>
 
 
-      <span class="field" style="float: left; width: 100%;">
-        <label for="Languages" class="label"><b>Languages You Want to Learn In</b></label>
-        <br>
-          <input type="checkbox" name="languages_ar" value="Arabic" style="font-family: helvticaneuelight; color: grey;"> Arabic <br>
-          <input type="checkbox" name="languages_en" value="English" style="font-family: helvticaneuelight; color: grey;"> English <br>
-          <input type="checkbox" name="languages_hb" value="Hebrew" style="font-family: helvticaneuelight; color: grey;"> Hebrew <br>
+      <span class="field" style="float: left; width: 100%; color: white;">
+        <label for="Languages" class="label stu_sign_label"><b>Languages You Want to Learn In:</b></label>
+          <div class="signup_checkbox_div">
+          <input type="checkbox" class="stu_sign_checkbox" name="languages_ar" value="Arabic" style="font-family: helvticaneuelight; color: white;"> <b class="stu_sign_checkbox"> Arabic     </b> 
+          <input type="checkbox" class="stu_sign_checkbox" name="languages_en" value="English" style="font-family: helvticaneuelight; color: white;"> <b class="stu_sign_checkbox"> English     </b> 
+          <input type="checkbox" class="stu_sign_checkbox" name="languages_hb" value="Hebrew" style="font-family: helvticaneuelight; color: white;"> <b class="stu_sign_checkbox"> Hebrew     </b>
+        </div>
       </span>
 
-      <span class="field" style="float: left; width: 100%;">
-        <label for="car_type" class="label"><b>Gearbox</b></label>
-        <input type="text" placeholder="Gearbox Type" name="gearbox" class="bars2">
+      <span class="field" style="float: left; width: 100%; color: white;">
+        <label for="car_type" class="label stu_sign_label"><b>Gearbox:</b></label>
+        <div class="signup_checkbox_div">
+        <input type="checkbox" class="stu_sign_checkbox" name="gearbox_man" value="manual" style="font-family: helvticaneuelight; color: white;"> <b class="stu_sign_checkbox">Manual     </b>
+        <input type="checkbox" class="stu_sign_checkbox" name="gearbox_auto" value="manual" style="font-family: helvticaneuelight; color: white;"> <b class="stu_sign_checkbox">Automatic     </b>  
+      </div>
       </span>
-
-    <button  class="login" type="submit">Continue</button>
-    <button class="login" type="submit">Skip</button>
-  </form>
+      <span class="field" style="float: left; width: 100%; color: white;">
+    <button  class="login btn btn-outline-success btn-lg" type="submit">Continue</button>
+    </form>
+      <a class="login btn btn-outline-secondary btn-lg" href="{{url_for('feed')}}" role="button">Skip</a>
+    </span>
   </div>
-
   </body>
 
   </html>
