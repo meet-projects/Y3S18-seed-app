@@ -52,7 +52,7 @@
 - clean css for both forms
 - styles for button and inputs
 
-
+{% if  form %}
 <!-- Modal -->
 <div id="login" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -61,7 +61,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Login</h4>
       </div>
       <div class="modal-body">
         <form action="{{ url_for('users.login') }}" method="post">
@@ -71,8 +71,9 @@
           {{ form.password(placeholder="Password") }}<br>
 
         <button class="button" type="submit">Log in</button>
+        <br>
+        <h9> don't have an account?</h9><a data-toggle="modal" data-target="#register">register</a>
       </form>
-        <p>Some text in the modal.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -81,5 +82,40 @@
 
   </div>
 </div>
+
+{% endif %}
+
+{% if  form %}
+<!-- Modal -->
+<div id="register" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Register</h4>
+      </div>
+      <div class="modal-body">
+      <form action="{{ url_for('users.register') }}" method="post">
+
+        {{ form.csrf_token }}
+        {{ form.email(placeholder="Email Adress") }} <br>
+        {{ form.name(placeholder="Full Name") }} <br>
+        {{ form.password(placeholder="Password") }} <br>
+        {{ form.confirm(placeholder="Confirm Password") }} <br>
+
+      <button class="btn btn-sm btn-success" type="submit">Register User</button>
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endif %}
 
 </html>
