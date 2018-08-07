@@ -1,9 +1,10 @@
 <div class="profile-parallax">
 {% extends "layout.html" %}
 {% block content %}
-
-
-<!-- STORYTELLER PROFILE -->
+<center>
+<br><br><br><br><br><br><br><br>
+<h1 class="head1">Profile</h1>
+</center>
 </div>
 
 
@@ -18,7 +19,7 @@
 	<div class = "row" >
 	
 		<div class = "col-md-3" >
-		{% if profile.profile_img !=  none %}
+		{% if profile.profile_img ==  none %}
 		<img src="{{url_for('static', filename='pictures/profile.png')}}" style="border-radius: 50%; position: relative; left:50px; top: -100; max-height: 150px;max-width: 200px;width: 120px;height: 120px;" />
 		
 		{% else %}

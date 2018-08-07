@@ -1,6 +1,10 @@
 <div class="profile-parallax">
 {% extends "layout.html" %}
 {% block content %}
+<center>
+<br><br><br><br><br><br><br><br>
+<h1 class="head1">About my journey</h1>
+</center>
 </div>
 <!--
 <div class= "container-fluid">
@@ -21,7 +25,7 @@
       <img src="{{url_for('static', filename='profile.png')}}" class="img-fluid" alt="Responsive image" > 
 
       <div class="caption">
-        <h3><a href="{{url_for('profile', user_id=journey.creator_id)}}"> {{creator.name}} </a></h3>
+        <h3 class="head4"><a href="{{url_for('profile', user_id=journey.creator_id)}}"> {{creator.name}} </a></h3>
         <p>{{creator.bio}}</p>
       </div>
     </div>
@@ -30,15 +34,13 @@
 
 
   	<div class = "col-md-8 info">
-    <h1 class="head2">About my journey</h1>
-    <hr style="border: 0.5px solid black; "/>
-	<p> location : {{journey.location}} </p>
-	<p> description : {{journey.description}} </p>
-	<p> duration : {{journey.duration}} </p>
-	<p> price : {{journey.price}} </p>
-	<p> category : {{journey.category}} </p>
-	<p> requirements : {{journey.requirements}} </p>
-	<p> people range : {{journey.people_range}} </p>
+	<p class="head4"> location : {{journey.location}} </p>
+	<p class="head4"> description : {{journey.description}} </p>
+	<p class="head4"> duration : {{journey.duration}} </p>
+	<p class="head4"> price : {{journey.price}} </p>
+	<p class="head4"> category : {{journey.category}} </p>
+	<p class="head4"> requirements : {{journey.requirements}} </p>
+	<p class="head4"> people range : {{journey.people_range}} </p>
 
 <br>
     {% if current_user.is_authenticated %}

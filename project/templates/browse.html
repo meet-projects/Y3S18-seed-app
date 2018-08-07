@@ -40,8 +40,8 @@
 					</div>
 	                <div class="card-body">
 	                	<div class="limit">
-			    		<p class="head5">The journey will be at {{ all_journeys[i].location }}</p> <br>
-			    		<p class="head5"> This journey would intrest people who are {{ all_journeys[i].category }}</p> <br>
+			    		<p class="head5">The journey will be at {{ all_journeys[i].location }}</p> 
+			    		<p class="head5"> This journey would intrest people who are {{ all_journeys[i].category |truncate(15) }}</p> <br>
 			    		</div>
 			    		<br><br><br><br><br><br><br>
 			    		<!-- <form action="{{url_for('display_journey', journey_id=all_journeys[i].id)}}">
