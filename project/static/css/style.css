@@ -133,7 +133,7 @@
   padding: 10px 20px;
   border: 2px solid white;
   -webkit-border-radius: 10px;
-  border-radius: 30px;
+  border-radius: 10px;
   font: normal 16px/normal Arial;
   color: white;
   -o-text-overflow: clip;
@@ -343,3 +343,11 @@
     word-wrap: break-word;
 }
 
+.i2{
+  background-color: rgb(0,0,0,0.1);
+  color: black;
+}
+
+.leftpad{
+  padding-left: 50px;
+}
