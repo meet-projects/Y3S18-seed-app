@@ -1,17 +1,25 @@
-{%extends "layout.html"%}
-{%block content%}
+<div class="profile-parallax">
+{% extends "layout.html" %}
+{% block content %}
+</div>}
 
-<br><br><br>
 
-
+<div class="bg_blue1">
+ <center>
+	<br><h1 style="color: white;">Notifications<h1><br><br>
 {% for notification in all_notifications %}
+
 {{notification.interested_user_name}} is interested in your journey {{notification.journey_title}}
+
 <br>
 {{notification.time}}
 <br>
 -------------------
 <br>
+</center>
 {%endfor%}
+
+</div>
 
 
 
