@@ -20,8 +20,7 @@
 .signup_checkbox_div{
   float:right; 
   width: 40%; 
-  background-color: 
-  rgb(0,115,168);
+  background-color: rgb(0,115,168);
 }
 #login_title{
   color: white;
@@ -489,10 +488,6 @@ border-radius: 20px;
   text-align: center;
 }
 
-div{
-  background-color: rgb(255,255,250);
-}
-
 #profile{
   width: 85px;
   height: 85px;
@@ -521,15 +516,15 @@ a:hover{
   cursor: pointer; 
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
-button#contact_btn > a{
+#contact_btn > a{
   position: relative;
   text-decoration: none;
   color: white;
 }
-button#contact_btn > a:hover {
+#contact_btn > a:hover {
   color: white;
 }
-button#contact_btn > a:before {
+#contact_btn > a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -543,7 +538,7 @@ button#contact_btn > a:before {
   -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
-button#contact_btn > a:hover:before {
+#contact_btn > a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);

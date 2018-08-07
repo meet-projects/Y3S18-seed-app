@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Sign up
+{% endblock %}  
+
+{% block css %}
+{% endblock %}
+
+{% block content %} 
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 0%;">
+  <a class="navbar-brand" href="{{url_for('feed')}}" style="background-color: #f6f6f6">
+        <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
+    {% include 'social-media-links.html' %}
+  </div>
+</nav>
+
+<br>
+
+
+<div class="signup_container">
+  <form action="{{ url_for('users.filter') }}" method="POST">
+
+      <h2 id="login_title">Help Us Personalize Your Experience</h2>
+
+      <div class="form-group" style="background-color: #0073a8">
+        <label for="city" class="label"><b>City</b></label>
+          <select name="city" class="custom-select mr-sm-2">
+            {% for c in all_cities %}
+              <option value="{{c.city}}" name="city">{{c.city}}</option>
+            {% endfor %}
+          </select> 
+      </div>
+
+      <div class="form-group" style="background-color: #0073a8">
+        <label for="Fee" class="label"><b>Minimum Price</b></label>
+        <input type="text" placeholder="Minimum Price" name="min_price">
+      </div>
+
+      <div class="form-group" style="background-color: #0073a8">
+        <label for="Fee" class="label"><b>Maximum Price</b></label>
+        <input type="text" placeholder="Maximum Price" name="max_price">
+      </div>
+
+      <div class="form-group" style="background-color: #0073a8; color: white;">
+         <label for="Languages" class="label"><b>Languages You Want to Learn In</b></label>
+          <div>
+            <input type="checkbox" name="languages_ar" value="Arabic"><b>Arabic</b> 
+            <input type="checkbox" name="languages_en" value="English"><b>English</b> 
+            <input type="checkbox" name="languages_hb" value="Hebrew"><b>Hebrew</b>
+          </div>
+      </div>
+
+      <div class="form-group" style="background-color: #0073a8; color: white;">
+        <label for="car_type" class="label"><b>Gearbox</b></label>
+        <div>
+        <input type="checkbox" name="gearbox_man" value="manual">Manual <br>
+        <input type="checkbox"  name="gearbox_auto" value="manual">Automatic
+        </div>
+      </div> 
+
+        <button type="submit" class="login btn-lg">Continue</button>
+        <br>
+        <br>
+        <button href="{{url_for('feed')}}" role="button" class="login btn-lg" style="background-color: grey;">Skip</button>
+
+
+  </form>
+</div>
+
+
+ {% endblock %}  
+
