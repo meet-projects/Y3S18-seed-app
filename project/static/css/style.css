@@ -409,12 +409,12 @@
 }
 
 .bg_blue2{
-    background-color: #3399ff /*#99ccff*/;
+    background-color: #99ccff /*#99ccff*/;
     width: 500px;
     height: 1600px;
     position: relative;
     left: 650px;
-    top:-350px;
+    top:-500px;
     border-color: white;
     border-width: 9px; 
     border-radius: 3px;
