@@ -219,6 +219,18 @@
   float: left;
 }
 
+.head7 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: #3399ff;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+/*  float: left;*/
+}
+
 .div1 {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
