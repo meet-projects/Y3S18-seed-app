@@ -137,7 +137,7 @@
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   padding: 10px 20px;
-  width: 700px;
+  width: 500px;
   height: 20px;
   border: 1.5px solid white;
   -webkit-border-radius: 1px;
@@ -235,7 +235,7 @@
   text-align: center;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  background:rgba(400,400,400,0.2);
+  background:rgba(400,400,400,0.0);
  
   
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
@@ -243,7 +243,7 @@
 }
 
 .div2{
-     background:rgba(400,400,400,0.6);
+     background:rgba(400,400,400,0.0);
     border-radius:7px;
 }
 
@@ -274,12 +274,12 @@
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   padding: 10px 20px;
-  border: 3px solid white;
+  border: 2px solid black;
   -webkit-border-radius: 10px;
   border-radius: 30px;
   font: normal 16px/normal Arial,bold;
-  color: white;
-  background:rgba(26,255,26,0.6);
+  color: black;
+  background:white;
   
 
 }
@@ -383,36 +383,44 @@
     word-wrap: break-word;
 }
 
-.bio {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 360px;
-  padding: 50px 144px;
-  overflow: hidden;
-  border: 1px solid rgba(124,122,122,0.28);
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  font: normal 16px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
-  color: rgba(0,0,0,1);
-  text-align: center;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  background: #eaeced;
-  -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
-  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
-}
 
 .bg_blue{
-    background-color: #99ccff /*#99ccff*/;
+    background-color: #3399ff /*#99ccff*/;
     width: 1000px;
     height: 1600px;
     position: relative;
-    left: 150px;
     top:-220px;
     border-color: white;
     border-width: 9px; 
     border-radius: 3px;
 }
 
+.bg_blue1{
+    background-color: #3399ff /*#99ccff*/;
+    width: 1000px;
+    height: 1600px;
+    position: relative;
+    left: 100px;
+    top:-220px;
+    border-color: white;
+    border-width: 9px; 
+    border-radius: 3px;
+}
+
+.bg_blue2{
+    background-color: #99ccff /*#99ccff*/;
+    width: 500px;
+    height: 1600px;
+    position: relative;
+    left: 650px;
+    top:-350px;
+    border-color: white;
+    border-width: 9px; 
+    border-radius: 3px;
+}
+.bio{
+  font: normal 24px/normal Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: white;
+  position: relative;
+  left: 20px;
+}
