@@ -188,7 +188,7 @@
   color: black;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  float: left;
+/*  float: left;*/
 }
 
 .head5 {
