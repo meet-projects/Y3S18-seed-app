@@ -121,30 +121,31 @@
     cursor: pointer;
 
 }.container {
-        width: 100%;
+        width: 70%;
         height: 90px;
         margin: 0 auto;
-        background-color: rgba(255,255,255,0.5);
-        border-radius:7px;
+        background-color: rgba(0,0,0,0.1);
+        border-radius:3px;
 }
 
 
 .input {
+    position: relative;
+    left: 20px;
    display: inline-block;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   padding: 10px 20px;
-  border: 2px solid white;
-  -webkit-border-radius: 10px;
-  border-radius: 30px;
+  width: 700px;
+  height: 20px;
+  border: 1.5px solid white;
+  -webkit-border-radius: 1px;
   font: normal 16px/normal Arial;
   color: white;
   -o-text-overflow: clip;
   text-overflow: clip;
   background: rgba(255,255,255,0.1);
-  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -207,6 +208,18 @@
   /*float: left*/;
 }
 
+.head6 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 15px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  float: left;
+}
+
 .div1 {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -223,6 +236,33 @@
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   background:rgba(400,400,400,0.2);
+ 
+  
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+
+}
+
+.div2{
+     background:rgba(400,400,400,0.6);
+    border-radius:7px;
+}
+
+.div3{
+ -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 900px;
+
+  padding: 20px;
+  overflow: hidden;
+  -webkit-border-radius: 6px;
+  border-radius: 1px;
+  font:normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  color: white;
+  text-align: left;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background:rgba(400,400,400,0.0);
  
   
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
@@ -258,10 +298,6 @@
   width: 180px;
 }
 
-.div2{
-     background:rgba(400,400,400,0.0);
-    border-radius:7px;
-}
 .typewriter{
     position: absolute;
     top: 200px;
@@ -345,5 +381,38 @@
     text-align: left;
     width:200px;
     word-wrap: break-word;
+}
+
+.bio {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 360px;
+  padding: 50px 144px;
+  overflow: hidden;
+  border: 1px solid rgba(124,122,122,0.28);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font: normal 16px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: rgba(0,0,0,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: #eaeced;
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+.bg_blue{
+    background-color: #99ccff /*#99ccff*/;
+    width: 1000px;
+    height: 1600px;
+    position: relative;
+    left: 150px;
+    top:-220px;
+    border-color: white;
+    border-width: 9px; 
+    border-radius: 3px;
 }
 

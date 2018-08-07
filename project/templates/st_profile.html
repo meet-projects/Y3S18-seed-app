@@ -5,7 +5,7 @@
 
 <!-- STORYTELLER PROFILE -->
 </div>
-STORYTELLER PROFILE
+
 
 
 {% if current_user.id ==  profile.id %}
@@ -19,40 +19,50 @@ STORYTELLER PROFILE
 	
 		<div class = "col-md-3" >
 		{% if profile.profile_img !=  none %}
-		<img src="{{url_for('static', filename='pictures/profile.png')}}" />
+		<img src="{{url_for('static', filename='pictures/profile.png')}}" style="border-radius: 50%; position: relative; left:50px; top: -100;" />
+		
 		{% else %}
-		<img src="{{current_user.profile_img}}" />
+		<img src="{{current_user.profile_img}}" style="border-radius: 50%" />
+
 		{% endif %}
 		</div>
 
-		<div class = "col-md-9">
-		<h2> {{profile.name}} </h2>
-		<h3> {{profile.city}} </h3>
-		<h3> {{profile.country}} </h3>
-		<h3> {{profile.profession}} </h3>
+		<div class = "col-md-9 ">
+		<br>
+		<h3 class="head4"> City: </h3><h3 class="head5"> {{profile.city}} </h3><br>
+		<h3 class="head4">Country: </h3><h3 class="head5"> {{profile.country}} </h3><br>
+		<h3 class="head4"> Profession: </h3><h3 class="head5"> {{profile.profession}} </h3>
 		</div>
 	</div>
 
-<h3> {{profile.bio}} </h3>
 
-{{ profile.name }}'s journeys:
+<div class="bg_blue2">
+  <h2 class="head3" style="position: relative;left:110px; top:-65px;"> {{profile.name}} </h2> <br>
+  <div class="bio">
+  <h3> {{profile.bio}} </h3>
+  </div>
+
+
+  <h3 class="head3" style="position: relative; left: 800px; top: -370;">{{ profile.name }}'s journeys:</h3>
 
 
 
-<div class = "row">
+  <div class = "row">
 	{% for journey in st_journeys %}
 		<div class = "col-md-4" >
 		<a href="{{url_for('display_journey' , journey_id=journey.id)}}">{{ journey.title }}</a> 
 		</div>
 	{% endfor %}
-</div>
+	<br>
+	<a href="{{url_for('add_journey')}}"><button class="button2s" style="position: relative; left: 800px; top: -370;"> Add Journey </button></a>
+  </div>
+</div>	
 
-
-
+<div>
 
 {% if current_user.id == profile.id %}
 	<form action="/add_journey" method="GET">
-	<button type="submit"> Add Journey </button>
+	
 	</form>
 {% endif %}
 
