@@ -48,10 +48,7 @@
 	<form action="{{url_for('im_interested', interested_user_id=current_user.id, st_id=current_user.id, journey_id=journey.id)}}" method="POST">
 	<button class="button2s" type="submit"> I'm Interested! </button>
 	</form>
- 	{%else%}
- 	<form action="{{url_for('users.login')}}">
- 	<button class="button2s" type="submit"> I'm Interested! </button>	
-    </form>
+ 
     {% endif %}
 
 	</div>
@@ -114,11 +111,7 @@ at: {{rating.time}}
 	<br>
 	<button class="button2s" type="submit"> Add Review: </button>
 
-	{%else%}
 
-	<input type="text" name="review" >
-	<br>
-	<button class="button2s" type="submit"> Add Review :"</button>
 
 </form>
    {% endif %}
@@ -145,11 +138,6 @@ at: {{rating.time}}
 	<button class="button2s" type="submit"> Ask! </button>
 </form>
 
-	    {%else%}
- 	<form action="{{url_for('users.login')}}">
- 		<br>
- 	<button  class="button2s" type="submit"> Ask! </button>	
-    </form>
 
     {% endif %}
 
