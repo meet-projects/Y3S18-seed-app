@@ -1,10 +1,19 @@
+<div class="profile-parallax">
 {% extends "layout.html" %}
 {% block content %}
+</div>
 
+
+<div class="bg_blue1">
+ <center>
+	<br><h1 style="color: white;">My Wishlist<h1><br><br>
 {% for wish in all_wishes %}
 {{current_user.id}}
-<a href="{{url_for('display_journey', journey_id=wish.journey_id)}}"> {{wish.journey_title}}</a>
-{% endfor %}
 
+<a class="div3" href="{{url_for('display_journey', journey_id=wish.journey_id)}}"> {{wish.journey_title}}</a>
+
+</center>
+{% endfor %}
+</div>
 
 {% endblock %}

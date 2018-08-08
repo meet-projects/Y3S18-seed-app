@@ -27,6 +27,7 @@
 		    	<p>The journey will be at {{ all_journeys[i].location }}</p> <br>
 		    	<p> This journey would intrest people who are {{ all_journeys[i].category }}</p> <br>
 		    	<a href="{{url_for('display_journey', journey_id=all_journeys[i].id)}}"> View Details </a> -->
+
 		    	<center>
 		    	<div class="journey-cont">
 		    		<div class="col-md-4" >
@@ -34,12 +35,13 @@
 	            	<div class="card-header">
 	           
 							<a href="{{url_for('display_journey', journey_id=all_journeys[i].id)}}">
-	    			<img class="journey-img" src="{{ all_journeys[i].picture }}" style="border-radius: 15px;">
+	    			<img class="journey-img" src="{{ all_journeys[i].picture }}" style="border-radius: 17px;">
 	    		</a>
-	                	<p class="head5">{{ all_journeys[i].title }}</p> <br>	
+	                		
 					</div>
 	                <div class="card-body">
 	                	<div class="limit">
+	                	<p class="head7">{{ all_journeys[i].title }}</p> 
 			    		<p class="head5">The journey will be at {{ all_journeys[i].location }}</p> 
 			    		<p class="head5"> This journey would intrest people who are {{ all_journeys[i].category |truncate(15) }}</p> <br>
 			    		</div>

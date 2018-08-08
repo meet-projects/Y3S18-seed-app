@@ -33,12 +33,13 @@
         {% if current_user.is_authenticated %}
       
           {% if current_user.is_storyteller %}
-            <li class="nav-option-border" ><a href="{{url_for('display_notifications', st_id=current_user.id)}}"><span class="glyphicon glyphicon-bell"></span></a></li>
+            <li class="nav-option-border" ><a href="{{url_for('display_notifications', st_id=current_user.id)}}">Notifications</a></li>
+            <li class="nav-option-border"><a href="{{url_for('profile', user_id=current_user.id)}}">     {{current_user.name}}</a></li>
             {%else%}
 
-          {% endif %}
+            <li class="nav-option-border"><a href="{{ url_for('apply') }}">Become a Storyteller</a></li>
 
-          <li class="nav-option-border"><a href="{{url_for('profile', user_id=current_user.id)}}">     {{current_user.name}}</a></li>
+          {% endif %}
           <li class="nav-option-border"><a href="{{url_for('display_wishlist', user_id=current_user.id)}}">My Wishlist</a></li>
 
           <li class="nav-option-border"><a href="{{url_for('users.logout')}}">Logout</a></li>
