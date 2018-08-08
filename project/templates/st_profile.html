@@ -1,0 +1,71 @@
+<div class="profile-parallax">
+{% extends "layout.html" %}
+{% block content %}
+<center>
+<br><br><br><br><br><br><br><br>
+<h1 class="head1">Profile</h1>
+</center>
+</div>
+
+
+
+{% if current_user.id ==  profile.id %}
+	<!-- <p>this is your profile. You are a storyteller.<p> -->
+{% else %}
+	<!-- <p>this is not your profile</p> -->
+{% endif %}
+
+<div class = "container-fluid" >
+	<div class = "row" >
+	
+		<div class = "col-md-3" >
+		{% if profile.profile_img ==  none %}
+		<img src="{{url_for('static', filename='pictures/profile.png')}}" style="border-radius: 50%; position: relative; left:50px; top: -100; max-height: 150px;max-width: 200px;width: 120px;height: 120px; background-size: cover;" />
+		
+		{% else %}
+		<img src="{{current_user.profile_img}}" style="border-radius: 50%; position: relative; left:50px; top: -100; max-height: 250px;max-width: 250px;width: 250px;height: 250px;background-size: cover;" />
+
+		{% endif %}
+		</div>
+
+		<div class = "col-md-9 ">
+		<div class="col-md-4">
+		<br>
+		<h3 class="head4"> City: </h3><h3 class="head5"> {{profile.city}} </h3><br>
+		<h3 class="head4">Country: </h3><h3 class="head5"> {{profile.country}} </h3><br>
+		<h3 class="head4"> Profession: </h3><h3 class="head5"> {{profile.profession}} </h3><br>
+		<h3 class="head4"> Bio: </h3><h3 class="head5"> {{profile.bio}} </h3>
+		</div>
+		</div>
+	</div>
+ <h2 class="head3" style="position: relative;left:90px; top:-200px;"> {{profile.name}} </h2> <br>
+
+<div class="bg_blue2">
+  
+
+
+
+  <div class = "row">
+  
+<!-- style="position: relative; left: 800px; top:-70; -->
+  <h3 class="head3" style="position: relative;right: -80px;">{{ profile.name }}'s journeys:</h3>
+	{% for journey in st_journeys %}
+		<div class = "col-md-4 bio" >
+		<a href="{{url_for('display_journey' , journey_id=journey.id)}}"><h3 class="head3">{{ journey.title }}</h3></a> 
+		</div>
+	{% endfor %}
+	<br>
+	<a href="{{url_for('add_journey')}}"><button class="button2s" style="position: relative; top:75px; right: -75px; "> Add Journey </button></a>
+  </div>
+</div>	
+
+<div>
+
+{% if current_user.id == profile.id %}
+	<form action="/add_journey" method="GET">
+	
+	</form>
+{% endif %}
+
+</div>
+{% endblock %}

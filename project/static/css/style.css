@@ -1,3 +1,454 @@
-h1 {
-  color: blue;
+
+.body1{
+     background-image: url("image1.png");
+     height: 100%; 
 }
+.apply-img{
+    background-image: url("image1.png");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.browse-parallax {
+    /* The image used */
+    background-image: url("boat.jpg");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.profile-parallax {
+    /* The image used */
+    background-image: url("profile.png");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.journey-cont {
+
+    position: relative;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+}
+
+.journey-img{
+
+    width:300px ;
+    height:200px; 
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
+}
+
+.browse-img{
+    background-image: url("{{ url_for('static', filename='pictures/boat.jpg') }}");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fixed-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cover {
+    /* The image used */
+    /* Set a specific height */
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.row{
+    width: 100%
+
+}
+
+
+.navbar-inner {
+    background-color:transparent;
+    color:white;
+    font: normal 25px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold; ;
+
+}
+
+.nav-option-border {
+    border-right: 2px solid white;
+}
+
+.guy{
+    right: 0px;
+}
+
+.button2 {
+
+    background-color: #1C6E8C;
+
+    border: none;
+
+    color: white;
+
+    padding: 6px 60px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}.container {
+        width: 70%;
+        height: 90px;
+        margin: 0 auto;
+        background-color: rgba(0,0,0,0.1);
+        border-radius:3px;
+}
+
+
+.input {
+    position: relative;
+  left: 20px;
+   display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px 20px;
+  border: 2px solid white;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  font: normal 16px/normal Arial;
+  color: white;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(255,255,255,0.1);
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.head1 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 60px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: white;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.head2 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 60px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.head3 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 30px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.head4 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+/*  float: left;*/
+}
+
+.head5 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 15px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  /*float: left*/;
+}
+
+.head6 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 15px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: black;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  float: left;
+}
+
+.head7 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: #3399ff;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+/*  float: left;*/
+}
+
+.div1 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 900px;
+
+  padding: 20px;
+  overflow: hidden;
+  -webkit-border-radius: 6px;
+  border-radius: 1px;
+  font:normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  color: white;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background:rgba(400,400,400,0.0);
+ 
+  
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+
+}
+
+.div2{
+     background:rgba(400,400,400,0.0);
+    border-radius:7px;
+}
+
+.div3{
+ -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 900px;
+
+  padding: 20px;
+  overflow: hidden;
+  -webkit-border-radius: 6px;
+  border-radius: 1px;
+  font:normal 20px/1 Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  color: white;
+  text-align: left;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background:rgba(400,400,400,0.0);
+ 
+  
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+
+}
+
+.button2s {
+ -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px 20px;
+  border: 2px solid black;
+  -webkit-border-radius: 10px;
+  border-radius: 30px;
+  font: normal 16px/normal Arial,bold;
+  color: black;
+  background:white;
+  
+
+}
+
+.words {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 24px/normal Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: white;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: inline-block;
+  text-align: right;
+  width: 180px;
+}
+
+.typewriter{
+    position: absolute;
+    top: 200px;
+    left: 75px;
+}
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; 
+  color:white;/* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 2.5s steps(40, end),
+    blink-caret .75s step-end infinite,
+    blink-caret infinite;
+    
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+/*browse view details button design
+*/
+.myButton {
+    -moz-box-shadow: 0px 10px 14px -7px #276873;
+    -webkit-box-shadow: 0px 10px 14px -7px #276873;
+    box-shadow: 0px 10px 14px -7px #276873;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbf5ff), color-stop(1, #408c99));
+    background:-moz-linear-gradient(top, #dbf5ff 5%, #408c99 100%);
+    background:-webkit-linear-gradient(top, #dbf5ff 5%, #408c99 100%);
+    background:-o-linear-gradient(top, #dbf5ff 5%, #408c99 100%);
+    background:-ms-linear-gradient(top, #dbf5ff 5%, #408c99 100%);
+    background:linear-gradient(to bottom, #dbf5ff 5%, #408c99 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbf5ff', endColorstr='#408c99',GradientType=0);
+    background-color:#dbf5ff;
+    -moz-border-radius:9px;
+    -webkit-border-radius:9px;
+    border-radius:9px;
+    border:2px solid white;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:new roman;
+ 
+    font-size:20px;
+    font-weight:bold;
+    padding:12px 28px;
+    text-decoration:none;
+    text-shadow:0px 1px 50px #528da1;
+}
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #dbf5ff));
+    background:-moz-linear-gradient(top, #408c99 5%, #dbf5ff 100%);
+    background:-webkit-linear-gradient(top, #408c99 5%, #dbf5ff 100%);
+    background:-o-linear-gradient(top, #408c99 5%, #dbf5ff 100%);
+    background:-ms-linear-gradient(top, #408c99 5%, #dbf5ff 100%);
+    background:linear-gradient(to bottom, #408c99 5%, #dbf5ff 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#dbf5ff',GradientType=0);
+    background-color:#408c99;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+.limit{
+    position: absolute;
+    left: 65px;
+    text-align: left;
+    width:200px;
+    word-wrap: break-word;
+}
+
+
+
+.bg_blue{
+    background-color: #3399ff /*#99ccff*/;
+    width: 1000px;
+    height: 1600px;
+    position: relative;
+    top:-220px;
+    border-color: white;
+    border-width: 9px; 
+    border-radius: 3px;
+}
+
+
+.bg_blue1{
+    background-color: #3399ff /*#99ccff*/;
+    width: 1000px;
+    height:3200px;
+    position: relative;
+    left: 100px;
+    top:-220px;
+    border-color: white;
+    border-width: 9px; 
+    border-radius: 3px;
+}
+
+.bg_blue2{
+    background-color: #99ccff /*#99ccff*/;
+    width: 500px;
+    height: 1600px;
+    position: relative;
+    left: 650px;
+    top:-500px;
+    border-color: white;
+    border-width: 9px; 
+    border-radius: 3px;
+}
+.bio{
+  font: normal 24px/normal Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif,bold;
+  color: white;
+  position: relative;
+  left: 20px;
+}
+
+.i2{
+  background-color: rgb(0,0,0,0.1);
+  color: black;
+}
+
+.leftpad{
+  padding-left: 50px;
+}
+
+.toppad{
+  padding-top: 30px;
+}
+
