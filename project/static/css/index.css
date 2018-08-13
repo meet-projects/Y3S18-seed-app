@@ -140,6 +140,7 @@ span.psw {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
+    float: center;
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
@@ -154,8 +155,9 @@ span.psw {
 /* Modal Content/Box */
 .modal-content {
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    min-width: 80%; /* Could be more or less, depending on screen size */
+    width: 70%; /* Could be more or less, depending on screen size */
     border: 1px solid #888;
+    background-color: #f6f6f6;
 
 }
 
@@ -232,7 +234,7 @@ border-radius: 20px;
 }
 
 .login{
-	background-color: #4CAF50;
+	background-color: #20B2AA;
 	font-size: 24px;
 	font-family: helveticaneuelight;
 	color: white;
@@ -241,7 +243,7 @@ border-radius: 20px;
 
 .login:hover{
 	background-color: white;
-	color: #4CAF50;
+	color: #20B2AA;
 	font-family: helveticaneuelight;
 }
 #feed_btn {
@@ -262,6 +264,7 @@ border-radius: 20px;
 #login_box{
     background-color: #0073a8;
     margin:5%;
+    width: 70%;
     color: white;
     box-shadow: 2.5px 5px 4px #888888;
     font-family: helveticaneuelight;

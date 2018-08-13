@@ -247,8 +247,8 @@ font-weight: bold;
 }
 .edit_button{
   background-color:rgb(31,122,140);
-  width:120px;
-  height:40px;
+  width:9.375em;
+  height:3.125em;
   border: none;
   color: white;
   border-radius: 5%;   

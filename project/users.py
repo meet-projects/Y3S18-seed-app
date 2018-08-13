@@ -63,7 +63,7 @@ def register():
                 user=User(email,password,"teacher")
                 db.session.add(user)
                 db.session.commit()
-                teacher=Teacher(user.id,fname,lname,"undefined yet","undefined yet",0,"undefined yet","","https://static.thenounproject.com/png/214280-200.png","")
+                teacher=Teacher(user.id,fname,lname,"","",0,"","Not available","https://static.thenounproject.com/png/214280-200.png","Not available")
                 db.session.add(teacher)
                 db.session.commit()
                 login_user(user, remember=True)
@@ -141,8 +141,6 @@ def editing(teacher_id):
         teacher.languages+="English "
     if profile_picture!="":
         teacher.profile_picture=profile_picture
-    else:
-        pass
     if automatic is not None or manual is not None:
         teacher.gearbox=""
     if automatic is not None:

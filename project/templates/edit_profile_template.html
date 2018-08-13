@@ -34,14 +34,23 @@
 				<div class="row" style="background-color: rgb(246,246,246);">
 			<div class="col-md-4" style="background-color: rgb(246,246,246);">
 				<div id="side_profile">
-
-			<p>Picture:<input type="text" name="profile_picture" placeholder ="Profile picture link" style="float: right;"></p>
+			<table class="side_profile_table">
+			<tr>
+				<th>Picture</th>
+				<td><input type="text" maxlength="10" name="profile_picture" placeholder ="Profile picture link" style="float: right;"></td>
+			</tr>
 			
 			<br>
-			<p>First Name<input type="text" name="fname" value="{{ teacher.fname }}" style="float: right;"> </p>
-			<p>Last Name<input type="text" name="lname" value="{{ teacher.lname }}" style="float: right;"> </p>
+			<tr>
+				<th>First Name</th>
+					<td><input type="text"  maxlength="10" name="fname" value="{{ teacher.fname }}" style="float: right;"> </td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><input type="text" maxlength="10" name="lname" value="{{ teacher.lname }}" style="float: right;"> </td>
+			</tr>
 			<br>
-			<table class="side_profile_table">
+			
 
 				<tr>
 					<th>Phone Number</th> 
