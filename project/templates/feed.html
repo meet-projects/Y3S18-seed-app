@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block title %}
+EasyLicense	
+{% endblock%}
+
+{% block css %}
+		
+{% endblock%}
+
+
+{% block content %} 
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="{{url_for('feed')}}" style="background-color: #f6f6f6">
+	        <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
+	      </a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
+	    {% include 'social-media-links.html' %}
+	    <span class="navbar-text" style="font-size: 18px;">
+			{% if current_user.is_authenticated %}
+	       	  <b style="color: white;">{{current_user.account_type}}</b>
+	    </span>
+	    <span>
+	          <a class="nav-link navbar-item" href="{{url_for('users.logout')}}" style="color: white; font-size: 18px; margin-left: 5%; width: 95%">Logout</a>
+	       {%endif%}
+	    </span>
+	  </div>
+	</nav>
+
+
+
+  			<center>
+				<br><br>
+				<button onclick="document.getElementById('filter_div').style.display='block'" class="button" style="color: black;">Filter</button>
+			</center>
+			<center>
+				<div id="filter_div" class="popup">
+				
+					<p><a href="{{url_for('feed')}}" class="link">No Filter</a></p>
+					<p id="sort_bar">Sort(Price):
+						<a href="{{url_for('price_sort',sorting='low')}}" class="link">Low-->High</a>
+						<a href="{{url_for('price_sort',sorting='high')}}" class="link">High-->Low</a>
+					</p>
+					<p id="sort_bar">Language:
+						<a href="{{url_for('language_filter',language='arabic')}}" class="link">Arabic</a>
+						<a href="{{url_for('language_filter',language='hebrew')}}" class="link">Hebrew</a>
+						<a href="{{url_for('language_filter',language='english')}}" class="link">English</a>
+					</p>
+					<div class="dropdown" style="background-color: rgb(246,246,246);">
+						<button class="btn btn-secondary dropdown-toggle" id="dropmenu dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;"> Choose a City <span class="caret"></span></button>
+						<div class="dropdown-menu" style="position: absolute;" aria-labelledby="dropdownMenuButton">
+							<!-- <ul> -->
+							{% for c in all_cities %}
+							<a href="{{url_for('city',city=c.id)}}" class="dropdown-item" style="font-size: 16px;">{{c.city}}   ||   </a>
+						{% endfor %}
+
+						<!-- </ul> -->
+						</div>
+					</div>
+				</div>
+				<br>
+
+				<h2 style="color: black; font-size: 36px;">{{page}}</h2>
+				<br>
+				<h3 style="color: black; font-size: 24px;">{{thing}}</h3>
+
+			</center> 
+			<br>
+			<div class="container" style="background-color: rgb(246,246,246);">
+			<div class="row" style="background-color: rgb(246,246,246);">
+	  			{% for teacher in teachers %}
+	  			<div class="col-md-4" style="background-color: rgb(246,246,246);">
+	  			
+		  			<div class="instructor">
+		  				<img src="{{teacher.profile_picture}}" class="instructor_pic">
+		  				<span class="ins_info" style="color: black;">
+		  					<br>
+		  					<h1>{{teacher.fname}}</h1>
+		  					<p>{{teacher.description}}</p>
+
+		  					<h4 style="color: black;font-size: 20px;">Languages: {{teacher.languages}}</h4>
+		  					<h4 style="font-size: 20px">{{teacher.city}}</h4>
+		  					<h4 style="font-size: 20px">{{teacher.cost}} &#8362</h4>
+		  					<button id="contact_btn" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Contact"><a href="profile/{{teacher.id}}">Contact</a></button>
+		  				</span> 
+		  			</div> 
+	  			</div>
+	  			{% endfor %}
+	  		</div>
+	  	</div>
+	  		<center>
+	  		<h2 style="color: black;">{{results}}</h2>
+	  		</center>
+{% endblock%}
+

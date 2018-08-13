@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block title %}
+			Edit Profile
+{% endblock %}  
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="../static/css/profile_template.css">
+{% endblock %}  
+
+{% block content %}
+	
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('profile_template')}}" style="background-color: #f6f6f6">
+        <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
+    {% include 'social-media-links.html' %}
+    <span class="navbar-text" style="font-size: 18px;">
+		{% if current_user.is_authenticated and current_user.account_type=="teacher" %}
+       	  <b style="color: white;">{{current_user.account_type}}</b>
+    </span>
+    <span>
+          <a class="nav-link navbar-item" href="{{url_for('users.logout')}}" style="color: white; font-size: 18px; margin-left: 5%; width: 95%">Logout</a>
+       {%endif%}
+    </span>
+  </div>
+</nav>
+
+		<form action="{{url_for('users.editing',teacher_id=teacher.id)}}" method="POST">
+				<div class="row" style="background-color: rgb(246,246,246);">
+			<div class="col-md-4" style="background-color: rgb(246,246,246);">
+				<div id="side_profile">
+			<table class="side_profile_table">
+			<tr>
+				<th>Picture</th>
+				<td><input type="text" maxlength="10" name="profile_picture" placeholder ="Profile picture link" style="float: right;"></td>
+			</tr>
+			
+			<br>
+			<tr>
+				<th>First Name</th>
+					<td><input type="text"  maxlength="10" name="fname" value="{{ teacher.fname }}" style="float: right;"> </td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><input type="text" maxlength="10" name="lname" value="{{ teacher.lname }}" style="float: right;"> </td>
+			</tr>
+			<br>
+			
+
+				<tr>
+					<th>Phone Number</th> 
+					<td> <input type="text" maxlength="10" minlength="9" placeholder="{{ teacher.phone_num }}" name="phone_num"> </td>
+				</tr>
+				<tr> 
+
+					<th>City</th> 
+					<td>
+						<select name="city">
+							{% for c in all_cities %}
+							<option value="{{c.city}}" name="city">{{c.city}}</option>
+							{% endfor %}
+						</select> 
+					 </td>
+					</tr>
+				<tr> 
+
+					<th>Charge</th> 
+					<td>
+					<input type="text" placeholder="{{teacher.cost}}" name="fee"> 
+					</td>
+				</tr>
+				<tr> 
+					<th>Languages</th> 
+						<td> 							
+						<input type="checkbox" name="hebrew" value="hebrew">Hebrew 
+						<input type="checkbox" name="arabic" value="arabic">Arabic 
+						<input type="checkbox" name="english" value="english">English
+						</td>
+				</tr>
+				<tr>
+					<th>Gearbox</th> 
+					<td> <input type="checkbox" name="automatic" value="automatic">Automatic
+					 	<input type="checkbox" name="manual" value="manual">Manual
+					  </td>
+				</tr>
+			</table>
+			<br> 
+			</div>
+			</div>
+			<div class="col-md-8" style="background-color: rgb(246,246,246);">
+			<div id="main_profile">
+				<a href="{{url_for('users.delete',teacher_id=teacher.id) }}" class="btn btn-outline-danger btn-lg" role="button" style="float: right">Delete user</a>
+			<h3 id="profile_name">
+				Edit Profile</h3>
+			<br>
+			<h4 class="profile_title">
+			About
+			</h4>
+			<div id="profile_about">
+				<textarea name="description" id="edit_about">{{ teacher.description }}</textarea>
+					 
+			</div>
+
+			<input type="submit" name="submit" class="btn btn-primary btn-lg" role="button" value="Done">
+			<a onclick="window.history.go(-1); return false;" class="btn btn-danger btn-lg" role="button">Cancel</a>
+
+
+		</div>
+	</div>
+</div>
+	</form>
+
+{% endblock %}

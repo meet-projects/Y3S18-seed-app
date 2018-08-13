@@ -1,4 +1,163 @@
-{% extends "layout.html" %}
-{% block content %}
-<h1>Hello world!</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EasyLicense</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/fonts/fonts.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+		<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
+<script>
+function wrong() {
+   	alert("Error-You are logged into a diffrent account then the one you pressed.");
+}
+</script>
+</head>
+
+<body>
+
+<center>
+	<img src="../static/img/easylicense_logo.png" alt="EasyLicense" id="img">
+
+	<h1 id="motto">Getting you on the road quicker</h1>
+
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="row">
+		<div class="col-md-8">
+
+	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="fas fa-search icon-resize-full" style="color: black; margin-right: 5px;"></i>Search</b> for the perfect driving instructor.</span>
+
+	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="far fa-check-square" style="color: black; margin-right: 8px;"></i>Book</b> a lesson with the perfect instructor for you.</span>
+
+	<span class="info"><b style="font-size: larger; color: #0073a8;"><i class="fas fa-car" style="color: black; margin-right: 5px;"></i>Start</b> learning how to drive.</span>
+
+</div>
+<div class="col-md-4" id="btn-pos">
+
+	<br>
+	<br>
+	<br>
+	{% if current_user.is_authenticated %}
+		{% if current_user.account_type == "teacher" %}
+			<a href="{{url_for('profile_template')}}"><button class="btn"><h2>I'm an Instructor</h2></button></a>
+		{%else%}
+			<button onclick="wrong()" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
+	 	{%endif%}
+	{% else %}
+    	<button onclick="document.getElementById('id02').style.display='block'" class="btn" style="margin-bottom: 25px;"><h2>I'm an Instructor</h2></button>
+	{%endif%}
+<div id="id02" class="modal">
+  
+  <form class ="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
+    
+    <div class="container" id="login_box">
+      <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div style="color: grey; font-family: helveticaneuelight;">
+
+       <h2 id="login_title">Welcome to EasyLicense</h2>
+
+    {{ loginform.csrf_token }}
+    {{ loginform.username(placeholder="Email") }} 
+    <br>
+    <br>
+    {{ loginform.password(placeholder="Password") }}
+    <br>
+    <br>
+	</div>
+
+    <button  class="login" type="submit">Log In</button>
+     <div>
+      <br>
+      <table style="width: 80%;">
+      <tr>
+        <td align="left">
+          <a href="#forgot" style="color: #DCDCDC; font-family: helveticaneuelight;">Forgot your password?</a>
+        </td>
+        <td align="right" style="font-family: helveticaneuelight; color: #DCDCDC;">
+          No account? <a href="{{url_for('signup')}}" style="color: #DCDCDC; font-family: helveticaneuelight;">Create one here!</a>
+        </td>
+      </tr> 
+      </table>
+    </div>  
+  <!-- </form> -->
+  </div>
+   
+  </form>
+</div>
+
+	{% if current_user.is_authenticated %}
+		{% if current_user.account_type == "student" %}
+			<a href="{{url_for('feed')}}"><button class="btn"><h2>I'm a Student</h2></button></a>
+		{%else%}
+			<button onclick="wrong()" class="btn" style="margin-bottom: 25px;"><h2>I'm a Student</h2></button>
+		{%endif%}
+	{% else %}
+    	<button onclick="document.getElementById('id03').style.display='block'" class="btn" style="margin-top: 20px;"><h2>I'm a Student</h2></button>
+    {% endif %}
+
+<div id="id03" class="modal">
+  
+  <form class ="modal-content animate" action="{{ url_for('users.login') }}" method="POST">
+    
+    <div class="container" id="login_box">
+      <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div style="color: grey; font-family: helveticaneuelight;">
+
+    <h2 id="login_title">Welcome to EasyLicense</h2>    	
+
+    {{ loginform.csrf_token }}
+    {{ loginform.username(placeholder="Email") }} 
+    <br>
+    <br>
+    {{ loginform.password(placeholder="Password") }}
+    <br>
+    <br>
+	</div>
+
+    <button  class="login" type="submit">Log In</button>
+    <div>
+      <br>
+      <table style="width: 80%;">
+      <tr>
+        <td align="left">
+          <a href="#forgot" style="color: #DCDCDC; font-family: helveticaneuelight;">Forgot your password?</a>
+        </td>
+        <td align="right" style="font-family: helveticaneuelight; color: #DCDCDC;">
+           No account? <a href="{{url_for('studentsignup')}}" style="color: #DCDCDC; font-family: helveticaneuelight;">Create one here!</a>
+        </td>
+      </tr> 
+      </table>
+    </div>  
+  </div>
+    
+  </form>
+</div>
+
+</div>
+</div>
+
+<center>
+<a href="https://www.facebook.com/EZLicense/"><i class="fab fa-facebook-square icons"></i></a>
+
+<a href="https://www.instagram.com/easy.license/?hl=en"><i class="fab fa-instagram icons"></i></a>
+
+<a href="https://www.linkedin.com/company/easylicense/"><i class="fab fa-linkedin icons"></i></a>
+
+<a href="mailto:easylicense18@gmail.com?Subject=Hello" target="_top"><i class="far fa-envelope icons"></i></a>
+</center>
+
+</body>

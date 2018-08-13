@@ -1,0 +1,100 @@
+body{
+	font-family: helveticaneuelight;
+	background-color: #f6f6f6;
+}
+
+h2{
+	color: white; 
+	margin-top: 0;
+	font-family: helveticaneuelight;
+}
+
+.bars2{
+	background: white; 
+	border-radius: 0px; 
+	height: 50px; 
+	width: 100%;
+	font-size: 24px;
+}
+
+.bars{
+	background: white;
+	border-radius: 0px;
+	height: 50px; 
+	width: 100%;
+	font-size: 18px;
+}
+
+.label{
+	color: white;
+	float: left;
+	font-size: 20px;
+	padding: 0px;
+	font-family: helveticaneuelight;
+	padding-top: 20px;
+}
+
+.input{
+	font-family: helveticaneuelight;
+	color: grey;
+}
+
+.signup-btn{
+	background-color: #4CAF50;
+	font-size: 24px;
+	font-family: helveticaneuelight;
+	color: white;
+	width: 25%;
+}
+
+.signup-btn:hover{
+	background-color: white;
+	color: #4CAF50;
+	font-family: helveticaneuelight;
+}
+
+/*ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0073a8;
+    font-family: helveticaneuelight;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}*/
+
+#navbar-logo{
+	background-color: #d7dee5;
+}
+
+.navbar-item{
+	color: white;
+	font-family: helveticaneuelight;
+	font-size: 18px;
+	float: left;
+}
+
+.navbar-item:hover{
+	color: white;
+	background-color: #188fc4;
+}

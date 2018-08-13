@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+{{teacher.fname}}'s Profile
+{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %} 
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('feed')}}" style="background-color: #f6f6f6">
+        <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
+    {% include 'social-media-links.html' %}
+    <span class="navbar-text" style="font-size: 18px;">
+		{% if current_user.is_authenticated %}
+       	  <b style="color: white;">{{current_user.account_type}}</b>
+    </span>
+    <span>
+          <a class="nav-link navbar-item" href="{{url_for('users.logout')}}" style="color: white; font-size: 18px; margin-left: 5%; width: 95%">Logout</a>
+       {%endif%}
+    </span>
+  </div>
+</nav>
+
+		<div class="row" style="background-color: rgb(246,246,246);">
+			<div class="col-md-4" style="background-color: rgb(246,246,246);">
+				<div id="side_profile">
+				<img src="{{teacher.profile_picture}}" id="profile_picture">
+		<center>
+			<br>
+			<p align="center"><i> {{teacher.fname}}</i> </p>
+			<br>
+			<table class="side_profile_table">
+				<tr> 
+
+					<th>City</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.city}} </td>
+				</tr>
+				<tr> 
+
+					<th>Cost</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.cost}} &#8362</td>
+
+				</tr>
+				<tr> 
+					<th>Language</th> 
+					<td data-toggle="tooltip" data-placement="top">{{teacher.languages | truncate(55)}}</td>
+				</tr>
+				<tr>
+					<th>Gearbox</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{teacher.gearbox | truncate(25)}} </td>
+				</tr>
+			</table>
+
+			<br>
+
+
+			<!-- Trigger/Open The Modal -->
+
+			
+		{%if current_user.account_type=="student" %}
+			<form action="{{url_for('users.make_request' ,teacher_id=teacher.id)}}">
+				<button id="myBtn" class="book_btn" type="submit" >Connect</button>
+			</form>
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+				<!-- Modal content -->
+				<!--
+				<div class="modal-content">
+					<div class="modal-header">
+	  					<span class="close">&times;</span>
+	  					<h3>Book a Lesson!</h3>
+					</div>
+					<div class="modal-body">
+						<br>
+						<form name="booking_form" id="book" action="{{ url_for( 'users.make_request' , teacher_id=teacher.id ) }}" method="POST">
+							First Name<br>
+							<input type="text" name="studentfname" placeholder="First Name">
+							<br>
+							<br>
+							Last Name<br>
+							<input type="text" name="studentlname" placeholder="Last Name">
+							<br><br>
+							Phone Number<br>
+							<input type="text" name="studentnum" placeholder="Phone Number">
+							<br>
+							<br>
+							<input type="submit" name="submit" value="Book" class="book_btn">
+						</form>
+					</div>
+					<div class="modal-footer">
+						<h3 style="text-align: center;">The right guidance with EasyLicense!</h3>
+					</div>
+				</div>
+
+			</div>
+			</center> 
+		-->
+		{%endif%}
+		</div>
+	</div>
+		
+		
+		<div class="col-md-8" style="background-color: rgb(246,246,246);">
+			<div id="main_profile">
+			<h3 id="profile_name">
+				{{teacher.name}}</h3>
+			<br>
+			<h4 class="profile_title">
+			About
+			</h4>
+			<div id="profile_about">
+				<p id="about_p">
+					{{teacher.description}} 
+				</p>
+			</div>
+			<br>
+		</div>
+	 </div>
+	 </div> 
+	</body>
+
+{% endblock %}
