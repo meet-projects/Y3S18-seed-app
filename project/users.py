@@ -14,7 +14,8 @@ users_bp = Blueprint('users', __name__)
 @users_bp.route('/')
 def index():
     loginform = LoginForm(request.form)
-    return render_template('index.html',loginform=loginform)
+    signuform = RegisterForm(request.form)
+    return render_template('new_landing.html',loginform=loginform,signupform=signuform)
 
 
 @users_bp.route('/login', methods=['GET', 'POST'])

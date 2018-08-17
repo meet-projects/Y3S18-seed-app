@@ -11,6 +11,11 @@ import sys, math
 
 
 ##catagories
+@app.route('/account_type')
+#@login_required
+def account_type():
+	return render_template('account_type.html')
+
 @app.route('/feed')
 @login_required
 def feed():

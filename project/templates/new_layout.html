@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+      	<title>EasyLicense</title>
+      	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+      	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/new_style.css') }}">
+      	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      	<link rel="icon" href="{{url_for('static', filename='img/circular_icon.png')}}">
+
+      	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+      	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+      	<script src="{{ url_for('static', filename='js/new_script.js') }}"></script>
+      	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  	</head>
+  	<body>
+  		<div class="col-xs-12" style="background-color: #f6f6f6; height: 8em; position: fixed; top: 0; left: 0; z-index: 1;">
+  			<center>
+  			<img src="{{url_for('static', filename='img/logo.png')}}" alt="EasyLicense logo" id="img" style="height: 8em;width: 29.5em; margin-left: 30px;">
+  			</center>
+  		</div>
+  		<div class="col-xs-12" style="background-color: #0073a8; height: 3em; position: fixed; top: 0; left: 0; margin-top: 8em; z-index: 1;"></div>
+  		<div class="col-xs-12" style="height: 11em;"></div>
+      <!-- child template -->
+      {% block content %}
+      {% endblock %}
+      	<div class="col-xs-12" style="background-color: #f6f6f6; height: 2em; position: fixed; bottom: 0; left: 0; z-index: 1;">
+      		<center><p id="copyrights" style="color: #0073a8; font-family: 'ABeeZee', sans-serif;">Hello</p></center>
+      	</div>
+      	<script language="JavaScript">
+			function y2k(number) { return (number < 1000) ? number + 1900 : number; }
+			var today = new Date();
+			var year = y2k(today.getYear());
+			document.getElementById("copyrights").innerHTML = ('© '+year+' EasyLicense - All Rights Reserved');
+		</script>
+</html>

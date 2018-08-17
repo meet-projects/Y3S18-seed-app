@@ -1,0 +1,16 @@
+{% extends "new_layout.html" %}
+{% block content %}
+
+<a href="">
+	<div id="student-choice" class="col-xs-6" style="background-image: url('http://vip.org.il/articles/wp-content/uploads/2013/05/Depositphotos_6842810_XXL.jpg'); height: 75vh; background-size: 100%;" onmouseover="student_hover()" onmouseout="reverse_student_hover()">
+		<p style="font-family: 'ABeeZee', sans-serif; font-size: 6em; color: #188fc4;" id="student-option">Student.</p>
+	</div>
+</a>
+
+<a href="">
+	<div id="instructor-choice" class="col-xs-6" style="background-image: url('https://images.pexels.com/photos/2224/road-people-street-smartphone.jpg?auto=compress&cs=tinysrgb&h=350'); height: 75vh; background-size: 110%;" onmouseover="instructor_hover()" onmouseout="reverse_instructor_hover()">
+		<p style="font-family: 'ABeeZee', sans-serif; font-size: 6em; color: #188fc4;" id="instructor-option">Instructor.</p>
+	</div>
+</a>
+
+{% endblock %}
