@@ -82,7 +82,7 @@ Your Profile {{teacher.name}}
 
 
 			<h3 id="profile_name">
-				Your Profile: {{teacher.name}}</h3>
+				Your Profile: {{teacher.fname}}</h3>
 				<br>
 			
 			<h4 class="profile_title">
@@ -111,7 +111,7 @@ Your Profile {{teacher.name}}
 						</th>
 					</tr>
 					<tr>
-						<th align="left"><a href="https://www.paypal.com"><button class="book_btn">Press to pay and revel this student's information</button></a></th>
+						<th align="left"><a href="/student_info/{{request.student_id}}"><button class="book_btn">Show information</button></a></th>
 					</tr>
 
 				</table>

@@ -90,9 +90,10 @@ def logout():
 def make_request(teacher_id):
     if current_user.account_type=="student":
         thisteacher=Teacher.query.filter_by(id=teacher_id).first()
-        student_id=current_user.id
-        studentfname=Student.query.filter_by(user_id=student_id).first().fname
-        book=Request(student_id,studentfname,teacher_id,False)
+        student=Student.query.filter_by(user_id=current_user.id).first()
+        st_id=student.id
+        studentfname=student.fname
+        book=Request(st_id,studentfname,teacher_id,False)
         db.session.add(book)
         db.session.commit()
     return redirect('feed')
@@ -248,6 +249,15 @@ def filter():
             student.gearbox+="Automatic "
         if manual is not None:
             student.gearbox+="Manual "
+
+
+        #information filler in
+
+        if student.gearbox=="":
+            student.gearbox="unavaliable"
+        if student.languages=="":
+            student.languages="unavaliable"
+
         db.session.commit()
         return redirect('feed')
     return redirect('feed')

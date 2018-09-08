@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block title %}
+{{student.fname}} {{student.lname}}
+{% endblock%}
+
+{% block css %}
+		
+{% endblock%}
+
+{% block content %} 
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('profile_template')}}" style="background-color: #f6f6f6">
+        <img src="../static/img/logo.png" alt="logo" style="width: 12.5em;">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" style="background-color: #0073a8">
+    {% include 'social-media-links.html' %}
+    <span class="navbar-text" style="font-size: 18px;">
+		{% if current_user.is_authenticated and current_user.account_type=="teacher" %}
+       	  <b style="color: white;">{{current_user.account_type}}</b>
+    </span>
+    <span>
+          <a class="nav-link navbar-item" href="{{url_for('users.logout')}}" style="color: white; font-size: 18px; margin-left: 5%; width: 95%">Logout</a>
+       {%endif%}
+    </span>
+  </div>
+</nav>
+<br>
+
+{% if done==False %}
+<h1>Make them pay</h1>
+{%endif%}
+
+{%if done==True%}
+	<div class="col-md-8" style="background-color: rgb(246,246,246);" >
+	
+		<div id="main_profile" style="float:center;">
+			<table class="side_profile_table">
+				<h3 id="profile_name" align="center">
+					This Student: {{student.fname}}
+				</h3>
+				<tr>
+					<th>Full Name</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{student.fname}} {{student.lname}}</td>
+				</tr>
+				<tr>
+					<th>Phone Number</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{student.phone_num }}	</td>
+				</tr>
+				<tr>
+					<th>Transmission</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{student.gearbox }}	</td>
+				</tr>
+				<tr>
+					<th>City</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{student.city }}	</td>
+				</tr>
+				<tr>
+					<th>Languages he can study in</th> 
+					<td data-toggle="tooltip" data-placement="top"> {{student.languages }}	</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+{%endif%}
+
+
+
+{% endblock%}

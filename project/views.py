@@ -149,6 +149,12 @@ def edit_profile(teacher_id):
 	return render_template('edit_profile_template.html', teacher=teach, all_cities=all_cities)
 
 
+@app.route('/student_info/<int:st_id>')
+def student_info(st_id):
+	this_student=Student.query.filter_by(id=st_id).first()
+	done=Request.query.filter_by(student_id=this_student.id).first().done
+	return render_template('student_info.html',student=this_student,done=True)
+
 
 
 
@@ -173,5 +179,5 @@ def filters():
 @app.route('/profile/<int:teacher_id>')
 def profile(teacher_id):
 	this_teach=Teacher.query.filter_by(id=teacher_id).first()
-	user=User.query.filter_by(id=this_teach.user_id).first()
+	user=User.query.filter_by(id=current_user.id).first()
 	return render_template('small_profile.html', teacher=this_teach,current_user=user)

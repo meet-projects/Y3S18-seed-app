@@ -97,7 +97,7 @@ class Request(db.Model):
     done = db.Column(db.Boolean)
 
     def __init__(self,student_id,student_fname,teacher_id,done):
-        self.student_id
+        self.student_id=student_id
         self.student_fname=student_fname
         self.teacher_id = teacher_id
         self.done = done

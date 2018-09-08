@@ -66,11 +66,6 @@
 
 			<!-- Trigger/Open The Modal -->
 
-			
-		{%if current_user.account_type=="student" %}
-			<form action="{{url_for('users.make_request' ,teacher_id=teacher.id)}}">
-				<button id="myBtn" class="book_btn" type="submit" >Connect</button>
-			</form>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
 
@@ -106,7 +101,6 @@
 			</div>
 			</center> 
 		-->
-		{%endif%}
 		</div>
 	</div>
 		
@@ -121,10 +115,13 @@
 			</h4>
 			<div id="profile_about">
 				<p id="about_p">
-					{{teacher.description}} 
+					{{teacher.description}}
 				</p>
 			</div>
 			<br>
+			<form action="{{url_for('users.make_request' ,teacher_id=teacher.id)}}">
+				<button id="myBtn" class="book_btn" type="submit" >Connect {{current_user.id}}</button>
+			</form>
 		</div>
 	 </div>
 	 </div> 
