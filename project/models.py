@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
+
 class User(UserMixin, db.Model):
 
     __tablename__ = "users"
@@ -34,3 +35,27 @@ class YourModel(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
     # fill in the rest of your fields and methods!
+
+class Teacher(db.Model):
+
+    __tablename__ = "teachers"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, unique=True)
+    first_name = db.Column(db.String)
+    last_name = db.Column(db.String)
+    area = db.Column(db.String)
+    discription = db.Column(db.String)
+    cost = db.Column(db.Integer)
+    phone_num = db.Column(db.String)
+    languages = db.Column(db.String)
+
+class Booking(db.Model):
+
+    __tablename__ = "bookings"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String)
+    phone_num = db.Column(db.String)
+    teacher = db.Column(db.Integer)
+    done = db.Column(db.Boolean)
