@@ -12,11 +12,30 @@ from project.models import User
 
 users_bp = Blueprint('users', __name__)
 
-
 @users_bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
-    # TODO: Fill this in!
+    if request.method == 'POST':
+    	username=form.username.data
+    	password = form.password.data
+    	number = form.number.data
+    	name = form.name.data
+    	name1 = form.name1.data
+    	name2 = form.name2.data
+    	phone = form.phone.data
+    	phone1 = form.phone1.data
+    	phone2 = form.phone2.data
+    	user = User.query.filter_by(username=username).first()
+    	if user:
+    		return Response("<p>Username already exists</p>")
+    	user = User(username, password, number, name, name1, name2, phone, phone1, phone2)
+    	db.session.add(user)
+    	db.session.commit()
+    	login_user(user, remember=True)
+    	next_page = request.args.get('next')
+    	if not next_page or url_parse(next_page).netloc != '':
+    		next_page = url_for('private_route')
+    	return redirect(url_for('private_route'))
     return render_template('register.html', form=form)
                 
 

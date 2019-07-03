@@ -1,4 +1,50 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Private!</h1>
+<style>
+img{
+
+	position: fixed;
+	left: 300px;
+	top:100px;
+}
+ h1 { /*LOG OUT*/
+
+	position: fixed;
+	left: 700px;
+	top: 160px;
+	font-size: 30px;
+ }
+
+ h2{ /*INFORMATION*/
+
+ 	position: fixed;
+ 	left: 700px;
+ 	top: 120px;
+ 	font-size: 30px;
+ }
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+<div>
+   <img src="{{ url_for('static', filename = 'pictures/profilepic.png')}}" height="100" width="100">
+   </div>
+
+{{session['user_id']}}
+<form action="/private" method = "POST" >
+	<button type="submit" class="btn btn-default">BABY IN CAR</button>
+</form>
+<h1><a href="{{ url_for('users.login') }}">LOG OUT</a></h1>
+<h2><a href="{{ url_for('info') }}">INFORMATION!</a></h2>
+<h3>-MOM123-</h3>
+<h4>-05X-XXXXXXX-</h4>
 {% endblock %}

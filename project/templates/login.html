@@ -1,21 +1,124 @@
+<!DOCTYPE html>
+<html>
+
 {% extends "layout.html" %}
 {% block content %}
+
+  <head>
+      <title>Log In!</title>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/loginstyle.css') }}">
+  </head>
+  <body>
+   <img src="{{ url_for('static', filename = 'pictures/LOGO1.png')}}" height="900" width="450">
+    	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<!-- <div class="add-user" class="relative" > -->
+<style>
+.form-hello{
+    position: fixed;
+    left: 550px;
+    top: 274px;
+    background-color: #D8D8D8;
+    border-radius: 5px;
+    height: 30px;
+  }
+.form-hello1{
+  position: fixed;
+  left: 550px;
+  top: 314px;
+  background-color: #D8D8D8;
+  border-radius: 5px;
+  height: 30px;
+
+}
+h3{ /*Username*/
+  position: fixed;
+  left: 400px;
+  top: 250px;
+  font-size: 30px;
+}
+h4{   /*Password*/
+
+  position: fixed;
+  left: 400px;
+  top:300px;
+  font-size: 30px;
+}
+button{
+  position: fixed;
+  left: 510px;
+  top: 355px;
+}
+.btn-warning {background-color: #FFA400}
+.btn-warning {border-color: #FFA400} 
+.btn-warning {color: black;}
+.btn-warning{font-weight: bold;}
+.btn-warning{font-size: 15px;}
+p{
+  position: fixed;
+  left: 450px;
+  top: 400px;
+  color: blue;
+  font-size: 20px;
+}
+
+p1{
+  position: fixed;
+  left: 480px;
+  top: 425px;
+  color:blue;
+  font-size: 20px;
+}
+p2{
+  position: fixed;
+  left: 585px;
+  top: 424px;
+  color:blue;
+  font-weight: bold;
+  font-size: 25px;
+  
+
+
+}
+</style>
+<div class="relative">
+
+
+ <div class="page-header" style="border-bottom: none;">
  
-<div class="add-user">
+<h2> Log In:</h2>
+<style>
+h2{ /*Log In*/
+
+  text-align: center;
+  position: fixed;
+  left: 400px;
+  top: 200px;
+  font-size: 35px;
+  font-weight: bold;  
+  
+}
+
+
+</style>
  
-<div class="page-header">
- 
-<h2>Log in</h2>
- 
-  </div>
- 
+ <style> </style>
+  </div> 
 <form action="{{ url_for('users.login') }}" method="post">
-    {{ form.csrf_token }}
-    {{ form.username(placeholder="Username") }} 
-    {{ form.password(placeholder="Password") }}
-    <button class="btn btn-sm btn-success" type="submit">Log in</button>
+      {{ form.csrf_token }}
+    {{ form.username(class="form-hello") }} 
+    <br>
+    {{ form.password(class="form-hello1") }}
+
+    <br>
+    <button class="btn btn-sm btn-warning" type="submit">ENTER </button>
   </form>
  
 </div>
- 
+<h3>Username:</h3>
+ <h4>Password:</h4>
+ <p>Don't have an account?</p>
+ <p1> Create one</p1>
+ <p2> <a href="{{url_for('users.register')}}"> HERE</a></p2>
+
 {% endblock %}
